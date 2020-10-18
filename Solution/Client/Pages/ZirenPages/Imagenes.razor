@@ -1,0 +1,199 @@
+﻿@page "/ziren/imagenes/{oCoberturaID:int}"
+@inject IRepositorio repositorio
+@inject NavigationManager navigationManager
+@inject IMostrarMensajes mostrarMensajes
+@inject IJSRuntime JsRuntime
+@using System.Text.Json;
+<h3 style="color:white">Suba Imagenes del Auto</h3>
+@if (oCotizacionAutoDTO == null)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    <EditForm Model="oAdjuntos" OnValidSubmit="oOnValidSubmit">
+        <DataAnnotationsValidator />
+
+        <div class="form-group">
+
+            @if (oCotizacionAutoDTO.vehiculo.es0KM == true)
+            {
+                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="0" oLabelText="Factura" @key="0" />
+                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="1" oLabelText="Cert. Rodamiento" @key="1" />
+
+            }
+            else
+            {
+                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="0" oLabelText="Foto 1" @key="0" />
+                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="1" oLabelText="Foto 2" @key="1" />
+                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="2" oLabelText="Foto 3" @key="2" />
+                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="3" oLabelText="Foto 4" @key="3" />
+                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="4" oLabelText="Foto 5" @key="4" />
+            }
+
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" type="button" @onclick="@(() => OnClick())">Subir Imagenes</button>
+        </div>
+    </EditForm>
+}
+@code {
+
+
+    AdjuntoDTO[] oAdjuntos = new AdjuntoDTO[5];
+
+    int oAdjuntoID;
+
+    private string imagenTemporal;
+
+    private CotizacionAutoDTO oCotizacionAutoDTO;
+    [Parameter] public int oCoberturaID { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+
+
+        #region Cotizacion
+
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+
+        oCotizacionAutoDTO.cotizacionID = 0;
+        RespuestaCotizacionAutoDTO oRespuestaCotizacionAutoDTO;
+        var responseHttp = await repositorio.Post<CotizacionAutoDTO, RespuestaCotizacionAutoDTO>("api/Externo/Prudencia/cotizaciones/autos", oCotizacionAutoDTO);
+        if (responseHttp.Error)
+        {
+            var mensajeError = await responseHttp.GetBody();
+
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            Console.WriteLine(mensajeError);
+            navigationManager.NavigateTo("/ziren/infopersonalCompleta/" + oCoberturaID);
+        }
+        else
+        {
+
+            oRespuestaCotizacionAutoDTO = responseHttp.Response;
+            oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoDTO.cotizacionID;
+
+            //CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+            //await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        }
+
+
+        #endregion
+
+
+
+
+
+        #region Confirmacion
+        //string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        //CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+
+        int oCotizacionID = oCotizacionAutoDTO.cotizacionID;
+
+        ConfirmacionCotizacionAutoDTO oConfirmacionCotizacionAutoDTO = new ConfirmacionCotizacionAutoDTO();
+        oConfirmacionCotizacionAutoDTO.coberturaID = oCoberturaID;
+
+
+
+        var responseHttp2 = await repositorio.Post<ConfirmacionCotizacionAutoDTO, RespuestaCotizacionAutoDTO>("api/Externo/Prudencia/cotizaciones/autos/" + oCotizacionID + "/confirmar", oConfirmacionCotizacionAutoDTO);
+        if (responseHttp2.Error)
+        {
+            var mensajeError = await responseHttp2.GetBody();
+
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            Console.WriteLine(mensajeError);
+            navigationManager.NavigateTo("/ziren/infopersonalCompleta");
+        }
+        else
+        {
+            oRespuestaCotizacionAutoDTO = responseHttp2.Response;
+            oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoDTO.cotizacionID;
+            //CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+            //await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        }
+
+
+        //COMENTAR PARA OBTNER UN 400
+        CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        #endregion
+
+
+
+
+
+
+
+
+        //string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        //oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+        oAdjuntos = new AdjuntoDTO[5];
+
+        oAdjuntos[0] = new AdjuntoDTO();
+        oAdjuntos[1] = new AdjuntoDTO();
+        oAdjuntos[2] = new AdjuntoDTO();
+        oAdjuntos[3] = new AdjuntoDTO();
+        oAdjuntos[4] = new AdjuntoDTO();
+
+        Console.WriteLine("cotizacionID IMA: " + oCotizacionAutoDTO.cotizacionID);
+
+    }
+
+    private async Task oOnValidSubmit()
+    {
+
+    }
+
+
+    private async Task OnClick()
+    {
+        Console.WriteLine("111" + oAdjuntos[0].id);
+        Console.WriteLine("222" + oAdjuntos[1].id);
+        Console.WriteLine("333" + oAdjuntos[2].id);
+        Console.WriteLine("444" + oAdjuntos[3].id);
+        Console.WriteLine("555" + oAdjuntos[4].id);
+        if (oCotizacionAutoDTO.vehiculo.es0KM == true)
+        {
+            if (oAdjuntos[0].id==0 || oAdjuntos[1].id == 0)
+            {
+                var mensajeError = "Debe cargar los dos documentos";
+
+                await mostrarMensajes.MostrarMensajeError(mensajeError);
+                return;
+            }
+
+        }
+        else
+        {
+            int oSumSinFoto = 0;
+
+            if (oAdjuntos[0].id == 0 )
+                oSumSinFoto = oSumSinFoto + 1;
+            if (oAdjuntos[1].id == 0)
+                oSumSinFoto = oSumSinFoto + 1;
+            if (oAdjuntos[2].id == 0)
+                oSumSinFoto = oSumSinFoto + 1;
+            if (oAdjuntos[3].id == 0)
+                oSumSinFoto = oSumSinFoto + 1;
+            if (oAdjuntos[4].id == 0)
+                oSumSinFoto = oSumSinFoto + 1;
+
+            if (oSumSinFoto > 1)
+            {
+                var mensajeError = "Debe cargar al menos 4 fotos";
+
+                await mostrarMensajes.MostrarMensajeError(mensajeError);
+                return;
+            }
+        }
+
+        navigationManager.NavigateTo($"/ziren/Emision/{oAdjuntos[0].id}/{oAdjuntos[0].tipo}/{oAdjuntos[1].id}/{oAdjuntos[1].tipo}/{oAdjuntos[2].id}/{oAdjuntos[2].tipo}/{oAdjuntos[3].id}/{oAdjuntos[3].tipo}/{oAdjuntos[4].id}/{oAdjuntos[4].tipo}");
+
+
+
+
+
+
+    }
+}

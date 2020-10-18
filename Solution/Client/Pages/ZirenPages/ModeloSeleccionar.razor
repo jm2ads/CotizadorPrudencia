@@ -1,0 +1,102 @@
+﻿@page "/ziren/modelo"
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensajes
+
+
+@inject NavigationManager navigationManager
+@inject IJSRuntime JsRuntime
+@using System.Text.Json;
+
+
+<h3 style="color:white">Modelo Seleccionar</h3>
+<h3 style="color:white"> Seleccione Version</h3>
+<div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+    <input @bind-value="oModeloDescripcion" @bind-value:event="oninput"
+           @onkeyup="@((KeyboardEventArgs e) => MarcaKeyUp(e))"
+           type="text" class="form-control" id="titulo" placeholder="Modelo" />
+</div>
+
+@if (oModelosAutosAuxList == null)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    @if (oModelosAutosList.Count == 0)
+    {
+        <text  >No hay registros para mostrar</text>
+    }
+    else
+    {
+        <div style="display: flex; flex-wrap: wrap; align-items: center;">
+
+
+            @*<div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+                    <div>
+                        <a href="/ziren/provincia/@marcaID/@anoID/130108" class="btn btn-success">PT CRUISER 2.4 LIMITED AUT</a>
+                    </div>
+                </div>*@
+            @foreach (var oModelosAutos in oModelosAutosAuxList)
+            {
+                <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+                    <div>
+                        @*<a href="/ziren/provincia/@marcaID/@anoID/130108" class="btn btn-success" style="width:200px"> @oModelosAutos.modeloID.ToString()</a>*@
+                        <button type="button" class="btn btn-info" style="width:auto" @onclick="@(() => OnClickHandle(@oModelosAutos.codigoGrupoID))">
+                            @oModelosAutos.descripcionGrupo
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}
+
+@code {
+    [Parameter] public int marcaID { get; set; }
+    [Parameter] public int anoID { get; set; }
+
+
+  
+    private List<ModelosAutos> oModelosAutosList;
+    private List<ModelosAutos> oModelosAutosAuxList;
+    string oModeloDescripcion = "";
+    protected override async Task OnInitializedAsync()
+    {
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+
+        var responseHttp = await repositorio.Get<List<ModelosAutos>>("api/Externo/Prudencia/catalogos/GetModelosMarcasAutos3/" + oCotizacionAutoDTO.vehiculo.anio.ToString() + "/" + oCotizacionAutoDTO.vehiculo.marcaID.ToString());
+        oModelosAutosList = responseHttp.Response;
+        oModelosAutosAuxList = responseHttp.Response;
+
+    }
+    private async Task OnClickHandle(int ocodigoGrupoID)
+    {
+        ModelosAutos oModelosAutos = (from c in oModelosAutosList
+                                      where c.codigoGrupoID == ocodigoGrupoID
+                                      select c).FirstOrDefault();
+
+
+
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+
+        oCotizacionAutoDTO.vehiculo.modeloID = ocodigoGrupoID;   //MODELOID PROVISORIO
+        oCotizacionAutoDTO.vehiculo.tipoUsoID = 1;
+        CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        Console.WriteLine(CotizacionAutoDTOJson);
+
+        navigationManager.NavigateTo("/ziren/version");
+
+    }
+    private async Task MarcaKeyUp(KeyboardEventArgs e)
+    {
+
+        oModelosAutosAuxList = (from c in oModelosAutosList
+                                where c.descripcionGrupo.ToLower().Contains(oModeloDescripcion.ToLower())
+                                select c).ToList();
+
+    }
+
+}

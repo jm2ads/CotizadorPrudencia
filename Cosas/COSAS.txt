@@ -1,0 +1,10 @@
+TODO
+
+Acceso por Broker (Segun el link del Broker mostrarle una Bienvenida)                        6hs
+cambiar las api (de busqueda ) de Pudencia por infoauto                                      16hs
+envio de mail al usuario con links de poliza                                                  8hs
+guardar la info en una base de datos de Ziren                                                 6hs
+ingreso simple con dni y contraseña fácil, cargado de siniestro mediante un formulario simple 8hs 
+
+Total 44 * 1788 =  78.672
+https://www.cpcipc.org.ar/content/honorarios

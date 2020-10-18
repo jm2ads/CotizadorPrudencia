@@ -1,0 +1,94 @@
+﻿@*@page "/ziren/ano/{marcaID:int}"*@
+@page "/ziren/ano"
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensajes
+@inject NavigationManager navigationManager
+
+
+@using System.Text.Json;
+@inject IJSRuntime JsRuntime
+    <h3 style="color:white">Seleccione el  Año</h3>
+@if (oAnoAutosList == null)
+{
+<Cargando></Cargando>
+}
+else
+{
+    @if (oAnoAutosList.Count == 0)
+    {
+        <text>No hay registros para mostrar</text>
+        <p><em>No hay registros para mostrar</em></p>
+    }
+    else
+    {
+<div style="display: flex; flex-wrap: wrap; align-items: center;">
+
+    <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+        <div>
+            <button type="button" class="btn btn-info" style="width:90px" @onclick="@(() => OnClickHandle(0))">
+               0 KM
+            </button>
+        </div>
+    </div>
+    @foreach (var anoID in oAnoAutosList)
+    {
+        <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+            <div>
+                @*<a href="/ziren/modelo/@marcaID/@anoID" class="btn btn-success" style="width:200px"> @anoID.ToString()</a>*@
+                <button type="button" class="btn btn-info" style="        width: 90px
+" @onclick="@(() => OnClickHandle(anoID))">
+                    @anoID.ToString()
+                </button>
+            </div>
+        </div>
+    }
+</div>
+    }
+}
+
+@code {
+
+    [Parameter] public int marcaID { get; set; }
+
+    private List<int> oAnoAutosList = new List<int>();
+    //private CotizacionAutoRapidaDTO oCotizacionAutoRapidaDTO = null;
+    protected override async Task OnInitializedAsync()
+    {
+
+
+        //oCotizacionAutoRapidaDTO = Singleton.oCotizacionAutoRapidaDTO;
+
+        for (int i = DateTime.Today.Year; i >= 1991; i--)
+        {
+            oAnoAutosList.Add(i);
+        }
+
+    }
+
+    private async Task OnClickHandle(int anoID)
+    {
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+        if (anoID == 0)
+        {
+            oCotizacionAutoDTO.vehiculo.anio = DateTime.Today.Year;
+            oCotizacionAutoDTO.vehiculo.es0KM = true;
+        }
+        else {
+            oCotizacionAutoDTO.vehiculo.anio = anoID;
+            oCotizacionAutoDTO.vehiculo.es0KM = false;
+        }
+
+        CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        Console.WriteLine(CotizacionAutoDTOJson);
+
+
+
+
+
+        navigationManager.NavigateTo("/ziren/modelo");
+        //navigationManager.NavigateTo("/ziren/version");
+    }
+
+}

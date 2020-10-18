@@ -1,0 +1,108 @@
+﻿@page "/ziren/Cotizacion/{oCoberturaID:int}"
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensajes
+@inject NavigationManager navigationManager
+
+
+@inject IJSRuntime JsRuntime
+@using System.Text.Json;
+<h3 style="color:white">Cotizacion</h3>
+@if (oRespuestaCotizacionAutoDTO == null)
+{
+<Cargando></Cargando>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i <= oRespuestaCotizacionAutoDTO.coberturas.Count() - 1; i++)
+            {
+                <tr>
+                    <td><a class="btn btn-success" style="width:200px">Concepto</a></td>
+                    <td>@oRespuestaCotizacionAutoDTO.coberturas[i].concepto</td>
+
+
+                </tr>
+                <tr>
+                    <td><a class="btn btn-success" style="width:200px">porcentajeConcepto</a></td>
+                    <td>@oRespuestaCotizacionAutoDTO.coberturas[i].porcentajeConcepto</td>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-success" style="width:200px">A-RC 10.000.000</a></td>
+                    <td>@oRespuestaCotizacionAutoDTO.coberturas[i].a</td>
+
+                </tr>
+                <tr>
+                    <td><a class="btn btn-success" style="width:200px">Cobertura B1</a></td>
+                    <td>@oRespuestaCotizacionAutoDTO.coberturas[i].b1</td>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-success" style="width:200px">B-RC, ROBO-INCENDIO-DANO TOTAL</a></td>
+                    <td>@oRespuestaCotizacionAutoDTO.coberturas[i].b</td>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-success" style="width:200px">C1-RC,ROBO T/P, INCENDIO T/P</a></td>
+                    <td>@oRespuestaCotizacionAutoDTO.coberturas[i].c1</td>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-success" style="width:200px">C-RC.,ROBO E INC.T/P,DANO TOT.</a></td>
+                    <td>@oRespuestaCotizacionAutoDTO.coberturas[i].c</td>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-success" style="width:200px">C CON GRANIZO</a></td>
+                    <td>@oRespuestaCotizacionAutoDTO.coberturas[i].cg</td>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-success" style="width:200px">C CON GRANIZO ESPECIAL</a></td>
+                    <td>@oRespuestaCotizacionAutoDTO.coberturas[i].cf</td>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-success" style="width:200px">D2-TODO RIESGO CON FRANQUICIA</a></td>
+                    <td>@oRespuestaCotizacionAutoDTO.coberturas[i].d2</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <button type="button" class="btn btn-info" style="width:200px" @onclick="@(() => OnClickHandle())">Siguiente</button>
+
+
+}
+
+@code {
+
+    [Parameter] public int oCoberturaID { get; set; }
+
+    private CotizacionAutoDTO oCotizacionAutoDTO = new CotizacionAutoDTO();
+    private RespuestaCotizacionAutoDTO oRespuestaCotizacionAutoDTO;
+    protected override async Task OnInitializedAsync()
+    {
+
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+
+        oCotizacionAutoDTO.cotizacionID = 0;
+
+        var responseHttp = await repositorio.Post<CotizacionAutoDTO, RespuestaCotizacionAutoDTO>("api/Externo/Prudencia/cotizaciones/autos", oCotizacionAutoDTO);
+        oRespuestaCotizacionAutoDTO = responseHttp.Response;
+
+      
+        oCotizacionAutoDTO.cotizacionID= oRespuestaCotizacionAutoDTO.cotizacionID;
+
+        CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        Console.WriteLine(CotizacionAutoDTOJson);
+    }
+    private async Task OnClickHandle()
+    {
+        navigationManager.NavigateTo($"/ziren/confirmacion/{oCoberturaID}");
+    }
+
+}

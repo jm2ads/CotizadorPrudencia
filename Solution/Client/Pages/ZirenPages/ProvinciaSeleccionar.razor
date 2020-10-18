@@ -1,0 +1,84 @@
+﻿@*@page "/ziren/provincia/{marcaID:int}/{anoID:int}/{modeloID:int}"*@
+@page "/ziren/provincia"
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensajes
+@inject NavigationManager navigationManager
+
+@inject IJSRuntime JsRuntime
+@using System.Text.Json;
+
+<h3 style="color:white">Seleccione la Provincia</h3>
+@if (oProvinciasList == null)
+{
+<Cargando></Cargando>
+}
+else
+{
+    @if (oProvinciasAuxList.Count == 0)
+    {
+        <text>No hay registros para mostrar</text>
+        <p><em>No hay registros para mostrar</em></p>
+    }
+    else
+    {
+        <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+            <input @bind-value="oProvinciaDescripcion" @bind-value:event="oninput"
+                   @onkeyup="@((KeyboardEventArgs e) => ProvinciaKeyUp(e))"
+                   type="text" class="form-control" id="titulo" placeholder="Provincia" />
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: center;">
+            @foreach (var oProvincias in oProvinciasAuxList)
+            {
+                <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+                    <div>
+                        @*<a href="/ziren/CotizacionRapida/@marcaID/@anoID/130108/@oProvincias.Key" class="btn btn-success" style="width:200px"> @oProvincias.Value</a>*@
+                        <button type="button" class="btn btn-info" style="width:auto" @onclick="@(() => OnClickHandle(@oProvincias.provinciaID))">
+                            @oProvincias.descripcion
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}
+
+@code {
+
+
+    string oProvinciaDescripcion = "";
+
+    private List<ProvinciaDTO> oProvinciasList;
+    private List<ProvinciaDTO> oProvinciasAuxList;
+    protected override async Task OnInitializedAsync()
+    {
+        var responseHttp = await repositorio.Get<List<ProvinciaDTO>>("api/Externo/Prudencia/catalogos/GetProvincias");
+        oProvinciasList = responseHttp.Response;
+        oProvinciasAuxList = responseHttp.Response;
+
+
+
+    }
+    private async Task ProvinciaKeyUp(KeyboardEventArgs e)
+    {
+
+        oProvinciasAuxList = (from c in oProvinciasList
+                              where c.descripcion.ToLower().Contains(oProvinciaDescripcion.ToLower())
+                              select c).ToList();
+
+    }
+    private async Task OnClickHandle(string oprovinciasID)
+    {
+        //Singleton.oCotizacionAutoDTO.asegurado.provinciaID = oprovinciasID;
+
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+
+        oCotizacionAutoDTO.asegurado.provinciaID = oprovinciasID;
+
+        CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        Console.WriteLine(CotizacionAutoDTOJson);
+
+        navigationManager.NavigateTo("/ziren/cp");
+    }
+}

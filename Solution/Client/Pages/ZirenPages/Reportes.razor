@@ -1,0 +1,158 @@
+﻿@page "/ziren/reportes"
+@inject IRepositorio repositorio
+@inject NavigationManager navigationManager
+@inject IMostrarMensajes mostrarMensajes
+@inject IJSRuntime JsRuntime
+@using System.Text.Json;
+<h3 style="color:white">Reportes</h3>
+
+<ReportesPopUp @ref="oReportesPopUp"  oRespuestaReporteDTOList="oRespuestaReporteDTOList" oRespuestaPolizaImpresionDTO="oRespuestaPolizaImpresionDTO">
+
+    <div>Borrar?</div>
+
+</ReportesPopUp>
+
+
+<div class="row" style="margin:0px">
+    <div class="col-md-6" style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+        <input @bind-value="oValue" @bind-value:event="oninput"
+               @onkeyup="@((KeyboardEventArgs e) => MarcaKeyUp(e))"
+               type="text" class="form-control" id="titulo" placeholder="Busqueda" />
+    </div>
+</div>
+
+
+@if (oRespuestaPolizaImpresionDTOAuxList == null || oHidden == false)
+{
+<Cargando></Cargando>
+}
+else
+{
+    @if (oRespuestaPolizaImpresionDTOAuxList.Count == 0)
+    {
+        <text>No hay registros para mostrar</text>
+        <p><em>No hay registros para mostrar</em></p>
+    }
+    else
+    {
+<div style="display: flex; flex-wrap: wrap; align-items: center;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="color:white">Poliza Id</th>
+                <th style="color:white">Nombre</th>
+                <th style="color:white">Documento</th>
+                <th style="color:white">Vigencia</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var oRespuestaPolizaImpresionDTO in oRespuestaPolizaImpresionDTOAuxList)
+            {
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-info" style="width:200px" @onclick="@(() => BtnOnClick(@oRespuestaPolizaImpresionDTO.id))">
+                            @oRespuestaPolizaImpresionDTO.id
+                        </button>
+                    </td>
+                    <td style="color:white">@oRespuestaPolizaImpresionDTO.nombreAsegurado</td>
+                    <td style="color:white">@oRespuestaPolizaImpresionDTO.numeroDocumento</td>
+                    <td style="color:white">@oRespuestaPolizaImpresionDTO.finVigencia.Substring(0,10)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    }
+}
+
+
+
+@code {
+
+    private List<RespuestaReporteDTO> oRespuestaReporteDTOList= new List<RespuestaReporteDTO> ();
+    RespuestaPolizaImpresionDTO oRespuestaPolizaImpresionDTO = null;
+    List<RespuestaPolizaImpresionDTO> oRespuestaPolizaImpresionDTOList = null;
+    private List<RespuestaPolizaImpresionDTO> oRespuestaPolizaImpresionDTOAuxList;
+    string oValue = "";
+
+    ReportesPopUp oReportesPopUp;
+    private bool oHidden = false;
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        oHidden = true;
+
+        var responseHttp = await repositorio.Get<List<RespuestaPolizaImpresionDTO>>($"api/Externo/Prudencia/polizas");
+        if (responseHttp.Error)
+        {
+            var mensajeError = await responseHttp.GetBody();
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+        }
+        else
+        {
+            oRespuestaPolizaImpresionDTOList = responseHttp.Response;
+            oRespuestaPolizaImpresionDTOAuxList = responseHttp.Response;
+        }
+
+
+        oHidden = false;
+
+#if DEBUG
+        //opolizaID = 15356225;
+#endif
+    }
+
+
+    private async Task BtnOnClick(int opolizaIDSelected)
+    {
+
+        oRespuestaPolizaImpresionDTO = (from c in oRespuestaPolizaImpresionDTOList
+                                        where c.id== opolizaIDSelected
+                                        select c).FirstOrDefault();
+
+
+
+
+        oHidden = true;
+        RespuestaReporteDTO[] oRespuestaReporteDTOListAux = new RespuestaReporteDTO[7];
+
+        var responseHttp = await repositorio.Get<RespuestaReporteDTO[]>($"api/Externo/Prudencia/polizas/{opolizaIDSelected}/reportes");
+        if (responseHttp.Error)
+        {
+            var mensajeError = await responseHttp.GetBody();
+
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+        }
+        else
+        {
+            oRespuestaReporteDTOList = new List<RespuestaReporteDTO>();
+            oRespuestaReporteDTOListAux = responseHttp.Response;
+
+            for (int i = 0; i <= oRespuestaReporteDTOListAux.Count() - 1; i++)
+            {
+                RespuestaReporteDTO oRespuestaReporteDTO = new RespuestaReporteDTO();
+                oRespuestaReporteDTO.reporte = oRespuestaReporteDTOListAux[i].reporte;
+                oRespuestaReporteDTO.urlReporte = oRespuestaReporteDTOListAux[i].urlReporte;
+
+                oRespuestaReporteDTOList.Add(oRespuestaReporteDTO);
+            }
+        }
+
+        oReportesPopUp.Mostrar();
+        oHidden = false;
+    }
+
+    private async Task MarcaKeyUp(KeyboardEventArgs e)
+    {
+
+        oRespuestaPolizaImpresionDTOAuxList = (from c in oRespuestaPolizaImpresionDTOList
+                                               where c.id.ToString().Contains(oValue.ToLower())
+                                               || c.nombreAsegurado.ToLower().Contains(oValue.ToLower())
+                                               || c.numeroDocumento.ToString().Contains(oValue.ToLower())
+                                               select c).ToList();
+
+    }
+}

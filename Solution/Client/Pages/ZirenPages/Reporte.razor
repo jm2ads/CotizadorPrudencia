@@ -1,0 +1,73 @@
+﻿@page "/ziren/reporte/{polizaID:int}"
+@inject IRepositorio repositorio
+@inject NavigationManager navigationManager
+@inject IMostrarMensajes mostrarMensajes
+
+<h3 style="color:white">Descargue sus Reportes</h3>
+
+
+@if (oRespuestaReporteDTOList == null)
+{
+<div style="margin-right: 2%; margin-bottom: 10px; text-align: center;" >
+<Cargando></Cargando>
+</div>
+}
+else
+{
+@for (int i = 0; i <= oRespuestaReporteDTOList.Count() - 1; i++)
+{
+    <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+        <div>
+            <a href="@oRespuestaReporteDTOList[i].urlReporte" target="_blank" class="btn btn-info" style="width:250px">@oRespuestaReporteDTOList[i].reporte</a>
+        </div>
+    </div>
+}
+
+}
+
+
+
+
+
+@code {
+    [Parameter] public int polizaID { get; set; }
+
+    List<RespuestaReporteDTO> oRespuestaReporteDTOList;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+
+        RespuestaReporteDTO[] oRespuestaReporteDTOListAux = new RespuestaReporteDTO[7];
+
+        var responseHttp = await repositorio.Get<RespuestaReporteDTO[]>($"api/Externo/Prudencia/polizas/{polizaID}/reportes");
+        if (responseHttp.Error)
+        {
+            var mensajeError = await responseHttp.GetBody();
+
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+        }
+        else
+        {
+
+            oRespuestaReporteDTOListAux = responseHttp.Response;
+            oRespuestaReporteDTOList = new List<RespuestaReporteDTO>();
+            for (int i = 0; i <= oRespuestaReporteDTOListAux.Count() - 1; i++)
+            {
+                RespuestaReporteDTO oRespuestaReporteDTO = new RespuestaReporteDTO();
+                oRespuestaReporteDTO.reporte = oRespuestaReporteDTOListAux[i].reporte;
+                oRespuestaReporteDTO.urlReporte = oRespuestaReporteDTOListAux[i].urlReporte;
+
+                oRespuestaReporteDTOList.Add(oRespuestaReporteDTO);
+            }
+
+            //oRespuestaReporteDTO = oRespuestaReporteDTOList[0];
+        }
+
+
+
+
+
+    }
+}

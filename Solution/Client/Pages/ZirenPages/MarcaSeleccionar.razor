@@ -1,0 +1,119 @@
+﻿@page "/ziren/marcas"
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensajes
+@inject NavigationManager navigationManager
+
+@inject IJSRuntime JsRuntime
+@inject ILocalStorageManager LocalStorageManager
+@using System.Text.Json;
+<h3 style="color:white">Seleccione la Marca</h3>
+<div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+    <input @bind-value="oMarcaDescripcion" @bind-value:event="oninput"
+           @onkeyup="@((KeyboardEventArgs e) => MarcaKeyUp(e))"
+           type="text" class="form-control" id="titulo" placeholder="Marca" />
+</div>
+@if (oMarcasAutosAuxList == null)
+{
+    <Cargando></Cargando>
+   
+}
+else
+{
+    @if (oMarcasAutosAuxList.Count == 0)
+    {
+
+        <text  >No hay registros para mostrar</text>
+
+
+    }
+    else
+    {
+
+
+
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center;">
+            @foreach (var oMarcasAutos in oMarcasAutosAuxList)
+            {
+                <div style="margin-right: 1%; margin-bottom: 10px; text-align: center;">
+                  
+                    <div>
+                             <button type="submit" class="btn btn-info" style="width:auto" value="@oMarcasAutos.marcaID" @onclick="@(() => OnClickHandle(oMarcasAutos.marcaID))">
+                            @oMarcasAutos.descripcion
+                        </button>
+
+
+
+                    </div>
+                </div>
+            }
+
+        </div>
+
+
+
+
+
+
+    }
+
+}
+
+
+@code {
+
+    private List<MarcasAutos> oMarcasAutosList;
+    private List<MarcasAutos> oMarcasAutosAuxList;
+    private MarcasAutos oMarcasAutosAux = new MarcasAutos();
+    string oMarcaDescripcion = "";
+
+
+
+    private CotizacionAutoDTO oCotizacionAutoDTO;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+
+
+        var responseHttp = await repositorio.Get<List<MarcasAutos>>("api/Externo/Prudencia/catalogos/GetMarcasAutos");
+        oMarcasAutosList = responseHttp.Response;
+        oMarcasAutosAuxList = responseHttp.Response;
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+
+
+
+    }
+
+
+    private async Task OnClickHandle(int omarcaID)
+    {
+
+
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+
+        oCotizacionAutoDTO.vehiculo.marcaID = omarcaID;
+
+        CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        Console.WriteLine(CotizacionAutoDTOJson);
+
+
+
+        navigationManager.NavigateTo("/ziren/ano");
+
+    }
+
+    private async Task MarcaKeyUp(KeyboardEventArgs e)
+    {
+
+        oMarcasAutosAuxList = (from c in oMarcasAutosList
+                               where c.descripcion.ToLower().Contains(oMarcaDescripcion.ToLower())
+                               select c).ToList();
+
+    }
+}

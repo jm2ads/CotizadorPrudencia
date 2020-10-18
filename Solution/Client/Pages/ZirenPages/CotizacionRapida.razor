@@ -1,0 +1,551 @@
+﻿@page "/ziren/CotizacionRapida"
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensajes
+@inject NavigationManager navigationManager
+
+
+
+@inject IJSRuntime JsRuntime
+@using System.Text.Json;
+<h3 style="color:white">Cotizacion Rapida</h3>
+@if (oRespuestaCotizacionAutoRapidaDTO == null)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    @if (oRespuestaCotizacionAutoRapidaDTO.vehiculo.sumaAsegurada <= 0)
+    {
+        <h3 style="color:white">La versión del vehículo no es correcta</h3>
+        <div style="height: 400px;display: flex;align-items: flex-start;">
+            <a href="/ziren/marcas" class="btn btn-success" style="align-self:start; ">Volver</a>
+        </div>
+    }
+    else
+    {
+<div class="container">
+    <table style="width:100%;">
+        <tr>
+            @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C" || oAntiguedadGrupo == "D" || oAntiguedadGrupo == "E")
+            {
+                @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a > 0)
+                {
+                    <td style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                        <img src="/images/Coberturas/@(oCobSrc_a).png" @onclick="@(() => OnImageClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a))" alt="Poster" style="max-width: 100%;" />
+                    </td>
+                }
+            }
+            @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C" || oAntiguedadGrupo == "D")
+            {
+                @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1 > 0)
+                {
+                    <td style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                        <img src="/images/Coberturas/@(oCobSrc_b1).png" @onclick="@(() => OnImageClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))" alt="Poster" style="max-width: 100%;" />
+                    </td>
+                }
+            }
+        </tr>
+        <tr>
+            @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C")
+            {
+                @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c > 0)
+                {
+                    <td colspan="2" style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                        <img src="/images/Coberturas/@(oCobSrc_c).png" @onclick="@(() => OnImageClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))" alt="Poster" style="max-width: 100%;" />
+                    </td>
+                }
+            }
+        </tr>
+        <tr>
+            @if (oAntiguedadGrupo == "B")
+            {
+                @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cg > 0)
+                {
+                    <td style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                        <img src="/images/Coberturas/@(oCobSrc_cg).png" @onclick="@(() => OnImageClick("cg", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cg))" alt="Poster" style="max-width: 100%;" />
+                    </td>
+                }
+            }
+            @if (oAntiguedadGrupo == "A")
+            {
+
+                @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf > 0)
+                {
+                    <td style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                        <img src="/images/Coberturas/@(oCobSrc_cf).png" @onclick="@(() => OnImageClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))" alt="Poster" style="max-width: 100%;" />
+                    </td>
+                }
+            }
+
+
+            @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2 > 0)
+            {
+                <td style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                    <img src="/images/Coberturas/@(oCobSrc_d2).png" @onclick="@(() => OnImageClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2))" alt="Poster" style="max-width: 100%;" />
+                </td>
+            }
+
+        </tr>
+    </table>
+
+
+
+
+
+    @*
+            <div style="display: flex; flex-wrap: wrap; align-items: center;">
+
+
+            @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C" || oAntiguedadGrupo == "D" || oAntiguedadGrupo == "E")
+            {
+                @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a > 0)
+                {
+                    <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                        <img src="/images/Coberturas/@(oCobSrc_a).png" @onclick="@(() => OnImageClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a))" alt="Poster" style="width: 200px; height:200px;" />
+                        <p style="max-width: 200px;height: 10px;font-size: 10px;font-weight: bold;color: whitesmoke">
+                            A-RC 10.000.000
+                        </p>
+                        <p style="max-width: 200px; height: 10px; font-size: 15px; font-weight: bold;color:whitesmoke">
+                            $ @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a
+                        </p>
+                    </div>
+                }
+            }
+            @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C" || oAntiguedadGrupo == "D")
+            {
+                @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1 > 0)
+                {
+                    <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                        <img src="/images/Coberturas/@(oCobSrc_b1).png" @onclick="@(() => OnImageClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))" alt="Poster" style="width: 200px; height:200px;" />
+                        <p style="max-width: 200px;height: 10px;font-size: 10px;font-weight: bold;color: whitesmoke">
+                            Cobertura B1
+                        </p>
+                        <p style="max-width: 200px;height: 10px;font-size: 15px;font-weight: bold;color: whitesmoke">
+                            $ @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1
+                        </p>
+                    </div>
+                }
+            }
+
+
+
+            @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C")
+            {
+                @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c > 0)
+                {
+                    <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                        <img src="/images/Coberturas/@(oCobSrc_c).png" @onclick="@(() => OnImageClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))" alt="Poster" style="width: 200px; height:200px;" />
+                        <p style="max-width: 200px;height: 10px;font-size: 10px;font-weight: bold;color: whitesmoke">
+                            C-RC.,ROBO E INC.T/P,DANO TOT.
+                        </p>
+                        <p style="max-width: 200px;height: 10px;font-size: 15px;font-weight: bold;color: whitesmoke">
+                            $ @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c
+                        </p>
+                    </div>
+                }
+            }
+
+            @if (oAntiguedadGrupo == "B")
+            {
+                @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cg > 0)
+                {
+                    <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                        <img src="/images/Coberturas/@(oCobSrc_cg).png" @onclick="@(() => OnImageClick("cg", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cg))" alt="Poster" style="width: 200px; height:200px;" />
+                        <p style="max-width: 200px;height: 10px;font-size: 10px;font-weight: bold;color: whitesmoke">
+                            C CON GRANIZO
+                        </p>
+                        <p style="max-width: 200px;height: 10px;font-size: 15px;font-weight: bold;color: whitesmoke">
+                            $ @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cg
+                        </p>
+                    </div>
+                }
+            }
+            @if (oAntiguedadGrupo == "A")
+            {
+                @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf > 0)
+                {
+                    <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                        <img src="/images/Coberturas/@(oCobSrc_cf).png" @onclick="@(() => OnImageClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))" alt="Poster" style="width: 200px; height:200px;" />
+                        <p style="max-width: 200px;height: 10px;font-size: 10px;font-weight: bold;color: whitesmoke">
+                            C CON GRANIZO ESPECIAL
+                        </p>
+                        <p style="max-width: 200px;height: 10px;font-size: 15px;font-weight: bold;color: whitesmoke">
+                            $ @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf
+                        </p>
+                    </div>
+                }
+            }
+            @if (oAntiguedadGrupo == "A")
+            {
+                @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2 > 0)
+                {
+                    <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                        <img src="/images/Coberturas/@(oCobSrc_d2).png" @onclick="@(() => OnImageClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2))" alt="Poster" style="width: 200px; height:200px;" />
+                        <p style="max-width: 200px;height: 10px;font-size: 10px;font-weight: bold;color: whitesmoke">
+                            D2-TODO RIESGO CON FRANQUICIA
+                        </p>
+                        <p style="max-width: 200px;height: 10px;font-size: 15px;font-weight: bold;color: whitesmoke">
+                            $ @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2
+                        </p>
+                    </div>
+                }
+            }
+        </div>
+    *@
+
+
+    @*<div class="row" style="margin:10px">
+            <div class="col-md-10">
+                <div class="container-sm bg-transparent border">
+                    <div class="row align-items-center ">
+                        <div class="col-md-1">
+
+                        </div>
+                        <div class="col-md-2">
+                            <img src="../images/Ziren56.png" style="height:48px; width:48px" />
+                        </div>
+                        <div class="col-md-5">
+                            <label style="color:white">TU SUMA ASEGURADA</label>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="../images/SumaAsegurada.png" style="margin-top:-3px;margin-left:0px" height="80" width="150" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="container  bg-transparent ">
+                                <img src="../images/AutoSumaAsegurada.png" style="height:48px; width:48px" />
+                                <label style="color:white">$@oRespuestaCotizacionAutoRapidaDTO.vehiculo.sumaAsegurada</label>
+                            </div>
+                            <div class="container bg-transparent ">
+                                <img src="../images/GncSumaAsegurada.png" style="height:48px; width:48px" />
+                                <label style="color:white">$@oGncValor</label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="../images/EstasCubierto.png" style="height:150px; width:150px" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-5">
+                            <div class="container p-3 my-3 bg-transparent border ">
+                                <label style="color:white">SUMA TOTAL ASEGURADA</label>
+                                <label style="color:white">$@(oRespuestaCotizacionAutoRapidaDTO.vehiculo.sumaAsegurada + oGncValor)</label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="container p-3 my-3 bg-success border">
+                                <label style="color:white">VALOR CUOTA MENSUAL</label>
+                                <label style="color:white">$@oCoberturaValorSeleccionado</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>*@
+
+    <table style="width:100%;text-align: center;border:solid;border-color:lightgrey;border-width:thin;">
+        <tr>
+            <td width="33%">
+                <img src="../images/Ziren56.png" style="max-width:100%;" />
+            </td>
+            <td width="33%">
+                <label style="color:white;font-size: 1.0em;">TU SUMA ASEGURADA</label>
+            </td>
+
+            <td width="34%">
+                <img src="../images/SumaAsegurada.png" style="max-width:100%;" />
+            </td>
+        </tr>
+        <tr>
+            <td width="33%">
+                <img src="../images/AutoSumaAsegurada.png" style="max-width: 100%;" />
+            </td>
+            <td width="33%">
+                <label style="color:white;font-size: 1.25em;">$@oRespuestaCotizacionAutoRapidaDTO.vehiculo.sumaAsegurada</label>
+            </td>
+            <td width="34%">
+                <img src="../images/EstasCubierto.png" style="max-width: 100%;" />
+            </td>
+        </tr>
+        <tr>
+            <td width="33%">
+                <img src="../images/GncSumaAsegurada.png" style="max-width: 100%;" />
+            </td>
+            <td width="33%">
+                <label style="color: white;font-size: 1.25em;">$@oGncValor</label>
+            </td>
+            <td width="34%">
+                <div class="container p-3 my-3 bg-success border">
+                    <label style="color:white;font-size: 1.0em;">VALOR CUOTA MENSUAL</label>
+                    <label style="color:white;font-size: 1.0em;">$@oCoberturaValorSeleccionado</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="33%">
+                &nbsp;
+            </td>
+            <td width="33%">
+                &nbsp;
+            </td>
+            <td width="34%">
+                <div class="container p-3 my-3 bg-transparent border" style="width:100%;text-align: center;border:solid;border-color:lightgrey;border-width:medium;">
+                    <label style="color:white;font-size: 1.0em;">SUMA TOTAL ASEGURADA</label>
+                    <label style="color:white;font-size: 1.0em;">$@(oRespuestaCotizacionAutoRapidaDTO.vehiculo.sumaAsegurada + oGncValor)</label>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+</div>
+        <button type="button" class="btn btn-success" style="width:200px" @onclick="@(() => OnClickHandle(oCoberturaIDSeleccionada))">
+            Confirmar
+        </button>
+        <br />
+
+    }
+
+}
+
+@code {
+
+    private string oAntiguedadGrupo = "F";
+    private int oGncValor = 0;
+    private string oCoberturaIDSeleccionada;
+    private decimal oCoberturaValorSeleccionado;
+
+    private string oCobSrc_a;
+    private string oCobSrc_b;
+    private string oCobSrc_b1;
+    private string oCobSrc_c;
+    private string oCobSrc_c1;
+    private string oCobSrc_cg;
+    private string oCobSrc_cf;
+    private string oCobSrc_d2;
+    [Parameter] public int modeloID { get; set; }
+    //[Inject] protected ServicioSingleton Singleton { get; set; }
+    private CotizacionAutoRapidaDTO oCotizacionAutoRapidaDTO = new CotizacionAutoRapidaDTO();
+    private RespuestaCotizacionAutoRapidaDTO oRespuestaCotizacionAutoRapidaDTO;
+    protected override async Task OnInitializedAsync()
+    {
+        oCobSrc_a = "a";
+        oCobSrc_b = "b";
+        oCobSrc_b1 = "b1";
+        oCobSrc_c = "c";
+        oCobSrc_c1 = "c1";
+        oCobSrc_cg = "cg";
+        oCobSrc_cf = "cf";
+        oCobSrc_d2 = "d2";
+
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+        int oAntiguedad = DateTime.Today.Year - oCotizacionAutoDTO.vehiculo.anio;
+
+        if (oAntiguedad <= 10)
+        {
+            oAntiguedadGrupo = "A";
+            if (oCotizacionAutoDTO.vehiculo.tieneGNC == true)
+                oGncValor = 40000;
+        }
+        else
+        {
+            if (oCotizacionAutoDTO.vehiculo.tieneGNC == true)
+                oGncValor = 30000;
+
+            if (oAntiguedad <= 15)
+                oAntiguedadGrupo = "B";
+            else
+            {
+                if (oAntiguedad <= 20)
+                    oAntiguedadGrupo = "C";
+                else
+                {
+                    if (oAntiguedad <= 25)
+                        oAntiguedadGrupo = "D";
+                    else
+                    {
+                        if (oAntiguedad <= 30)
+                            oAntiguedadGrupo = "E";
+                        else
+                            oAntiguedadGrupo = "F";
+                    }
+                }
+            }
+        }
+
+
+        oCotizacionAutoDTO.tieneAcreedorPrendario = false;
+        oCotizacionAutoDTO.clausulaAjuste = 0;
+        oCotizacionAutoDTO.tipoAjustePrima = "N";
+        oCotizacionAutoDTO.porcAjustePrima = 0;
+        //oCotizacionAutoDTO.vehiculo.patente = "XXX000";
+        oCotizacionAutoDTO.vehiculo.sumaAsegurada = -1;
+
+
+        //oCotizacionAutoRapidaDTO.cotizacionID = oCotizacionAutoDTO.cotizacionID;
+        oCotizacionAutoRapidaDTO.codigoPostal = oCotizacionAutoDTO.asegurado.codigoPostal;
+        oCotizacionAutoRapidaDTO.tieneAcreedorPrendario = oCotizacionAutoDTO.tieneAcreedorPrendario;
+        oCotizacionAutoRapidaDTO.clausulaAjuste = oCotizacionAutoDTO.clausulaAjuste;
+        oCotizacionAutoRapidaDTO.tipoAjustePrima = oCotizacionAutoDTO.tipoAjustePrima;
+        oCotizacionAutoRapidaDTO.porcAjustePrima = oCotizacionAutoDTO.porcAjustePrima;
+
+        oCotizacionAutoRapidaDTO.vehiculo = oCotizacionAutoDTO.vehiculo;
+
+        var responseHttp = await repositorio.Post<CotizacionAutoRapidaDTO, RespuestaCotizacionAutoRapidaDTO>("api/Externo/Prudencia/cotizaciones/autosrapida", oCotizacionAutoRapidaDTO);
+
+        if (responseHttp.Error)
+        {
+            var mensajeError = await responseHttp.GetBody();
+
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            Console.WriteLine(mensajeError);
+            navigationManager.NavigateTo("/ziren/infopersonal");
+        }
+        else
+        {
+
+            oRespuestaCotizacionAutoRapidaDTO = responseHttp.Response;
+            oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoRapidaDTO.cotizacionID;
+
+            CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+            await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+            Console.WriteLine(CotizacionAutoDTOJson);
+        }
+    }
+
+    private async Task OnImageClick(string oCoberturaIDStr, decimal Valor)
+    {
+        oCoberturaValorSeleccionado = Valor;
+        oCoberturaIDSeleccionada = oCoberturaIDStr;
+        oCobSrc_a = "a";
+        oCobSrc_b = "b";
+        oCobSrc_b1 = "b1";
+        oCobSrc_c = "c";
+        oCobSrc_c1 = "c1";
+        oCobSrc_cg = "cg";
+        oCobSrc_cf = "cf";
+        oCobSrc_d2 = "d2";
+        int oCoberturaID;
+        switch (oCoberturaIDStr)
+        {
+            case "a":
+                oCoberturaID = 1;
+                oCobSrc_a = "aClicked";
+                break;
+            case "b1":
+                oCoberturaID = 2;
+                oCobSrc_a = "aClicked";
+                oCobSrc_b1 = "b1Clicked";
+                break;
+            case "b":
+                oCoberturaID = 3;
+                oCobSrc_a = "aClicked";
+                oCobSrc_b1 = "b1Clicked";
+                oCobSrc_b = "bClicked";
+                break;
+            case "c1":
+                oCoberturaID = 6;
+                oCobSrc_a = "aClicked";
+                oCobSrc_b1 = "b1Clicked";
+                oCobSrc_b = "bClicked";
+                oCobSrc_c1 = "c1Clicked";
+                break;
+            case "c":
+                oCoberturaID = 5;
+                oCobSrc_a = "aClicked";
+                oCobSrc_b1 = "b1Clicked";
+                oCobSrc_b = "bClicked";
+                oCobSrc_c1 = "c1Clicked";
+                oCobSrc_c = "cClicked";
+                break;
+            case "cg":
+                oCoberturaID = 22;
+                oCobSrc_a = "aClicked";
+                oCobSrc_b1 = "b1Clicked";
+                oCobSrc_b = "bClicked";
+                oCobSrc_c1 = "c1Clicked";
+                oCobSrc_c = "cClicked";
+                oCobSrc_cg = "cgClicked";
+                break;
+            case "cf":
+                oCoberturaID = 23;
+                oCobSrc_a = "aClicked";
+                oCobSrc_b1 = "b1Clicked";
+                oCobSrc_b = "bClicked";
+                oCobSrc_c1 = "c1Clicked";
+                oCobSrc_c = "cClicked";
+                oCobSrc_cg = "cgClicked";
+                oCobSrc_cf = "cfClicked";
+                break;
+            case "d2":
+                oCoberturaID = 10;
+                oCobSrc_a = "aClicked";
+                oCobSrc_b1 = "b1Clicked";
+                oCobSrc_b = "bClicked";
+                oCobSrc_c1 = "c1Clicked";
+                oCobSrc_c = "cClicked";
+                oCobSrc_cg = "cgClicked";
+                oCobSrc_cf = "cfClicked";
+                oCobSrc_d2 = "d2Clicked";
+                break;
+            default:
+                oCoberturaID = 0;
+
+                break;
+
+
+
+
+        }
+
+    }
+
+    private async Task OnClickHandle(string oCoberturaIDStr)
+    {
+        int oCoberturaID;
+        switch (oCoberturaIDStr)
+        {
+            case "a":
+                oCoberturaID = 1;
+                break;
+            case "b1":
+                oCoberturaID = 2;
+                break;
+            case "b":
+                oCoberturaID = 3;
+                break;
+            case "c1":
+                oCoberturaID = 6;
+                break;
+            case "c":
+                oCoberturaID = 5;
+                break;
+            case "cg":
+                oCoberturaID = 22;
+                break;
+            case "cf":
+                oCoberturaID = 23;
+                break;
+            case "d2":
+                oCoberturaID = 10;
+                break;
+            default:
+                oCoberturaID = 0;
+                break;
+
+
+
+
+        }
+        navigationManager.NavigateTo($"/ziren/infopersonalcompleta/{oCoberturaID}");
+    }
+
+}

@@ -1,0 +1,57 @@
+﻿@page "/ziren/index"
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensajes
+@inject NavigationManager navigationManager
+@inject ILocalStorageManager LocalStorageManager
+@inject IJSRuntime JsRuntime
+@using System.Text.Json;
+
+<h2 style="color:white">Cotize su Auto OnLine</h2>
+<div style="height: 400px;display: flex;align-items: flex-start;">
+    <a href="/ziren/marcas" class="btn btn-success" style="align-self: initial; ">Cotizar</a>
+</div>
+
+
+
+@code {
+
+    private Login oLogin = null;
+
+    private CotizacionAutoDTO oCotizacionAutoDTO;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+
+        oCotizacionAutoDTO = new CotizacionAutoDTO();
+        oCotizacionAutoDTO.vehiculo = new VehiculoDTO();
+        oCotizacionAutoDTO.asegurado = new AseguradoPatrimonialDTO();
+        oCotizacionAutoDTO.cotizacionID = 0;
+
+
+        string CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+
+        await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        Console.WriteLine(CotizacionAutoDTOJson);
+
+        string oUser = "586701";
+        string oPassword = "586701";
+
+        UserPassWord oUserPassWord = new UserPassWord();
+
+        oUserPassWord.user = oUser;
+        oUserPassWord.password = oPassword;
+
+        //var HttpResponse = await repositorio.Post<UserPassWord, Login>("api/Externo/Prudencia/login", oUserPassWord);
+        //oLogin = HttpResponse.Response;
+
+
+    }
+
+
+
+
+
+
+}

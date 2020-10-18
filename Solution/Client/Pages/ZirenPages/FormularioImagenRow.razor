@@ -1,0 +1,46 @@
+﻿@inject IRepositorio repositorio
+@inject NavigationManager navigationManager
+@inject IMostrarMensajes mostrarMensajes
+<EditForm Model="oAdjuntos">
+
+    <div class="row align-items-center">
+        <div class="col-md-8">
+            <InputImg Label="@oLabelText" ImagenSeleccionada="ImagenSeleccionada" ImagenTemporal="@imagenTemporal" />
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-success" hidden="@oButtonHid" type="button" style="height: 50px;vertical-align:middle" @onclick="@(() => OnClickHandle(oImageStr))">Subir </button>
+            <span style="display: inline-block; margin-right: 5px;"><img src="/images/wait.gif" hidden="@oImgHid" style="width: 50px; height: 50px" /></span>
+        </div>
+    </div>
+</EditForm>
+@code {
+    [Parameter] public int oAdjuntoID { get; set; }
+    [Parameter] public AdjuntoDTO[] oAdjuntos { get; set; }
+    [Parameter] public string oLabelText { get; set; }
+    //[Parameter] public EventCallback oOnValidSubmit { get; set; }
+
+    private string imagenTemporal;
+    bool oButtonHid = true;
+    bool oImgHid = true;
+    string oImageStr;
+    private async Task ImagenSeleccionada(string imagenBase64)
+    {
+        oButtonHid = false;
+        oImageStr = imagenBase64;
+    }
+
+    private async Task OnClickHandle(string oImagenBase64)
+    {
+        ImagenDTO[] oImagenDTO = new ImagenDTO[1];
+        oImgHid = false;
+        var responseHttp = await repositorio.Post<string, ImagenDTO[]>("api/Externo/Prudencia/imagenes/Post64File", oImagenBase64);
+        oImagenDTO = responseHttp.Response;
+        oButtonHid = true;
+        oImgHid = true;
+
+        oAdjuntos[oAdjuntoID].id = oImagenDTO[0].id;
+        oAdjuntos[oAdjuntoID].tipo = 2;
+        Console.WriteLine("nombreArchivo" + oImagenDTO[0].nombreArchivo);
+
+    }
+}

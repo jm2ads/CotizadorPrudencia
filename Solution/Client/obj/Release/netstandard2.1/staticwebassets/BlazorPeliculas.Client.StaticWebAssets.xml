@@ -1,0 +1,4 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="D:\JM2\WP\Ziren\CotizadorPolizas\BlazorPeliculas\Client\bin\Release\netstandard2.1\wwwroot\" />
+  <ContentRoot BasePath="_content/Tewr.Blazor.FileReader" Path="C:\Users\Facundo\.nuget\packages\tewr.blazor.filereader\1.2.0.19363\build\..\staticwebassets\" />
+</StaticWebAssets>
