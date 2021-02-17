@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\S-BHWknOWvcjynRlJnrAj806RGwiwj8VcDlkQbdxVsk=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\NeR9cty1X1rnRqTEZHcAgqXtlmNORmkHxobFbA6OEA8=.hash",
       "Source": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Project.Client.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Project.Client.dll.br"
     },
@@ -276,7 +276,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Components.Web.dll.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\ni_KBj0JbRiOoaEshEGIOWyE81n3LUtc0hHEsOHdPVg=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\t_Kr4IvWKqRr7Xx2e8lABGH4K2WJkFadg4e4xwDRY6M=.hash",
       "Source": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Project.Shared.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Project.Shared.dll.br"
     },
@@ -356,7 +356,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Metadata.dll.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\pCMZUlZaseqOH_9zRIcig12zc6JleySpDTwohdOX0aI=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\zJbSb5QWoQO7ZgeMe67PBeeTYnahtYeJbpB64xOoeWo=.hash",
       "Source": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Project.Client.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Project.Client.pdb.br"
     },
@@ -366,7 +366,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Markdig.pdb.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\dqdrUWTAD3stay3T1KTjETFUoYAL-O9X9Nr3zA4l1bI=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\wWHXgxPrFw6StfYrvNnntpvGxt0wSP1wASgr1-5KLXA=.hash",
       "Source": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Project.Shared.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Project.Shared.pdb.br"
     },
@@ -391,12 +391,12 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\1lviWdj9shCHxDfAjCGIziMR0IJ9hyAMtzF8Ve4e1NY=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\0BB6H7qWvzoAdMu7R1LnbV9MHN2ffZG1ZmwoE51lAjs=.hash",
       "Source": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Client\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\46jqJ8UxX3NhTCR5_JIkVtAL2nf-DFpCxgY2WWE00SI=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\cmk0Fj7YF2ZeFg-_638svlEgvEpowA55vopHPxs5A_8=.hash",
       "Source": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Client\\obj\\Debug\\netstandard2.1\\blazor\\service-worker-assets.js",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\service-worker-assets.js.br"
     }

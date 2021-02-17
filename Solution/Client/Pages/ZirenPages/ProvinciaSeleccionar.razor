@@ -17,7 +17,6 @@ else
     @if (oProvinciasAuxList.Count == 0)
     {
         <text>No hay registros para mostrar</text>
-        <p><em>No hay registros para mostrar</em></p>
     }
     else
     {
@@ -64,6 +63,9 @@ else
         oProvinciasAuxList = (from c in oProvinciasList
                               where c.descripcion.ToLower().Contains(oProvinciaDescripcion.ToLower())
                               select c).ToList();
+
+
+
 
     }
     private async Task OnClickHandle(string oprovinciasID)

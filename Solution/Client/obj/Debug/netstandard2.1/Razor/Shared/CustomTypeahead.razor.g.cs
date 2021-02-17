@@ -89,38 +89,36 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             }
             );
-            __builder.AddMarkupContent(3, "\n    ");
-            __builder.OpenElement(4, "div");
-            __builder.AddAttribute(5, "class", "blazored-typeahead__controls");
-            __builder.AddMarkupContent(6, "\n        ");
-            __builder.OpenElement(7, "input");
-            __builder.AddAttribute(8, "class", "blazored-typeahead__input");
-            __builder.AddAttribute(9, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.OpenElement(3, "div");
+            __builder.AddAttribute(4, "class", "blazored-typeahead__controls");
+            __builder.OpenElement(5, "input");
+            __builder.AddAttribute(6, "class", "blazored-typeahead__input");
+            __builder.AddAttribute(7, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
                           ShowSuggestions
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(10, "type", "text");
-            __builder.AddAttribute(11, "autocomplete", "off");
-            __builder.AddAttribute(12, "placeholder", 
+            __builder.AddAttribute(8, "type", "text");
+            __builder.AddAttribute(9, "autocomplete", "off");
+            __builder.AddAttribute(10, "placeholder", 
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
                              Placeholder
 
 #line default
 #line hidden
             );
-            __builder.AddAttribute(13, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddAttribute(11, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
                              SearchText
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(14, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => SearchText = __value, SearchText));
+            __builder.AddAttribute(12, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => SearchText = __value, SearchText));
             __builder.SetUpdatesAttributeName("value");
-            __builder.AddElementReferenceCapture(15, (__value) => {
+            __builder.AddElementReferenceCapture(13, (__value) => {
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
                      searchInput = __value;
 
@@ -129,43 +127,38 @@ using Project.Shared.PrudenciaDTOs;
             }
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(16, "\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(17, "\n");
 #line 17 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
      if (ShouldShowSuggestions())
     {
 
 #line default
 #line hidden
-            __builder.AddContent(18, "        ");
-            __builder.OpenElement(19, "div");
-            __builder.AddAttribute(20, "class", "blazored-typeahead__results");
-            __builder.AddMarkupContent(21, "\n");
+            __builder.OpenElement(14, "div");
+            __builder.AddAttribute(15, "class", "blazored-typeahead__results");
 #line 20 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
              foreach (var item in Suggestions)
             {
 
 #line default
 #line hidden
-            __builder.AddContent(22, "                ");
-            __builder.OpenElement(23, "div");
-            __builder.AddAttribute(24, "class", "blazored-typeahead__result" + " " + (
+            __builder.OpenElement(16, "div");
+            __builder.AddAttribute(17, "class", "blazored-typeahead__result" + " " + (
 #line 22 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
                                                                     GetSelectedSuggestionClass(item)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(25, "tabindex", "0");
-            __builder.AddAttribute(26, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(18, "tabindex", "0");
+            __builder.AddAttribute(19, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 22 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
                                                                                                                                () => SelectResult(item)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(27, "onkeyup", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.KeyboardEventArgs>(this, 
+            __builder.AddAttribute(20, "onkeyup", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.KeyboardEventArgs>(this, 
 #line 22 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
                                                                                                                                                                     ((e) => HandleKeyUpOnSuggestion(e,item))
 
@@ -179,7 +172,6 @@ using Project.Shared.PrudenciaDTOs;
 #line default
 #line hidden
             );
-            __builder.AddMarkupContent(28, "\n");
 #line 23 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
                      if (ResultTemplate != null)
                     {
@@ -187,7 +179,7 @@ using Project.Shared.PrudenciaDTOs;
 
 #line default
 #line hidden
-            __builder.AddContent(29, 
+            __builder.AddContent(21, 
 #line 25 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
                          ResultTemplate(item)
 
@@ -200,17 +192,13 @@ using Project.Shared.PrudenciaDTOs;
 
 #line default
 #line hidden
-            __builder.AddContent(30, "                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(31, "\n");
 #line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
             }
 
 #line default
 #line hidden
-            __builder.AddContent(32, "        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(33, "\n");
 #line 30 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
     }
     else if (ShowNotFound())
@@ -218,30 +206,24 @@ using Project.Shared.PrudenciaDTOs;
 
 #line default
 #line hidden
-            __builder.AddContent(34, "        ");
-            __builder.OpenElement(35, "div");
-            __builder.AddAttribute(36, "class", "blazored-typeahead__results");
-            __builder.AddMarkupContent(37, "\n");
+            __builder.OpenElement(22, "div");
+            __builder.AddAttribute(23, "class", "blazored-typeahead__results");
 #line 34 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
              if (NotFoundTemplate != null)
             {
 
 #line default
 #line hidden
-            __builder.AddContent(38, "                ");
-            __builder.OpenElement(39, "div");
-            __builder.AddAttribute(40, "class", "blazored-typeahead__notfound");
-            __builder.AddMarkupContent(41, "\n                    ");
-            __builder.AddContent(42, 
+            __builder.OpenElement(24, "div");
+            __builder.AddAttribute(25, "class", "blazored-typeahead__notfound");
+            __builder.AddContent(26, 
 #line 37 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
                      NotFoundTemplate
 
 #line default
 #line hidden
             );
-            __builder.AddMarkupContent(43, "\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(44, "\n");
 #line 39 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
             }
             else
@@ -249,16 +231,13 @@ using Project.Shared.PrudenciaDTOs;
 
 #line default
 #line hidden
-            __builder.AddContent(45, "                ");
-            __builder.AddMarkupContent(46, "<div class=\"blazored-typeahead__notfound\">\n                    No Results Found\n                </div>\n");
+            __builder.AddMarkupContent(27, "<div class=\"blazored-typeahead__notfound\">\n                    No Results Found\n                </div>");
 #line 45 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
             }
 
 #line default
 #line hidden
-            __builder.AddContent(47, "        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(48, "\n");
 #line 47 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\CustomTypeahead.razor"
     }
 

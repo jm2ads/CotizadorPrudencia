@@ -79,14 +79,8 @@ using Project.Shared.PrudenciaDTOs;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, @"<div style=""height: 400px;display: flex;align-items: flex-start;"">
-    <div style=""margin-top:100px"">
-        <text style=""color:white"">Cargando.....</text>
-        <span style=""display: inline-block;margin-right: 5px;"">
-            <img src=""/images/wait.gif"" style=""width: 25px; height: 25px"">
-        </span>
-    </div>
-</div>");
+            __builder.AddMarkupContent(0, @"<div style=""height: 400px;display: flex;align-items: flex-start;""><div style=""margin-top:100px""><text style=""color:white"">Cargando.....</text>
+        <span style=""display: inline-block;margin-right: 5px;""><img src=""/images/wait.gif"" style=""width: 25px; height: 25px""></span></div></div>");
         }
         #pragma warning restore 1998
     }

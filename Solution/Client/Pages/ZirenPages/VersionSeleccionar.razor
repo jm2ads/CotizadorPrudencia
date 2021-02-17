@@ -11,7 +11,7 @@
 <h3 style="color:white"> Seleccione Version</h3>
 <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
     <input @bind-value="oVersionDescripcion" @bind-value:event="oninput"
-           @onkeyup="@((KeyboardEventArgs e) => MarcaKeyUp(e))"
+           @onkeyup="@((KeyboardEventArgs e) => MarcaKeyUp(e))" autocomplete="off"
            type="text" class="form-control" id="titulo" placeholder="Version" />
 </div>
 
@@ -92,6 +92,20 @@ else
         CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
         Console.WriteLine(CotizacionAutoDTOJson);
+
+
+
+        #region CotizacionEntitiesDTO
+        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+
+
+        cotizacionEntitiesDTO.versionesAutos = oVersionesAutos;
+
+        cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+        Console.WriteLine(cotizacionEntitiesDTOJson);
+        #endregion
 
         navigationManager.NavigateTo("/ziren/provincia");
     }

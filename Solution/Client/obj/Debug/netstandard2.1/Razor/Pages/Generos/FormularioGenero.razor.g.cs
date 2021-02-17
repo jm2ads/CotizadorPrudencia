@@ -95,42 +95,37 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             )));
             __builder.AddAttribute(3, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Forms.EditContext>)((context) => (__builder2) => {
-                __builder2.AddMarkupContent(4, "\n    ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator>(5);
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator>(4);
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(6, "\n    ");
-                __builder2.OpenElement(7, "div");
-                __builder2.AddAttribute(8, "class", "form-group");
-                __builder2.AddMarkupContent(9, "\n        ");
-                __builder2.AddMarkupContent(10, "<label>Nombre:</label>\n        ");
-                __builder2.OpenElement(11, "div");
-                __builder2.AddMarkupContent(12, "\n            ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(13);
-                __builder2.AddAttribute(14, "class", "form-control");
-                __builder2.AddAttribute(15, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(5, "\n    ");
+                __builder2.OpenElement(6, "div");
+                __builder2.AddAttribute(7, "class", "form-group");
+                __builder2.AddMarkupContent(8, "<label>Nombre:</label>\n        ");
+                __builder2.OpenElement(9, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(10);
+                __builder2.AddAttribute(11, "class", "form-control");
+                __builder2.AddAttribute(12, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 6 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Generos\FormularioGenero.razor"
                                                           Genero.Nombre
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(16, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Genero.Nombre = __value, Genero.Nombre))));
-                __builder2.AddAttribute(17, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => Genero.Nombre));
+                __builder2.AddAttribute(13, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Genero.Nombre = __value, Genero.Nombre))));
+                __builder2.AddAttribute(14, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => Genero.Nombre));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(18, "\n            ");
-                __Blazor.Project.Client.Pages.Generos.FormularioGenero.TypeInference.CreateValidationMessage_0(__builder2, 19, 20, 
+                __builder2.AddMarkupContent(15, "\n            ");
+                __Blazor.Project.Client.Pages.Generos.FormularioGenero.TypeInference.CreateValidationMessage_0(__builder2, 16, 17, 
 #line 7 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Generos\FormularioGenero.razor"
                                       () => Genero.Nombre
 
 #line default
 #line hidden
                 );
-                __builder2.AddMarkupContent(21, "\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(22, "\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(23, "\n\n    ");
-                __builder2.AddMarkupContent(24, "<button class=\"btn btn-success\" type=\"submit\">Guardar Cambios</button>\n");
+                __builder2.AddMarkupContent(18, "\n\n    ");
+                __builder2.AddMarkupContent(19, "<button class=\"btn btn-success\" type=\"submit\">Guardar Cambios</button>");
             }
             ));
             __builder.CloseComponent();

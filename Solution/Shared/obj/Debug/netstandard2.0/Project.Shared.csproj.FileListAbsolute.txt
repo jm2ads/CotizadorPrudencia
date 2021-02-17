@@ -1,7 +1,6 @@
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\bin\Debug\netstandard2.0\Project.Shared.deps.json
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\bin\Debug\netstandard2.0\Project.Shared.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\bin\Debug\netstandard2.0\Project.Shared.pdb
-D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\netstandard2.0\Project.Shared.csprojAssemblyReference.cache
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\netstandard2.0\Project.Shared.AssemblyInfoInputs.cache
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\netstandard2.0\Project.Shared.AssemblyInfo.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\netstandard2.0\Project.Shared.csproj.CoreCompileInputs.cache

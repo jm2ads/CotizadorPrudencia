@@ -81,24 +81,22 @@ using Project.Shared.PrudenciaDTOs;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "style", "display: flex; flex-wrap: wrap; align-items: center;");
-            __builder.AddMarkupContent(2, "\n    ");
-            __Blazor.Project.Client.Shared.ListadoPeliculas.TypeInference.CreateListadoGenerico_0(__builder, 3, 4, 
+            __Blazor.Project.Client.Shared.ListadoPeliculas.TypeInference.CreateListadoGenerico_0(__builder, 2, 3, 
 #line 6 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ListadoPeliculas.razor"
                               Peliculas
 
 #line default
 #line hidden
-            , 5, (pelicula) => (__builder2) => {
-                __builder2.AddMarkupContent(6, "\n            ");
-                __builder2.OpenComponent<Project.Client.Shared.PeliculaIndividual>(7);
-                __builder2.AddAttribute(8, "Pelicula", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.Entidades.Pelicula>(
+            , 4, (pelicula) => (__builder2) => {
+                __builder2.OpenComponent<Project.Client.Shared.PeliculaIndividual>(5);
+                __builder2.AddAttribute(6, "Pelicula", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.Entidades.Pelicula>(
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ListadoPeliculas.razor"
                                           pelicula
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(9, "EliminarPelicula", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<Project.Shared.Entidades.Pelicula>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Project.Shared.Entidades.Pelicula>(this, 
+                __builder2.AddAttribute(7, "EliminarPelicula", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<Project.Shared.Entidades.Pelicula>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Project.Shared.Entidades.Pelicula>(this, 
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ListadoPeliculas.razor"
                                                                       EliminarPelicula
 
@@ -106,10 +104,8 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
                 )));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(10, "\n        ");
             }
             );
-            __builder.AddMarkupContent(11, "\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

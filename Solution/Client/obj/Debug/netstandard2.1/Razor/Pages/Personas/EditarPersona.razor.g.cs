@@ -80,7 +80,7 @@ using Project.Shared.PrudenciaDTOs;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Editar Persona</h3>\n");
+            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Editar Persona</h3>");
 #line 7 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\EditarPersona.razor"
  if (Persona == null)
 {
@@ -97,16 +97,15 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(2, "    ");
-            __builder.OpenComponent<Project.Client.Pages.Personas.FormularioPersonas>(3);
-            __builder.AddAttribute(4, "Persona", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.Entidades.Persona>(
+            __builder.OpenComponent<Project.Client.Pages.Personas.FormularioPersonas>(2);
+            __builder.AddAttribute(3, "Persona", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.Entidades.Persona>(
 #line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\EditarPersona.razor"
                                  Persona
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(5, "OnValidSubmit", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, 
+            __builder.AddAttribute(4, "OnValidSubmit", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, 
 #line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\EditarPersona.razor"
                                                          Editar
 
@@ -114,7 +113,6 @@ else
 #line hidden
             )));
             __builder.CloseComponent();
-            __builder.AddMarkupContent(6, "\n");
 #line 14 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\EditarPersona.razor"
 }
 

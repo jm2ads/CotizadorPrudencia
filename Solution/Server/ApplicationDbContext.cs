@@ -17,18 +17,12 @@ namespace Project.Server
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<GeneroPelicula>().HasKey(x => new { x.GeneroId, x.PeliculaId });
-            modelBuilder.Entity<PeliculaActor>().HasKey(x => new { x.PeliculaId, x.PersonaId });
-
+           
 
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<GeneroPelicula> GenerosPeliculas { get; set; }
-        public DbSet<Pelicula> Peliculas { get; set; }
-        public DbSet<Genero> Generos { get; set; }
-        public DbSet<Persona> Personas { get; set; }
-        public DbSet<PeliculaActor> PeliculasActores { get; set; }
+       
         public DbSet<Notificacion> Notificaciones { get; set; }
     }
 }

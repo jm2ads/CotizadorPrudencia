@@ -87,8 +87,8 @@ using System.Text.Json;
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.AddMarkupContent(0, "<h2 style=\"color:white\">Cotize su Auto OnLine </h2>\r\n");
-            __builder.AddMarkupContent(1, "<div style=\"height: 400px;display: flex;align-items: flex-start;\">\r\n    <a href=\"/ziren/marcas\" class=\"btn btn-success\" style=\"align-self:initial; \">Cotizar</a>\r\n</div>\r\n");
-            __builder.AddMarkupContent(2, "<div style=\"position:absolute;bottom:0;\">\r\n  \r\n\r\n    <label style=\"color:white;font-size: 0.5em;align-content:end\">Version 20.9.13.5</label>\r\n</div>");
+            __builder.AddMarkupContent(1, "<div style=\"height: 400px;display: flex;align-items: flex-start;\"><a href=\"/ziren/marcas\" class=\"btn btn-success\" style=\"align-self:initial; \">Cotizar</a></div>\r\n");
+            __builder.AddMarkupContent(2, "<div style=\"position:absolute;bottom:0;\"><label style=\"color:white;font-size: 0.5em;align-content:end\">Version 20.9.13.5</label></div>");
         }
         #pragma warning restore 1998
 #line 38 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"

@@ -35,18 +35,11 @@
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
         Console.WriteLine(CotizacionAutoDTOJson);
 
-        string oUser = "586701";
-        string oPassword = "586701";
-
-        UserPassWord oUserPassWord = new UserPassWord();
-
-        oUserPassWord.user = oUser;
-        oUserPassWord.password = oPassword;
-
-        //var HttpResponse = await repositorio.Post<UserPassWord, Login>("api/Externo/Prudencia/login", oUserPassWord);
-        //oLogin = HttpResponse.Response;
-
-
+        #region CotizacionEntitiesDTO
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = new CotizacionEntitiesDTO();
+        string cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+        #endregion
     }
 
 

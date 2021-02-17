@@ -81,7 +81,7 @@ using Project.Shared.PrudenciaDTOs;
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Indice Personas</h3>\n\n");
-            __builder.AddMarkupContent(1, "<div class=\"form-group\">\n    <a class=\"btn btn-info\" href=\"personas/crear\">Crear Persona</a>\n</div>\n\n");
+            __builder.AddMarkupContent(1, "<div class=\"form-group\"><a class=\"btn btn-info\" href=\"personas/crear\">Crear Persona</a></div>\n\n");
             __builder.OpenComponent<Project.Client.Shared.Paginacion>(2);
             __builder.AddAttribute(3, "PaginaActual", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\IndicePersonas.razor"
@@ -113,52 +113,45 @@ using Project.Shared.PrudenciaDTOs;
 #line default
 #line hidden
             , 9, (__builder2) => {
-                __builder2.AddMarkupContent(10, "\n        ");
-                __builder2.OpenElement(11, "table");
-                __builder2.AddAttribute(12, "class", "table table-striped");
-                __builder2.AddMarkupContent(13, "\n            ");
-                __builder2.AddMarkupContent(14, "<thead>\n                <tr>\n                    <th></th>\n                    <th>Nombre</th>\n                </tr>\n            </thead>\n            ");
-                __builder2.OpenElement(15, "tbody");
-                __builder2.AddMarkupContent(16, "\n");
+                __builder2.OpenElement(10, "table");
+                __builder2.AddAttribute(11, "class", "table table-striped");
+                __builder2.AddMarkupContent(12, "<thead><tr><th></th>\n                    <th>Nombre</th></tr></thead>\n            ");
+                __builder2.OpenElement(13, "tbody");
 #line 24 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\IndicePersonas.razor"
                  foreach (var item in Personas)
                 {
 
 #line default
 #line hidden
-                __builder2.AddContent(17, "                    ");
-                __builder2.OpenElement(18, "tr");
-                __builder2.AddMarkupContent(19, "\n                        ");
-                __builder2.OpenElement(20, "td");
-                __builder2.AddMarkupContent(21, "\n                            ");
-                __builder2.OpenElement(22, "a");
-                __builder2.AddAttribute(23, "href", "personas/editar/" + (
+                __builder2.OpenElement(14, "tr");
+                __builder2.OpenElement(15, "td");
+                __builder2.OpenElement(16, "a");
+                __builder2.AddAttribute(17, "href", "personas/editar/" + (
 #line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\IndicePersonas.razor"
                                                       item.Id
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(24, "class", "btn btn-success");
-                __builder2.AddContent(25, "Editar");
+                __builder2.AddAttribute(18, "class", "btn btn-success");
+                __builder2.AddContent(19, "Editar");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(26, "\n                            ");
-                __builder2.OpenElement(27, "button");
-                __builder2.AddAttribute(28, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+                __builder2.AddMarkupContent(20, "\n                            ");
+                __builder2.OpenElement(21, "button");
+                __builder2.AddAttribute(22, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 29 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\IndicePersonas.razor"
                                                 () => BorrarPersona(item)
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(29, "class", "btn btn-danger");
-                __builder2.AddContent(30, "Borrar");
+                __builder2.AddAttribute(23, "class", "btn btn-danger");
+                __builder2.AddContent(24, "Borrar");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(31, "\n                        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(32, "\n                        ");
-                __builder2.OpenElement(33, "td");
-                __builder2.AddContent(34, 
+                __builder2.AddMarkupContent(25, "\n                        ");
+                __builder2.OpenElement(26, "td");
+                __builder2.AddContent(27, 
 #line 31 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\IndicePersonas.razor"
                              item.Nombre
 
@@ -166,19 +159,14 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
                 );
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(35, "\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(36, "\n");
 #line 33 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\IndicePersonas.razor"
                 }
 
 #line default
 #line hidden
-                __builder2.AddContent(37, "            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(38, "\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(39, "\n    ");
             }
             );
         }

@@ -85,17 +85,15 @@ using System.Text.Json;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Emision de Poliza</h3>\r\n\r\n");
+            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Emision de Poliza</h3>");
 #line 9 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
  if (oTipoMedioPagoDTOList == null || oProvinciasList == null || oCondicionesIVADTOList == null || oTipoDocumentoDTOList == null || oMostrarCargando)
 {
 
 #line default
 #line hidden
-            __builder.AddContent(1, "    ");
-            __builder.OpenComponent<Project.Client.Shared.Cargando>(2);
+            __builder.OpenComponent<Project.Client.Shared.Cargando>(1);
             __builder.CloseComponent();
-            __builder.AddMarkupContent(3, "\r\n");
 #line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
 }
 else
@@ -103,168 +101,138 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(4, "    ");
-            __builder.OpenComponent<Microsoft.AspNetCore.Components.Forms.EditForm>(5);
-            __builder.AddAttribute(6, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Object>(
+            __builder.OpenComponent<Microsoft.AspNetCore.Components.Forms.EditForm>(2);
+            __builder.AddAttribute(3, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Object>(
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                      oEmitirCotizacionAutoDTO
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(7, "OnValidSubmit", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<Microsoft.AspNetCore.Components.Forms.EditContext>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Forms.EditContext>(this, 
+            __builder.AddAttribute(4, "OnValidSubmit", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<Microsoft.AspNetCore.Components.Forms.EditContext>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Forms.EditContext>(this, 
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                               OnDataAnnonationsValidated
 
 #line default
 #line hidden
             )));
-            __builder.AddAttribute(8, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Forms.EditContext>)((context) => (__builder2) => {
-                __builder2.AddMarkupContent(9, "\r\n\r\n        ");
-                __builder2.OpenElement(10, "div");
-                __builder2.AddAttribute(11, "class", "container p-3 my-3 bg-transparent border");
-                __builder2.AddMarkupContent(12, "\r\n            ");
-                __builder2.OpenElement(13, "div");
-                __builder2.AddAttribute(14, "class", "row");
-                __builder2.AddAttribute(15, "style", "margin:10px");
-                __builder2.AddMarkupContent(16, "\r\n\r\n\r\n                ");
-                __builder2.OpenElement(17, "div");
-                __builder2.AddAttribute(18, "class", "col-md-5");
-                __builder2.AddMarkupContent(19, "\r\n                    ");
-                __builder2.AddMarkupContent(20, "<label style=\"color:white\">Motor:</label>\r\n                    ");
-                __builder2.OpenElement(21, "div");
-                __builder2.AddMarkupContent(22, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(23);
-                __builder2.AddAttribute(24, "class", "form-control");
-                __builder2.AddAttribute(25, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+            __builder.AddAttribute(5, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Forms.EditContext>)((context) => (__builder2) => {
+                __builder2.OpenElement(6, "div");
+                __builder2.AddAttribute(7, "class", "container p-3 my-3 bg-transparent border");
+                __builder2.OpenElement(8, "div");
+                __builder2.AddAttribute(9, "class", "row");
+                __builder2.AddAttribute(10, "style", "margin:10px");
+                __builder2.OpenElement(11, "div");
+                __builder2.AddAttribute(12, "class", "col-md-5");
+                __builder2.AddMarkupContent(13, "<label style=\"color:white\">Motor:</label>\r\n                    ");
+                __builder2.OpenElement(14, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(15);
+                __builder2.AddAttribute(16, "class", "form-control");
+                __builder2.AddAttribute(17, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 24 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                      oEmitirCotizacionAutoDTO.motor
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(26, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.motor = __value, oEmitirCotizacionAutoDTO.motor))));
-                __builder2.AddAttribute(27, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.motor));
+                __builder2.AddAttribute(18, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.motor = __value, oEmitirCotizacionAutoDTO.motor))));
+                __builder2.AddAttribute(19, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.motor));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(28, "\r\n\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(29, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(30, "\r\n\r\n                ");
-                __builder2.OpenElement(31, "div");
-                __builder2.AddAttribute(32, "class", "col-md-5");
-                __builder2.AddMarkupContent(33, "\r\n                    ");
-                __builder2.AddMarkupContent(34, "<label style=\"color:white\">Chasis:</label>\r\n                    ");
-                __builder2.OpenElement(35, "div");
-                __builder2.AddMarkupContent(36, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(37);
-                __builder2.AddAttribute(38, "class", "form-control");
-                __builder2.AddAttribute(39, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(20, "\r\n\r\n                ");
+                __builder2.OpenElement(21, "div");
+                __builder2.AddAttribute(22, "class", "col-md-5");
+                __builder2.AddMarkupContent(23, "<label style=\"color:white\">Chasis:</label>\r\n                    ");
+                __builder2.OpenElement(24, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(25);
+                __builder2.AddAttribute(26, "class", "form-control");
+                __builder2.AddAttribute(27, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 32 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                      oEmitirCotizacionAutoDTO.chasis
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(40, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.chasis = __value, oEmitirCotizacionAutoDTO.chasis))));
-                __builder2.AddAttribute(41, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.chasis));
+                __builder2.AddAttribute(28, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.chasis = __value, oEmitirCotizacionAutoDTO.chasis))));
+                __builder2.AddAttribute(29, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.chasis));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(42, "\r\n\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(43, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(44, "\r\n\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(45, "\r\n\r\n\r\n            ");
-                __builder2.OpenElement(46, "div");
-                __builder2.AddAttribute(47, "class", "row");
-                __builder2.AddAttribute(48, "style", "margin:10px");
-                __builder2.AddMarkupContent(49, "\r\n\r\n                ");
-                __builder2.OpenElement(50, "div");
-                __builder2.AddAttribute(51, "class", "col-md-5");
-                __builder2.AddMarkupContent(52, "\r\n                    ");
-                __builder2.AddMarkupContent(53, "<label style=\"color:white\">Inicio Vigencia:</label>\r\n                    ");
-                __builder2.OpenElement(54, "div");
-                __builder2.AddMarkupContent(55, "\r\n                        ");
-                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputDate_0(__builder2, 56, 57, "form-control", 58, 
+                __builder2.AddMarkupContent(30, "\r\n\r\n\r\n            ");
+                __builder2.OpenElement(31, "div");
+                __builder2.AddAttribute(32, "class", "row");
+                __builder2.AddAttribute(33, "style", "margin:10px");
+                __builder2.OpenElement(34, "div");
+                __builder2.AddAttribute(35, "class", "col-md-5");
+                __builder2.AddMarkupContent(36, "<label style=\"color:white\">Inicio Vigencia:</label>\r\n                    ");
+                __builder2.OpenElement(37, "div");
+                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputDate_0(__builder2, 38, 39, "form-control", 40, 
 #line 45 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                      oInicioVigencia
 
 #line default
 #line hidden
-                , 59, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oInicioVigencia = __value, oInicioVigencia)), 60, () => oInicioVigencia);
-                __builder2.AddMarkupContent(61, "\r\n                    ");
+                , 41, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oInicioVigencia = __value, oInicioVigencia)), 42, () => oInicioVigencia);
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(62, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(63, "\r\n\r\n                ");
-                __builder2.OpenElement(64, "div");
-                __builder2.AddAttribute(65, "class", "col-md-5");
-                __builder2.AddMarkupContent(66, "\r\n                    ");
-                __builder2.AddMarkupContent(67, "<label style=\"color:white\">Observaciones:</label>\r\n                    ");
-                __builder2.OpenElement(68, "div");
-                __builder2.AddMarkupContent(69, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(70);
-                __builder2.AddAttribute(71, "class", "form-control");
-                __builder2.AddAttribute(72, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(43, "\r\n\r\n                ");
+                __builder2.OpenElement(44, "div");
+                __builder2.AddAttribute(45, "class", "col-md-5");
+                __builder2.AddMarkupContent(46, "<label style=\"color:white\">Observaciones:</label>\r\n                    ");
+                __builder2.OpenElement(47, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(48);
+                __builder2.AddAttribute(49, "class", "form-control");
+                __builder2.AddAttribute(50, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 52 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                      oEmitirCotizacionAutoDTO.observaciones
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(73, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.observaciones = __value, oEmitirCotizacionAutoDTO.observaciones))));
-                __builder2.AddAttribute(74, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.observaciones));
+                __builder2.AddAttribute(51, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.observaciones = __value, oEmitirCotizacionAutoDTO.observaciones))));
+                __builder2.AddAttribute(52, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.observaciones));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(75, "\r\n\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(76, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(77, "\r\n\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(78, "\r\n\r\n\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(79, "\r\n\r\n\r\n\r\n        ");
-                __builder2.AddMarkupContent(80, "<div class=\"row\" style=\"margin:0px\">\r\n            <label style=\"color:white;margin:0px\">Medio de Pago</label>\r\n        </div>\r\n        ");
-                __builder2.OpenElement(81, "div");
-                __builder2.AddAttribute(82, "class", "container p-3 my-3 bg-transparent border");
-                __builder2.AddAttribute(83, "style", "margin-top:5px");
-                __builder2.AddMarkupContent(84, "\r\n            ");
-                __builder2.OpenElement(85, "div");
-                __builder2.AddAttribute(86, "class", "row");
-                __builder2.AddAttribute(87, "style", "margin:10px");
-                __builder2.AddMarkupContent(88, "\r\n                ");
-                __builder2.OpenElement(89, "div");
-                __builder2.AddAttribute(90, "class", "col-md-5");
-                __builder2.AddMarkupContent(91, "\r\n                    ");
-                __builder2.AddMarkupContent(92, "<label style=\"color:white\">Tipo Medio Pago</label>\r\n                    ");
-                __builder2.OpenElement(93, "div");
-                __builder2.AddMarkupContent(94, "\r\n                        ");
-                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputSelect_1(__builder2, 95, 96, "form-control", 97, 
+                __builder2.AddMarkupContent(53, "\r\n\r\n\r\n\r\n        ");
+                __builder2.AddMarkupContent(54, "<div class=\"row\" style=\"margin:0px\"><label style=\"color:white;margin:0px\">Medio de Pago</label></div>\r\n        ");
+                __builder2.OpenElement(55, "div");
+                __builder2.AddAttribute(56, "class", "container p-3 my-3 bg-transparent border");
+                __builder2.AddAttribute(57, "style", "margin-top:5px");
+                __builder2.OpenElement(58, "div");
+                __builder2.AddAttribute(59, "class", "row");
+                __builder2.AddAttribute(60, "style", "margin:10px");
+                __builder2.OpenElement(61, "div");
+                __builder2.AddAttribute(62, "class", "col-md-5");
+                __builder2.AddMarkupContent(63, "<label style=\"color:white\">Tipo Medio Pago</label>\r\n                    ");
+                __builder2.OpenElement(64, "div");
+                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputSelect_1(__builder2, 65, 66, "form-control", 67, 
 #line 72 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                   oMedioPagoID
 
 #line default
 #line hidden
-                , 98, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oMedioPagoID = __value, oMedioPagoID)), 99, () => oMedioPagoID, 100, (__builder3) => {
-                    __builder3.AddMarkupContent(101, "\r\n                            ");
-                    __builder3.AddMarkupContent(102, "<option value>Medio de Pago ...</option>\r\n");
+                , 68, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oMedioPagoID = __value, oMedioPagoID)), 69, () => oMedioPagoID, 70, (__builder3) => {
+                    __builder3.AddMarkupContent(71, "<option value>Medio de Pago ...</option>");
 #line 74 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                              foreach (TipoMedioPagoDTO oTipoMedioPagoDTO in oTipoMedioPagoDTOList)
                                 {
 
 #line default
 #line hidden
-                    __builder3.AddContent(103, "                                ");
-                    __builder3.OpenElement(104, "option");
-                    __builder3.AddAttribute(105, "value", 
+                    __builder3.OpenElement(72, "option");
+                    __builder3.AddAttribute(73, "value", 
 #line 76 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                 oTipoMedioPagoDTO.medioPagoID
 
 #line default
 #line hidden
                     );
-                    __builder3.AddContent(106, 
+                    __builder3.AddContent(74, 
 #line 76 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                                 oTipoMedioPagoDTO.nombre
 
@@ -272,320 +240,266 @@ else
 #line hidden
                     );
                     __builder3.CloseElement();
-                    __builder3.AddMarkupContent(107, "\r\n");
 #line 77 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                 }
 
 #line default
 #line hidden
-                    __builder3.AddContent(108, "                        ");
                 }
                 );
-                __builder2.AddMarkupContent(109, "\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(110, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(111, "\r\n                ");
-                __builder2.OpenElement(112, "div");
-                __builder2.AddAttribute(113, "class", "col-md-3");
-                __builder2.AddMarkupContent(114, "\r\n                    ");
-                __builder2.AddMarkupContent(115, "<label style=\"color:white\">Vencimiento Medio Pago:</label>\r\n                    ");
-                __builder2.OpenElement(116, "div");
-                __builder2.AddMarkupContent(117, "\r\n                        ");
-                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputDate_2(__builder2, 118, 119, "form-control", 120, 
+                __builder2.AddMarkupContent(75, "\r\n                ");
+                __builder2.OpenElement(76, "div");
+                __builder2.AddAttribute(77, "class", "col-md-3");
+                __builder2.AddMarkupContent(78, "<label style=\"color:white\">Vencimiento Medio Pago:</label>\r\n                    ");
+                __builder2.OpenElement(79, "div");
+                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputDate_2(__builder2, 80, 81, "form-control", 82, 
 #line 84 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                      oVencimientoMedioPago
 
 #line default
 #line hidden
-                , 121, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oVencimientoMedioPago = __value, oVencimientoMedioPago)), 122, () => oVencimientoMedioPago);
-                __builder2.AddMarkupContent(123, "\r\n                    ");
+                , 83, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oVencimientoMedioPago = __value, oVencimientoMedioPago)), 84, () => oVencimientoMedioPago);
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(124, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(125, "\r\n                ");
-                __builder2.OpenElement(126, "div");
-                __builder2.AddAttribute(127, "class", "col-md-4");
-                __builder2.AddMarkupContent(128, "\r\n                    ");
-                __builder2.AddMarkupContent(129, "<label style=\"color:white\">Numero Medio Pago:</label>\r\n                    ");
-                __builder2.OpenElement(130, "div");
-                __builder2.AddMarkupContent(131, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(132);
-                __builder2.AddAttribute(133, "class", "form-control");
-                __builder2.AddAttribute(134, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(85, "\r\n                ");
+                __builder2.OpenElement(86, "div");
+                __builder2.AddAttribute(87, "class", "col-md-4");
+                __builder2.AddMarkupContent(88, "<label style=\"color:white\">Numero Medio Pago:</label>\r\n                    ");
+                __builder2.OpenElement(89, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(90);
+                __builder2.AddAttribute(91, "class", "form-control");
+                __builder2.AddAttribute(92, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 90 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                      oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(135, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago = __value, oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago))));
-                __builder2.AddAttribute(136, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago));
+                __builder2.AddAttribute(93, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago = __value, oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago))));
+                __builder2.AddAttribute(94, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(137, "\r\n\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(138, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(139, "\r\n\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(140, "\r\n            ");
-                __builder2.OpenElement(141, "div");
-                __builder2.AddAttribute(142, "class", "row");
-                __builder2.AddAttribute(143, "style", "margin:10px");
-                __builder2.AddMarkupContent(144, "\r\n                ");
-                __builder2.OpenElement(145, "div");
-                __builder2.AddAttribute(146, "class", "col-md-4");
-                __builder2.AddMarkupContent(147, "\r\n                    ");
-                __builder2.AddMarkupContent(148, "<label style=\"color:white\">Nombre Titular Tarjeta:</label>\r\n                    ");
-                __builder2.OpenElement(149, "div");
-                __builder2.AddMarkupContent(150, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(151);
-                __builder2.AddAttribute(152, "class", "form-control");
-                __builder2.AddAttribute(153, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(95, "\r\n            ");
+                __builder2.OpenElement(96, "div");
+                __builder2.AddAttribute(97, "class", "row");
+                __builder2.AddAttribute(98, "style", "margin:10px");
+                __builder2.OpenElement(99, "div");
+                __builder2.AddAttribute(100, "class", "col-md-4");
+                __builder2.AddMarkupContent(101, "<label style=\"color:white\">Nombre Titular Tarjeta:</label>\r\n                    ");
+                __builder2.OpenElement(102, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(103);
+                __builder2.AddAttribute(104, "class", "form-control");
+                __builder2.AddAttribute(105, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 100 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                      oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(154, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta = __value, oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta))));
-                __builder2.AddAttribute(155, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta));
+                __builder2.AddAttribute(106, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta = __value, oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta))));
+                __builder2.AddAttribute(107, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(156, "\r\n\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(157, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(158, "\r\n                ");
-                __builder2.OpenElement(159, "div");
-                __builder2.AddAttribute(160, "class", "col-md-4");
-                __builder2.AddMarkupContent(161, "\r\n                    ");
-                __builder2.AddMarkupContent(162, "<label style=\"color:white\">tipoDocTitularTarjeta:</label>\r\n                    ");
-                __builder2.OpenElement(163, "div");
-                __builder2.AddMarkupContent(164, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(165);
-                __builder2.AddAttribute(166, "class", "form-control");
-                __builder2.AddAttribute(167, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(108, "\r\n                ");
+                __builder2.OpenElement(109, "div");
+                __builder2.AddAttribute(110, "class", "col-md-4");
+                __builder2.AddMarkupContent(111, "<label style=\"color:white\">tipoDocTitularTarjeta:</label>\r\n                    ");
+                __builder2.OpenElement(112, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(113);
+                __builder2.AddAttribute(114, "class", "form-control");
+                __builder2.AddAttribute(115, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 107 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                      oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(168, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta = __value, oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta))));
-                __builder2.AddAttribute(169, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta));
+                __builder2.AddAttribute(116, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta = __value, oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta))));
+                __builder2.AddAttribute(117, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(170, "\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(171, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(172, "\r\n                ");
-                __builder2.OpenElement(173, "div");
-                __builder2.AddAttribute(174, "class", "col-md-4");
-                __builder2.AddMarkupContent(175, "\r\n                    ");
-                __builder2.AddMarkupContent(176, "<label style=\"color:white\">Nro Doc Titular Tarjeta:</label>\r\n                    ");
-                __builder2.OpenElement(177, "div");
-                __builder2.AddMarkupContent(178, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(179);
-                __builder2.AddAttribute(180, "class", "form-control");
-                __builder2.AddAttribute(181, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(118, "\r\n                ");
+                __builder2.OpenElement(119, "div");
+                __builder2.AddAttribute(120, "class", "col-md-4");
+                __builder2.AddMarkupContent(121, "<label style=\"color:white\">Nro Doc Titular Tarjeta:</label>\r\n                    ");
+                __builder2.OpenElement(122, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(123);
+                __builder2.AddAttribute(124, "class", "form-control");
+                __builder2.AddAttribute(125, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 113 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                      oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(182, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta = __value, oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta))));
-                __builder2.AddAttribute(183, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta));
+                __builder2.AddAttribute(126, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta = __value, oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta))));
+                __builder2.AddAttribute(127, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(184, "\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(185, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(186, "\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(187, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(188, "\r\n\r\n\r\n\r\n\r\n        ");
-                __builder2.OpenElement(189, "div");
-                __builder2.AddAttribute(190, "class", "container p-3 my-3 bg-info border");
-                __builder2.AddAttribute(191, "hidden", 
+                __builder2.AddMarkupContent(128, "\r\n\r\n\r\n\r\n\r\n        ");
+                __builder2.OpenElement(129, "div");
+                __builder2.AddAttribute(130, "class", "container p-3 my-3 bg-info border");
+                __builder2.AddAttribute(131, "hidden", 
 #line 122 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                  ! oCotizacionAutoDTO.vehiculo.tieneGNC
 
 #line default
 #line hidden
                 );
-                __builder2.AddMarkupContent(192, "\r\n            ");
-                __builder2.AddMarkupContent(193, "<label style=\"color:white\"> GNC</label>\r\n            ");
-                __builder2.OpenElement(194, "div");
-                __builder2.AddAttribute(195, "class", "row");
-                __builder2.AddAttribute(196, "style", "margin:10px");
-                __builder2.AddMarkupContent(197, "\r\n\r\n                ");
-                __builder2.OpenElement(198, "div");
-                __builder2.AddAttribute(199, "class", "col-md-5");
-                __builder2.AddMarkupContent(200, "\r\n                    ");
-                __builder2.AddMarkupContent(201, "<label>Marca:</label>\r\n                    ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(202);
-                __builder2.AddAttribute(203, "class", "form-control");
-                __builder2.AddAttribute(204, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(132, "<label style=\"color:white\"> GNC</label>\r\n            ");
+                __builder2.OpenElement(133, "div");
+                __builder2.AddAttribute(134, "class", "row");
+                __builder2.AddAttribute(135, "style", "margin:10px");
+                __builder2.OpenElement(136, "div");
+                __builder2.AddAttribute(137, "class", "col-md-5");
+                __builder2.AddMarkupContent(138, "<label>Marca:</label>\r\n                    ");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(139);
+                __builder2.AddAttribute(140, "class", "form-control");
+                __builder2.AddAttribute(141, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 128 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                  oEmitirCotizacionAutoDTO.gncMarca
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(205, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.gncMarca = __value, oEmitirCotizacionAutoDTO.gncMarca))));
-                __builder2.AddAttribute(206, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.gncMarca));
+                __builder2.AddAttribute(142, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.gncMarca = __value, oEmitirCotizacionAutoDTO.gncMarca))));
+                __builder2.AddAttribute(143, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.gncMarca));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(207, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(208, "\r\n                ");
-                __builder2.OpenElement(209, "div");
-                __builder2.AddAttribute(210, "class", "col-md-3");
-                __builder2.AddMarkupContent(211, "\r\n                    ");
-                __builder2.AddMarkupContent(212, "<label style=\"color:white\">Gnc Capacidad:</label>\r\n                    ");
-                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputNumber_3(__builder2, 213, 214, "form-control", 215, 
+                __builder2.AddMarkupContent(144, "\r\n                ");
+                __builder2.OpenElement(145, "div");
+                __builder2.AddAttribute(146, "class", "col-md-3");
+                __builder2.AddMarkupContent(147, "<label style=\"color:white\">Gnc Capacidad:</label>\r\n                    ");
+                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputNumber_3(__builder2, 148, 149, "form-control", 150, 
 #line 132 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                    oEmitirCotizacionAutoDTO.gncCapacidad
 
 #line default
 #line hidden
-                , 216, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.gncCapacidad = __value, oEmitirCotizacionAutoDTO.gncCapacidad)), 217, () => oEmitirCotizacionAutoDTO.gncCapacidad);
-                __builder2.AddMarkupContent(218, "\r\n                ");
+                , 151, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.gncCapacidad = __value, oEmitirCotizacionAutoDTO.gncCapacidad)), 152, () => oEmitirCotizacionAutoDTO.gncCapacidad);
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(219, "\r\n\r\n\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(220, "\r\n            ");
-                __builder2.OpenElement(221, "div");
-                __builder2.AddAttribute(222, "class", "row");
-                __builder2.AddAttribute(223, "style", "margin:10px");
-                __builder2.AddMarkupContent(224, "\r\n                ");
-                __builder2.OpenElement(225, "div");
-                __builder2.AddAttribute(226, "class", "col-md-4");
-                __builder2.AddMarkupContent(227, "\r\n                    ");
-                __builder2.AddMarkupContent(228, "<label style=\"color:white\">Gnc Oblea:</label>\r\n                    ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(229);
-                __builder2.AddAttribute(230, "class", "form-control");
-                __builder2.AddAttribute(231, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(153, "\r\n            ");
+                __builder2.OpenElement(154, "div");
+                __builder2.AddAttribute(155, "class", "row");
+                __builder2.AddAttribute(156, "style", "margin:10px");
+                __builder2.OpenElement(157, "div");
+                __builder2.AddAttribute(158, "class", "col-md-4");
+                __builder2.AddMarkupContent(159, "<label style=\"color:white\">Gnc Oblea:</label>\r\n                    ");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(160);
+                __builder2.AddAttribute(161, "class", "form-control");
+                __builder2.AddAttribute(162, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 140 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                  oEmitirCotizacionAutoDTO.gncOblea
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(232, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.gncOblea = __value, oEmitirCotizacionAutoDTO.gncOblea))));
-                __builder2.AddAttribute(233, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.gncOblea));
+                __builder2.AddAttribute(163, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.gncOblea = __value, oEmitirCotizacionAutoDTO.gncOblea))));
+                __builder2.AddAttribute(164, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.gncOblea));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(234, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(235, "\r\n                ");
-                __builder2.OpenElement(236, "div");
-                __builder2.AddAttribute(237, "class", "col-md-4");
-                __builder2.AddMarkupContent(238, "\r\n                    ");
-                __builder2.AddMarkupContent(239, "<label style=\"color:white\">Gnc Regulador:</label>\r\n                    ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(240);
-                __builder2.AddAttribute(241, "class", "form-control");
-                __builder2.AddAttribute(242, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(165, "\r\n                ");
+                __builder2.OpenElement(166, "div");
+                __builder2.AddAttribute(167, "class", "col-md-4");
+                __builder2.AddMarkupContent(168, "<label style=\"color:white\">Gnc Regulador:</label>\r\n                    ");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(169);
+                __builder2.AddAttribute(170, "class", "form-control");
+                __builder2.AddAttribute(171, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 144 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                  oEmitirCotizacionAutoDTO.gncRegulador
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(243, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.gncRegulador = __value, oEmitirCotizacionAutoDTO.gncRegulador))));
-                __builder2.AddAttribute(244, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.gncRegulador));
+                __builder2.AddAttribute(172, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.gncRegulador = __value, oEmitirCotizacionAutoDTO.gncRegulador))));
+                __builder2.AddAttribute(173, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.gncRegulador));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(245, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(246, "\r\n                ");
-                __builder2.OpenElement(247, "div");
-                __builder2.AddAttribute(248, "class", "col-md-4");
-                __builder2.AddMarkupContent(249, "\r\n                    ");
-                __builder2.AddMarkupContent(250, "<label style=\"color:white\">Gnc VtoPruebaHidr:</label>\r\n                    ");
-                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputDate_4(__builder2, 251, 252, "form-control", 253, 
+                __builder2.AddMarkupContent(174, "\r\n                ");
+                __builder2.OpenElement(175, "div");
+                __builder2.AddAttribute(176, "class", "col-md-4");
+                __builder2.AddMarkupContent(177, "<label style=\"color:white\">Gnc VtoPruebaHidr:</label>\r\n                    ");
+                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputDate_4(__builder2, 178, 179, "form-control", 180, 
 #line 148 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                  oVtoPruebaHidr
 
 #line default
 #line hidden
-                , 254, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oVtoPruebaHidr = __value, oVtoPruebaHidr)), 255, () => oVtoPruebaHidr);
-                __builder2.AddMarkupContent(256, "\r\n                ");
+                , 181, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oVtoPruebaHidr = __value, oVtoPruebaHidr)), 182, () => oVtoPruebaHidr);
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(257, "\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(258, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(259, "\r\n\r\n\r\n\r\n\r\n        ");
-                __builder2.OpenElement(260, "div");
-                __builder2.AddAttribute(261, "class", "container p-3 my-3 bg-primary text-white");
-                __builder2.AddAttribute(262, "hidden", 
+                __builder2.AddMarkupContent(183, "\r\n\r\n\r\n\r\n\r\n        ");
+                __builder2.OpenElement(184, "div");
+                __builder2.AddAttribute(185, "class", "container p-3 my-3 bg-primary text-white");
+                __builder2.AddAttribute(186, "hidden", 
 #line 156 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                         !oCotizacionAutoDTO.tieneAcreedorPrendario
 
 #line default
 #line hidden
                 );
-                __builder2.AddMarkupContent(263, "\r\n\r\n            ");
-                __builder2.AddMarkupContent(264, "<div class=\"row\" style=\"margin:10px\">\r\n                <label style=\"color:white\">Acreedor Prendario</label>\r\n            </div>\r\n\r\n            ");
-                __builder2.OpenElement(265, "div");
-                __builder2.AddAttribute(266, "class", "row");
-                __builder2.AddAttribute(267, "style", "margin:10px");
-                __builder2.AddMarkupContent(268, "\r\n                ");
-                __builder2.OpenElement(269, "div");
-                __builder2.AddAttribute(270, "class", "col-md-5");
-                __builder2.AddMarkupContent(271, "\r\n                    ");
-                __builder2.AddMarkupContent(272, "<label style=\"color:white\">Nombre y Apellido:</label>\r\n                    ");
-                __builder2.OpenElement(273, "div");
-                __builder2.AddMarkupContent(274, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(275);
-                __builder2.AddAttribute(276, "class", "form-control");
-                __builder2.AddAttribute(277, "placeholder", "Nombre y Apelllido");
-                __builder2.AddAttribute(278, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(187, "<div class=\"row\" style=\"margin:10px\"><label style=\"color:white\">Acreedor Prendario</label></div>\r\n\r\n            ");
+                __builder2.OpenElement(188, "div");
+                __builder2.AddAttribute(189, "class", "row");
+                __builder2.AddAttribute(190, "style", "margin:10px");
+                __builder2.OpenElement(191, "div");
+                __builder2.AddAttribute(192, "class", "col-md-5");
+                __builder2.AddMarkupContent(193, "<label style=\"color:white\">Nombre y Apellido:</label>\r\n                    ");
+                __builder2.OpenElement(194, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(195);
+                __builder2.AddAttribute(196, "class", "form-control");
+                __builder2.AddAttribute(197, "placeholder", "Nombre y Apelllido");
+                __builder2.AddAttribute(198, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 166 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                      oEmitirCotizacionAutoDTO.prendario.nombre
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(279, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.nombre = __value, oEmitirCotizacionAutoDTO.prendario.nombre))));
-                __builder2.AddAttribute(280, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.nombre));
+                __builder2.AddAttribute(199, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.nombre = __value, oEmitirCotizacionAutoDTO.prendario.nombre))));
+                __builder2.AddAttribute(200, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.nombre));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(281, "\r\n\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(282, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(283, "\r\n                ");
-                __builder2.OpenElement(284, "div");
-                __builder2.AddAttribute(285, "class", "col-md-3");
-                __builder2.AddMarkupContent(286, "\r\n                    ");
-                __builder2.AddMarkupContent(287, "<label style=\"color:white\">Tipo Doc.</label>\r\n                    ");
-                __builder2.OpenElement(288, "div");
-                __builder2.AddMarkupContent(289, "\r\n                        ");
-                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputSelect_5(__builder2, 290, 291, "form-control", 292, 
+                __builder2.AddMarkupContent(201, "\r\n                ");
+                __builder2.OpenElement(202, "div");
+                __builder2.AddAttribute(203, "class", "col-md-3");
+                __builder2.AddMarkupContent(204, "<label style=\"color:white\">Tipo Doc.</label>\r\n                    ");
+                __builder2.OpenElement(205, "div");
+                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputSelect_5(__builder2, 206, 207, "form-control", 208, 
 #line 173 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                   oEmitirCotizacionAutoDTO.prendario.tipoDocumento
 
 #line default
 #line hidden
-                , 293, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.tipoDocumento = __value, oEmitirCotizacionAutoDTO.prendario.tipoDocumento)), 294, () => oEmitirCotizacionAutoDTO.prendario.tipoDocumento, 295, (__builder3) => {
-                    __builder3.AddMarkupContent(296, "\r\n                            ");
-                    __builder3.AddMarkupContent(297, "<option value>Tipo Doc ...</option>\r\n");
+                , 209, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.tipoDocumento = __value, oEmitirCotizacionAutoDTO.prendario.tipoDocumento)), 210, () => oEmitirCotizacionAutoDTO.prendario.tipoDocumento, 211, (__builder3) => {
+                    __builder3.AddMarkupContent(212, "<option value>Tipo Doc ...</option>");
 #line 175 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                              foreach (var oTipoDocumento in oTipoDocumentoDTOList)
                                 {
 
 #line default
 #line hidden
-                    __builder3.AddContent(298, "                                ");
-                    __builder3.OpenElement(299, "option");
-                    __builder3.AddAttribute(300, "value", 
+                    __builder3.OpenElement(213, "option");
+                    __builder3.AddAttribute(214, "value", 
 #line 177 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                 oTipoDocumento.tipoDocumentoID
 
 #line default
 #line hidden
                     );
-                    __builder3.AddContent(301, 
+                    __builder3.AddContent(215, 
 #line 177 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                                  oTipoDocumento.nombre
 
@@ -593,124 +507,100 @@ else
 #line hidden
                     );
                     __builder3.CloseElement();
-                    __builder3.AddMarkupContent(302, "\r\n");
 #line 178 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                 }
 
 #line default
 #line hidden
-                    __builder3.AddContent(303, "                        ");
                 }
                 );
-                __builder2.AddMarkupContent(304, "\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(305, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(306, "\r\n\r\n                ");
-                __builder2.OpenElement(307, "div");
-                __builder2.AddAttribute(308, "class", "col-md-4");
-                __builder2.AddMarkupContent(309, "\r\n                    ");
-                __builder2.AddMarkupContent(310, "<label style=\"color:white\">Nro. Doc.</label>\r\n                    ");
-                __builder2.OpenElement(311, "div");
-                __builder2.AddMarkupContent(312, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(313);
-                __builder2.AddAttribute(314, "class", "form-control");
-                __builder2.AddAttribute(315, "placeholder", "Nro. Doc.");
-                __builder2.AddAttribute(316, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(216, "\r\n\r\n                ");
+                __builder2.OpenElement(217, "div");
+                __builder2.AddAttribute(218, "class", "col-md-4");
+                __builder2.AddMarkupContent(219, "<label style=\"color:white\">Nro. Doc.</label>\r\n                    ");
+                __builder2.OpenElement(220, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(221);
+                __builder2.AddAttribute(222, "class", "form-control");
+                __builder2.AddAttribute(223, "placeholder", "Nro. Doc.");
+                __builder2.AddAttribute(224, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 186 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                 oEmitirCotizacionAutoDTO.prendario.numeroDocumento
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(317, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.numeroDocumento = __value, oEmitirCotizacionAutoDTO.prendario.numeroDocumento))));
-                __builder2.AddAttribute(318, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.numeroDocumento));
+                __builder2.AddAttribute(225, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.numeroDocumento = __value, oEmitirCotizacionAutoDTO.prendario.numeroDocumento))));
+                __builder2.AddAttribute(226, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.numeroDocumento));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(319, "\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(320, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(321, "\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(322, "\r\n\r\n            ");
-                __builder2.AddMarkupContent(323, "<div class=\"row\" style=\"margin:10px\">\r\n\r\n            </div>\r\n            ");
-                __builder2.OpenElement(324, "div");
-                __builder2.AddAttribute(325, "class", "row");
-                __builder2.AddAttribute(326, "style", "margin:10px");
-                __builder2.AddMarkupContent(327, "\r\n                ");
-                __builder2.OpenElement(328, "div");
-                __builder2.AddAttribute(329, "class", "col-md-5");
-                __builder2.AddMarkupContent(330, "\r\n                    ");
-                __builder2.AddMarkupContent(331, "<label style=\"color:white\">Fecha Nacimiento:</label>\r\n                    ");
-                __builder2.OpenElement(332, "div");
-                __builder2.AddMarkupContent(333, "\r\n                        ");
-                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputDate_6(__builder2, 334, 335, "form-control", 336, 
+                __builder2.AddMarkupContent(227, "\r\n\r\n            <div class=\"row\" style=\"margin:10px\"></div>\r\n            ");
+                __builder2.OpenElement(228, "div");
+                __builder2.AddAttribute(229, "class", "row");
+                __builder2.AddAttribute(230, "style", "margin:10px");
+                __builder2.OpenElement(231, "div");
+                __builder2.AddAttribute(232, "class", "col-md-5");
+                __builder2.AddMarkupContent(233, "<label style=\"color:white\">Fecha Nacimiento:</label>\r\n                    ");
+                __builder2.OpenElement(234, "div");
+                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputDate_6(__builder2, 235, 236, "form-control", 237, 
 #line 198 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                      ofechaNacimiento
 
 #line default
 #line hidden
-                , 337, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => ofechaNacimiento = __value, ofechaNacimiento)), 338, () => ofechaNacimiento);
-                __builder2.AddMarkupContent(339, "\r\n                    ");
+                , 238, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => ofechaNacimiento = __value, ofechaNacimiento)), 239, () => ofechaNacimiento);
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(340, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(341, "\r\n                ");
-                __builder2.OpenElement(342, "div");
-                __builder2.AddAttribute(343, "class", "col-md-2");
-                __builder2.AddMarkupContent(344, "\r\n                    ");
-                __builder2.AddMarkupContent(345, "<label style=\"color:white\">Sexo</label>\r\n                    ");
-                __builder2.OpenElement(346, "div");
-                __builder2.AddMarkupContent(347, "\r\n                        ");
-                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputSelect_7(__builder2, 348, 349, "form-control", 350, 
+                __builder2.AddMarkupContent(240, "\r\n                ");
+                __builder2.OpenElement(241, "div");
+                __builder2.AddAttribute(242, "class", "col-md-2");
+                __builder2.AddMarkupContent(243, "<label style=\"color:white\">Sexo</label>\r\n                    ");
+                __builder2.OpenElement(244, "div");
+                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputSelect_7(__builder2, 245, 246, "form-control", 247, 
 #line 204 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                   oEmitirCotizacionAutoDTO.prendario.sexo
 
 #line default
 #line hidden
-                , 351, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.sexo = __value, oEmitirCotizacionAutoDTO.prendario.sexo)), 352, () => oEmitirCotizacionAutoDTO.prendario.sexo, 353, (__builder3) => {
-                    __builder3.AddMarkupContent(354, "\r\n                            ");
-                    __builder3.AddMarkupContent(355, "<option value>Sexo ...</option>\r\n                            ");
-                    __builder3.AddMarkupContent(356, "<option value=\"F\">Femenino</option>\r\n                            ");
-                    __builder3.AddMarkupContent(357, "<option value=\"M\">Masculino</option>\r\n                        ");
+                , 248, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.sexo = __value, oEmitirCotizacionAutoDTO.prendario.sexo)), 249, () => oEmitirCotizacionAutoDTO.prendario.sexo, 250, (__builder3) => {
+                    __builder3.AddMarkupContent(251, "<option value>Sexo ...</option>\r\n                            ");
+                    __builder3.AddMarkupContent(252, "<option value=\"F\">Femenino</option>\r\n                            ");
+                    __builder3.AddMarkupContent(253, "<option value=\"M\">Masculino</option>");
                 }
                 );
-                __builder2.AddMarkupContent(358, "\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(359, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(360, "\r\n\r\n                ");
-                __builder2.OpenElement(361, "div");
-                __builder2.AddAttribute(362, "class", "col-md-3");
-                __builder2.AddMarkupContent(363, "\r\n                    ");
-                __builder2.AddMarkupContent(364, "<label style=\"color:white\">Condicion Iva</label>\r\n                    ");
-                __builder2.OpenElement(365, "div");
-                __builder2.AddMarkupContent(366, "\r\n                        ");
-                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputSelect_8(__builder2, 367, 368, "form-control", 369, 
+                __builder2.AddMarkupContent(254, "\r\n\r\n                ");
+                __builder2.OpenElement(255, "div");
+                __builder2.AddAttribute(256, "class", "col-md-3");
+                __builder2.AddMarkupContent(257, "<label style=\"color:white\">Condicion Iva</label>\r\n                    ");
+                __builder2.OpenElement(258, "div");
+                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputSelect_8(__builder2, 259, 260, "form-control", 261, 
 #line 215 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                   oEmitirCotizacionAutoDTO.prendario.condicionIVA
 
 #line default
 #line hidden
-                , 370, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.condicionIVA = __value, oEmitirCotizacionAutoDTO.prendario.condicionIVA)), 371, () => oEmitirCotizacionAutoDTO.prendario.condicionIVA, 372, (__builder3) => {
-                    __builder3.AddMarkupContent(373, "\r\n                            ");
-                    __builder3.AddMarkupContent(374, "<option value>Iva ...</option>\r\n");
+                , 262, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.condicionIVA = __value, oEmitirCotizacionAutoDTO.prendario.condicionIVA)), 263, () => oEmitirCotizacionAutoDTO.prendario.condicionIVA, 264, (__builder3) => {
+                    __builder3.AddMarkupContent(265, "<option value>Iva ...</option>");
 #line 217 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                              foreach (var oCondicionesIVA in oCondicionesIVADTOList)
                                 {
 
 #line default
 #line hidden
-                    __builder3.AddContent(375, "                                ");
-                    __builder3.OpenElement(376, "option");
-                    __builder3.AddAttribute(377, "value", 
+                    __builder3.OpenElement(266, "option");
+                    __builder3.AddAttribute(267, "value", 
 #line 219 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                 oCondicionesIVA.condicionIVAID
 
 #line default
 #line hidden
                     );
-                    __builder3.AddContent(378, 
+                    __builder3.AddContent(268, 
 #line 219 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                                  oCondicionesIVA.nombre
 
@@ -718,131 +608,111 @@ else
 #line hidden
                     );
                     __builder3.CloseElement();
-                    __builder3.AddMarkupContent(379, "\r\n");
 #line 220 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                 }
 
 #line default
 #line hidden
-                    __builder3.AddContent(380, "                        ");
                 }
                 );
-                __builder2.AddMarkupContent(381, "\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(382, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(383, "\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(384, "\r\n\r\n            ");
-                __builder2.OpenElement(385, "div");
-                __builder2.AddAttribute(386, "class", "row");
-                __builder2.AddAttribute(387, "style", "margin:10px");
-                __builder2.AddMarkupContent(388, "\r\n                ");
-                __builder2.OpenElement(389, "div");
-                __builder2.AddAttribute(390, "class", "col-md-7");
-                __builder2.AddMarkupContent(391, "\r\n                    ");
-                __builder2.AddMarkupContent(392, "<label style=\"color:white\">Domicilio Calle</label>\r\n                    ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(393);
-                __builder2.AddAttribute(394, "class", "form-control");
-                __builder2.AddAttribute(395, "placeholder", "Calle");
-                __builder2.AddAttribute(396, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(269, "\r\n\r\n            ");
+                __builder2.OpenElement(270, "div");
+                __builder2.AddAttribute(271, "class", "row");
+                __builder2.AddAttribute(272, "style", "margin:10px");
+                __builder2.OpenElement(273, "div");
+                __builder2.AddAttribute(274, "class", "col-md-7");
+                __builder2.AddMarkupContent(275, "<label style=\"color:white\">Domicilio Calle</label>\r\n                    ");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(276);
+                __builder2.AddAttribute(277, "class", "form-control");
+                __builder2.AddAttribute(278, "placeholder", "Calle");
+                __builder2.AddAttribute(279, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 229 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                             oEmitirCotizacionAutoDTO.prendario.domicilio
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(397, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.domicilio = __value, oEmitirCotizacionAutoDTO.prendario.domicilio))));
-                __builder2.AddAttribute(398, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.domicilio));
+                __builder2.AddAttribute(280, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.domicilio = __value, oEmitirCotizacionAutoDTO.prendario.domicilio))));
+                __builder2.AddAttribute(281, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.domicilio));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(399, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(400, "\r\n                ");
-                __builder2.OpenElement(401, "div");
-                __builder2.AddAttribute(402, "class", "col-md-2");
-                __builder2.AddMarkupContent(403, "\r\n                    ");
-                __builder2.AddMarkupContent(404, "<label style=\"color:white\">Nro</label>\r\n                    ");
-                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputNumber_9(__builder2, 405, 406, "form-control", 407, "Nro", 408, 
+                __builder2.AddMarkupContent(282, "\r\n                ");
+                __builder2.OpenElement(283, "div");
+                __builder2.AddAttribute(284, "class", "col-md-2");
+                __builder2.AddMarkupContent(285, "<label style=\"color:white\">Nro</label>\r\n                    ");
+                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputNumber_9(__builder2, 286, 287, "form-control", 288, "Nro", 289, 
 #line 233 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                               oEmitirCotizacionAutoDTO.prendario.domicilioNumero
 
 #line default
 #line hidden
-                , 409, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.domicilioNumero = __value, oEmitirCotizacionAutoDTO.prendario.domicilioNumero)), 410, () => oEmitirCotizacionAutoDTO.prendario.domicilioNumero);
-                __builder2.AddMarkupContent(411, "\r\n                ");
+                , 290, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.domicilioNumero = __value, oEmitirCotizacionAutoDTO.prendario.domicilioNumero)), 291, () => oEmitirCotizacionAutoDTO.prendario.domicilioNumero);
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(412, "\r\n                ");
-                __builder2.OpenElement(413, "div");
-                __builder2.AddAttribute(414, "class", "col-md-2");
-                __builder2.AddMarkupContent(415, "\r\n                    ");
-                __builder2.AddMarkupContent(416, "<label style=\"color:white\">Piso</label>\r\n                    ");
-                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputNumber_10(__builder2, 417, 418, "form-control", 419, "Piso", 420, 
+                __builder2.AddMarkupContent(292, "\r\n                ");
+                __builder2.OpenElement(293, "div");
+                __builder2.AddAttribute(294, "class", "col-md-2");
+                __builder2.AddMarkupContent(295, "<label style=\"color:white\">Piso</label>\r\n                    ");
+                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputNumber_10(__builder2, 296, 297, "form-control", 298, "Piso", 299, 
 #line 237 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                               oEmitirCotizacionAutoDTO.prendario.domicilioPiso
 
 #line default
 #line hidden
-                , 421, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.domicilioPiso = __value, oEmitirCotizacionAutoDTO.prendario.domicilioPiso)), 422, () => oEmitirCotizacionAutoDTO.prendario.domicilioPiso);
-                __builder2.AddMarkupContent(423, "\r\n                ");
+                , 300, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.domicilioPiso = __value, oEmitirCotizacionAutoDTO.prendario.domicilioPiso)), 301, () => oEmitirCotizacionAutoDTO.prendario.domicilioPiso);
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(424, "\r\n                ");
-                __builder2.OpenElement(425, "div");
-                __builder2.AddAttribute(426, "class", "col-md-1");
-                __builder2.AddMarkupContent(427, "\r\n                    ");
-                __builder2.AddMarkupContent(428, "<label style=\"color:white\">Dto</label>\r\n                    ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(429);
-                __builder2.AddAttribute(430, "class", "form-control");
-                __builder2.AddAttribute(431, "placeholder", "Dto");
-                __builder2.AddAttribute(432, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(302, "\r\n                ");
+                __builder2.OpenElement(303, "div");
+                __builder2.AddAttribute(304, "class", "col-md-1");
+                __builder2.AddMarkupContent(305, "<label style=\"color:white\">Dto</label>\r\n                    ");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(306);
+                __builder2.AddAttribute(307, "class", "form-control");
+                __builder2.AddAttribute(308, "placeholder", "Dto");
+                __builder2.AddAttribute(309, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 241 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                             oEmitirCotizacionAutoDTO.prendario.domicilioDpto
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(433, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.domicilioDpto = __value, oEmitirCotizacionAutoDTO.prendario.domicilioDpto))));
-                __builder2.AddAttribute(434, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.domicilioDpto));
+                __builder2.AddAttribute(310, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.domicilioDpto = __value, oEmitirCotizacionAutoDTO.prendario.domicilioDpto))));
+                __builder2.AddAttribute(311, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.domicilioDpto));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(435, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(436, "\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(437, "\r\n\r\n            ");
-                __builder2.OpenElement(438, "div");
-                __builder2.AddAttribute(439, "class", "row");
-                __builder2.AddAttribute(440, "style", "margin:10px");
-                __builder2.AddMarkupContent(441, "\r\n                ");
-                __builder2.OpenElement(442, "div");
-                __builder2.AddAttribute(443, "class", "col-md-5");
-                __builder2.AddMarkupContent(444, "\r\n                    ");
-                __builder2.AddMarkupContent(445, "<label style=\"color:white\">Provincia</label>\r\n                    ");
-                __builder2.OpenElement(446, "div");
-                __builder2.AddMarkupContent(447, "\r\n                        ");
-                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputSelect_11(__builder2, 448, 449, "form-control", 450, 
+                __builder2.AddMarkupContent(312, "\r\n\r\n            ");
+                __builder2.OpenElement(313, "div");
+                __builder2.AddAttribute(314, "class", "row");
+                __builder2.AddAttribute(315, "style", "margin:10px");
+                __builder2.OpenElement(316, "div");
+                __builder2.AddAttribute(317, "class", "col-md-5");
+                __builder2.AddMarkupContent(318, "<label style=\"color:white\">Provincia</label>\r\n                    ");
+                __builder2.OpenElement(319, "div");
+                __Blazor.Project.Client.Pages.ZirenPages.Emision.TypeInference.CreateInputSelect_11(__builder2, 320, 321, "form-control", 322, 
 #line 249 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                   oEmitirCotizacionAutoDTO.prendario.provinciaID
 
 #line default
 #line hidden
-                , 451, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.provinciaID = __value, oEmitirCotizacionAutoDTO.prendario.provinciaID)), 452, () => oEmitirCotizacionAutoDTO.prendario.provinciaID, 453, (__builder3) => {
-                    __builder3.AddMarkupContent(454, "\r\n                            ");
-                    __builder3.AddMarkupContent(455, "<option value>Provincia ...</option>\r\n");
+                , 323, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.provinciaID = __value, oEmitirCotizacionAutoDTO.prendario.provinciaID)), 324, () => oEmitirCotizacionAutoDTO.prendario.provinciaID, 325, (__builder3) => {
+                    __builder3.AddMarkupContent(326, "<option value>Provincia ...</option>");
 #line 251 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                              foreach (var oProvincias in oProvinciasList)
                                 {
 
 #line default
 #line hidden
-                    __builder3.AddContent(456, "                                ");
-                    __builder3.OpenElement(457, "option");
-                    __builder3.AddAttribute(458, "value", 
+                    __builder3.OpenElement(327, "option");
+                    __builder3.AddAttribute(328, "value", 
 #line 253 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                 oProvincias.provinciaID
 
 #line default
 #line hidden
                     );
-                    __builder3.AddContent(459, 
+                    __builder3.AddContent(329, 
 #line 253 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                           oProvincias.descripcion
 
@@ -850,144 +720,118 @@ else
 #line hidden
                     );
                     __builder3.CloseElement();
-                    __builder3.AddMarkupContent(460, "\r\n");
 #line 254 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                 }
 
 #line default
 #line hidden
-                    __builder3.AddContent(461, "                        ");
                 }
                 );
-                __builder2.AddMarkupContent(462, "\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(463, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(464, "\r\n\r\n                ");
-                __builder2.OpenElement(465, "div");
-                __builder2.AddAttribute(466, "class", "col-md-5");
-                __builder2.AddMarkupContent(467, "\r\n                    ");
-                __builder2.AddMarkupContent(468, "<label style=\"color:white\">Localidad</label>\r\n                    ");
-                __builder2.OpenElement(469, "div");
-                __builder2.AddMarkupContent(470, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(471);
-                __builder2.AddAttribute(472, "class", "form-control");
-                __builder2.AddAttribute(473, "placeholder", "Localidad");
-                __builder2.AddAttribute(474, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(330, "\r\n\r\n                ");
+                __builder2.OpenElement(331, "div");
+                __builder2.AddAttribute(332, "class", "col-md-5");
+                __builder2.AddMarkupContent(333, "<label style=\"color:white\">Localidad</label>\r\n                    ");
+                __builder2.OpenElement(334, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(335);
+                __builder2.AddAttribute(336, "class", "form-control");
+                __builder2.AddAttribute(337, "placeholder", "Localidad");
+                __builder2.AddAttribute(338, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 262 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                 oEmitirCotizacionAutoDTO.prendario.localidad
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(475, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.localidad = __value, oEmitirCotizacionAutoDTO.prendario.localidad))));
-                __builder2.AddAttribute(476, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.localidad));
+                __builder2.AddAttribute(339, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.localidad = __value, oEmitirCotizacionAutoDTO.prendario.localidad))));
+                __builder2.AddAttribute(340, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.localidad));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(477, "\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(478, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(479, "\r\n                ");
-                __builder2.OpenElement(480, "div");
-                __builder2.AddAttribute(481, "class", "col-md-2");
-                __builder2.AddMarkupContent(482, "\r\n                    ");
-                __builder2.AddMarkupContent(483, "<label style=\"color:white\">CP.</label>\r\n                    ");
-                __builder2.OpenElement(484, "div");
-                __builder2.AddMarkupContent(485, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(486);
-                __builder2.AddAttribute(487, "class", "form-control");
-                __builder2.AddAttribute(488, "placeholder", "CP");
-                __builder2.AddAttribute(489, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(341, "\r\n                ");
+                __builder2.OpenElement(342, "div");
+                __builder2.AddAttribute(343, "class", "col-md-2");
+                __builder2.AddMarkupContent(344, "<label style=\"color:white\">CP.</label>\r\n                    ");
+                __builder2.OpenElement(345, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(346);
+                __builder2.AddAttribute(347, "class", "form-control");
+                __builder2.AddAttribute(348, "placeholder", "CP");
+                __builder2.AddAttribute(349, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 268 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                 oEmitirCotizacionAutoDTO.prendario.codigoPostal
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(490, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.codigoPostal = __value, oEmitirCotizacionAutoDTO.prendario.codigoPostal))));
-                __builder2.AddAttribute(491, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.codigoPostal));
+                __builder2.AddAttribute(350, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.codigoPostal = __value, oEmitirCotizacionAutoDTO.prendario.codigoPostal))));
+                __builder2.AddAttribute(351, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.codigoPostal));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(492, "\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(493, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(494, "\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(495, "\r\n\r\n            ");
-                __builder2.OpenElement(496, "div");
-                __builder2.AddAttribute(497, "class", "row");
-                __builder2.AddAttribute(498, "style", "margin:10px");
-                __builder2.AddMarkupContent(499, "\r\n\r\n\r\n                ");
-                __builder2.OpenElement(500, "div");
-                __builder2.AddAttribute(501, "class", "col-md-5");
-                __builder2.AddMarkupContent(502, "\r\n                    ");
-                __builder2.AddMarkupContent(503, "<label style=\"color:white\">Telefono</label>\r\n                    ");
-                __builder2.OpenElement(504, "div");
-                __builder2.AddMarkupContent(505, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(506);
-                __builder2.AddAttribute(507, "class", "form-control");
-                __builder2.AddAttribute(508, "placeholder", "Tel.");
-                __builder2.AddAttribute(509, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(352, "\r\n\r\n            ");
+                __builder2.OpenElement(353, "div");
+                __builder2.AddAttribute(354, "class", "row");
+                __builder2.AddAttribute(355, "style", "margin:10px");
+                __builder2.OpenElement(356, "div");
+                __builder2.AddAttribute(357, "class", "col-md-5");
+                __builder2.AddMarkupContent(358, "<label style=\"color:white\">Telefono</label>\r\n                    ");
+                __builder2.OpenElement(359, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(360);
+                __builder2.AddAttribute(361, "class", "form-control");
+                __builder2.AddAttribute(362, "placeholder", "Tel.");
+                __builder2.AddAttribute(363, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 279 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                 oEmitirCotizacionAutoDTO.prendario.telefono
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(510, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.telefono = __value, oEmitirCotizacionAutoDTO.prendario.telefono))));
-                __builder2.AddAttribute(511, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.telefono));
+                __builder2.AddAttribute(364, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.telefono = __value, oEmitirCotizacionAutoDTO.prendario.telefono))));
+                __builder2.AddAttribute(365, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.telefono));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(512, "\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(513, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(514, "\r\n                ");
-                __builder2.OpenElement(515, "div");
-                __builder2.AddAttribute(516, "class", "col-md-5");
-                __builder2.AddMarkupContent(517, "\r\n                    ");
-                __builder2.AddMarkupContent(518, "<label style=\"color:white\">Mail</label>\r\n                    ");
-                __builder2.OpenElement(519, "div");
-                __builder2.AddMarkupContent(520, "\r\n                        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(521);
-                __builder2.AddAttribute(522, "class", "form-control");
-                __builder2.AddAttribute(523, "placeholder", "Mail");
-                __builder2.AddAttribute(524, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(366, "\r\n                ");
+                __builder2.OpenElement(367, "div");
+                __builder2.AddAttribute(368, "class", "col-md-5");
+                __builder2.AddMarkupContent(369, "<label style=\"color:white\">Mail</label>\r\n                    ");
+                __builder2.OpenElement(370, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(371);
+                __builder2.AddAttribute(372, "class", "form-control");
+                __builder2.AddAttribute(373, "placeholder", "Mail");
+                __builder2.AddAttribute(374, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 285 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                 oEmitirCotizacionAutoDTO.prendario.mail
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(525, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.mail = __value, oEmitirCotizacionAutoDTO.prendario.mail))));
-                __builder2.AddAttribute(526, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.mail));
+                __builder2.AddAttribute(375, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => oEmitirCotizacionAutoDTO.prendario.mail = __value, oEmitirCotizacionAutoDTO.prendario.mail))));
+                __builder2.AddAttribute(376, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => oEmitirCotizacionAutoDTO.prendario.mail));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(527, "\r\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(528, "\r\n                ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(529, "\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(530, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(531, "\r\n\r\n\r\n    ");
             }
             ));
             __builder.CloseComponent();
-            __builder.AddMarkupContent(532, "\r\n    ");
-            __builder.OpenElement(533, "button");
-            __builder.AddAttribute(534, "type", "button");
-            __builder.AddAttribute(535, "class", "btn btn-success");
-            __builder.AddAttribute(536, "style", "width:200px");
-            __builder.AddAttribute(537, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(377, "\r\n    ");
+            __builder.OpenElement(378, "button");
+            __builder.AddAttribute(379, "type", "button");
+            __builder.AddAttribute(380, "class", "btn btn-success");
+            __builder.AddAttribute(381, "style", "width:200px");
+            __builder.AddAttribute(382, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 294 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
                                                                                   () => OnClickHandle()
 
 #line default
 #line hidden
             ));
-            __builder.AddMarkupContent(538, "\r\n        Emitir\r\n    ");
+            __builder.AddMarkupContent(383, "\r\n        Emitir\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(539, "\r\n");
 #line 297 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
 }
 

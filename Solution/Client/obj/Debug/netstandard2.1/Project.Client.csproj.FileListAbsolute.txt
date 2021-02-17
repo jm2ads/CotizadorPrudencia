@@ -1,4 +1,3 @@
-D:\JM2\WP\CotizadorPrudencia\Solution\Client\bin\Debug\netstandard2.1\Properties\launchSettings.json
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\bin\Debug\netstandard2.1\Project.Client.StaticWebAssets.xml
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\bin\Debug\netstandard2.1\Project.Client.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\bin\Debug\netstandard2.1\Project.Client.pdb
@@ -573,10 +572,11 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\Project.Cl
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\Project.Client.pdb
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\blazor\serviceworkers\wwwroot\service-worker.js
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\blazor\service-worker-assets.js
-D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\o07wPckjBRB0MJcpIKmByu7qO0GCs-nX9LZEOE3xJvQ=.hash
-D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\S-BHWknOWvcjynRlJnrAj806RGwiwj8VcDlkQbdxVsk=.hash
-D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\ni_KBj0JbRiOoaEshEGIOWyE81n3LUtc0hHEsOHdPVg=.hash
-D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\pCMZUlZaseqOH_9zRIcig12zc6JleySpDTwohdOX0aI=.hash
-D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\dqdrUWTAD3stay3T1KTjETFUoYAL-O9X9Nr3zA4l1bI=.hash
-D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\1lviWdj9shCHxDfAjCGIziMR0IJ9hyAMtzF8Ve4e1NY=.hash
-D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\46jqJ8UxX3NhTCR5_JIkVtAL2nf-DFpCxgY2WWE00SI=.hash
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\Project.Client.RazorComponent.output.cache
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\NeR9cty1X1rnRqTEZHcAgqXtlmNORmkHxobFbA6OEA8=.hash
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\t_Kr4IvWKqRr7Xx2e8lABGH4K2WJkFadg4e4xwDRY6M=.hash
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\zJbSb5QWoQO7ZgeMe67PBeeTYnahtYeJbpB64xOoeWo=.hash
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\wWHXgxPrFw6StfYrvNnntpvGxt0wSP1wASgr1-5KLXA=.hash
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\0BB6H7qWvzoAdMu7R1LnbV9MHN2ffZG1ZmwoE51lAjs=.hash
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\scopedcss\bundle\Project.Client.styles.css
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\netstandard2.1\integrity\cmk0Fj7YF2ZeFg-_638svlEgvEpowA55vopHPxs5A_8=.hash

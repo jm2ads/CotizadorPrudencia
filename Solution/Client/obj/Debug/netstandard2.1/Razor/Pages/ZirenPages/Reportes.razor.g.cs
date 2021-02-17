@@ -102,11 +102,10 @@ using System.Text.Json;
 #line hidden
             ));
             __builder.AddAttribute(4, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder2) => {
-                __builder2.AddMarkupContent(5, "\r\n\r\n    ");
-                __builder2.AddMarkupContent(6, "<div>Borrar?</div>\r\n\r\n");
+                __builder2.AddMarkupContent(5, "<div>Borrar?</div>");
             }
             ));
-            __builder.AddComponentReferenceCapture(7, (__value) => {
+            __builder.AddComponentReferenceCapture(6, (__value) => {
 #line 9 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
                      oReportesPopUp = (Project.Client.Shared.ReportesPopUp)__value;
 
@@ -115,51 +114,45 @@ using System.Text.Json;
             }
             );
             __builder.CloseComponent();
-            __builder.AddMarkupContent(8, "\r\n\r\n\r\n");
-            __builder.OpenElement(9, "div");
-            __builder.AddAttribute(10, "class", "row");
-            __builder.AddAttribute(11, "style", "margin:0px");
-            __builder.AddMarkupContent(12, "\r\n    ");
-            __builder.OpenElement(13, "div");
-            __builder.AddAttribute(14, "class", "col-md-6");
-            __builder.AddAttribute(15, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
-            __builder.AddMarkupContent(16, "\r\n        ");
-            __builder.OpenElement(17, "input");
-            __builder.AddAttribute(18, "onkeyup", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.KeyboardEventArgs>(this, 
+            __builder.AddMarkupContent(7, "\r\n\r\n\r\n");
+            __builder.OpenElement(8, "div");
+            __builder.AddAttribute(9, "class", "row");
+            __builder.AddAttribute(10, "style", "margin:0px");
+            __builder.OpenElement(11, "div");
+            __builder.AddAttribute(12, "class", "col-md-6");
+            __builder.AddAttribute(13, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
+            __builder.OpenElement(14, "input");
+            __builder.AddAttribute(15, "onkeyup", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.KeyboardEventArgs>(this, 
 #line 19 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
                            (KeyboardEventArgs e) => MarcaKeyUp(e)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(19, "type", "text");
-            __builder.AddAttribute(20, "class", "form-control");
-            __builder.AddAttribute(21, "id", "titulo");
-            __builder.AddAttribute(22, "placeholder", "Busqueda");
-            __builder.AddAttribute(23, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddAttribute(16, "type", "text");
+            __builder.AddAttribute(17, "class", "form-control");
+            __builder.AddAttribute(18, "id", "titulo");
+            __builder.AddAttribute(19, "placeholder", "Busqueda");
+            __builder.AddAttribute(20, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #line 18 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
                             oValue
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(24, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => oValue = __value, oValue));
+            __builder.AddAttribute(21, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => oValue = __value, oValue));
             __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
-            __builder.AddMarkupContent(25, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(26, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(27, "\r\n\r\n\r\n");
 #line 25 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
  if (oRespuestaPolizaImpresionDTOAuxList == null || oHidden == false)
 {
 
 #line default
 #line hidden
-            __builder.OpenComponent<Project.Client.Shared.Cargando>(28);
+            __builder.OpenComponent<Project.Client.Shared.Cargando>(22);
             __builder.CloseComponent();
-            __builder.AddMarkupContent(29, "\r\n");
 #line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
 }
 else
@@ -175,8 +168,8 @@ else
 
 #line default
 #line hidden
-            __builder.AddMarkupContent(30, "No hay registros para mostrar\r\n        ");
-            __builder.AddMarkupContent(31, "<p><em>No hay registros para mostrar</em></p>\r\n");
+            __builder.AddMarkupContent(23, "No hay registros para mostrar\r\n        ");
+            __builder.AddMarkupContent(24, "<p><em>No hay registros para mostrar</em></p>");
 #line 35 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
     }
     else
@@ -184,61 +177,44 @@ else
 
 #line default
 #line hidden
-            __builder.OpenElement(32, "div");
-            __builder.AddAttribute(33, "style", "display: flex; flex-wrap: wrap; align-items: center;");
-            __builder.AddMarkupContent(34, "\r\n    ");
-            __builder.OpenElement(35, "table");
-            __builder.AddAttribute(36, "class", "table");
-            __builder.AddMarkupContent(37, "\r\n        ");
-            __builder.AddMarkupContent(38, @"<thead>
-            <tr>
-                <th style=""color:white"">Poliza Id</th>
-                <th style=""color:white"">Nombre</th>
-                <th style=""color:white"">Documento</th>
-                <th style=""color:white"">Vigencia</th>
-            </tr>
-        </thead>
-        ");
-            __builder.OpenElement(39, "tbody");
-            __builder.AddMarkupContent(40, "\r\n");
+            __builder.OpenElement(25, "div");
+            __builder.AddAttribute(26, "style", "display: flex; flex-wrap: wrap; align-items: center;");
+            __builder.OpenElement(27, "table");
+            __builder.AddAttribute(28, "class", "table");
+            __builder.AddMarkupContent(29, "<thead><tr><th style=\"color:white\">Poliza Id</th>\r\n                <th style=\"color:white\">Nombre</th>\r\n                <th style=\"color:white\">Documento</th>\r\n                <th style=\"color:white\">Vigencia</th></tr></thead>\r\n        ");
+            __builder.OpenElement(30, "tbody");
 #line 49 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
              foreach (var oRespuestaPolizaImpresionDTO in oRespuestaPolizaImpresionDTOAuxList)
             {
 
 #line default
 #line hidden
-            __builder.AddContent(41, "                ");
-            __builder.OpenElement(42, "tr");
-            __builder.AddMarkupContent(43, "\r\n                    ");
-            __builder.OpenElement(44, "td");
-            __builder.AddMarkupContent(45, "\r\n                        ");
-            __builder.OpenElement(46, "button");
-            __builder.AddAttribute(47, "type", "button");
-            __builder.AddAttribute(48, "class", "btn btn-info");
-            __builder.AddAttribute(49, "style", "width:200px");
-            __builder.AddAttribute(50, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.OpenElement(31, "tr");
+            __builder.OpenElement(32, "td");
+            __builder.OpenElement(33, "button");
+            __builder.AddAttribute(34, "type", "button");
+            __builder.AddAttribute(35, "class", "btn btn-info");
+            __builder.AddAttribute(36, "style", "width:200px");
+            __builder.AddAttribute(37, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 53 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
                                                                                                    () => BtnOnClick(@oRespuestaPolizaImpresionDTO.id)
 
 #line default
 #line hidden
             ));
-            __builder.AddMarkupContent(51, "\r\n                            ");
-            __builder.AddContent(52, 
+            __builder.AddContent(38, 
 #line 54 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
                              oRespuestaPolizaImpresionDTO.id
 
 #line default
 #line hidden
             );
-            __builder.AddMarkupContent(53, "\r\n                        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(54, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(55, "\r\n                    ");
-            __builder.OpenElement(56, "td");
-            __builder.AddAttribute(57, "style", "color:white");
-            __builder.AddContent(58, 
+            __builder.AddMarkupContent(39, "\r\n                    ");
+            __builder.OpenElement(40, "td");
+            __builder.AddAttribute(41, "style", "color:white");
+            __builder.AddContent(42, 
 #line 57 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
                                              oRespuestaPolizaImpresionDTO.nombreAsegurado
 
@@ -246,10 +222,10 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(59, "\r\n                    ");
-            __builder.OpenElement(60, "td");
-            __builder.AddAttribute(61, "style", "color:white");
-            __builder.AddContent(62, 
+            __builder.AddMarkupContent(43, "\r\n                    ");
+            __builder.OpenElement(44, "td");
+            __builder.AddAttribute(45, "style", "color:white");
+            __builder.AddContent(46, 
 #line 58 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
                                              oRespuestaPolizaImpresionDTO.numeroDocumento
 
@@ -257,10 +233,10 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(63, "\r\n                    ");
-            __builder.OpenElement(64, "td");
-            __builder.AddAttribute(65, "style", "color:white");
-            __builder.AddContent(66, 
+            __builder.AddMarkupContent(47, "\r\n                    ");
+            __builder.OpenElement(48, "td");
+            __builder.AddAttribute(49, "style", "color:white");
+            __builder.AddContent(50, 
 #line 59 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
                                              oRespuestaPolizaImpresionDTO.finVigencia.Substring(0,10)
 
@@ -268,21 +244,15 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(67, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(68, "\r\n");
 #line 61 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
             }
 
 #line default
 #line hidden
-            __builder.AddContent(69, "        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(70, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(71, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(72, "\r\n");
 #line 65 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
     }
 

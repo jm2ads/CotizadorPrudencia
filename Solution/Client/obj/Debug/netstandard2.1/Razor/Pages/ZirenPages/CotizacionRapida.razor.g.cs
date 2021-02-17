@@ -85,17 +85,15 @@ using System.Text.Json;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Cotizacion Rapida</h3>\r\n");
+            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Cotizacion Rapida</h3>");
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
  if (oRespuestaCotizacionAutoRapidaDTO == null)
 {
 
 #line default
 #line hidden
-            __builder.AddContent(1, "    ");
-            __builder.OpenComponent<Project.Client.Shared.Cargando>(2);
+            __builder.OpenComponent<Project.Client.Shared.Cargando>(1);
             __builder.CloseComponent();
-            __builder.AddMarkupContent(3, "\r\n");
 #line 14 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
 }
 else
@@ -110,9 +108,8 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(4, "        ");
-            __builder.AddMarkupContent(5, "<h3 style=\"color:white\">La versión del vehículo no es correcta</h3>\r\n        ");
-            __builder.AddMarkupContent(6, "<div style=\"height: 400px;display: flex;align-items: flex-start;\">\r\n            <a href=\"/ziren/marcas\" class=\"btn btn-success\" style=\"align-self:start; \">Volver</a>\r\n        </div>\r\n");
+            __builder.AddMarkupContent(2, "<h3 style=\"color:white\">La versión del vehículo no es correcta</h3>\r\n        ");
+            __builder.AddMarkupContent(3, "<div style=\"height: 400px;display: flex;align-items: flex-start;\"><a href=\"/ziren/marcas\" class=\"btn btn-success\" style=\"align-self:start; \">Volver</a></div>");
 #line 23 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
     }
     else
@@ -120,14 +117,11 @@ else
 
 #line default
 #line hidden
-            __builder.OpenElement(7, "div");
-            __builder.AddAttribute(8, "class", "container");
-            __builder.AddMarkupContent(9, "\r\n    ");
-            __builder.OpenElement(10, "table");
-            __builder.AddAttribute(11, "style", "width:100%;");
-            __builder.AddMarkupContent(12, "\r\n        ");
-            __builder.OpenElement(13, "tr");
-            __builder.AddMarkupContent(14, "\r\n");
+            __builder.OpenElement(4, "div");
+            __builder.AddAttribute(5, "class", "container");
+            __builder.OpenElement(6, "table");
+            __builder.AddAttribute(7, "style", "width:100%;");
+            __builder.OpenElement(8, "tr");
 #line 29 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
              if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C" || oAntiguedadGrupo == "D" || oAntiguedadGrupo == "E")
             {
@@ -141,31 +135,27 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(15, "                    ");
-            __builder.OpenElement(16, "td");
-            __builder.AddAttribute(17, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px");
-            __builder.AddMarkupContent(18, "\r\n                        ");
-            __builder.OpenElement(19, "img");
-            __builder.AddAttribute(20, "src", "/images/Coberturas/" + (
+            __builder.OpenElement(9, "td");
+            __builder.AddAttribute(10, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px");
+            __builder.OpenElement(11, "img");
+            __builder.AddAttribute(12, "src", "/images/Coberturas/" + (
 #line 34 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                        oCobSrc_a
 
 #line default
 #line hidden
             ) + ".png");
-            __builder.AddAttribute(21, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(13, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 34 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                                                    () => OnImageClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(22, "alt", "Poster");
-            __builder.AddAttribute(23, "style", "max-width: 100%;");
+            __builder.AddAttribute(14, "alt", "Poster");
+            __builder.AddAttribute(15, "style", "max-width: 100%;");
             __builder.CloseElement();
-            __builder.AddMarkupContent(24, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(25, "\r\n");
 #line 36 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                 }
 
@@ -190,31 +180,27 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(26, "                    ");
-            __builder.OpenElement(27, "td");
-            __builder.AddAttribute(28, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px");
-            __builder.AddMarkupContent(29, "\r\n                        ");
-            __builder.OpenElement(30, "img");
-            __builder.AddAttribute(31, "src", "/images/Coberturas/" + (
+            __builder.OpenElement(16, "td");
+            __builder.AddAttribute(17, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px");
+            __builder.OpenElement(18, "img");
+            __builder.AddAttribute(19, "src", "/images/Coberturas/" + (
 #line 43 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                        oCobSrc_b1
 
 #line default
 #line hidden
             ) + ".png");
-            __builder.AddAttribute(32, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(20, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 43 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                                                     () => OnImageClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(33, "alt", "Poster");
-            __builder.AddAttribute(34, "style", "max-width: 100%;");
+            __builder.AddAttribute(21, "alt", "Poster");
+            __builder.AddAttribute(22, "style", "max-width: 100%;");
             __builder.CloseElement();
-            __builder.AddMarkupContent(35, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(36, "\r\n");
 #line 45 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                 }
 
@@ -226,11 +212,9 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(37, "        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(38, "\r\n        ");
-            __builder.OpenElement(39, "tr");
-            __builder.AddMarkupContent(40, "\r\n");
+            __builder.AddMarkupContent(23, "\r\n        ");
+            __builder.OpenElement(24, "tr");
 #line 49 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
              if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C")
             {
@@ -244,32 +228,28 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(41, "                    ");
-            __builder.OpenElement(42, "td");
-            __builder.AddAttribute(43, "colspan", "2");
-            __builder.AddAttribute(44, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px");
-            __builder.AddMarkupContent(45, "\r\n                        ");
-            __builder.OpenElement(46, "img");
-            __builder.AddAttribute(47, "src", "/images/Coberturas/" + (
+            __builder.OpenElement(25, "td");
+            __builder.AddAttribute(26, "colspan", "2");
+            __builder.AddAttribute(27, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px");
+            __builder.OpenElement(28, "img");
+            __builder.AddAttribute(29, "src", "/images/Coberturas/" + (
 #line 54 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                        oCobSrc_c
 
 #line default
 #line hidden
             ) + ".png");
-            __builder.AddAttribute(48, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(30, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 54 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                                                    () => OnImageClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(49, "alt", "Poster");
-            __builder.AddAttribute(50, "style", "max-width: 100%;");
+            __builder.AddAttribute(31, "alt", "Poster");
+            __builder.AddAttribute(32, "style", "max-width: 100%;");
             __builder.CloseElement();
-            __builder.AddMarkupContent(51, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(52, "\r\n");
 #line 56 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                 }
 
@@ -281,11 +261,9 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(53, "        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(54, "\r\n        ");
-            __builder.OpenElement(55, "tr");
-            __builder.AddMarkupContent(56, "\r\n");
+            __builder.AddMarkupContent(33, "\r\n        ");
+            __builder.OpenElement(34, "tr");
 #line 60 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
              if (oAntiguedadGrupo == "B")
             {
@@ -299,31 +277,27 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(57, "                    ");
-            __builder.OpenElement(58, "td");
-            __builder.AddAttribute(59, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px");
-            __builder.AddMarkupContent(60, "\r\n                        ");
-            __builder.OpenElement(61, "img");
-            __builder.AddAttribute(62, "src", "/images/Coberturas/" + (
+            __builder.OpenElement(35, "td");
+            __builder.AddAttribute(36, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px");
+            __builder.OpenElement(37, "img");
+            __builder.AddAttribute(38, "src", "/images/Coberturas/" + (
 #line 65 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                        oCobSrc_cg
 
 #line default
 #line hidden
             ) + ".png");
-            __builder.AddAttribute(63, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(39, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 65 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                                                     () => OnImageClick("cg", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cg)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(64, "alt", "Poster");
-            __builder.AddAttribute(65, "style", "max-width: 100%;");
+            __builder.AddAttribute(40, "alt", "Poster");
+            __builder.AddAttribute(41, "style", "max-width: 100%;");
             __builder.CloseElement();
-            __builder.AddMarkupContent(66, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(67, "\r\n");
 #line 67 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                 }
 
@@ -349,31 +323,27 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(68, "                    ");
-            __builder.OpenElement(69, "td");
-            __builder.AddAttribute(70, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px");
-            __builder.AddMarkupContent(71, "\r\n                        ");
-            __builder.OpenElement(72, "img");
-            __builder.AddAttribute(73, "src", "/images/Coberturas/" + (
+            __builder.OpenElement(42, "td");
+            __builder.AddAttribute(43, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px");
+            __builder.OpenElement(44, "img");
+            __builder.AddAttribute(45, "src", "/images/Coberturas/" + (
 #line 75 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                        oCobSrc_cf
 
 #line default
 #line hidden
             ) + ".png");
-            __builder.AddAttribute(74, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(46, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 75 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                                                     () => OnImageClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(75, "alt", "Poster");
-            __builder.AddAttribute(76, "style", "max-width: 100%;");
+            __builder.AddAttribute(47, "alt", "Poster");
+            __builder.AddAttribute(48, "style", "max-width: 100%;");
             __builder.CloseElement();
-            __builder.AddMarkupContent(77, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(78, "\r\n");
 #line 77 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                 }
 
@@ -385,74 +355,56 @@ else
 
 #line default
 #line hidden
-            __builder.AddMarkupContent(79, "\r\n\r\n");
 #line 81 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
              if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2 > 0)
             {
 
 #line default
 #line hidden
-            __builder.AddContent(80, "                ");
-            __builder.OpenElement(81, "td");
-            __builder.AddAttribute(82, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px");
-            __builder.AddMarkupContent(83, "\r\n                    ");
-            __builder.OpenElement(84, "img");
-            __builder.AddAttribute(85, "src", "/images/Coberturas/" + (
+            __builder.OpenElement(49, "td");
+            __builder.AddAttribute(50, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px");
+            __builder.OpenElement(51, "img");
+            __builder.AddAttribute(52, "src", "/images/Coberturas/" + (
 #line 84 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                    oCobSrc_d2
 
 #line default
 #line hidden
             ) + ".png");
-            __builder.AddAttribute(86, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(53, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 84 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                                                 () => OnImageClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(87, "alt", "Poster");
-            __builder.AddAttribute(88, "style", "max-width: 100%;");
+            __builder.AddAttribute(54, "alt", "Poster");
+            __builder.AddAttribute(55, "style", "max-width: 100%;");
             __builder.CloseElement();
-            __builder.AddMarkupContent(89, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(90, "\r\n");
 #line 86 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
             }
 
 #line default
 #line hidden
-            __builder.AddMarkupContent(91, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(92, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(93, "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n    ");
-            __builder.OpenElement(94, "table");
-            __builder.AddAttribute(95, "style", "width:100%;text-align: center;border:solid;border-color:lightgrey;border-width:thin;");
-            __builder.AddMarkupContent(96, "\r\n        ");
-            __builder.AddMarkupContent(97, @"<tr>
-            <td width=""33%"">
-                <img src=""../images/Ziren56.png"" style=""max-width:100%;"">
-            </td>
-            <td width=""33%"">
-                <label style=""color:white;font-size: 1.0em;"">TU SUMA ASEGURADA</label>
-            </td>
+            __builder.AddMarkupContent(56, "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n    ");
+            __builder.OpenElement(57, "table");
+            __builder.AddAttribute(58, "style", "width:100%;text-align: center;border:solid;border-color:lightgrey;border-width:thin;");
+            __builder.AddMarkupContent(59, @"<tr><td width=""33%""><img src=""../images/Ziren56.png"" style=""max-width:100%;""></td>
+            <td width=""33%""><label style=""color:white;font-size: 1.0em;"">TU SUMA ASEGURADA</label></td>
 
-            <td width=""34%"">
-                <img src=""../images/SumaAsegurada.png"" style=""max-width:100%;"">
-            </td>
-        </tr>
+            <td width=""34%""><img src=""../images/SumaAsegurada.png"" style=""max-width:100%;""></td></tr>
         ");
-            __builder.OpenElement(98, "tr");
-            __builder.AddMarkupContent(99, "\r\n            ");
-            __builder.AddMarkupContent(100, "<td width=\"33%\">\r\n                <img src=\"../images/AutoSumaAsegurada.png\" style=\"max-width: 100%;\">\r\n            </td>\r\n            ");
-            __builder.OpenElement(101, "td");
-            __builder.AddAttribute(102, "width", "33%");
-            __builder.AddMarkupContent(103, "\r\n                ");
-            __builder.OpenElement(104, "label");
-            __builder.AddAttribute(105, "style", "color:white;font-size: 1.25em;");
-            __builder.AddContent(106, "$");
-            __builder.AddContent(107, 
+            __builder.OpenElement(60, "tr");
+            __builder.AddMarkupContent(61, "<td width=\"33%\"><img src=\"../images/AutoSumaAsegurada.png\" style=\"max-width: 100%;\"></td>\r\n            ");
+            __builder.OpenElement(62, "td");
+            __builder.AddAttribute(63, "width", "33%");
+            __builder.OpenElement(64, "label");
+            __builder.AddAttribute(65, "style", "color:white;font-size: 1.25em;");
+            __builder.AddContent(66, "$");
+            __builder.AddContent(67, 
 #line 272 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                                 oRespuestaCotizacionAutoRapidaDTO.vehiculo.sumaAsegurada
 
@@ -460,22 +412,19 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(108, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(109, "\r\n            ");
-            __builder.AddMarkupContent(110, "<td width=\"34%\">\r\n                <img src=\"../images/EstasCubierto.png\" style=\"max-width: 100%;\">\r\n            </td>\r\n        ");
+            __builder.AddMarkupContent(68, "\r\n            ");
+            __builder.AddMarkupContent(69, "<td width=\"34%\"><img src=\"../images/EstasCubierto.png\" style=\"max-width: 100%;\"></td>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(111, "\r\n        ");
-            __builder.OpenElement(112, "tr");
-            __builder.AddMarkupContent(113, "\r\n            ");
-            __builder.AddMarkupContent(114, "<td width=\"33%\">\r\n                <img src=\"../images/GncSumaAsegurada.png\" style=\"max-width: 100%;\">\r\n            </td>\r\n            ");
-            __builder.OpenElement(115, "td");
-            __builder.AddAttribute(116, "width", "33%");
-            __builder.AddMarkupContent(117, "\r\n                ");
-            __builder.OpenElement(118, "label");
-            __builder.AddAttribute(119, "style", "color: white;font-size: 1.25em;");
-            __builder.AddContent(120, "$");
-            __builder.AddContent(121, 
+            __builder.AddMarkupContent(70, "\r\n        ");
+            __builder.OpenElement(71, "tr");
+            __builder.AddMarkupContent(72, "<td width=\"33%\"><img src=\"../images/GncSumaAsegurada.png\" style=\"max-width: 100%;\"></td>\r\n            ");
+            __builder.OpenElement(73, "td");
+            __builder.AddAttribute(74, "width", "33%");
+            __builder.OpenElement(75, "label");
+            __builder.AddAttribute(76, "style", "color: white;font-size: 1.25em;");
+            __builder.AddContent(77, "$");
+            __builder.AddContent(78, 
 #line 283 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                                  oGncValor
 
@@ -483,20 +432,17 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(122, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(123, "\r\n            ");
-            __builder.OpenElement(124, "td");
-            __builder.AddAttribute(125, "width", "34%");
-            __builder.AddMarkupContent(126, "\r\n                ");
-            __builder.OpenElement(127, "div");
-            __builder.AddAttribute(128, "class", "container p-3 my-3 bg-success border");
-            __builder.AddMarkupContent(129, "\r\n                    ");
-            __builder.AddMarkupContent(130, "<label style=\"color:white;font-size: 1.0em;\">VALOR CUOTA MENSUAL</label>\r\n                    ");
-            __builder.OpenElement(131, "label");
-            __builder.AddAttribute(132, "style", "color:white;font-size: 1.0em;");
-            __builder.AddContent(133, "$");
-            __builder.AddContent(134, 
+            __builder.AddMarkupContent(79, "\r\n            ");
+            __builder.OpenElement(80, "td");
+            __builder.AddAttribute(81, "width", "34%");
+            __builder.OpenElement(82, "div");
+            __builder.AddAttribute(83, "class", "container p-3 my-3 bg-success border");
+            __builder.AddMarkupContent(84, "<label style=\"color:white;font-size: 1.0em;\">VALOR CUOTA MENSUAL</label>\r\n                    ");
+            __builder.OpenElement(85, "label");
+            __builder.AddAttribute(86, "style", "color:white;font-size: 1.0em;");
+            __builder.AddContent(87, "$");
+            __builder.AddContent(88, 
 #line 288 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                                    oCoberturaValorSeleccionado
 
@@ -504,29 +450,23 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(135, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(136, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(137, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(138, "\r\n        ");
-            __builder.OpenElement(139, "tr");
-            __builder.AddMarkupContent(140, "\r\n            ");
-            __builder.AddMarkupContent(141, "<td width=\"33%\">\r\n                &nbsp;\r\n            </td>\r\n            ");
-            __builder.AddMarkupContent(142, "<td width=\"33%\">\r\n                &nbsp;\r\n            </td>\r\n            ");
-            __builder.OpenElement(143, "td");
-            __builder.AddAttribute(144, "width", "34%");
-            __builder.AddMarkupContent(145, "\r\n                ");
-            __builder.OpenElement(146, "div");
-            __builder.AddAttribute(147, "class", "container p-3 my-3 bg-transparent border");
-            __builder.AddAttribute(148, "style", "width:100%;text-align: center;border:solid;border-color:lightgrey;border-width:medium;");
-            __builder.AddMarkupContent(149, "\r\n                    ");
-            __builder.AddMarkupContent(150, "<label style=\"color:white;font-size: 1.0em;\">SUMA TOTAL ASEGURADA</label>\r\n                    ");
-            __builder.OpenElement(151, "label");
-            __builder.AddAttribute(152, "style", "color:white;font-size: 1.0em;");
-            __builder.AddContent(153, "$");
-            __builder.AddContent(154, 
+            __builder.AddMarkupContent(89, "\r\n        ");
+            __builder.OpenElement(90, "tr");
+            __builder.AddMarkupContent(91, "<td width=\"33%\">\r\n                &nbsp;\r\n            </td>\r\n            ");
+            __builder.AddMarkupContent(92, "<td width=\"33%\">\r\n                &nbsp;\r\n            </td>\r\n            ");
+            __builder.OpenElement(93, "td");
+            __builder.AddAttribute(94, "width", "34%");
+            __builder.OpenElement(95, "div");
+            __builder.AddAttribute(96, "class", "container p-3 my-3 bg-transparent border");
+            __builder.AddAttribute(97, "style", "width:100%;text-align: center;border:solid;border-color:lightgrey;border-width:medium;");
+            __builder.AddMarkupContent(98, "<label style=\"color:white;font-size: 1.0em;\">SUMA TOTAL ASEGURADA</label>\r\n                    ");
+            __builder.OpenElement(99, "label");
+            __builder.AddAttribute(100, "style", "color:white;font-size: 1.0em;");
+            __builder.AddContent(101, "$");
+            __builder.AddContent(102, 
 #line 302 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                                     oRespuestaCotizacionAutoRapidaDTO.vehiculo.sumaAsegurada + oGncValor
 
@@ -534,31 +474,26 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(155, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(156, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(157, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(158, "\r\n\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(159, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(160, "\r\n        ");
-            __builder.OpenElement(161, "button");
-            __builder.AddAttribute(162, "type", "button");
-            __builder.AddAttribute(163, "class", "btn btn-success");
-            __builder.AddAttribute(164, "style", "width:200px");
-            __builder.AddAttribute(165, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(103, "\r\n        ");
+            __builder.OpenElement(104, "button");
+            __builder.AddAttribute(105, "type", "button");
+            __builder.AddAttribute(106, "class", "btn btn-success");
+            __builder.AddAttribute(107, "style", "width:200px");
+            __builder.AddAttribute(108, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 309 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
                                                                                       () => OnClickHandle(oCoberturaIDSeleccionada)
 
 #line default
 #line hidden
             ));
-            __builder.AddMarkupContent(166, "\r\n            Confirmar\r\n        ");
+            __builder.AddMarkupContent(109, "\r\n            Confirmar\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(167, "\r\n        <br>\r\n");
+            __builder.AddMarkupContent(110, "\r\n        <br>");
 #line 313 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
 
     }

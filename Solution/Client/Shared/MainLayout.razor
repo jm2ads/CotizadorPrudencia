@@ -1,17 +1,17 @@
 ﻿@inherits LayoutComponentBase
-<div class="sidebar">
+@*<div class="sidebar">
     <NavMenu />
-</div>
+</div>*@
 
-<div class="main" style="background-image: url('../images/fondo.png'); margin: 0;">
 
-    <div class="top-row px-4">
-    
-        @*<i class="oi oi-target ml-md-auto" aria-hidden="true"></i>*@
-        <a class="ml-md-auto">®</a>
-    </div>
+@*<div class="main" style="background-image: url('../images/fondo.png');margin: 0;position: absolute;top: 0;bottom: 0;height: 100vh;width: 100vw;">*@
+    <div class="main" style="background-image: radial-gradient(circle, #803496, #70288d, #5f1c83, #4e107a, #3c0371); margin: 0; position: absolute; top: 0; bottom: 0; height: 100vh; width: 100vw; ">
 
-        <div class="content px-4">
-            @Body
+        <div class="top-row px-4">
+            <a class="ml-md-auto">®</a>
         </div>
+
+        @* <div class="content px-4"> *@
+        @Body
+        @*</div>*@
     </div>

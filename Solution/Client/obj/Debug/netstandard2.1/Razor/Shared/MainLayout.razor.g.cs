@@ -81,30 +81,24 @@ using Project.Shared.PrudenciaDTOs;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "sidebar");
-            __builder.AddMarkupContent(2, "\r\n    ");
-            __builder.OpenComponent<Project.Client.Shared.NavMenu>(3);
+            __builder.OpenComponent<Project.Client.Shared.NavMenu>(2);
             __builder.CloseComponent();
-            __builder.AddMarkupContent(4, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(5, "\r\n\r\n");
-            __builder.OpenElement(6, "div");
-            __builder.AddAttribute(7, "class", "main");
-            __builder.AddAttribute(8, "style", "background-image: url(\'../images/fondo.png\'); margin: 0;");
-            __builder.AddMarkupContent(9, "\r\n\r\n    ");
-            __builder.AddMarkupContent(10, "<div class=\"top-row px-4\">\r\n    \r\n        <a class=\"ml-md-auto\">®</a>\r\n    </div>\r\n\r\n        ");
-            __builder.OpenElement(11, "div");
-            __builder.AddAttribute(12, "class", "content px-4");
-            __builder.AddMarkupContent(13, "\r\n            ");
-            __builder.AddContent(14, 
+            __builder.AddMarkupContent(3, "\r\n\r\n");
+            __builder.OpenElement(4, "div");
+            __builder.AddAttribute(5, "class", "main");
+            __builder.AddAttribute(6, "style", "background-image: url(\'../images/fondo.png\'); margin: 0;");
+            __builder.AddMarkupContent(7, "<div class=\"top-row px-4\"><a class=\"ml-md-auto\">®</a></div>\r\n\r\n        ");
+            __builder.OpenElement(8, "div");
+            __builder.AddAttribute(9, "class", "content px-4");
+            __builder.AddContent(10, 
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\MainLayout.razor"
              Body
 
 #line default
 #line hidden
             );
-            __builder.AddMarkupContent(15, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(16, "\r\n    ");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

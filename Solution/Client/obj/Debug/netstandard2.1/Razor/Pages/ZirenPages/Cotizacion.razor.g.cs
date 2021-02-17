@@ -85,7 +85,7 @@ using System.Text.Json;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Cotizacion</h3>\r\n");
+            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Cotizacion</h3>");
 #line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
  if (oRespuestaCotizacionAutoDTO == null)
 {
@@ -94,7 +94,6 @@ using System.Text.Json;
 #line hidden
             __builder.OpenComponent<Project.Client.Shared.Cargando>(1);
             __builder.CloseComponent();
-            __builder.AddMarkupContent(2, "\r\n");
 #line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
 }
 else
@@ -102,25 +101,20 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(3, "    ");
-            __builder.OpenElement(4, "table");
-            __builder.AddAttribute(5, "class", "table table-striped");
-            __builder.AddMarkupContent(6, "\r\n        ");
-            __builder.AddMarkupContent(7, "<thead>\r\n            <tr>\r\n                <th></th>\r\n                <th>Nombre</th>\r\n            </tr>\r\n        </thead>\r\n        ");
-            __builder.OpenElement(8, "tbody");
-            __builder.AddMarkupContent(9, "\r\n");
+            __builder.OpenElement(2, "table");
+            __builder.AddAttribute(3, "class", "table table-striped");
+            __builder.AddMarkupContent(4, "<thead><tr><th></th>\r\n                <th>Nombre</th></tr></thead>\r\n        ");
+            __builder.OpenElement(5, "tbody");
 #line 24 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
              for (int i = 0; i <= oRespuestaCotizacionAutoDTO.coberturas.Count() - 1; i++)
             {
 
 #line default
 #line hidden
-            __builder.AddContent(10, "                ");
-            __builder.OpenElement(11, "tr");
-            __builder.AddMarkupContent(12, "\r\n                    ");
-            __builder.AddMarkupContent(13, "<td><a class=\"btn btn-success\" style=\"width:200px\">Concepto</a></td>\r\n                    ");
-            __builder.OpenElement(14, "td");
-            __builder.AddContent(15, 
+            __builder.OpenElement(6, "tr");
+            __builder.AddMarkupContent(7, "<td><a class=\"btn btn-success\" style=\"width:200px\">Concepto</a></td>\r\n                    ");
+            __builder.OpenElement(8, "td");
+            __builder.AddContent(9, 
 #line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
                          oRespuestaCotizacionAutoDTO.coberturas[i].concepto
 
@@ -128,14 +122,12 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(16, "\r\n\r\n\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(17, "\r\n                ");
-            __builder.OpenElement(18, "tr");
-            __builder.AddMarkupContent(19, "\r\n                    ");
-            __builder.AddMarkupContent(20, "<td><a class=\"btn btn-success\" style=\"width:200px\">porcentajeConcepto</a></td>\r\n                    ");
-            __builder.OpenElement(21, "td");
-            __builder.AddContent(22, 
+            __builder.AddMarkupContent(10, "\r\n                ");
+            __builder.OpenElement(11, "tr");
+            __builder.AddMarkupContent(12, "<td><a class=\"btn btn-success\" style=\"width:200px\">porcentajeConcepto</a></td>\r\n                    ");
+            __builder.OpenElement(13, "td");
+            __builder.AddContent(14, 
 #line 34 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
                          oRespuestaCotizacionAutoDTO.coberturas[i].porcentajeConcepto
 
@@ -143,14 +135,12 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(23, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(24, "\r\n                ");
-            __builder.OpenElement(25, "tr");
-            __builder.AddMarkupContent(26, "\r\n                    ");
-            __builder.AddMarkupContent(27, "<td><a class=\"btn btn-success\" style=\"width:200px\">A-RC 10.000.000</a></td>\r\n                    ");
-            __builder.OpenElement(28, "td");
-            __builder.AddContent(29, 
+            __builder.AddMarkupContent(15, "\r\n                ");
+            __builder.OpenElement(16, "tr");
+            __builder.AddMarkupContent(17, "<td><a class=\"btn btn-success\" style=\"width:200px\">A-RC 10.000.000</a></td>\r\n                    ");
+            __builder.OpenElement(18, "td");
+            __builder.AddContent(19, 
 #line 38 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
                          oRespuestaCotizacionAutoDTO.coberturas[i].a
 
@@ -158,14 +148,12 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(30, "\r\n\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(31, "\r\n                ");
-            __builder.OpenElement(32, "tr");
-            __builder.AddMarkupContent(33, "\r\n                    ");
-            __builder.AddMarkupContent(34, "<td><a class=\"btn btn-success\" style=\"width:200px\">Cobertura B1</a></td>\r\n                    ");
-            __builder.OpenElement(35, "td");
-            __builder.AddContent(36, 
+            __builder.AddMarkupContent(20, "\r\n                ");
+            __builder.OpenElement(21, "tr");
+            __builder.AddMarkupContent(22, "<td><a class=\"btn btn-success\" style=\"width:200px\">Cobertura B1</a></td>\r\n                    ");
+            __builder.OpenElement(23, "td");
+            __builder.AddContent(24, 
 #line 43 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
                          oRespuestaCotizacionAutoDTO.coberturas[i].b1
 
@@ -173,14 +161,12 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(37, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(38, "\r\n                ");
-            __builder.OpenElement(39, "tr");
-            __builder.AddMarkupContent(40, "\r\n                    ");
-            __builder.AddMarkupContent(41, "<td><a class=\"btn btn-success\" style=\"width:200px\">B-RC, ROBO-INCENDIO-DANO TOTAL</a></td>\r\n                    ");
-            __builder.OpenElement(42, "td");
-            __builder.AddContent(43, 
+            __builder.AddMarkupContent(25, "\r\n                ");
+            __builder.OpenElement(26, "tr");
+            __builder.AddMarkupContent(27, "<td><a class=\"btn btn-success\" style=\"width:200px\">B-RC, ROBO-INCENDIO-DANO TOTAL</a></td>\r\n                    ");
+            __builder.OpenElement(28, "td");
+            __builder.AddContent(29, 
 #line 47 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
                          oRespuestaCotizacionAutoDTO.coberturas[i].b
 
@@ -188,14 +174,12 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(44, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(45, "\r\n                ");
-            __builder.OpenElement(46, "tr");
-            __builder.AddMarkupContent(47, "\r\n                    ");
-            __builder.AddMarkupContent(48, "<td><a class=\"btn btn-success\" style=\"width:200px\">C1-RC,ROBO T/P, INCENDIO T/P</a></td>\r\n                    ");
-            __builder.OpenElement(49, "td");
-            __builder.AddContent(50, 
+            __builder.AddMarkupContent(30, "\r\n                ");
+            __builder.OpenElement(31, "tr");
+            __builder.AddMarkupContent(32, "<td><a class=\"btn btn-success\" style=\"width:200px\">C1-RC,ROBO T/P, INCENDIO T/P</a></td>\r\n                    ");
+            __builder.OpenElement(33, "td");
+            __builder.AddContent(34, 
 #line 51 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
                          oRespuestaCotizacionAutoDTO.coberturas[i].c1
 
@@ -203,14 +187,12 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(51, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(52, "\r\n                ");
-            __builder.OpenElement(53, "tr");
-            __builder.AddMarkupContent(54, "\r\n                    ");
-            __builder.AddMarkupContent(55, "<td><a class=\"btn btn-success\" style=\"width:200px\">C-RC.,ROBO E INC.T/P,DANO TOT.</a></td>\r\n                    ");
-            __builder.OpenElement(56, "td");
-            __builder.AddContent(57, 
+            __builder.AddMarkupContent(35, "\r\n                ");
+            __builder.OpenElement(36, "tr");
+            __builder.AddMarkupContent(37, "<td><a class=\"btn btn-success\" style=\"width:200px\">C-RC.,ROBO E INC.T/P,DANO TOT.</a></td>\r\n                    ");
+            __builder.OpenElement(38, "td");
+            __builder.AddContent(39, 
 #line 55 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
                          oRespuestaCotizacionAutoDTO.coberturas[i].c
 
@@ -218,14 +200,12 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(58, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(59, "\r\n                ");
-            __builder.OpenElement(60, "tr");
-            __builder.AddMarkupContent(61, "\r\n                    ");
-            __builder.AddMarkupContent(62, "<td><a class=\"btn btn-success\" style=\"width:200px\">C CON GRANIZO</a></td>\r\n                    ");
-            __builder.OpenElement(63, "td");
-            __builder.AddContent(64, 
+            __builder.AddMarkupContent(40, "\r\n                ");
+            __builder.OpenElement(41, "tr");
+            __builder.AddMarkupContent(42, "<td><a class=\"btn btn-success\" style=\"width:200px\">C CON GRANIZO</a></td>\r\n                    ");
+            __builder.OpenElement(43, "td");
+            __builder.AddContent(44, 
 #line 59 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
                          oRespuestaCotizacionAutoDTO.coberturas[i].cg
 
@@ -233,14 +213,12 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(65, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(66, "\r\n                ");
-            __builder.OpenElement(67, "tr");
-            __builder.AddMarkupContent(68, "\r\n                    ");
-            __builder.AddMarkupContent(69, "<td><a class=\"btn btn-success\" style=\"width:200px\">C CON GRANIZO ESPECIAL</a></td>\r\n                    ");
-            __builder.OpenElement(70, "td");
-            __builder.AddContent(71, 
+            __builder.AddMarkupContent(45, "\r\n                ");
+            __builder.OpenElement(46, "tr");
+            __builder.AddMarkupContent(47, "<td><a class=\"btn btn-success\" style=\"width:200px\">C CON GRANIZO ESPECIAL</a></td>\r\n                    ");
+            __builder.OpenElement(48, "td");
+            __builder.AddContent(49, 
 #line 63 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
                          oRespuestaCotizacionAutoDTO.coberturas[i].cf
 
@@ -248,14 +226,12 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(72, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(73, "\r\n                ");
-            __builder.OpenElement(74, "tr");
-            __builder.AddMarkupContent(75, "\r\n                    ");
-            __builder.AddMarkupContent(76, "<td><a class=\"btn btn-success\" style=\"width:200px\">D2-TODO RIESGO CON FRANQUICIA</a></td>\r\n                    ");
-            __builder.OpenElement(77, "td");
-            __builder.AddContent(78, 
+            __builder.AddMarkupContent(50, "\r\n                ");
+            __builder.OpenElement(51, "tr");
+            __builder.AddMarkupContent(52, "<td><a class=\"btn btn-success\" style=\"width:200px\">D2-TODO RIESGO CON FRANQUICIA</a></td>\r\n                    ");
+            __builder.OpenElement(53, "td");
+            __builder.AddContent(54, 
 #line 67 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
                          oRespuestaCotizacionAutoDTO.coberturas[i].d2
 
@@ -263,34 +239,27 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(79, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(80, "\r\n");
 #line 69 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
             }
 
 #line default
 #line hidden
-            __builder.AddContent(81, "        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(82, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(83, "\r\n");
-            __builder.AddContent(84, "    ");
-            __builder.OpenElement(85, "button");
-            __builder.AddAttribute(86, "type", "button");
-            __builder.AddAttribute(87, "class", "btn btn-info");
-            __builder.AddAttribute(88, "style", "width:200px");
-            __builder.AddAttribute(89, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.OpenElement(55, "button");
+            __builder.AddAttribute(56, "type", "button");
+            __builder.AddAttribute(57, "class", "btn btn-info");
+            __builder.AddAttribute(58, "style", "width:200px");
+            __builder.AddAttribute(59, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 74 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
                                                                                () => OnClickHandle()
 
 #line default
 #line hidden
             ));
-            __builder.AddContent(90, "Siguiente");
+            __builder.AddContent(60, "Siguiente");
             __builder.CloseElement();
-            __builder.AddMarkupContent(91, "\r\n");
 #line 75 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
 
 

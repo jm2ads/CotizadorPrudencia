@@ -6,41 +6,48 @@
 @using System.Text.Json;
 <h3 style="color:white">Emision</h3>
 <div class="container">
-    <table style="width:100%;">
-        <tr>
 
-            <td style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
-                <img src="/images/Coberturas/a.png" alt="Poster" style="max-width: 100%;" />
-            </td>
+    <div style="display: flex;flex-wrap: wrap;align-items: center;   ">
 
 
-            <td style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
-                <img src="/images/Coberturas/b1.png" alt="Poster" style="max-width: 100%;" />
-            </td>
-        </tr>
-        <tr>
+        <div style="border-color: white;border-width: thin;border-style: solid;width: 190px;height: 190px">
+            <fieldset style="background-image: url('/images/Coberturas/a.png');border: 0ch;width: 190px;height: 190px">
+                <button>Hello2</button>
+            </fieldset>
+        </div>
 
-            <td colspan="2" style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
-                <img src="/images/Coberturas/c.png" alt="Poster" style="max-width: 100%;" />
-            </td>
+        <div style="border-color: white;border-width: thin;border-style: solid;width: 190px;height: 190px">
+            <fieldset style="background-image: url('/images/Coberturas/b1.png');border: 0ch;width: 190px;height: 190px">
+                <button>Hello2</button>
+            </fieldset>
+        </div>
 
-        </tr>
-        <tr>
+        <div style="border-color: white;border-width: thin;border-style: solid;width: 380px;height: 190px">
+            <fieldset style="background-image: url('/images/Coberturas/c.png');border: 0ch;width: 380px;height: 190px">
+                <button>Hello2</button>
+            </fieldset>
+        </div>
+
+        <div style="border-color: white;border-width: thin;border-style: solid;width: 380px;height: 190px">
+            <fieldset style="background-image: url('/images/Coberturas/cf.png');border: 0ch;width: 380px;height: 190px">
+                <button>Hello2</button>
+            </fieldset>
+        </div>
+
+        <div style="border-color: white;border-width: thin;border-style: solid;width: 380px;height: 190px">
+            <fieldset style="background-image: url('/images/Coberturas/d2.png');border: 0ch;width: 380px;height: 190px">
+                <button>Hello2</button>
+            </fieldset>
+        </div>
+    </div>
 
 
-            <td style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
-                <img src="/images/Coberturas/cf.png" alt="Poster" style="max-width: 100%;" />
-            </td>
 
 
 
 
-            <td style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
-                <img src="/images/Coberturas/d2.png" alt="Poster" style="max-width: 100%;" />
-            </td>
-
-        </tr>
-    </table>
+   
+    
     <table style="width:100%;text-align: center;border:solid;border-color:lightgrey;border-width:thin;">
         <tr>
             <td width="33%">
@@ -96,6 +103,8 @@
 
     </table>
 </div>
+
+
 <div class="row" style="margin:10px">
 
     @*<div class="col-md-2">
@@ -164,7 +173,7 @@
 
         </div>*@
 </div>
-<button type="button" class="btn btn-success" style="width:200px" @onclick="OnClickHandleOcultar">
+<button type="button" class="btn btn-success" style="width:190px" @onclick="OnClickHandleOcultar">
     Confirmar
 </button>
 <label style="color: white;font-size: smaller;margin: 0">Time: @oTime  </label>

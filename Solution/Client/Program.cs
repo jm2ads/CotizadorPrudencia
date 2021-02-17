@@ -6,8 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using AspNetMonsters.Blazor.Geolocation;
 using System.Globalization;
+
 
 namespace Project.Client
 {
@@ -21,7 +21,7 @@ namespace Project.Client
 
 
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("app");
+            builder.RootComponents.Add<App>("#app");
             builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             ConfigureServices(builder.Services);
             await builder.Build().RunAsync();
@@ -35,7 +35,7 @@ namespace Project.Client
             services.AddScoped<IMostrarMensajes, MostrarMensajes>();
             services.AddScoped<ILocalStorageManager, LocalStorageManager>();
             services.AddFileReaderService(options => options.InitializeOnFirstCall = true);
-            services.AddSingleton<LocationService>();
+            
         }
     }
 }

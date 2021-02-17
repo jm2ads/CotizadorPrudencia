@@ -80,7 +80,7 @@ using Project.Shared.PrudenciaDTOs;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Editar Pelicula</h3>\n\n");
+            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Editar Pelicula</h3>");
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\EditarPelicula.razor"
  if (Pelicula == null)
 {
@@ -97,37 +97,36 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(2, "    ");
-            __builder.OpenComponent<Project.Client.Pages.Peliculas.FormularioPeliculas>(3);
-            __builder.AddAttribute(4, "Pelicula", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.Entidades.Pelicula>(
+            __builder.OpenComponent<Project.Client.Pages.Peliculas.FormularioPeliculas>(2);
+            __builder.AddAttribute(3, "Pelicula", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.Entidades.Pelicula>(
 #line 14 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\EditarPelicula.razor"
                                    Pelicula
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(5, "OnValidSubmit", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, 
+            __builder.AddAttribute(4, "OnValidSubmit", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, 
 #line 14 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\EditarPelicula.razor"
                                                             Editar
 
 #line default
 #line hidden
             )));
-            __builder.AddAttribute(6, "ActoresSeleccionados", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Shared.Entidades.Persona>>(
+            __builder.AddAttribute(5, "ActoresSeleccionados", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Shared.Entidades.Persona>>(
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\EditarPelicula.razor"
                                                ActoresSeleccionados
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(7, "GenerosNoSeleccionados", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Shared.Entidades.Genero>>(
+            __builder.AddAttribute(6, "GenerosNoSeleccionados", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Shared.Entidades.Genero>>(
 #line 16 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\EditarPelicula.razor"
                                                  GenerosNoSeleccionados
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(8, "GenerosSeleccionados", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Shared.Entidades.Genero>>(
+            __builder.AddAttribute(7, "GenerosSeleccionados", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Shared.Entidades.Genero>>(
 #line 17 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\EditarPelicula.razor"
                                                GenerosSeleccionados
 
@@ -135,7 +134,6 @@ else
 #line hidden
             ));
             __builder.CloseComponent();
-            __builder.AddMarkupContent(9, "\n");
 #line 18 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\EditarPelicula.razor"
 }
 

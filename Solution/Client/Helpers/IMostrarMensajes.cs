@@ -9,5 +9,6 @@ namespace Project.Client.Helpers
     {
         Task MostrarMensajeError(string mensaje);
         Task MostrarMensajeExitoso(string mensaje);
+        Task MostrarMensajeConImagen( string mensaje);
     }
 }

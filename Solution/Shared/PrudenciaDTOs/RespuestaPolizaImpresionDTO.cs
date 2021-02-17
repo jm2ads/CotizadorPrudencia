@@ -29,7 +29,7 @@ namespace Project.Shared.PrudenciaDTOs
         public Int32? transPolizaRenovadaID { get; set; }
         public string anulada { get; set; }
         public Decimal premio { get; set; }
-        public Int32 propuestaID { get; set; }
+        public Int32? propuestaID { get; set; }
         public string inicioVigencia { get; set; }
         public string finVigencia { get; set; }
         public string mailEnvioPoliza { get; set; }

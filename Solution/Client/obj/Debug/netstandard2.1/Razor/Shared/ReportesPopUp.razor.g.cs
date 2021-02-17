@@ -87,31 +87,26 @@ using Project.Shared.PrudenciaDTOs;
 
 #line default
 #line hidden
-            __builder.AddMarkupContent(0, "    <div class=\"modal-backdrop show\"></div>\r\n");
-            __builder.AddContent(1, "    ");
-            __builder.OpenElement(2, "div");
-            __builder.AddAttribute(3, "class", "modal fade show");
-            __builder.AddAttribute(4, "id", "exampleModal");
-            __builder.AddAttribute(5, "tabindex", "-1");
-            __builder.AddAttribute(6, "role", "dialog");
-            __builder.AddAttribute(7, "aria-labelledby", "exampleModalLabel");
-            __builder.AddAttribute(8, "aria-hidden", "true");
-            __builder.AddAttribute(9, "style", "display: block;");
-            __builder.AddMarkupContent(10, "\r\n        ");
-            __builder.OpenElement(11, "div");
-            __builder.AddAttribute(12, "class", "modal-dialog");
-            __builder.AddAttribute(13, "role", "document");
-            __builder.AddMarkupContent(14, "\r\n            ");
-            __builder.OpenElement(15, "div");
-            __builder.AddAttribute(16, "class", "modal-content");
-            __builder.AddMarkupContent(17, "\r\n                ");
-            __builder.OpenElement(18, "div");
-            __builder.AddAttribute(19, "class", "modal-header");
-            __builder.AddMarkupContent(20, "\r\n                    ");
-            __builder.OpenElement(21, "h5");
-            __builder.AddAttribute(22, "class", "modal-title");
-            __builder.AddAttribute(23, "id", "exampleModalLabel");
-            __builder.AddContent(24, 
+            __builder.AddMarkupContent(0, "<div class=\"modal-backdrop show\"></div>");
+            __builder.OpenElement(1, "div");
+            __builder.AddAttribute(2, "class", "modal fade show");
+            __builder.AddAttribute(3, "id", "exampleModal");
+            __builder.AddAttribute(4, "tabindex", "-1");
+            __builder.AddAttribute(5, "role", "dialog");
+            __builder.AddAttribute(6, "aria-labelledby", "exampleModalLabel");
+            __builder.AddAttribute(7, "aria-hidden", "true");
+            __builder.AddAttribute(8, "style", "display: block;");
+            __builder.OpenElement(9, "div");
+            __builder.AddAttribute(10, "class", "modal-dialog");
+            __builder.AddAttribute(11, "role", "document");
+            __builder.OpenElement(12, "div");
+            __builder.AddAttribute(13, "class", "modal-content");
+            __builder.OpenElement(14, "div");
+            __builder.AddAttribute(15, "class", "modal-header");
+            __builder.OpenElement(16, "h5");
+            __builder.AddAttribute(17, "class", "modal-title");
+            __builder.AddAttribute(18, "id", "exampleModalLabel");
+            __builder.AddContent(19, 
 #line 14 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ReportesPopUp.razor"
                                                                     Titulo
 
@@ -119,43 +114,36 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(25, "\r\n                    ");
-            __builder.OpenElement(26, "button");
-            __builder.AddAttribute(27, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(20, "\r\n                    ");
+            __builder.OpenElement(21, "button");
+            __builder.AddAttribute(22, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ReportesPopUp.razor"
                                       onCancel
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(28, "type", "button");
-            __builder.AddAttribute(29, "class", "close");
-            __builder.AddAttribute(30, "data-dismiss", "modal");
-            __builder.AddAttribute(31, "aria-label", "Close");
-            __builder.AddMarkupContent(32, "\r\n                        ");
-            __builder.AddMarkupContent(33, "<span aria-hidden=\"true\">&times;</span>\r\n                    ");
+            __builder.AddAttribute(23, "type", "button");
+            __builder.AddAttribute(24, "class", "close");
+            __builder.AddAttribute(25, "data-dismiss", "modal");
+            __builder.AddAttribute(26, "aria-label", "Close");
+            __builder.AddMarkupContent(27, "<span aria-hidden=\"true\">&times;</span>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(34, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(35, "\r\n                ");
-            __builder.OpenElement(36, "div");
-            __builder.AddAttribute(37, "class", "modal-body");
-            __builder.AddMarkupContent(38, "\r\n\r\n\r\n");
+            __builder.AddMarkupContent(28, "\r\n                ");
+            __builder.OpenElement(29, "div");
+            __builder.AddAttribute(30, "class", "modal-body");
 #line 23 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ReportesPopUp.razor"
                      if (oRespuestaReporteDTOList == null)
                     {
 
 #line default
 #line hidden
-            __builder.AddContent(39, "                        ");
-            __builder.OpenElement(40, "div");
-            __builder.AddAttribute(41, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
-            __builder.AddMarkupContent(42, "\r\n                           ");
-            __builder.OpenComponent<Project.Client.Shared.Cargando>(43);
+            __builder.OpenElement(31, "div");
+            __builder.AddAttribute(32, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
+            __builder.OpenComponent<Project.Client.Shared.Cargando>(33);
             __builder.CloseComponent();
-            __builder.AddMarkupContent(44, "\r\n                        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(45, "\r\n");
 #line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ReportesPopUp.razor"
                     }
                     else
@@ -163,14 +151,11 @@ using Project.Shared.PrudenciaDTOs;
 
 #line default
 #line hidden
-            __builder.AddContent(46, "                        ");
-            __builder.OpenElement(47, "div");
-            __builder.AddAttribute(48, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
-            __builder.AddMarkupContent(49, "\r\n                            ");
-            __builder.OpenElement(50, "div");
-            __builder.AddMarkupContent(51, "\r\n                                ");
-            __builder.OpenElement(52, "text");
-            __builder.AddContent(53, 
+            __builder.OpenElement(34, "div");
+            __builder.AddAttribute(35, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
+            __builder.OpenElement(36, "div");
+            __builder.OpenElement(37, "text");
+            __builder.AddContent(38, 
 #line 33 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ReportesPopUp.razor"
                                        oRespuestaPolizaImpresionDTO.id
 
@@ -178,35 +163,29 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(54, "\r\n                            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(55, "\r\n                        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(56, "\r\n");
 #line 37 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ReportesPopUp.razor"
                          for (int i = 0; i <= oRespuestaReporteDTOList.Count() - 1; i++)
                         {
 
 #line default
 #line hidden
-            __builder.AddContent(57, "                            ");
-            __builder.OpenElement(58, "div");
-            __builder.AddAttribute(59, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
-            __builder.AddMarkupContent(60, "\r\n                                ");
-            __builder.OpenElement(61, "div");
-            __builder.AddMarkupContent(62, "\r\n                                    ");
-            __builder.OpenElement(63, "a");
-            __builder.AddAttribute(64, "href", 
+            __builder.OpenElement(39, "div");
+            __builder.AddAttribute(40, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
+            __builder.OpenElement(41, "div");
+            __builder.OpenElement(42, "a");
+            __builder.AddAttribute(43, "href", 
 #line 41 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ReportesPopUp.razor"
                                               oRespuestaReporteDTOList[i].urlReporte
 
 #line default
 #line hidden
             );
-            __builder.AddAttribute(65, "target", "_blank");
-            __builder.AddAttribute(66, "class", "btn btn-info");
-            __builder.AddAttribute(67, "style", "width:250px");
-            __builder.AddContent(68, 
+            __builder.AddAttribute(44, "target", "_blank");
+            __builder.AddAttribute(45, "class", "btn btn-info");
+            __builder.AddAttribute(46, "style", "width:250px");
+            __builder.AddContent(47, 
 #line 41 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ReportesPopUp.razor"
                                                                                                                                                 oRespuestaReporteDTOList[i].reporte
 
@@ -214,11 +193,8 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(69, "\r\n                                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(70, "\r\n                            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(71, "\r\n");
 #line 44 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ReportesPopUp.razor"
                         }
 
@@ -230,47 +206,40 @@ using Project.Shared.PrudenciaDTOs;
 
 #line default
 #line hidden
-            __builder.AddContent(72, "                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(73, "\r\n                \r\n\r\n                ");
-            __builder.OpenElement(74, "div");
-            __builder.AddAttribute(75, "class", "modal-footer");
-            __builder.AddMarkupContent(76, "\r\n                    ");
-            __builder.OpenElement(77, "button");
-            __builder.AddAttribute(78, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(48, "\r\n                \r\n\r\n                ");
+            __builder.OpenElement(49, "div");
+            __builder.AddAttribute(50, "class", "modal-footer");
+            __builder.OpenElement(51, "button");
+            __builder.AddAttribute(52, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 51 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ReportesPopUp.razor"
                                       onCancel
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(79, "type", "button");
-            __builder.AddAttribute(80, "class", "btn btn-secondary");
-            __builder.AddAttribute(81, "data-dismiss", "modal");
-            __builder.AddMarkupContent(82, "\r\n                        Cancelar\r\n                    ");
+            __builder.AddAttribute(53, "type", "button");
+            __builder.AddAttribute(54, "class", "btn btn-secondary");
+            __builder.AddAttribute(55, "data-dismiss", "modal");
+            __builder.AddMarkupContent(56, "\r\n                        Cancelar\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(83, "\r\n                    ");
-            __builder.OpenElement(84, "button");
-            __builder.AddAttribute(85, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(57, "\r\n                    ");
+            __builder.OpenElement(58, "button");
+            __builder.AddAttribute(59, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 55 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ReportesPopUp.razor"
                                       onConfirm
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(86, "type", "button");
-            __builder.AddAttribute(87, "class", "btn btn-primary");
-            __builder.AddContent(88, "Ok");
+            __builder.AddAttribute(60, "type", "button");
+            __builder.AddAttribute(61, "class", "btn btn-primary");
+            __builder.AddContent(62, "Ok");
             __builder.CloseElement();
-            __builder.AddMarkupContent(89, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(90, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(91, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(92, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(93, "\r\n");
 #line 60 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ReportesPopUp.razor"
 }
 

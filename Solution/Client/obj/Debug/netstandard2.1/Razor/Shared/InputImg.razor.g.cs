@@ -91,13 +91,11 @@ using Blazor.FileReader;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "row");
-            __builder.AddMarkupContent(2, "\r\n    ");
-            __builder.OpenElement(3, "div");
-            __builder.AddAttribute(4, "class", "col-md-4");
-            __builder.AddMarkupContent(5, "\r\n        ");
-            __builder.OpenElement(6, "label");
-            __builder.AddAttribute(7, "style", "color:white");
-            __builder.AddContent(8, 
+            __builder.OpenElement(2, "div");
+            __builder.AddAttribute(3, "class", "col-md-4");
+            __builder.OpenElement(4, "label");
+            __builder.AddAttribute(5, "style", "color:white");
+            __builder.AddContent(6, 
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
                                     Label
 
@@ -105,21 +103,20 @@ using Blazor.FileReader;
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(9, "\r\n        ");
-            __builder.OpenElement(10, "div");
-            __builder.AddMarkupContent(11, "\r\n            ");
-            __builder.OpenElement(12, "input");
-            __builder.AddAttribute(13, "style", "color:white");
-            __builder.AddAttribute(14, "type", "file");
-            __builder.AddAttribute(15, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.ChangeEventArgs>(this, 
+            __builder.AddMarkupContent(7, "\r\n        ");
+            __builder.OpenElement(8, "div");
+            __builder.OpenElement(9, "input");
+            __builder.AddAttribute(10, "style", "color:white");
+            __builder.AddAttribute(11, "type", "file");
+            __builder.AddAttribute(12, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.ChangeEventArgs>(this, 
 #line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
                                                                                   ImageFileSelected
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(16, "accept", ".jpg,.jpeg,.png");
-            __builder.AddElementReferenceCapture(17, (__value) => {
+            __builder.AddAttribute(13, "accept", ".jpg,.jpeg,.png");
+            __builder.AddElementReferenceCapture(14, (__value) => {
 #line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
                                                          inputElement = __value;
 
@@ -128,39 +125,31 @@ using Blazor.FileReader;
             }
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(18, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(19, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(20, "\r\n\r\n    ");
-            __builder.OpenElement(21, "div");
-            __builder.AddAttribute(22, "class", "col-md-8");
-            __builder.AddMarkupContent(23, "\r\n");
+            __builder.AddMarkupContent(15, "\r\n\r\n    ");
+            __builder.OpenElement(16, "div");
+            __builder.AddAttribute(17, "class", "col-md-8");
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
          if (imagenBase64 != null)
         {
 
 #line default
 #line hidden
-            __builder.AddContent(24, "            ");
-            __builder.OpenElement(25, "div");
-            __builder.AddMarkupContent(26, "\r\n                ");
-            __builder.OpenElement(27, "div");
-            __builder.AddAttribute(28, "style", "margin:10px;");
-            __builder.AddMarkupContent(29, "\r\n                    ");
-            __builder.OpenElement(30, "img");
-            __builder.AddAttribute(31, "src", "data:image/jpeg;base64," + " " + (
+            __builder.OpenElement(18, "div");
+            __builder.OpenElement(19, "div");
+            __builder.AddAttribute(20, "style", "margin:10px;");
+            __builder.OpenElement(21, "img");
+            __builder.AddAttribute(22, "src", "data:image/jpeg;base64," + " " + (
 #line 19 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
                                                        imagenBase64
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(32, "class", "img-fluid rounded");
+            __builder.AddAttribute(23, "class", "img-fluid rounded");
             __builder.CloseElement();
-            __builder.AddMarkupContent(33, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(34, "\r\n            ");
             __builder.CloseElement();
 #line 21 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
                   }
@@ -173,35 +162,27 @@ using Blazor.FileReader;
 
 #line default
 #line hidden
-            __builder.AddContent(35, "            ");
-            __builder.OpenElement(36, "div");
-            __builder.AddMarkupContent(37, "\r\n                ");
-            __builder.OpenElement(38, "div");
-            __builder.AddAttribute(39, "style", "margin:10px;");
-            __builder.AddMarkupContent(40, "\r\n                    ");
-            __builder.OpenElement(41, "img");
-            __builder.AddAttribute(42, "src", 
+            __builder.OpenElement(24, "div");
+            __builder.OpenElement(25, "div");
+            __builder.AddAttribute(26, "style", "margin:10px;");
+            __builder.OpenElement(27, "img");
+            __builder.AddAttribute(28, "src", 
 #line 26 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
                                ImagenTemporal
 
 #line default
 #line hidden
             );
-            __builder.AddAttribute(43, "class", "img-fluid");
+            __builder.AddAttribute(29, "class", "img-fluid");
             __builder.CloseElement();
-            __builder.AddMarkupContent(44, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(45, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(46, "\r\n");
 #line 29 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
         }
 
 #line default
 #line hidden
-            __builder.AddContent(47, "    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(48, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

@@ -5,104 +5,146 @@
 @inject NavigationManager navigationManager
 @inject ILocalStorageManager LocalStorageManager
 @inject IJSRuntime js
+@inject IMostrarMensajes mostrarMensajes
 @using System.Text.Json;
 
 
 @*@if (permisoNotificaciones == string.Empty)
-{
-    <Cargando></Cargando>
-
-}
-else
-{
-    @if (permisoNotificaciones == "granted")
     {
-        <button @onclick="Desuscribir" class="btn btn-warning">Desactivar Notificación Nuevas Polizas</button>
-    }
-    else if (permisoNotificaciones == "default")
-    {
-        <button @onclick="Suscribir" class="btn btn-primary">Activar Notificación Nuevas Polizas</button>
-    }
-}*@
+        <Cargando></Cargando>
 
+    }
+    else
+    {
+        @if (permisoNotificaciones == "granted")
+        {
+            <button @onclick="Desuscribir" class="btn btn-warning">Desactivar Notificación Nuevas Polizas</button>
+        }
+        else if (permisoNotificaciones == "default")
+        {
+            <button @onclick="Suscribir" class="btn btn-primary">Activar Notificación Nuevas Polizas</button>
+        }
+    }*@
+
+<CotizacionPopUp @ref="cotizacionPopUp" onConfirm="onConfirm">
+ </CotizacionPopUp>
 
 <h2 style="color:white">Cotize su Auto OnLine </h2>
 <div style="height: 400px;display: flex;align-items: flex-start;">
     <a href="/ziren/marcas" class="btn btn-success" style="align-self:initial; ">Cotizar</a>
 </div>
+<button type="button" class="btn btn-success" style="width:200px" @onclick="@(() => OnClickHandle())">
+    Test
+</button>
+
+
+
+
 <div style="position:absolute;bottom:0;">
-  
 
-    <label style="color:white;font-size: 0.5em;align-content:end">Version 20.9.13.5</label>
+
+    <label style="color:white;font-size: 0.5em;align-content:end">Version 21.1.25.0</label>
 </div>
-    @code { private Login oLogin = null;
+@code { private Login oLogin = null;
 
-        private CotizacionAutoDTO oCotizacionAutoDTO;
-        private string permisoNotificaciones = string.Empty;
+    private CotizacionAutoDTO oCotizacionAutoDTO;
+    private string permisoNotificaciones = string.Empty;
 
-        protected async override Task OnInitializedAsync()
+
+
+    CotizacionPopUp cotizacionPopUp;
+    private List<RespuestaReporteDTO> oRespuestaReporteDTOList = new List<RespuestaReporteDTO>();
+    RespuestaPolizaImpresionDTO oRespuestaPolizaImpresionDTO = null;
+
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        #region MyRegion
+        //await repositorio.Post("api/notificaciones/TextToSpeech", "Esto es un Test");
+        //permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
+        #endregion
+
+        oCotizacionAutoDTO = new CotizacionAutoDTO();
+        oCotizacionAutoDTO.vehiculo = new VehiculoDTO();
+        oCotizacionAutoDTO.asegurado = new AseguradoPatrimonialDTO();
+        oCotizacionAutoDTO.cotizacionID = 0;
+
+
+        string CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+
+        await js.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        Console.WriteLine(CotizacionAutoDTOJson);
+
+
+        #region CotizacionEntitiesDTO
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = new CotizacionEntitiesDTO();
+        string cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        await js.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+        #endregion
+
+
+        string oUser = "586701";
+        string oPassword = "586701";
+
+        UserPassWord oUserPassWord = new UserPassWord();
+
+        oUserPassWord.user = oUser;
+        oUserPassWord.password = oPassword;
+
+
+
+        //var HttpResponse = await repositorio.Post<UserPassWord, Login>("api/Externo/Prudencia/login", oUserPassWord);
+        //oLogin = HttpResponse.Response;
+
+
+    }
+
+    private async Task Suscribir()
+    {
+        var notificacion = await js.SuscribirANotificaciones();
+
+        if (notificacion != null)
         {
-            #region MyRegion
-            //await repositorio.Post("api/notificaciones/TextToSpeech", "Esto es un Test");
-            //permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
-            #endregion
-
-            oCotizacionAutoDTO = new CotizacionAutoDTO();
-            oCotizacionAutoDTO.vehiculo = new VehiculoDTO();
-            oCotizacionAutoDTO.asegurado = new AseguradoPatrimonialDTO();
-            oCotizacionAutoDTO.cotizacionID = 0;
-
-
-            string CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-
-            await js.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
-            Console.WriteLine(CotizacionAutoDTOJson);
-
-            string oUser = "586701";
-            string oPassword = "586701";
-
-            UserPassWord oUserPassWord = new UserPassWord();
-
-            oUserPassWord.user = oUser;
-            oUserPassWord.password = oPassword;
-
-
-
-            //var HttpResponse = await repositorio.Post<UserPassWord, Login>("api/Externo/Prudencia/login", oUserPassWord);
-            //oLogin = HttpResponse.Response;
-
-
+            await repositorio.Post("api/notificaciones/suscribir", notificacion);
+            permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
+            await mostrarMensajes.MostrarMensajeExitoso("Vas a recibir una notificación cuando salga una nueva película en cartelera");
+            //#if DEBUG
+            Console.WriteLine("URL : " + notificacion.URL);
+            Console.WriteLine("P256dh : " + notificacion.P256dh);
+            Console.WriteLine("Auth : " + notificacion.Auth);
+            //#endif
+            StateHasChanged();
         }
 
-        private async Task Suscribir()
+    }
+
+    private async Task Desuscribir()
+    {
+        var notificacion = await js.DesuscribirANotificaciones();
+
+        if (notificacion != null)
         {
-            var notificacion = await js.SuscribirANotificaciones();
-
-            if (notificacion != null)
-            {
-                await repositorio.Post("api/notificaciones/suscribir", notificacion);
-                permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
-                await mostrarMensajes.MostrarMensajeExitoso("Vas a recibir una notificación cuando salga una nueva película en cartelera");
-                //#if DEBUG
-                Console.WriteLine("URL : " + notificacion.URL);
-                Console.WriteLine("P256dh : " + notificacion.P256dh);
-                Console.WriteLine("Auth : " + notificacion.Auth);
-                //#endif
-                StateHasChanged();
-            }
-
-        }
-
-        private async Task Desuscribir()
-        {
-            var notificacion = await js.DesuscribirANotificaciones();
-
-            if (notificacion != null)
-            {
-                await repositorio.Post("api/notificaciones/desuscribir", notificacion);
-                permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
-                await mostrarMensajes.MostrarMensajeExitoso("Ya no vas a recibir notificaciones");
-                StateHasChanged();
-            }
+            await repositorio.Post("api/notificaciones/desuscribir", notificacion);
+            permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
+            await mostrarMensajes.MostrarMensajeExitoso("Ya no vas a recibir notificaciones");
+            StateHasChanged();
         }
     }
+
+    private async Task OnClickHandle()
+    {
+        //await mostrarMensajes.MostrarMensajeExitoso("mensaje");
+        //await mostrarMensajes.MostrarMensajeConImagen( "mensaje");
+        cotizacionPopUp.Mostrar();
+
+
+    }
+    private async Task onConfirm()
+    {
+        cotizacionPopUp.Ocultar();
+
+        navigationManager.NavigateTo($"/ziren/marcas");
+    }
+
+}

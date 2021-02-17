@@ -88,29 +88,26 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             ));
             __builder.AddAttribute(2, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Forms.EditContext>)((context) => (__builder2) => {
-                __builder2.AddMarkupContent(3, "\r\n\r\n    ");
-                __builder2.OpenElement(4, "div");
-                __builder2.AddAttribute(5, "class", "row align-items-center");
-                __builder2.AddMarkupContent(6, "\r\n        ");
-                __builder2.OpenElement(7, "div");
-                __builder2.AddAttribute(8, "class", "col-md-8");
-                __builder2.AddMarkupContent(9, "\r\n            ");
-                __builder2.OpenComponent<Project.Client.Shared.InputImg>(10);
-                __builder2.AddAttribute(11, "Label", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.OpenElement(3, "div");
+                __builder2.AddAttribute(4, "class", "row align-items-center");
+                __builder2.OpenElement(5, "div");
+                __builder2.AddAttribute(6, "class", "col-md-8");
+                __builder2.OpenComponent<Project.Client.Shared.InputImg>(7);
+                __builder2.AddAttribute(8, "Label", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\FormularioImagenRow.razor"
                               oLabelText
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(12, "ImagenSeleccionada", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, 
+                __builder2.AddAttribute(9, "ImagenSeleccionada", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, 
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\FormularioImagenRow.razor"
                                                               ImagenSeleccionada
 
 #line default
 #line hidden
                 )));
-                __builder2.AddAttribute(13, "ImagenTemporal", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddAttribute(10, "ImagenTemporal", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\FormularioImagenRow.razor"
                                                                                                    imagenTemporal
 
@@ -118,52 +115,47 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
                 ));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(14, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(15, "\r\n        ");
-                __builder2.OpenElement(16, "div");
-                __builder2.AddAttribute(17, "class", "col-md-4");
-                __builder2.AddMarkupContent(18, "\r\n            ");
-                __builder2.OpenElement(19, "button");
-                __builder2.AddAttribute(20, "class", "btn btn-success");
-                __builder2.AddAttribute(21, "hidden", 
+                __builder2.AddMarkupContent(11, "\r\n        ");
+                __builder2.OpenElement(12, "div");
+                __builder2.AddAttribute(13, "class", "col-md-4");
+                __builder2.OpenElement(14, "button");
+                __builder2.AddAttribute(15, "class", "btn btn-success");
+                __builder2.AddAttribute(16, "hidden", 
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\FormularioImagenRow.razor"
                                                      oButtonHid
 
 #line default
 #line hidden
                 );
-                __builder2.AddAttribute(22, "type", "button");
-                __builder2.AddAttribute(23, "style", "height: 50px;vertical-align:middle");
-                __builder2.AddAttribute(24, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+                __builder2.AddAttribute(17, "type", "button");
+                __builder2.AddAttribute(18, "style", "height: 50px;vertical-align:middle");
+                __builder2.AddAttribute(19, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\FormularioImagenRow.razor"
                                                                                                                                       () => OnClickHandle(oImageStr)
 
 #line default
 #line hidden
                 ));
-                __builder2.AddContent(25, "Subir ");
+                __builder2.AddContent(20, "Subir ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(26, "\r\n            ");
-                __builder2.OpenElement(27, "span");
-                __builder2.AddAttribute(28, "style", "display: inline-block; margin-right: 5px;");
-                __builder2.OpenElement(29, "img");
-                __builder2.AddAttribute(30, "src", "/images/wait.gif");
-                __builder2.AddAttribute(31, "hidden", 
+                __builder2.AddMarkupContent(21, "\r\n            ");
+                __builder2.OpenElement(22, "span");
+                __builder2.AddAttribute(23, "style", "display: inline-block; margin-right: 5px;");
+                __builder2.OpenElement(24, "img");
+                __builder2.AddAttribute(25, "src", "/images/wait.gif");
+                __builder2.AddAttribute(26, "hidden", 
 #line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\FormularioImagenRow.razor"
                                                                                                          oImgHid
 
 #line default
 #line hidden
                 );
-                __builder2.AddAttribute(32, "style", "width: 50px; height: 50px");
+                __builder2.AddAttribute(27, "style", "width: 50px; height: 50px");
                 __builder2.CloseElement();
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(33, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(34, "\r\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(35, "\r\n");
             }
             ));
             __builder.CloseComponent();

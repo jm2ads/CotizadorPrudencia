@@ -95,158 +95,128 @@ using System.Text.Json;
 #line hidden
             ));
             __builder.AddAttribute(3, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Forms.EditContext>)((context) => (__builder2) => {
-                __builder2.AddMarkupContent(4, "\r\n\r\n    ");
-                __builder2.OpenElement(5, "div");
-                __builder2.AddAttribute(6, "class", "row");
-                __builder2.AddAttribute(7, "style", "margin:10px");
-                __builder2.AddMarkupContent(8, "\r\n        ");
-                __builder2.OpenElement(9, "div");
-                __builder2.AddAttribute(10, "class", "col-md-5");
-                __builder2.AddMarkupContent(11, "\r\n            ");
-                __builder2.AddMarkupContent(12, "<label style=\"color:white\">Mi Nombre es</label>\r\n            ");
-                __builder2.OpenElement(13, "div");
-                __builder2.AddMarkupContent(14, "\r\n                ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(15);
-                __builder2.AddAttribute(16, "class", "form-control");
-                __builder2.AddAttribute(17, "placeholder", "Nombre y Apellido");
-                __builder2.AddAttribute(18, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.OpenElement(4, "div");
+                __builder2.AddAttribute(5, "class", "row");
+                __builder2.AddAttribute(6, "style", "margin:10px");
+                __builder2.OpenElement(7, "div");
+                __builder2.AddAttribute(8, "class", "col-md-5");
+                __builder2.AddMarkupContent(9, "<label style=\"color:white\">Mi Nombre es</label>\r\n            ");
+                __builder2.OpenElement(10, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(11);
+                __builder2.AddAttribute(12, "class", "form-control");
+                __builder2.AddAttribute(13, "placeholder", "Nombre y Apellido");
+                __builder2.AddAttribute(14, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 17 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonal.razor"
                                         onombre
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(19, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => onombre = __value, onombre))));
-                __builder2.AddAttribute(20, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => onombre));
+                __builder2.AddAttribute(15, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => onombre = __value, onombre))));
+                __builder2.AddAttribute(16, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => onombre));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(21, "\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(22, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(23, "\r\n        ");
-                __builder2.OpenElement(24, "div");
-                __builder2.AddAttribute(25, "class", "col-md-3");
-                __builder2.AddMarkupContent(26, "\r\n            ");
-                __builder2.AddMarkupContent(27, "<label style=\"color:white\">Patente</label>\r\n            ");
-                __builder2.OpenElement(28, "div");
-                __builder2.AddMarkupContent(29, "\r\n                ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(30);
-                __builder2.AddAttribute(31, "class", "form-control");
-                __builder2.AddAttribute(32, "placeholder", "Patente");
-                __builder2.AddAttribute(33, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(17, "\r\n        ");
+                __builder2.OpenElement(18, "div");
+                __builder2.AddAttribute(19, "class", "col-md-3");
+                __builder2.AddMarkupContent(20, "<label style=\"color:white\">Patente</label>\r\n            ");
+                __builder2.OpenElement(21, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(22);
+                __builder2.AddAttribute(23, "class", "form-control");
+                __builder2.AddAttribute(24, "placeholder", "Patente");
+                __builder2.AddAttribute(25, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 23 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonal.razor"
                                         opatente
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(34, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => opatente = __value, opatente))));
-                __builder2.AddAttribute(35, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => opatente));
+                __builder2.AddAttribute(26, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => opatente = __value, opatente))));
+                __builder2.AddAttribute(27, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => opatente));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(36, "\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(37, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(38, "\r\n        ");
-                __builder2.OpenElement(39, "div");
-                __builder2.AddAttribute(40, "class", "col-md-4");
-                __builder2.AddMarkupContent(41, "\r\n            ");
-                __builder2.AddMarkupContent(42, "<label style=\"color:white\">y naci</label>\r\n            ");
-                __builder2.OpenElement(43, "div");
-                __builder2.AddMarkupContent(44, "\r\n                ");
-                __Blazor.Project.Client.Pages.ZirenPages.InfoPersonal.TypeInference.CreateInputDate_0(__builder2, 45, 46, "form-control", 47, 
+                __builder2.AddMarkupContent(28, "\r\n        ");
+                __builder2.OpenElement(29, "div");
+                __builder2.AddAttribute(30, "class", "col-md-4");
+                __builder2.AddMarkupContent(31, "<label style=\"color:white\">y naci</label>\r\n            ");
+                __builder2.OpenElement(32, "div");
+                __Blazor.Project.Client.Pages.ZirenPages.InfoPersonal.TypeInference.CreateInputDate_0(__builder2, 33, 34, "form-control", 35, 
 #line 29 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonal.razor"
                                                              ofechaNacimiento
 
 #line default
 #line hidden
-                , 48, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => ofechaNacimiento = __value, ofechaNacimiento)), 49, () => ofechaNacimiento);
-                __builder2.AddMarkupContent(50, "\r\n            ");
+                , 36, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => ofechaNacimiento = __value, ofechaNacimiento)), 37, () => ofechaNacimiento);
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(51, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(52, "\r\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(53, "\r\n\r\n    ");
-                __builder2.OpenElement(54, "div");
-                __builder2.AddAttribute(55, "class", "row");
-                __builder2.AddAttribute(56, "style", "margin:10px");
-                __builder2.AddMarkupContent(57, "\r\n        ");
-                __builder2.OpenElement(58, "div");
-                __builder2.AddAttribute(59, "class", "col-md-5");
-                __builder2.AddMarkupContent(60, "\r\n            ");
-                __builder2.AddMarkupContent(61, "<label style=\"color:white\">Mi mail es</label>\r\n            ");
-                __builder2.OpenElement(62, "div");
-                __builder2.AddMarkupContent(63, "\r\n                ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(64);
-                __builder2.AddAttribute(65, "class", "form-control");
-                __builder2.AddAttribute(66, "placeholder", "Mail");
-                __builder2.AddAttribute(67, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(38, "\r\n\r\n    ");
+                __builder2.OpenElement(39, "div");
+                __builder2.AddAttribute(40, "class", "row");
+                __builder2.AddAttribute(41, "style", "margin:10px");
+                __builder2.OpenElement(42, "div");
+                __builder2.AddAttribute(43, "class", "col-md-5");
+                __builder2.AddMarkupContent(44, "<label style=\"color:white\">Mi mail es</label>\r\n            ");
+                __builder2.OpenElement(45, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(46);
+                __builder2.AddAttribute(47, "class", "form-control");
+                __builder2.AddAttribute(48, "placeholder", "Mail");
+                __builder2.AddAttribute(49, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 38 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonal.razor"
                                         omail
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(68, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => omail = __value, omail))));
-                __builder2.AddAttribute(69, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => omail));
+                __builder2.AddAttribute(50, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => omail = __value, omail))));
+                __builder2.AddAttribute(51, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => omail));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(70, "\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(71, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(72, "\r\n\r\n        ");
-                __builder2.OpenElement(73, "div");
-                __builder2.AddAttribute(74, "class", "col-md-3");
-                __builder2.AddMarkupContent(75, "\r\n            ");
-                __builder2.AddMarkupContent(76, "<label style=\"color:white\">Mi tel.</label>\r\n            ");
-                __builder2.OpenElement(77, "div");
-                __builder2.AddMarkupContent(78, "\r\n                ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(79);
-                __builder2.AddAttribute(80, "class", "form-control");
-                __builder2.AddAttribute(81, "placeholder", "telefono");
-                __builder2.AddAttribute(82, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(52, "\r\n\r\n        ");
+                __builder2.OpenElement(53, "div");
+                __builder2.AddAttribute(54, "class", "col-md-3");
+                __builder2.AddMarkupContent(55, "<label style=\"color:white\">Mi tel.</label>\r\n            ");
+                __builder2.OpenElement(56, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(57);
+                __builder2.AddAttribute(58, "class", "form-control");
+                __builder2.AddAttribute(59, "placeholder", "telefono");
+                __builder2.AddAttribute(60, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 45 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonal.razor"
                                         otelefono
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(83, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => otelefono = __value, otelefono))));
-                __builder2.AddAttribute(84, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => otelefono));
+                __builder2.AddAttribute(61, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => otelefono = __value, otelefono))));
+                __builder2.AddAttribute(62, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => otelefono));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(85, "\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(86, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(87, "\r\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(88, "\r\n\r\n    ");
-                __builder2.OpenElement(89, "div");
-                __builder2.AddAttribute(90, "class", "row");
-                __builder2.AddAttribute(91, "style", "margin:10px");
-                __builder2.AddMarkupContent(92, "\r\n        ");
-                __builder2.OpenElement(93, "div");
-                __builder2.AddAttribute(94, "class", "col-md-3");
-                __builder2.AddMarkupContent(95, "\r\n            ");
-                __builder2.OpenElement(96, "button");
-                __builder2.AddAttribute(97, "type", "button");
-                __builder2.AddAttribute(98, "class", "btn btn-info");
-                __builder2.AddAttribute(99, "style", "width:200px");
-                __builder2.AddAttribute(100, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+                __builder2.AddMarkupContent(63, "\r\n\r\n    ");
+                __builder2.OpenElement(64, "div");
+                __builder2.AddAttribute(65, "class", "row");
+                __builder2.AddAttribute(66, "style", "margin:10px");
+                __builder2.OpenElement(67, "div");
+                __builder2.AddAttribute(68, "class", "col-md-3");
+                __builder2.OpenElement(69, "button");
+                __builder2.AddAttribute(70, "type", "button");
+                __builder2.AddAttribute(71, "class", "btn btn-info");
+                __builder2.AddAttribute(72, "style", "width:200px");
+                __builder2.AddAttribute(73, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 52 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonal.razor"
                                                                                        () => OnClickHandle()
 
 #line default
 #line hidden
                 ));
-                __builder2.AddContent(101, "Siguiente");
+                __builder2.AddContent(74, "Siguiente");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(102, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(103, "\r\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(104, "\r\n");
             }
             ));
             __builder.CloseComponent();

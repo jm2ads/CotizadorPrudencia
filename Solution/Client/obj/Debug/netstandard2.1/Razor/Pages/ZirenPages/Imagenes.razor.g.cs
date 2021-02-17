@@ -85,17 +85,15 @@ using System.Text.Json;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Suba Imagenes del Auto</h3>\r\n");
+            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Suba Imagenes del Auto</h3>");
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
  if (oCotizacionAutoDTO == null)
 {
 
 #line default
 #line hidden
-            __builder.AddContent(1, "    ");
-            __builder.OpenComponent<Project.Client.Shared.Cargando>(2);
+            __builder.OpenComponent<Project.Client.Shared.Cargando>(1);
             __builder.CloseComponent();
-            __builder.AddMarkupContent(3, "\r\n");
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
 }
 else
@@ -103,53 +101,49 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(4, "    ");
-            __builder.OpenComponent<Microsoft.AspNetCore.Components.Forms.EditForm>(5);
-            __builder.AddAttribute(6, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Object>(
+            __builder.OpenComponent<Microsoft.AspNetCore.Components.Forms.EditForm>(2);
+            __builder.AddAttribute(3, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Object>(
 #line 14 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                      oAdjuntos
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(7, "OnValidSubmit", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<Microsoft.AspNetCore.Components.Forms.EditContext>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Forms.EditContext>(this, 
+            __builder.AddAttribute(4, "OnValidSubmit", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<Microsoft.AspNetCore.Components.Forms.EditContext>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Forms.EditContext>(this, 
 #line 14 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                oOnValidSubmit
 
 #line default
 #line hidden
             )));
-            __builder.AddAttribute(8, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Forms.EditContext>)((context) => (__builder2) => {
-                __builder2.AddMarkupContent(9, "\r\n        ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator>(10);
+            __builder.AddAttribute(5, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Forms.EditContext>)((context) => (__builder2) => {
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator>(6);
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(11, "\r\n\r\n        ");
-                __builder2.OpenElement(12, "div");
-                __builder2.AddAttribute(13, "class", "form-group");
-                __builder2.AddMarkupContent(14, "\r\n\r\n");
+                __builder2.AddMarkupContent(7, "\r\n\r\n        ");
+                __builder2.OpenElement(8, "div");
+                __builder2.AddAttribute(9, "class", "form-group");
 #line 19 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
              if (oCotizacionAutoDTO.vehiculo.es0KM == true)
             {
 
 #line default
 #line hidden
-                __builder2.AddContent(15, "                ");
-                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(16);
-                __builder2.AddAttribute(17, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
+                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(10);
+                __builder2.AddAttribute(11, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
 #line 21 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                 oAdjuntos
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(18, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
+                __builder2.AddAttribute(12, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
 #line 21 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                        0
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(19, "oLabelText", "Factura");
+                __builder2.AddAttribute(13, "oLabelText", "Factura");
                 __builder2.SetKey(
 #line 21 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                                                      0
@@ -158,23 +152,23 @@ else
 #line hidden
                 );
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(20, "\r\n                ");
-                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(21);
-                __builder2.AddAttribute(22, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
+                __builder2.AddMarkupContent(14, "\r\n                ");
+                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(15);
+                __builder2.AddAttribute(16, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
 #line 22 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                 oAdjuntos
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(23, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
+                __builder2.AddAttribute(17, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
 #line 22 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                        1
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(24, "oLabelText", "Cert. Rodamiento");
+                __builder2.AddAttribute(18, "oLabelText", "Cert. Rodamiento");
                 __builder2.SetKey(
 #line 22 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                                                               1
@@ -183,7 +177,6 @@ else
 #line hidden
                 );
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(25, "\r\n");
 #line 23 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
 
             }
@@ -192,23 +185,22 @@ else
 
 #line default
 #line hidden
-                __builder2.AddContent(26, "                ");
-                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(27);
-                __builder2.AddAttribute(28, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
+                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(19);
+                __builder2.AddAttribute(20, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
 #line 27 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                 oAdjuntos
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(29, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
+                __builder2.AddAttribute(21, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
 #line 27 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                        0
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(30, "oLabelText", "Foto 1");
+                __builder2.AddAttribute(22, "oLabelText", "Foto 1");
                 __builder2.SetKey(
 #line 27 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                                                     0
@@ -217,23 +209,23 @@ else
 #line hidden
                 );
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(31, "\r\n                ");
-                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(32);
-                __builder2.AddAttribute(33, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
+                __builder2.AddMarkupContent(23, "\r\n                ");
+                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(24);
+                __builder2.AddAttribute(25, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
 #line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                 oAdjuntos
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(34, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
+                __builder2.AddAttribute(26, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
 #line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                        1
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(35, "oLabelText", "Foto 2");
+                __builder2.AddAttribute(27, "oLabelText", "Foto 2");
                 __builder2.SetKey(
 #line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                                                     1
@@ -242,23 +234,23 @@ else
 #line hidden
                 );
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(36, "\r\n                ");
-                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(37);
-                __builder2.AddAttribute(38, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
+                __builder2.AddMarkupContent(28, "\r\n                ");
+                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(29);
+                __builder2.AddAttribute(30, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
 #line 29 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                 oAdjuntos
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(39, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
+                __builder2.AddAttribute(31, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
 #line 29 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                        2
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(40, "oLabelText", "Foto 3");
+                __builder2.AddAttribute(32, "oLabelText", "Foto 3");
                 __builder2.SetKey(
 #line 29 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                                                     2
@@ -267,23 +259,23 @@ else
 #line hidden
                 );
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(41, "\r\n                ");
-                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(42);
-                __builder2.AddAttribute(43, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
+                __builder2.AddMarkupContent(33, "\r\n                ");
+                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(34);
+                __builder2.AddAttribute(35, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
 #line 30 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                 oAdjuntos
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(44, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
+                __builder2.AddAttribute(36, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
 #line 30 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                        3
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(45, "oLabelText", "Foto 4");
+                __builder2.AddAttribute(37, "oLabelText", "Foto 4");
                 __builder2.SetKey(
 #line 30 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                                                     3
@@ -292,23 +284,23 @@ else
 #line hidden
                 );
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(46, "\r\n                ");
-                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(47);
-                __builder2.AddAttribute(48, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
+                __builder2.AddMarkupContent(38, "\r\n                ");
+                __builder2.OpenComponent<Project.Client.Pages.ZirenPages.FormularioImagenRow>(39);
+                __builder2.AddAttribute(40, "oAdjuntos", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.PrudenciaDTOs.AdjuntoDTO[]>(
 #line 31 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                 oAdjuntos
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(49, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
+                __builder2.AddAttribute(41, "oAdjuntoID", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
 #line 31 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                        4
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(50, "oLabelText", "Foto 5");
+                __builder2.AddAttribute(42, "oLabelText", "Foto 5");
                 __builder2.SetKey(
 #line 31 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                                                     4
@@ -317,37 +309,31 @@ else
 #line hidden
                 );
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(51, "\r\n");
 #line 32 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
             }
 
 #line default
 #line hidden
-                __builder2.AddMarkupContent(52, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(53, "\r\n        ");
-                __builder2.OpenElement(54, "div");
-                __builder2.AddAttribute(55, "class", "form-group");
-                __builder2.AddMarkupContent(56, "\r\n            ");
-                __builder2.OpenElement(57, "button");
-                __builder2.AddAttribute(58, "class", "btn btn-success");
-                __builder2.AddAttribute(59, "type", "button");
-                __builder2.AddAttribute(60, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+                __builder2.AddMarkupContent(43, "\r\n        ");
+                __builder2.OpenElement(44, "div");
+                __builder2.AddAttribute(45, "class", "form-group");
+                __builder2.OpenElement(46, "button");
+                __builder2.AddAttribute(47, "class", "btn btn-success");
+                __builder2.AddAttribute(48, "type", "button");
+                __builder2.AddAttribute(49, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 36 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
                                                                       () => OnClick()
 
 #line default
 #line hidden
                 ));
-                __builder2.AddContent(61, "Subir Imagenes");
+                __builder2.AddContent(50, "Subir Imagenes");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(62, "\r\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(63, "\r\n    ");
             }
             ));
             __builder.CloseComponent();
-            __builder.AddMarkupContent(64, "\r\n");
 #line 39 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
 }
 

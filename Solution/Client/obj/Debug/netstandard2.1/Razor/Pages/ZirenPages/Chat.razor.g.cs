@@ -87,80 +87,72 @@ using Microsoft.AspNetCore.SignalR.Client;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "form-group");
-            __builder.AddMarkupContent(2, "\r\n    ");
-            __builder.OpenElement(3, "label");
-            __builder.AddAttribute(4, "style", "color:white");
-            __builder.AddMarkupContent(5, "\r\n    User:\r\n    ");
-            __builder.OpenElement(6, "input");
-            __builder.AddAttribute(7, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.OpenElement(2, "label");
+            __builder.AddAttribute(3, "style", "color:white");
+            __builder.AddMarkupContent(4, "\r\n    User:\r\n    ");
+            __builder.OpenElement(5, "input");
+            __builder.AddAttribute(6, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #line 14 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Chat.razor"
                   userInput
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(8, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => userInput = __value, userInput));
+            __builder.AddAttribute(7, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => userInput = __value, userInput));
             __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
-            __builder.AddMarkupContent(9, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(10, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(11, "\r\n");
-            __builder.OpenElement(12, "div");
-            __builder.AddAttribute(13, "class", "form-group");
-            __builder.AddMarkupContent(14, "\r\n    ");
-            __builder.OpenElement(15, "label");
-            __builder.AddAttribute(16, "style", "color:white");
-            __builder.AddMarkupContent(17, "\r\n        Message:\r\n        ");
-            __builder.OpenElement(18, "input");
-            __builder.AddAttribute(19, "size", "50");
-            __builder.AddAttribute(20, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddMarkupContent(8, "\r\n");
+            __builder.OpenElement(9, "div");
+            __builder.AddAttribute(10, "class", "form-group");
+            __builder.OpenElement(11, "label");
+            __builder.AddAttribute(12, "style", "color:white");
+            __builder.AddMarkupContent(13, "\r\n        Message:\r\n        ");
+            __builder.OpenElement(14, "input");
+            __builder.AddAttribute(15, "size", "50");
+            __builder.AddAttribute(16, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #line 20 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Chat.razor"
                       messageInput
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(21, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => messageInput = __value, messageInput));
+            __builder.AddAttribute(17, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => messageInput = __value, messageInput));
             __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
-            __builder.AddMarkupContent(22, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(23, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(24, "\r\n");
-            __builder.OpenElement(25, "button");
-            __builder.AddAttribute(26, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(18, "\r\n");
+            __builder.OpenElement(19, "button");
+            __builder.AddAttribute(20, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 23 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Chat.razor"
                   Send
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(27, "disabled", 
+            __builder.AddAttribute(21, "disabled", 
 #line 23 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Chat.razor"
                                     !IsConnected
 
 #line default
 #line hidden
             );
-            __builder.AddContent(28, "Send");
+            __builder.AddContent(22, "Send");
             __builder.CloseElement();
-            __builder.AddMarkupContent(29, "\r\n\r\n<hr>\r\n\r\n");
-            __builder.OpenElement(30, "ul");
-            __builder.AddAttribute(31, "id", "messagesList");
-            __builder.AddMarkupContent(32, "\r\n");
+            __builder.AddMarkupContent(23, "\r\n\r\n<hr>\r\n\r\n");
+            __builder.OpenElement(24, "ul");
+            __builder.AddAttribute(25, "id", "messagesList");
 #line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Chat.razor"
      foreach (var message in messages)
     {
 
 #line default
 #line hidden
-            __builder.AddContent(33, "        ");
-            __builder.OpenElement(34, "li");
-            __builder.AddAttribute(35, "style", "color:white");
-            __builder.AddContent(36, 
+            __builder.OpenElement(26, "li");
+            __builder.AddAttribute(27, "style", "color:white");
+            __builder.AddContent(28, 
 #line 30 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Chat.razor"
                                  message
 
@@ -168,7 +160,6 @@ using Microsoft.AspNetCore.SignalR.Client;
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(37, "\r\n");
 #line 31 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Chat.razor"
     }
 

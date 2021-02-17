@@ -85,7 +85,7 @@ using System.Text.Json;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Seleccione la Provincia</h3>\r\n");
+            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Seleccione la Provincia</h3>");
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
  if (oProvinciasList == null)
 {
@@ -94,7 +94,6 @@ using System.Text.Json;
 #line hidden
             __builder.OpenComponent<Project.Client.Shared.Cargando>(1);
             __builder.CloseComponent();
-            __builder.AddMarkupContent(2, "\r\n");
 #line 14 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
 }
 else
@@ -110,8 +109,8 @@ else
 
 #line default
 #line hidden
-            __builder.AddMarkupContent(3, "No hay registros para mostrar\r\n        ");
-            __builder.AddMarkupContent(4, "<p><em>No hay registros para mostrar</em></p>\r\n");
+            __builder.AddMarkupContent(2, "No hay registros para mostrar\r\n        ");
+            __builder.AddMarkupContent(3, "<p><em>No hay registros para mostrar</em></p>");
 #line 21 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
     }
     else
@@ -119,84 +118,70 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(5, "        ");
-            __builder.OpenElement(6, "div");
-            __builder.AddAttribute(7, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
-            __builder.AddMarkupContent(8, "\r\n            ");
-            __builder.OpenElement(9, "input");
-            __builder.AddAttribute(10, "onkeyup", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.KeyboardEventArgs>(this, 
+            __builder.OpenElement(4, "div");
+            __builder.AddAttribute(5, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
+            __builder.OpenElement(6, "input");
+            __builder.AddAttribute(7, "onkeyup", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.KeyboardEventArgs>(this, 
 #line 26 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
                                (KeyboardEventArgs e) => ProvinciaKeyUp(e)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(11, "type", "text");
-            __builder.AddAttribute(12, "class", "form-control");
-            __builder.AddAttribute(13, "id", "titulo");
-            __builder.AddAttribute(14, "placeholder", "Provincia");
-            __builder.AddAttribute(15, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddAttribute(8, "type", "text");
+            __builder.AddAttribute(9, "class", "form-control");
+            __builder.AddAttribute(10, "id", "titulo");
+            __builder.AddAttribute(11, "placeholder", "Provincia");
+            __builder.AddAttribute(12, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #line 25 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
                                 oProvinciaDescripcion
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(16, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => oProvinciaDescripcion = __value, oProvinciaDescripcion));
+            __builder.AddAttribute(13, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => oProvinciaDescripcion = __value, oProvinciaDescripcion));
             __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
-            __builder.AddMarkupContent(17, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(18, "\r\n        ");
-            __builder.OpenElement(19, "div");
-            __builder.AddAttribute(20, "style", "display: flex; flex-wrap: wrap; align-items: center;");
-            __builder.AddMarkupContent(21, "\r\n");
+            __builder.AddMarkupContent(14, "\r\n        ");
+            __builder.OpenElement(15, "div");
+            __builder.AddAttribute(16, "style", "display: flex; flex-wrap: wrap; align-items: center;");
 #line 30 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
              foreach (var oProvincias in oProvinciasAuxList)
             {
 
 #line default
 #line hidden
-            __builder.AddContent(22, "                ");
-            __builder.OpenElement(23, "div");
-            __builder.AddAttribute(24, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
-            __builder.AddMarkupContent(25, "\r\n                    ");
-            __builder.OpenElement(26, "div");
-            __builder.AddMarkupContent(27, "\r\n                        ");
-            __builder.OpenElement(28, "button");
-            __builder.AddAttribute(29, "type", "button");
-            __builder.AddAttribute(30, "class", "btn btn-info");
-            __builder.AddAttribute(31, "style", "width:auto");
-            __builder.AddAttribute(32, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.OpenElement(17, "div");
+            __builder.AddAttribute(18, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
+            __builder.OpenElement(19, "div");
+            __builder.OpenElement(20, "button");
+            __builder.AddAttribute(21, "type", "button");
+            __builder.AddAttribute(22, "class", "btn btn-info");
+            __builder.AddAttribute(23, "style", "width:auto");
+            __builder.AddAttribute(24, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 35 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
                                                                                                   () => OnClickHandle(@oProvincias.provinciaID)
 
 #line default
 #line hidden
             ));
-            __builder.AddMarkupContent(33, "\r\n                            ");
-            __builder.AddContent(34, 
+            __builder.AddContent(25, 
 #line 36 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
                              oProvincias.descripcion
 
 #line default
 #line hidden
             );
-            __builder.AddMarkupContent(35, "\r\n                        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(36, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(37, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(38, "\r\n");
 #line 40 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
             }
 
 #line default
 #line hidden
-            __builder.AddContent(39, "        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(40, "\r\n");
 #line 42 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
     }
 

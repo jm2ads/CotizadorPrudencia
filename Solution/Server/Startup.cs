@@ -1,4 +1,3 @@
-using AutoMapper;
 using Project.Server.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,7 +9,6 @@ using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
-using Project.Server.Hubs;
 
 namespace Project.Server
 {
@@ -39,9 +37,9 @@ namespace Project.Server
             services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddAutoMapper(typeof(Startup));
+        
 
-            services.AddScoped<IAlmacenadorDeArchivos, AlmacenadorArchivosAzStorage>();
+           
             services.AddScoped<NotificacionesService>();
 
 
@@ -84,8 +82,7 @@ namespace Project.Server
                     await context.Response.WriteAsync(llavePublica);
                 });
 
-               
-                endpoints.MapHub<ChatHub>("/chathub");
+                           
 
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapFallbackToFile("index.html");

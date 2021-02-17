@@ -85,14 +85,14 @@ using Project.Shared;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, "<h1>Weather forecast</h1>\n\n\n");
+            __builder.AddMarkupContent(0, "<h1>Weather forecast</h1>");
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\FetchData.razor"
  if (forecasts == null)
 {
 
 #line default
 #line hidden
-            __builder.AddMarkupContent(1, "<p><em>Loading...</em></p> ");
+            __builder.AddMarkupContent(1, "<p><em>Loading...</em></p>");
 #line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\FetchData.razor"
                            }
 else
@@ -103,22 +103,29 @@ else
 #line hidden
             __builder.OpenElement(2, "table");
             __builder.AddAttribute(3, "class", "table");
-            __builder.AddMarkupContent(4, "\n    ");
-            __builder.AddMarkupContent(5, "<thead>\n        <tr>\n            <th>Date</th>\n            <th>Temp. (C)</th>\n            <th>Temp. (F)</th>\n            <th>Summary</th>\n        </tr>\n    </thead>\n    ");
-            __builder.OpenElement(6, "tbody");
-            __builder.AddMarkupContent(7, "\n");
+            __builder.AddMarkupContent(4, "<thead><tr><th>Date</th>\n            <th>Temp. (C)</th>\n            <th>Temp. (F)</th>\n            <th>Summary</th></tr></thead>\n    ");
+            __builder.OpenElement(5, "tbody");
 #line 24 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\FetchData.razor"
          foreach (var forecast in forecasts)
         {
 
 #line default
 #line hidden
-            __builder.OpenElement(8, "tr");
+            __builder.OpenElement(6, "tr");
+            __builder.OpenElement(7, "td");
+            __builder.AddContent(8, 
+#line 27 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\FetchData.razor"
+         forecast.Date.ToShortDateString()
+
+#line default
+#line hidden
+            );
+            __builder.CloseElement();
             __builder.AddMarkupContent(9, "\n    ");
             __builder.OpenElement(10, "td");
             __builder.AddContent(11, 
-#line 27 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\FetchData.razor"
-         forecast.Date.ToShortDateString()
+#line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\FetchData.razor"
+         forecast.TemperatureC
 
 #line default
 #line hidden
@@ -127,8 +134,8 @@ else
             __builder.AddMarkupContent(12, "\n    ");
             __builder.OpenElement(13, "td");
             __builder.AddContent(14, 
-#line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\FetchData.razor"
-         forecast.TemperatureC
+#line 29 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\FetchData.razor"
+         forecast.TemperatureF
 
 #line default
 #line hidden
@@ -137,16 +144,6 @@ else
             __builder.AddMarkupContent(15, "\n    ");
             __builder.OpenElement(16, "td");
             __builder.AddContent(17, 
-#line 29 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\FetchData.razor"
-         forecast.TemperatureF
-
-#line default
-#line hidden
-            );
-            __builder.CloseElement();
-            __builder.AddMarkupContent(18, "\n    ");
-            __builder.OpenElement(19, "td");
-            __builder.AddContent(20, 
 #line 30 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\FetchData.razor"
          forecast.Summary
 
@@ -154,19 +151,14 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(21, "\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(22, "\n");
 #line 32 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\FetchData.razor"
         }
 
 #line default
 #line hidden
-            __builder.AddContent(23, "    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(24, "\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(25, "\n");
 #line 35 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\FetchData.razor"
 }
 

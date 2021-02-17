@@ -14,7 +14,7 @@ else
     <EditForm Model="oAdjuntos" OnValidSubmit="oOnValidSubmit">
         <DataAnnotationsValidator />
 
-        <div class="form-group">
+        <div class="form-group" style="margin-left:5px">
 
             @if (oCotizacionAutoDTO.vehiculo.es0KM == true)
             {
@@ -24,16 +24,24 @@ else
             }
             else
             {
-                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="0" oLabelText="Foto 1" @key="0" />
-                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="1" oLabelText="Foto 2" @key="1" />
-                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="2" oLabelText="Foto 3" @key="2" />
-                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="3" oLabelText="Foto 4" @key="3" />
+                <img src="/images/FotosEjemplo.jpg" alt="Fotos" style="display:block;margin:auto;width:50%" />
+
+                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="0" oLabelText="Parte Delantera" @key="0" />
+                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="1" oLabelText="Parte Trasera" @key="1" />
+                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="2" oLabelText="Lateral Izquierdo Completo (Lado Conductor)" @key="2" />
+                <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="3" oLabelText="Lateral Derecho Completo (Lado Acompanante)" @key="3" />
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="4" oLabelText="Foto 5" @key="4" />
+
+                <label style="color:white;font-size: 0.8em;align-content:center">
+                   SI LAS FOTOS NO SON CORRECTAS O LEGIBLES, SE TE AVISARA POR MAIL Y CELULAR  PARA QUE NOS LA ENVIES CORRECTAMENTE, DE NO HACERLO, LA POLIZA LAMENTABLEMENTE QUEDARA SIN EFECTO.
+                </label>
+
+                
             }
 
         </div>
         <div class="form-group">
-            <button class="btn btn-success" type="button" @onclick="@(() => OnClick())">Subir Imagenes</button>
+            <button class="btn btn-success" style="margin:5px" type="button" @onclick="@(() => OnClick())">Continuar</button>
         </div>
     </EditForm>
 }

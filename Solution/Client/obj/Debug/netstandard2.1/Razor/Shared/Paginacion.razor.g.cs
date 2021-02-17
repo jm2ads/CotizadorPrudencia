@@ -81,27 +81,24 @@ using Project.Shared.PrudenciaDTOs;
         {
             __builder.OpenElement(0, "nav");
             __builder.AddAttribute(1, "aria-label", "Page navigation example");
-            __builder.AddMarkupContent(2, "\n    ");
-            __builder.OpenElement(3, "ul");
-            __builder.AddAttribute(4, "class", "pagination justify-content-center");
-            __builder.AddMarkupContent(5, "\n");
+            __builder.OpenElement(2, "ul");
+            __builder.AddAttribute(3, "class", "pagination justify-content-center");
 #line 3 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\Paginacion.razor"
          foreach (var enlace in Enlaces)
         {
 
 #line default
 #line hidden
-            __builder.AddContent(6, "            ");
-            __builder.OpenElement(7, "li");
-            __builder.AddAttribute(8, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.OpenElement(4, "li");
+            __builder.AddAttribute(5, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 5 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\Paginacion.razor"
                             () => PaginaSeleccionadaInterno(enlace)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(9, "style", "cursor: pointer;");
-            __builder.AddAttribute(10, "class", "page-item" + " " + (
+            __builder.AddAttribute(6, "style", "cursor: pointer;");
+            __builder.AddAttribute(7, "class", "page-item" + " " + (
 #line 7 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\Paginacion.razor"
                                    enlace.Habilitada ? null : "disabled"
 
@@ -114,11 +111,10 @@ using Project.Shared.PrudenciaDTOs;
 #line default
 #line hidden
             ));
-            __builder.AddMarkupContent(11, "\n                ");
-            __builder.OpenElement(12, "span");
-            __builder.AddAttribute(13, "class", "page-link");
-            __builder.AddAttribute(14, "href", "#");
-            __builder.AddContent(15, 
+            __builder.OpenElement(8, "span");
+            __builder.AddAttribute(9, "class", "page-link");
+            __builder.AddAttribute(10, "href", "#");
+            __builder.AddContent(11, 
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\Paginacion.razor"
                                                   enlace.Texto
 
@@ -126,17 +122,13 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(16, "\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(17, "\n");
 #line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\Paginacion.razor"
         }
 
 #line default
 #line hidden
-            __builder.AddContent(18, "    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(19, "\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

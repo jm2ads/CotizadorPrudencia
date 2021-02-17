@@ -83,72 +83,65 @@ using Project.Shared.PrudenciaDTOs;
             __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Filtro Películas</h3>\n\n");
             __builder.OpenElement(1, "div");
             __builder.AddAttribute(2, "class", "form-inline");
-            __builder.AddMarkupContent(3, "\n    ");
-            __builder.OpenElement(4, "div");
-            __builder.AddAttribute(5, "class", "form-group mb-2");
-            __builder.AddMarkupContent(6, "\n        ");
-            __builder.AddMarkupContent(7, "<label for=\"titulo\" class=\"sr-only\">Título</label>\n        ");
-            __builder.OpenElement(8, "input");
-            __builder.AddAttribute(9, "onkeypress", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.KeyboardEventArgs>(this, 
+            __builder.OpenElement(3, "div");
+            __builder.AddAttribute(4, "class", "form-group mb-2");
+            __builder.AddMarkupContent(5, "<label for=\"titulo\" class=\"sr-only\">Título</label>\n        ");
+            __builder.OpenElement(6, "input");
+            __builder.AddAttribute(7, "onkeypress", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.KeyboardEventArgs>(this, 
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                               (KeyboardEventArgs e) => TituloKeyPress(e)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(10, "type", "text");
-            __builder.AddAttribute(11, "class", "form-control");
-            __builder.AddAttribute(12, "id", "titulo");
-            __builder.AddAttribute(13, "placeholder", "Título Película");
-            __builder.AddAttribute(14, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddAttribute(8, "type", "text");
+            __builder.AddAttribute(9, "class", "form-control");
+            __builder.AddAttribute(10, "id", "titulo");
+            __builder.AddAttribute(11, "placeholder", "Título Película");
+            __builder.AddAttribute(12, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                             titulo
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(15, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => titulo = __value, titulo));
+            __builder.AddAttribute(13, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => titulo = __value, titulo));
             __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
-            __builder.AddMarkupContent(16, "\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(17, "\n    ");
-            __builder.OpenElement(18, "div");
-            __builder.AddAttribute(19, "class", "form-group mx-sm-3 mb-2");
-            __builder.AddMarkupContent(20, "\n        ");
-            __builder.OpenElement(21, "select");
-            __builder.AddAttribute(22, "class", "form-control");
-            __builder.AddAttribute(23, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddMarkupContent(14, "\n    ");
+            __builder.OpenElement(15, "div");
+            __builder.AddAttribute(16, "class", "form-group mx-sm-3 mb-2");
+            __builder.OpenElement(17, "select");
+            __builder.AddAttribute(18, "class", "form-control");
+            __builder.AddAttribute(19, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                                             generoSeleccionado
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(24, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => generoSeleccionado = __value, generoSeleccionado));
+            __builder.AddAttribute(20, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => generoSeleccionado = __value, generoSeleccionado));
             __builder.SetUpdatesAttributeName("value");
-            __builder.AddMarkupContent(25, "\n            ");
-            __builder.OpenElement(26, "option");
-            __builder.AddAttribute(27, "value", "0");
-            __builder.AddMarkupContent(28, "--Seleccione un género--");
+            __builder.OpenElement(21, "option");
+            __builder.AddAttribute(22, "value", "0");
+            __builder.AddMarkupContent(23, "--Seleccione un género--");
             __builder.CloseElement();
-            __builder.AddMarkupContent(29, "\n");
 #line 17 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
              foreach (var item in generos)
             {
 
 #line default
 #line hidden
-            __builder.AddContent(30, "                ");
-            __builder.OpenElement(31, "option");
-            __builder.AddAttribute(32, "value", 
+            __builder.OpenElement(24, "option");
+            __builder.AddAttribute(25, "value", 
 #line 19 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                                 item.Id
 
 #line default
 #line hidden
             );
-            __builder.AddContent(33, 
+            __builder.AddContent(26, 
 #line 19 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                                           item.Nombre
 
@@ -156,110 +149,103 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(34, "\n");
 #line 20 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
             }
 
 #line default
 #line hidden
-            __builder.AddContent(35, "        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(36, "\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(37, "\n    ");
-            __builder.OpenElement(38, "div");
-            __builder.AddAttribute(39, "class", "form-group mx-sm-3 mb-2");
-            __builder.AddMarkupContent(40, "\n        ");
-            __builder.OpenElement(41, "input");
-            __builder.AddAttribute(42, "type", "checkbox");
-            __builder.AddAttribute(43, "class", "form-check-input");
-            __builder.AddAttribute(44, "id", "estrenos");
-            __builder.AddAttribute(45, "checked", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddMarkupContent(27, "\n    ");
+            __builder.OpenElement(28, "div");
+            __builder.AddAttribute(29, "class", "form-group mx-sm-3 mb-2");
+            __builder.OpenElement(30, "input");
+            __builder.AddAttribute(31, "type", "checkbox");
+            __builder.AddAttribute(32, "class", "form-check-input");
+            __builder.AddAttribute(33, "id", "estrenos");
+            __builder.AddAttribute(34, "checked", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #line 24 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                                                                              futurosEstrenos
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(46, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => futurosEstrenos = __value, futurosEstrenos));
+            __builder.AddAttribute(35, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => futurosEstrenos = __value, futurosEstrenos));
             __builder.SetUpdatesAttributeName("checked");
             __builder.CloseElement();
-            __builder.AddMarkupContent(47, "\n        ");
-            __builder.AddMarkupContent(48, "<label class=\"form-check-label\" for=\"estrenos\">\n            Futuros Estrenos\n        </label>\n    ");
+            __builder.AddMarkupContent(36, "\n        ");
+            __builder.AddMarkupContent(37, "<label class=\"form-check-label\" for=\"estrenos\">\n            Futuros Estrenos\n        </label>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(49, "\n    ");
-            __builder.OpenElement(50, "div");
-            __builder.AddAttribute(51, "class", "form-group mx-sm-3 mb-2");
-            __builder.AddMarkupContent(52, "\n        ");
-            __builder.OpenElement(53, "input");
-            __builder.AddAttribute(54, "type", "checkbox");
-            __builder.AddAttribute(55, "class", "form-check-input");
-            __builder.AddAttribute(56, "id", "cartelera");
-            __builder.AddAttribute(57, "checked", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddMarkupContent(38, "\n    ");
+            __builder.OpenElement(39, "div");
+            __builder.AddAttribute(40, "class", "form-group mx-sm-3 mb-2");
+            __builder.OpenElement(41, "input");
+            __builder.AddAttribute(42, "type", "checkbox");
+            __builder.AddAttribute(43, "class", "form-check-input");
+            __builder.AddAttribute(44, "id", "cartelera");
+            __builder.AddAttribute(45, "checked", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #line 30 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                                                                               enCartelera
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(58, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => enCartelera = __value, enCartelera));
+            __builder.AddAttribute(46, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => enCartelera = __value, enCartelera));
             __builder.SetUpdatesAttributeName("checked");
             __builder.CloseElement();
-            __builder.AddMarkupContent(59, "\n        ");
-            __builder.AddMarkupContent(60, "<label class=\"form-check-label\" for=\"cartelera\">\n            En Cartelera\n        </label>\n    ");
+            __builder.AddMarkupContent(47, "\n        ");
+            __builder.AddMarkupContent(48, "<label class=\"form-check-label\" for=\"cartelera\">\n            En Cartelera\n        </label>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(61, "\n    ");
-            __builder.OpenElement(62, "div");
-            __builder.AddAttribute(63, "class", "form-group mx-sm-3 mb-2");
-            __builder.AddMarkupContent(64, "\n        ");
-            __builder.OpenElement(65, "input");
-            __builder.AddAttribute(66, "type", "checkbox");
-            __builder.AddAttribute(67, "class", "form-check-input");
-            __builder.AddAttribute(68, "id", "masVotadas");
-            __builder.AddAttribute(69, "checked", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddMarkupContent(49, "\n    ");
+            __builder.OpenElement(50, "div");
+            __builder.AddAttribute(51, "class", "form-group mx-sm-3 mb-2");
+            __builder.OpenElement(52, "input");
+            __builder.AddAttribute(53, "type", "checkbox");
+            __builder.AddAttribute(54, "class", "form-check-input");
+            __builder.AddAttribute(55, "id", "masVotadas");
+            __builder.AddAttribute(56, "checked", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #line 36 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                                                                                masVotadas
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(70, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => masVotadas = __value, masVotadas));
+            __builder.AddAttribute(57, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => masVotadas = __value, masVotadas));
             __builder.SetUpdatesAttributeName("checked");
             __builder.CloseElement();
-            __builder.AddMarkupContent(71, "\n        ");
-            __builder.AddMarkupContent(72, "<label class=\"form-check-label\" for=\"masVotadas\">\n            Más Votadas\n        </label>\n    ");
+            __builder.AddMarkupContent(58, "\n        ");
+            __builder.AddMarkupContent(59, "<label class=\"form-check-label\" for=\"masVotadas\">\n            Más Votadas\n        </label>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(73, "\n\n    ");
-            __builder.OpenElement(74, "button");
-            __builder.AddAttribute(75, "type", "button");
-            __builder.AddAttribute(76, "class", "btn btn-primary mb-2 mx-sm-3");
-            __builder.AddAttribute(77, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(60, "\n\n    ");
+            __builder.OpenElement(61, "button");
+            __builder.AddAttribute(62, "type", "button");
+            __builder.AddAttribute(63, "class", "btn btn-primary mb-2 mx-sm-3");
+            __builder.AddAttribute(64, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 42 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                                                                          CargarNuevasPeliculas
 
 #line default
 #line hidden
             ));
-            __builder.AddContent(78, "Filtrar");
+            __builder.AddContent(65, "Filtrar");
             __builder.CloseElement();
-            __builder.AddMarkupContent(79, "\n    ");
-            __builder.OpenElement(80, "button");
-            __builder.AddAttribute(81, "type", "button");
-            __builder.AddAttribute(82, "class", "btn btn-danger mb-2");
-            __builder.AddAttribute(83, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(66, "\n    ");
+            __builder.OpenElement(67, "button");
+            __builder.AddAttribute(68, "type", "button");
+            __builder.AddAttribute(69, "class", "btn btn-danger mb-2");
+            __builder.AddAttribute(70, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 43 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                                                                 LimpiarOnClick
 
 #line default
 #line hidden
             ));
-            __builder.AddContent(84, "Limpiar");
+            __builder.AddContent(71, "Limpiar");
             __builder.CloseElement();
-            __builder.AddMarkupContent(85, "\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(86, "\n\n");
-            __builder.OpenComponent<Project.Client.Shared.ListadoPeliculas>(87);
-            __builder.AddAttribute(88, "Peliculas", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Shared.Entidades.Pelicula>>(
+            __builder.AddMarkupContent(72, "\n\n");
+            __builder.OpenComponent<Project.Client.Shared.ListadoPeliculas>(73);
+            __builder.AddAttribute(74, "Peliculas", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Shared.Entidades.Pelicula>>(
 #line 46 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                              Peliculas
 
@@ -267,23 +253,23 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             ));
             __builder.CloseComponent();
-            __builder.AddMarkupContent(89, "\n\n");
-            __builder.OpenComponent<Project.Client.Shared.Paginacion>(90);
-            __builder.AddAttribute(91, "PaginaActual", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
+            __builder.AddMarkupContent(75, "\n\n");
+            __builder.OpenComponent<Project.Client.Shared.Paginacion>(76);
+            __builder.AddAttribute(77, "PaginaActual", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
 #line 48 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                           paginaActual
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(92, "PaginasTotales", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
+            __builder.AddAttribute(78, "PaginasTotales", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
 #line 48 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                                                         paginasTotales
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(93, "PaginaSeleccionada", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Int32>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Int32>(this, 
+            __builder.AddAttribute(79, "PaginaSeleccionada", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Int32>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Int32>(this, 
 #line 49 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FiltroPeliculas.razor"
                                 PaginaSeleccionada
 

@@ -81,41 +81,38 @@ using Project.Shared.PrudenciaDTOs;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
-            __builder.AddMarkupContent(2, "\n    ");
-            __builder.OpenElement(3, "a");
-            __builder.AddAttribute(4, "href", 
+            __builder.OpenElement(2, "a");
+            __builder.AddAttribute(3, "href", 
 #line 2 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\PeliculaIndividual.razor"
               urlPelicula
 
 #line default
 #line hidden
             );
-            __builder.AddMarkupContent(5, "\n        ");
-            __builder.OpenElement(6, "img");
-            __builder.AddAttribute(7, "src", 
+            __builder.OpenElement(4, "img");
+            __builder.AddAttribute(5, "src", 
 #line 3 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\PeliculaIndividual.razor"
                    Pelicula.Poster
 
 #line default
 #line hidden
             );
-            __builder.AddAttribute(8, "alt", "Poster");
-            __builder.AddAttribute(9, "style", "width: 225px; height:300px;");
+            __builder.AddAttribute(6, "alt", "Poster");
+            __builder.AddAttribute(7, "style", "width: 225px; height:300px;");
             __builder.CloseElement();
-            __builder.AddMarkupContent(10, "\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(11, "\n    ");
-            __builder.OpenElement(12, "p");
-            __builder.AddAttribute(13, "style", "max-width: 225px; height: 44px; font-size: 15px; font-weight: bold;");
-            __builder.OpenElement(14, "a");
-            __builder.AddAttribute(15, "href", 
+            __builder.AddMarkupContent(8, "\n    ");
+            __builder.OpenElement(9, "p");
+            __builder.AddAttribute(10, "style", "max-width: 225px; height: 44px; font-size: 15px; font-weight: bold;");
+            __builder.OpenElement(11, "a");
+            __builder.AddAttribute(12, "href", 
 #line 5 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\PeliculaIndividual.razor"
                                                                                              urlPelicula
 
 #line default
 #line hidden
             );
-            __builder.AddContent(16, 
+            __builder.AddContent(13, 
 #line 5 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\PeliculaIndividual.razor"
                                                                                                            Pelicula.TituloCortado
 
@@ -124,36 +121,33 @@ using Project.Shared.PrudenciaDTOs;
             );
             __builder.CloseElement();
             __builder.CloseElement();
-            __builder.AddMarkupContent(17, "\n    ");
-            __builder.OpenElement(18, "div");
-            __builder.AddMarkupContent(19, "\n        ");
-            __builder.OpenElement(20, "a");
-            __builder.AddAttribute(21, "class", "btn btn-info");
-            __builder.AddAttribute(22, "href", "peliculas/editar/" + (
+            __builder.AddMarkupContent(14, "\n    ");
+            __builder.OpenElement(15, "div");
+            __builder.OpenElement(16, "a");
+            __builder.AddAttribute(17, "class", "btn btn-info");
+            __builder.AddAttribute(18, "href", "peliculas/editar/" + (
 #line 7 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\PeliculaIndividual.razor"
                                                         Pelicula.Id
 
 #line default
 #line hidden
             ));
-            __builder.AddContent(23, "Editar");
+            __builder.AddContent(19, "Editar");
             __builder.CloseElement();
-            __builder.AddMarkupContent(24, "\n        ");
-            __builder.OpenElement(25, "button");
-            __builder.AddAttribute(26, "type", "button");
-            __builder.AddAttribute(27, "class", "btn btn-danger");
-            __builder.AddAttribute(28, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(20, "\n        ");
+            __builder.OpenElement(21, "button");
+            __builder.AddAttribute(22, "type", "button");
+            __builder.AddAttribute(23, "class", "btn btn-danger");
+            __builder.AddAttribute(24, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 9 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\PeliculaIndividual.razor"
                             () => EliminarPelicula.InvokeAsync(Pelicula)
 
 #line default
 #line hidden
             ));
-            __builder.AddMarkupContent(29, "\n            Borrar\n        ");
+            __builder.AddMarkupContent(25, "\n            Borrar\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(30, "\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(31, "\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

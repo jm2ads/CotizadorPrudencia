@@ -85,9 +85,8 @@ using System.Linq.Expressions;
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.OpenElement(0, "div");
-            __builder.AddMarkupContent(1, "\n    ");
-            __builder.OpenElement(2, "label");
-            __builder.AddContent(3, 
+            __builder.OpenElement(1, "label");
+            __builder.AddContent(2, 
 #line 6 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputMarkdown.razor"
             Label
 
@@ -95,52 +94,47 @@ using System.Linq.Expressions;
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(4, "\n    ");
-            __builder.OpenElement(5, "div");
-            __builder.AddMarkupContent(6, "\n        ");
-            __builder.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputTextArea>(7);
-            __builder.AddAttribute(8, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+            __builder.AddMarkupContent(3, "\n    ");
+            __builder.OpenElement(4, "div");
+            __builder.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputTextArea>(5);
+            __builder.AddAttribute(6, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputMarkdown.razor"
                                     CurrentValue
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(9, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentValue = __value, CurrentValue))));
-            __builder.AddAttribute(10, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => CurrentValue));
+            __builder.AddAttribute(7, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentValue = __value, CurrentValue))));
+            __builder.AddAttribute(8, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => CurrentValue));
             __builder.CloseComponent();
-            __builder.AddMarkupContent(11, "\n        ");
-            __Blazor.Project.Client.Shared.InputMarkdown.TypeInference.CreateValidationMessage_0(__builder, 12, 13, 
+            __builder.AddMarkupContent(9, "\n        ");
+            __Blazor.Project.Client.Shared.InputMarkdown.TypeInference.CreateValidationMessage_0(__builder, 10, 11, 
 #line 9 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputMarkdown.razor"
                                 For
 
 #line default
 #line hidden
             );
-            __builder.AddMarkupContent(14, "\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(15, "\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(16, "\n");
-            __builder.OpenElement(17, "div");
-            __builder.AddMarkupContent(18, "\n    ");
-            __builder.OpenElement(19, "label");
-            __builder.AddContent(20, 
+            __builder.AddMarkupContent(12, "\n");
+            __builder.OpenElement(13, "div");
+            __builder.OpenElement(14, "label");
+            __builder.AddContent(15, 
 #line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputMarkdown.razor"
             Label
 
 #line default
 #line hidden
             );
-            __builder.AddContent(21, " (preview):");
+            __builder.AddContent(16, " (preview):");
             __builder.CloseElement();
-            __builder.AddMarkupContent(22, "\n    ");
-            __builder.OpenElement(23, "div");
-            __builder.AddAttribute(24, "class", "markdown-container");
-            __builder.AddAttribute(25, "style", "overflow: auto;");
-            __builder.AddMarkupContent(26, "\n        ");
-            __builder.OpenComponent<Project.Client.Shared.MostrarMarkdown>(27);
-            __builder.AddAttribute(28, "ContenidoMarkdown", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+            __builder.AddMarkupContent(17, "\n    ");
+            __builder.OpenElement(18, "div");
+            __builder.AddAttribute(19, "class", "markdown-container");
+            __builder.AddAttribute(20, "style", "overflow: auto;");
+            __builder.OpenComponent<Project.Client.Shared.MostrarMarkdown>(21);
+            __builder.AddAttribute(22, "ContenidoMarkdown", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputMarkdown.razor"
                                              CurrentValue
 
@@ -148,9 +142,7 @@ using System.Linq.Expressions;
 #line hidden
             ));
             __builder.CloseComponent();
-            __builder.AddMarkupContent(29, "\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(30, "\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

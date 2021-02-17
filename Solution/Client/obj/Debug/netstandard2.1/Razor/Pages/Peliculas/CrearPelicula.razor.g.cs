@@ -80,30 +80,29 @@ using Project.Shared.PrudenciaDTOs;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Crear Pelicula</h3>\n\n");
+            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Crear Pelicula</h3>");
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\CrearPelicula.razor"
  if (MostrarFormulario)
 {
 
 #line default
 #line hidden
-            __builder.AddContent(1, "    ");
-            __builder.OpenComponent<Project.Client.Pages.Peliculas.FormularioPeliculas>(2);
-            __builder.AddAttribute(3, "Pelicula", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.Entidades.Pelicula>(
+            __builder.OpenComponent<Project.Client.Pages.Peliculas.FormularioPeliculas>(1);
+            __builder.AddAttribute(2, "Pelicula", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Project.Shared.Entidades.Pelicula>(
 #line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\CrearPelicula.razor"
                                    Pelicula
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(4, "OnValidSubmit", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, 
+            __builder.AddAttribute(3, "OnValidSubmit", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, 
 #line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\CrearPelicula.razor"
                                                             Crear
 
 #line default
 #line hidden
             )));
-            __builder.AddAttribute(5, "GenerosNoSeleccionados", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Shared.Entidades.Genero>>(
+            __builder.AddAttribute(4, "GenerosNoSeleccionados", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Shared.Entidades.Genero>>(
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\CrearPelicula.razor"
                                                  GenerosNoSeleccionados
 
@@ -111,7 +110,6 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             ));
             __builder.CloseComponent();
-            __builder.AddMarkupContent(6, "\n");
 #line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\CrearPelicula.razor"
 }
 else
@@ -120,7 +118,7 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(7, "Cargando...");
+            __builder.AddContent(5, "Cargando...");
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\CrearPelicula.razor"
                             
 }

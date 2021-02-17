@@ -30,9 +30,7 @@ namespace Project.Server.Controllers
         private IMemoryCache oMemoryCache;
         private readonly IConfiguration oConfiguration;
         private readonly NotificacionesService oNotificacionesService;
-        //private string oUriBase = "https://www.prudenciaseguros.com.ar/APIPrudenciaUAT/api";
-        //private string oUser = "586701";
-        //private  string oPassword = "586701";
+      
         private string oUriBase;
         private string oUser;
         private string oPassword;
@@ -70,7 +68,7 @@ namespace Project.Server.Controllers
             if (responseHttp.IsSuccessStatusCode)
             {
                 oLogin = JsonConvert.DeserializeObject<Login>(responseHttp.Content.ReadAsStringAsync().Result);
-
+                return this.Ok(oLogin);
             }
             else
             {
@@ -120,8 +118,7 @@ namespace Project.Server.Controllers
 
             string url = oUriBase + "/account/login";
             var enviarJSON = JsonConvert.SerializeObject(oUserPassWord);
-            //var enviarJSON = "{ 'user': '586701',  'password': '586701'}";
-
+           
             var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
             var responseHttp = await httpClient.PostAsync(url, enviarContent);
             if (responseHttp.IsSuccessStatusCode)
@@ -151,8 +148,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + "/catalogos/GetMarcasAutos";
-            //var enviarJSON = JsonSerializer.Serialize(user);
-            //var enviarJSON = "{ 'user': '586701',  'password': '586701'}";
+          
 
             //var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
             var responseHttp = await httpClient.GetAsync(url);
@@ -433,6 +429,17 @@ namespace Project.Server.Controllers
             {
                 oCProvinciaDTOList = JsonConvert.DeserializeObject<List<ProvinciaDTO>>(responseHttp.Content.ReadAsStringAsync().Result);
 
+
+                oCProvinciaDTOList = (from c in oCProvinciaDTOList
+                                      where int.Parse(c.provinciaID) < 98
+                                      && int.Parse(c.provinciaID) > 0
+                                      orderby int.Parse(c.provinciaID) ascending
+                                      select c).ToList();
+
+
+              
+           
+
                 if (oCProvinciaDTOList.Count == 0)
                 {
                     return NotFound();
@@ -458,8 +465,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + "/catalogos/GetCodPostales?ProvinciaID=" + ProvinciaID.ToString() + "&PageSize=10000";
-            //var enviarJSON = JsonSerializer.Serialize(user);
-            //var enviarJSON = "{ 'user': '586701',  'password': '586701'}";
+         
 
             //var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
             var responseHttp = await httpClient.GetAsync(url);
@@ -496,10 +502,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + "/catalogos/GetCodPostales?ProvinciaID=" + ProvinciaID.ToString() + "&PageSize=100000";
-            //var enviarJSON = JsonSerializer.Serialize(user);
-            //var enviarJSON = "{ 'user': '586701',  'password': '586701'}";
-
-            //var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
+           
             var responseHttp = await httpClient.GetAsync(url);
 
             if (responseHttp.IsSuccessStatusCode)
@@ -513,7 +516,7 @@ namespace Project.Server.Controllers
                 oCodPostalesList = oCodigoPostalDTOList.
                    Select(x => x.codigoPostalID.ToString())
                    .Distinct().ToList();
-                if (oCodPostalesList.Count == 0l)
+                if (oCodPostalesList.Count == 0)
                 {
                     return NotFound();
                 }
@@ -552,7 +555,8 @@ namespace Project.Server.Controllers
 
                 //  string oUrlRaiz = string.Format("{0}://{1}", HttpContext.Request.Scheme, HttpContext.Request.Host);
                 string oUrlRaiz = string.Format("{0}://{1}", HttpContext.Request.Scheme, HttpContext.Request.Host);
-                await oNotificacionesService.EnviarNotificacionPeliculaEnCartelera(oRespuestaCotizacionAutoRapidaDTO, oUrlRaiz);
+
+               // await oNotificacionesService.EnviarNotificacionPeliculaEnCartelera(oRespuestaCotizacionAutoRapidaDTO, oUrlRaiz);
 
 
                 return this.Ok(oRespuestaCotizacionAutoRapidaDTO);
@@ -703,10 +707,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + $"/polizas/{polizaID}/reportes?reportes=0&reportes=1&reportes=2&reportes=3&reportes=4&reportes=5&reportes=6";
-            //var enviarJSON = JsonSerializer.Serialize(user);
-            //var enviarJSON = "{ 'user': '586701',  'password': '586701'}";
-
-            //var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
+           
             var responseHttp = await httpClient.GetAsync(url);
             if (responseHttp.IsSuccessStatusCode)
             {
@@ -734,9 +735,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + $"/polizas/{polizaID}/reportes?reportes=0&reportes=1&reportes=2&reportes=3&reportes=4&reportes=5&reportes=7";
-            //var enviarJSON = JsonSerializer.Serialize(user);
-            //var enviarJSON = "{ 'user': '586701',  'password': '586701'}";
-
+           
             //var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
             var responseHttp = await httpClient.GetAsync(url);
 
@@ -777,10 +776,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + $"/polizas?ProductorID={oUser}";
-            //var enviarJSON = JsonSerializer.Serialize(user);
-            //var enviarJSON = "{ 'user': '586701',  'password': '586701'}";
-
-            //var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
+           
             var responseHttp = await httpClient.GetAsync(url);
             if (responseHttp.IsSuccessStatusCode)
             {
@@ -837,7 +833,7 @@ namespace Project.Server.Controllers
         public async Task<ActionResult<string>> GetPrueba()
         {
             //https://localhost:44331/api/Externo/Prudencia/Prueba
-            string json = "{\"cotizacionID\":990508,\"nroCotizacion\":931629,\"productorID\":586701,\"estado\":\"PENDIENTE\",\"fecha\":\"2020-04-27T00:00:00-03:00\",\"tieneAcreedorPrendario\":true,\"tieneAccesorios\":false,\"clausulaAjuste\":0,\"tipoAjustePrima\":\"N\",\"porcAjustePrima\":0.0,\"fechaFinCotizacion\":\"2020-04-30T00:00:00-03:00\",\"vehiculoID\":990510,\"vehiculo\":{\"vehiculoID\":990510,\"patente\":\"ABC123\",\"marcaID\":23,\"anio\":2003,\"modeloID\":230001,\"sumaAsegurada\":100000.0,\"tipoUsoID\":1,\"tipoVehiculoID\":1,\"es0KM\":false,\"tieneGNC\":false,\"motor\":null,\"chasis\":null,\"gncMarca\":null,\"gncCapacidad\":null,\"gncOblea\":null,\"gncRegulador\":null,\"gncVtoPruebaHidr\":null,\"cubreGNC\":false,\"valorGNC\":0.0,\"accesorios\":[]},\"usaAcarreo\":false,\"coberturas\":[{\"concepto\":\"    Prima Comisionable\",\"porcentajeConcepto\":30.0000,\"a\":962.46,\"b1\":1135.11,\"b\":1143.94,\"c1\":1235.01,\"c\":1243.85,\"cg\":0.00,\"cf\":0.00,\"d2\":0.00},{\"concepto\":\"Premio Mensual\",\"porcentajeConcepto\":null,\"a\":1387.83,\"b1\":1636.79,\"b\":1649.52,\"c1\":1780.84,\"c\":1793.59,\"cg\":0.00,\"cf\":0.00,\"d2\":0.00}]}";
+            string json = "{\"cotizacionID\":990508,\"nroCotizacion\":931629,\"productorID\":xxx,\"estado\":\"PENDIENTE\",\"fecha\":\"2020-04-27T00:00:00-03:00\",\"tieneAcreedorPrendario\":true,\"tieneAccesorios\":false,\"clausulaAjuste\":0,\"tipoAjustePrima\":\"N\",\"porcAjustePrima\":0.0,\"fechaFinCotizacion\":\"2020-04-30T00:00:00-03:00\",\"vehiculoID\":990510,\"vehiculo\":{\"vehiculoID\":990510,\"patente\":\"ABC123\",\"marcaID\":23,\"anio\":2003,\"modeloID\":230001,\"sumaAsegurada\":100000.0,\"tipoUsoID\":1,\"tipoVehiculoID\":1,\"es0KM\":false,\"tieneGNC\":false,\"motor\":null,\"chasis\":null,\"gncMarca\":null,\"gncCapacidad\":null,\"gncOblea\":null,\"gncRegulador\":null,\"gncVtoPruebaHidr\":null,\"cubreGNC\":false,\"valorGNC\":0.0,\"accesorios\":[]},\"usaAcarreo\":false,\"coberturas\":[{\"concepto\":\"    Prima Comisionable\",\"porcentajeConcepto\":30.0000,\"a\":962.46,\"b1\":1135.11,\"b\":1143.94,\"c1\":1235.01,\"c\":1243.85,\"cg\":0.00,\"cf\":0.00,\"d2\":0.00},{\"concepto\":\"Premio Mensual\",\"porcentajeConcepto\":null,\"a\":1387.83,\"b1\":1636.79,\"b\":1649.52,\"c1\":1780.84,\"c\":1793.59,\"cg\":0.00,\"cf\":0.00,\"d2\":0.00}]}";
             RespuestaCotizacionAutoRapidaDTO oRespuestaCotizacionAutoRapidaDTO = JsonConvert.DeserializeObject<RespuestaCotizacionAutoRapidaDTO>(json);
 
             ToLog(oRespuestaCotizacionAutoRapidaDTO);

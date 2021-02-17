@@ -29,5 +29,11 @@ namespace Project.Client.Helpers
         {
             await js.InvokeVoidAsync("Swal.fire", titulo, mensaje, tipoMensaje);
         }
+        public async Task MostrarMensajeConImagen(string mensaje)
+        {
+          await js.InvokeVoidAsync("Swal.fire({title: 'Sweet!',text: 'Modal with a custom image.',imageUrl: '/images/Coberturas/a.png',imageWidth: 400,imageHeight: 200,imageAlt: 'Custom image',})");
+        }
+
+        
     }
 }

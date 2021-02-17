@@ -1,12 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "EEZKF3wWrvvDY+N+oQVbfVQdWDF+fp+OVjHw3+aZlHbgT+ID2k/louBgF2rSV7VCL9GtWxz1W7+knTQryZ9h2g==",
+  "dgSpecHash": "h+sASyPkYz0bnKvGvHomn27dIUwN7byTAuRKIW8aqjMQrHLyr6Vq8DfuFr4CxOmd3F8CTCkkDNaOOTu22YDVhw==",
   "success": true,
   "projectFilePath": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Shared\\Project.Shared.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.componentmodel.annotations\\4.5.0\\system.componentmodel.annotations.4.5.0.nupkg.sha512"
+    "C:\\Users\\Facundo\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

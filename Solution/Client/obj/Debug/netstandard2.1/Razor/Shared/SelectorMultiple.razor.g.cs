@@ -81,26 +81,23 @@ using Project.Shared.PrudenciaDTOs;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "selector-multiple");
-            __builder.AddMarkupContent(2, "\n    ");
-            __builder.OpenElement(3, "ul");
-            __builder.AddAttribute(4, "class", "selectable-ul");
-            __builder.AddMarkupContent(5, "\n");
+            __builder.OpenElement(2, "ul");
+            __builder.AddAttribute(3, "class", "selectable-ul");
 #line 3 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultiple.razor"
          foreach (var item in NoSeleccionados)
         {
 
 #line default
 #line hidden
-            __builder.AddContent(6, "            ");
-            __builder.OpenElement(7, "li");
-            __builder.AddAttribute(8, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.OpenElement(4, "li");
+            __builder.AddAttribute(5, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 5 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultiple.razor"
                             () => Seleccionar(item)
 
 #line default
 #line hidden
             ));
-            __builder.AddContent(9, 
+            __builder.AddContent(6, 
 #line 5 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultiple.razor"
                                                        item.Valor
 
@@ -108,40 +105,37 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(10, "\n");
 #line 6 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultiple.razor"
         }
 
 #line default
 #line hidden
-            __builder.AddContent(11, "    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(12, "\n    ");
-            __builder.OpenElement(13, "div");
-            __builder.AddAttribute(14, "class", "selector-multiple-botones");
-            __builder.AddMarkupContent(15, "\n        ");
-            __builder.OpenElement(16, "button");
-            __builder.AddAttribute(17, "type", "button");
-            __builder.AddAttribute(18, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(7, "\n    ");
+            __builder.OpenElement(8, "div");
+            __builder.AddAttribute(9, "class", "selector-multiple-botones");
+            __builder.OpenElement(10, "button");
+            __builder.AddAttribute(11, "type", "button");
+            __builder.AddAttribute(12, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 9 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultiple.razor"
                                         SeleccionarTodo
 
 #line default
 #line hidden
             ));
-            __builder.AddContent(19, ">>");
+            __builder.AddContent(13, ">>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(20, "\n        ");
-            __builder.OpenElement(21, "button");
-            __builder.AddAttribute(22, "type", "button");
-            __builder.AddAttribute(23, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(14, "\n        ");
+            __builder.OpenElement(15, "button");
+            __builder.AddAttribute(16, "type", "button");
+            __builder.AddAttribute(17, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultiple.razor"
                                         DeseleccionarTodo
 
 #line default
 #line hidden
             ));
-            __builder.AddContent(24, 
+            __builder.AddContent(18, 
 #line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultiple.razor"
                                                             removerTodoTexto
 
@@ -149,28 +143,25 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(25, "\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(26, "\n    ");
-            __builder.OpenElement(27, "ul");
-            __builder.AddAttribute(28, "class", "selectable-ul");
-            __builder.AddMarkupContent(29, "\n");
+            __builder.AddMarkupContent(19, "\n    ");
+            __builder.OpenElement(20, "ul");
+            __builder.AddAttribute(21, "class", "selectable-ul");
 #line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultiple.razor"
          foreach (var item in Seleccionados)
         {
 
 #line default
 #line hidden
-            __builder.AddContent(30, "            ");
-            __builder.OpenElement(31, "li");
-            __builder.AddAttribute(32, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.OpenElement(22, "li");
+            __builder.AddAttribute(23, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultiple.razor"
                             () => Deseleccionar(item)
 
 #line default
 #line hidden
             ));
-            __builder.AddContent(33, 
+            __builder.AddContent(24, 
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultiple.razor"
                                                          item.Valor
 
@@ -178,15 +169,12 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(34, "\n");
 #line 16 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultiple.razor"
         }
 
 #line default
 #line hidden
-            __builder.AddContent(35, "    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(36, "\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

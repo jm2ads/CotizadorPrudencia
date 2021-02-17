@@ -98,69 +98,62 @@ using Project.Shared.PrudenciaDTOs;
 #line default
 #line hidden
             ), 4, (context) => (__builder2) => {
-                __builder2.AddMarkupContent(5, "\n        ");
-                __builder2.AddContent(6, 
+                __builder2.AddContent(5, 
 #line 7 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultipleTypeahead.razor"
          MyResultTemplate(context)
 
 #line default
 #line hidden
                 );
-                __builder2.AddMarkupContent(7, "\n    ");
             }
             );
-            __builder.AddMarkupContent(8, "\n\n");
-            __builder.OpenElement(9, "ul");
-            __builder.AddAttribute(10, "class", "list-group");
-            __builder.AddMarkupContent(11, "\n");
+            __builder.AddMarkupContent(6, "\n\n");
+            __builder.OpenElement(7, "ul");
+            __builder.AddAttribute(8, "class", "list-group");
 #line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultipleTypeahead.razor"
      foreach (var item in ElementosSeleccionados)
     {
 
 #line default
 #line hidden
-            __builder.AddContent(12, "        ");
-            __builder.OpenElement(13, "li");
-            __builder.AddAttribute(14, "draggable", "true");
-            __builder.AddAttribute(15, "ondragstart", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.DragEventArgs>(this, 
+            __builder.OpenElement(9, "li");
+            __builder.AddAttribute(10, "draggable", "true");
+            __builder.AddAttribute(11, "ondragstart", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.DragEventArgs>(this, 
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultipleTypeahead.razor"
                             () => HandleDragStart(item)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(16, "ondragover", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.DragEventArgs>(this, 
+            __builder.AddAttribute(12, "ondragover", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.DragEventArgs>(this, 
 #line 16 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultipleTypeahead.razor"
                            () => HandleDragOver(item)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(17, "class", "list-group-item list-group-item-action");
-            __builder.AddMarkupContent(18, "\n            ");
-            __builder.AddContent(19, 
+            __builder.AddAttribute(13, "class", "list-group-item list-group-item-action");
+            __builder.AddContent(14, 
 #line 18 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultipleTypeahead.razor"
              MyListTemplate(item)
 
 #line default
 #line hidden
             );
-            __builder.AddMarkupContent(20, "\n            ");
-            __builder.OpenElement(21, "span");
-            __builder.AddAttribute(22, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(15, "\n            ");
+            __builder.OpenElement(16, "span");
+            __builder.AddAttribute(17, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 19 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultipleTypeahead.razor"
                               () => ElementosSeleccionados.Remove(item)
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(23, "class", "badge badge-primary badge-pill");
-            __builder.AddAttribute(24, "style", "cursor: pointer");
-            __builder.AddContent(25, "X");
+            __builder.AddAttribute(18, "class", "badge badge-primary badge-pill");
+            __builder.AddAttribute(19, "style", "cursor: pointer");
+            __builder.AddContent(20, "X");
             __builder.CloseElement();
-            __builder.AddMarkupContent(26, "\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(27, "\n");
 #line 23 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\SelectorMultipleTypeahead.razor"
     }
 

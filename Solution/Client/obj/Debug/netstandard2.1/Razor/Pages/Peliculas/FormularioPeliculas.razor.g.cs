@@ -95,160 +95,140 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             )));
             __builder.AddAttribute(3, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Forms.EditContext>)((context) => (__builder2) => {
-                __builder2.AddMarkupContent(4, "\n    ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator>(5);
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator>(4);
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(6, "\n    ");
-                __builder2.OpenElement(7, "div");
-                __builder2.AddAttribute(8, "class", "form-group");
-                __builder2.AddMarkupContent(9, "\n        ");
-                __builder2.AddMarkupContent(10, "<label>Título:</label>\n        ");
-                __builder2.OpenElement(11, "div");
-                __builder2.AddMarkupContent(12, "\n            ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(13);
-                __builder2.AddAttribute(14, "class", "form-control");
-                __builder2.AddAttribute(15, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(5, "\n    ");
+                __builder2.OpenElement(6, "div");
+                __builder2.AddAttribute(7, "class", "form-group");
+                __builder2.AddMarkupContent(8, "<label>Título:</label>\n        ");
+                __builder2.OpenElement(9, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(10);
+                __builder2.AddAttribute(11, "class", "form-control");
+                __builder2.AddAttribute(12, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                                           Pelicula.Titulo
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(16, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Pelicula.Titulo = __value, Pelicula.Titulo))));
-                __builder2.AddAttribute(17, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => Pelicula.Titulo));
+                __builder2.AddAttribute(13, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Pelicula.Titulo = __value, Pelicula.Titulo))));
+                __builder2.AddAttribute(14, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => Pelicula.Titulo));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(18, "\n            ");
-                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateValidationMessage_0(__builder2, 19, 20, 
+                __builder2.AddMarkupContent(15, "\n            ");
+                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateValidationMessage_0(__builder2, 16, 17, 
 #line 9 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                       () => Pelicula.Titulo
 
 #line default
 #line hidden
                 );
-                __builder2.AddMarkupContent(21, "\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(22, "\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(23, "\n    ");
-                __builder2.OpenElement(24, "div");
-                __builder2.AddAttribute(25, "class", "form-group");
-                __builder2.AddMarkupContent(26, "\n        ");
-                __builder2.AddMarkupContent(27, "<label>En cartelera:</label>\n        ");
-                __builder2.OpenElement(28, "div");
-                __builder2.AddMarkupContent(29, "\n            ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputCheckbox>(30);
-                __builder2.AddAttribute(31, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Boolean>(
+                __builder2.AddMarkupContent(18, "\n    ");
+                __builder2.OpenElement(19, "div");
+                __builder2.AddAttribute(20, "class", "form-group");
+                __builder2.AddMarkupContent(21, "<label>En cartelera:</label>\n        ");
+                __builder2.OpenElement(22, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputCheckbox>(23);
+                __builder2.AddAttribute(24, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Boolean>(
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                          Pelicula.EnCartelera
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(32, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Boolean>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Boolean>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Pelicula.EnCartelera = __value, Pelicula.EnCartelera))));
-                __builder2.AddAttribute(33, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.Boolean>>>(() => Pelicula.EnCartelera));
+                __builder2.AddAttribute(25, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Boolean>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Boolean>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Pelicula.EnCartelera = __value, Pelicula.EnCartelera))));
+                __builder2.AddAttribute(26, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.Boolean>>>(() => Pelicula.EnCartelera));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(34, "\n            ");
-                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateValidationMessage_1(__builder2, 35, 36, 
+                __builder2.AddMarkupContent(27, "\n            ");
+                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateValidationMessage_1(__builder2, 28, 29, 
 #line 16 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                       () => Pelicula.EnCartelera
 
 #line default
 #line hidden
                 );
-                __builder2.AddMarkupContent(37, "\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(38, "\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(39, "\n    ");
-                __builder2.OpenElement(40, "div");
-                __builder2.AddAttribute(41, "class", "form-group");
-                __builder2.AddMarkupContent(42, "\n        ");
-                __builder2.AddMarkupContent(43, "<label>Trailer:</label>\n        ");
-                __builder2.OpenElement(44, "div");
-                __builder2.AddMarkupContent(45, "\n            ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(46);
-                __builder2.AddAttribute(47, "class", "form-control");
-                __builder2.AddAttribute(48, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(30, "\n    ");
+                __builder2.OpenElement(31, "div");
+                __builder2.AddAttribute(32, "class", "form-group");
+                __builder2.AddMarkupContent(33, "<label>Trailer:</label>\n        ");
+                __builder2.OpenElement(34, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(35);
+                __builder2.AddAttribute(36, "class", "form-control");
+                __builder2.AddAttribute(37, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 22 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                                           Pelicula.Trailer
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(49, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Pelicula.Trailer = __value, Pelicula.Trailer))));
-                __builder2.AddAttribute(50, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => Pelicula.Trailer));
+                __builder2.AddAttribute(38, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Pelicula.Trailer = __value, Pelicula.Trailer))));
+                __builder2.AddAttribute(39, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => Pelicula.Trailer));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(51, "\n            ");
-                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateValidationMessage_2(__builder2, 52, 53, 
+                __builder2.AddMarkupContent(40, "\n            ");
+                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateValidationMessage_2(__builder2, 41, 42, 
 #line 23 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                       () => Pelicula.Trailer
 
 #line default
 #line hidden
                 );
-                __builder2.AddMarkupContent(54, "\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(55, "\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(56, "\n    ");
-                __builder2.OpenElement(57, "div");
-                __builder2.AddAttribute(58, "class", "form-group");
-                __builder2.AddMarkupContent(59, "\n        ");
-                __builder2.AddMarkupContent(60, "<label>Fecha Lanzamiento:</label>\n        ");
-                __builder2.OpenElement(61, "div");
-                __builder2.AddMarkupContent(62, "\n            ");
-                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateInputDate_3(__builder2, 63, 64, "form-control", 65, 
+                __builder2.AddMarkupContent(43, "\n    ");
+                __builder2.OpenElement(44, "div");
+                __builder2.AddAttribute(45, "class", "form-group");
+                __builder2.AddMarkupContent(46, "<label>Fecha Lanzamiento:</label>\n        ");
+                __builder2.OpenElement(47, "div");
+                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateInputDate_3(__builder2, 48, 49, "form-control", 50, 
 #line 29 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                                           Pelicula.Lanzamiento
 
 #line default
 #line hidden
-                , 66, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Pelicula.Lanzamiento = __value, Pelicula.Lanzamiento)), 67, () => Pelicula.Lanzamiento);
-                __builder2.AddMarkupContent(68, "\n            ");
-                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateValidationMessage_4(__builder2, 69, 70, 
+                , 51, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Pelicula.Lanzamiento = __value, Pelicula.Lanzamiento)), 52, () => Pelicula.Lanzamiento);
+                __builder2.AddMarkupContent(53, "\n            ");
+                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateValidationMessage_4(__builder2, 54, 55, 
 #line 30 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                       () => Pelicula.Lanzamiento
 
 #line default
 #line hidden
                 );
-                __builder2.AddMarkupContent(71, "\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(72, "\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(73, "\n    ");
-                __builder2.OpenElement(74, "div");
-                __builder2.AddAttribute(75, "class", "form-group form-markdown");
-                __builder2.AddMarkupContent(76, "\n        ");
-                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateInputMarkdown_5(__builder2, 77, 78, 
+                __builder2.AddMarkupContent(56, "\n    ");
+                __builder2.OpenElement(57, "div");
+                __builder2.AddAttribute(58, "class", "form-group form-markdown");
+                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateInputMarkdown_5(__builder2, 59, 60, 
 #line 35 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                               () => Pelicula.Resumen
 
 #line default
 #line hidden
-                , 79, "Resumen", 80, 
+                , 61, "Resumen", 62, 
 #line 34 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                      Pelicula.Resumen
 
 #line default
 #line hidden
-                , 81, Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Pelicula.Resumen = __value, Pelicula.Resumen)), 82, () => Pelicula.Resumen);
-                __builder2.AddMarkupContent(83, "\n    ");
+                , 63, Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Pelicula.Resumen = __value, Pelicula.Resumen)), 64, () => Pelicula.Resumen);
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(84, "\n    ");
-                __builder2.OpenElement(85, "div");
-                __builder2.AddAttribute(86, "class", "form-group");
-                __builder2.AddMarkupContent(87, "\n        ");
-                __builder2.OpenComponent<Project.Client.Shared.InputImg>(88);
-                __builder2.AddAttribute(89, "Label", "Foto");
-                __builder2.AddAttribute(90, "ImagenSeleccionada", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, 
+                __builder2.AddMarkupContent(65, "\n    ");
+                __builder2.OpenElement(66, "div");
+                __builder2.AddAttribute(67, "class", "form-group");
+                __builder2.OpenComponent<Project.Client.Shared.InputImg>(68);
+                __builder2.AddAttribute(69, "Label", "Foto");
+                __builder2.AddAttribute(70, "ImagenSeleccionada", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, 
 #line 39 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                                    ImagenSeleccionada
 
 #line default
 #line hidden
                 )));
-                __builder2.AddAttribute(91, "ImagenTemporal", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddAttribute(71, "ImagenTemporal", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 39 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                                                                         posterTemporal
 
@@ -256,24 +236,21 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
                 ));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(92, "\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(93, "\n    ");
-                __builder2.OpenElement(94, "div");
-                __builder2.AddAttribute(95, "class", "form-group");
-                __builder2.AddMarkupContent(96, "\n        ");
-                __builder2.AddMarkupContent(97, "<label>Géneros:</label>\n        ");
-                __builder2.OpenElement(98, "div");
-                __builder2.AddMarkupContent(99, "\n            ");
-                __builder2.OpenComponent<Project.Client.Shared.SelectorMultiple>(100);
-                __builder2.AddAttribute(101, "Seleccionados", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Client.Helpers.SelectorMultipleModel>>(
+                __builder2.AddMarkupContent(72, "\n    ");
+                __builder2.OpenElement(73, "div");
+                __builder2.AddAttribute(74, "class", "form-group");
+                __builder2.AddMarkupContent(75, "<label>Géneros:</label>\n        ");
+                __builder2.OpenElement(76, "div");
+                __builder2.OpenComponent<Project.Client.Shared.SelectorMultiple>(77);
+                __builder2.AddAttribute(78, "Seleccionados", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Client.Helpers.SelectorMultipleModel>>(
 #line 44 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                              Seleccionados
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(102, "NoSeleccionados", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Client.Helpers.SelectorMultipleModel>>(
+                __builder2.AddAttribute(79, "NoSeleccionados", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<Project.Client.Helpers.SelectorMultipleModel>>(
 #line 45 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                                NoSeleccionados
 
@@ -281,59 +258,52 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
                 ));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(103, "\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(104, "\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(105, "\n    ");
-                __builder2.OpenElement(106, "div");
-                __builder2.AddAttribute(107, "class", "form-group");
-                __builder2.AddMarkupContent(108, "\n        ");
-                __builder2.AddMarkupContent(109, "<label>Actores:</label>\n        ");
-                __builder2.OpenElement(110, "div");
-                __builder2.AddMarkupContent(111, "\n            ");
-                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateSelectorMultipleTypeahead_6(__builder2, 112, 113, 
+                __builder2.AddMarkupContent(80, "\n    ");
+                __builder2.OpenElement(81, "div");
+                __builder2.AddAttribute(82, "class", "form-group");
+                __builder2.AddMarkupContent(83, "<label>Actores:</label>\n        ");
+                __builder2.OpenElement(84, "div");
+                __Blazor.Project.Client.Pages.Peliculas.FormularioPeliculas.TypeInference.CreateSelectorMultipleTypeahead_6(__builder2, 85, 86, 
 #line 52 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                                      BuscarActores
 
 #line default
 #line hidden
-                , 114, 
+                , 87, 
 #line 53 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                                                ActoresSeleccionados
 
 #line default
 #line hidden
-                , 115, (persona) => (__builder3) => {
-                    __builder3.AddMarkupContent(116, "\n                    ");
-                    __builder3.AddContent(117, 
+                , 88, (persona) => (__builder3) => {
+                    __builder3.AddContent(89, 
 #line 55 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                      persona.Nombre
 
 #line default
 #line hidden
                     );
-                    __builder3.AddContent(118, " / ");
-                    __builder3.OpenElement(119, "input");
-                    __builder3.AddAttribute(120, "type", "text");
-                    __builder3.AddAttribute(121, "placeholder", "Personaje");
-                    __builder3.AddAttribute(122, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+                    __builder3.AddContent(90, " / ");
+                    __builder3.OpenElement(91, "input");
+                    __builder3.AddAttribute(92, "type", "text");
+                    __builder3.AddAttribute(93, "placeholder", "Personaje");
+                    __builder3.AddAttribute(94, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #line 55 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                                                                         persona.Personaje
 
 #line default
 #line hidden
                     ));
-                    __builder3.AddAttribute(123, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => persona.Personaje = __value, persona.Personaje));
+                    __builder3.AddAttribute(95, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => persona.Personaje = __value, persona.Personaje));
                     __builder3.SetUpdatesAttributeName("value");
                     __builder3.CloseElement();
-                    __builder3.AddMarkupContent(124, "\n                ");
                 }
-                , 125, (persona) => (__builder3) => {
-                    __builder3.AddMarkupContent(126, "\n                    ");
-                    __builder3.OpenElement(127, "img");
-                    __builder3.AddAttribute(128, "style", "width: 50px");
-                    __builder3.AddAttribute(129, "src", 
+                , 96, (persona) => (__builder3) => {
+                    __builder3.OpenElement(97, "img");
+                    __builder3.AddAttribute(98, "style", "width: 50px");
+                    __builder3.AddAttribute(99, "src", 
 #line 58 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                                                    persona.Foto
 
@@ -341,23 +311,20 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
                     );
                     __builder3.CloseElement();
-                    __builder3.AddMarkupContent(130, "\n                    ");
-                    __builder3.AddContent(131, 
+                    __builder3.AddMarkupContent(100, "\n                    ");
+                    __builder3.AddContent(101, 
 #line 59 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\FormularioPeliculas.razor"
                      persona.Nombre
 
 #line default
 #line hidden
                     );
-                    __builder3.AddMarkupContent(132, "\n                ");
                 }
                 );
-                __builder2.AddMarkupContent(133, "\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(134, "\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(135, "\n\n    ");
-                __builder2.AddMarkupContent(136, "<button type=\"submit\" class=\"btn btn-success\">Salvar Película</button>\n");
+                __builder2.AddMarkupContent(102, "\n\n    ");
+                __builder2.AddMarkupContent(103, "<button type=\"submit\" class=\"btn btn-success\">Salvar Película</button>");
             }
             ));
             __builder.CloseComponent();

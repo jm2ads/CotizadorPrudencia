@@ -7,9 +7,10 @@
 @inject IJSRuntime JsRuntime
 @using System.Text.Json;
 <h3 style="color:white">Cotizacion</h3>
+
 @if (oRespuestaCotizacionAutoDTO == null)
 {
-<Cargando></Cargando>
+    <Cargando></Cargando>
 }
 else
 {
@@ -82,6 +83,7 @@ else
 
     private CotizacionAutoDTO oCotizacionAutoDTO = new CotizacionAutoDTO();
     private RespuestaCotizacionAutoDTO oRespuestaCotizacionAutoDTO;
+ 
     protected override async Task OnInitializedAsync()
     {
 
@@ -93,12 +95,17 @@ else
         var responseHttp = await repositorio.Post<CotizacionAutoDTO, RespuestaCotizacionAutoDTO>("api/Externo/Prudencia/cotizaciones/autos", oCotizacionAutoDTO);
         oRespuestaCotizacionAutoDTO = responseHttp.Response;
 
-      
-        oCotizacionAutoDTO.cotizacionID= oRespuestaCotizacionAutoDTO.cotizacionID;
+
+        oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoDTO.cotizacionID;
 
         CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
         Console.WriteLine(CotizacionAutoDTOJson);
+
+
+
+     
+
     }
     private async Task OnClickHandle()
     {

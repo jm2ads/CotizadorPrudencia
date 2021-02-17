@@ -97,26 +97,24 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(1, "    ");
-            __builder.OpenElement(2, "h2");
-            __builder.AddContent(3, 
+            __builder.OpenElement(1, "h2");
+            __builder.AddContent(2, 
 #line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
          model.Pelicula.Titulo
 
 #line default
 #line hidden
             );
-            __builder.AddContent(4, " (");
-            __builder.AddContent(5, 
+            __builder.AddContent(3, " (");
+            __builder.AddContent(4, 
 #line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                                  model.Pelicula.Lanzamiento.Value.ToString("yyyy")
 
 #line default
 #line hidden
             );
-            __builder.AddContent(6, ")");
+            __builder.AddContent(5, ")");
             __builder.CloseElement();
-            __builder.AddMarkupContent(7, "\n");
 #line 14 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
     for (int i = 0; i < model.Generos.Count; i++)
     {
@@ -126,14 +124,14 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(8, 
+            __builder.AddContent(6, 
 #line 18 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
              enlaceGenero(model.Generos[i])
 
 #line default
 #line hidden
             );
-            __builder.AddContent(9, ", ");
+            __builder.AddContent(7, ", ");
 #line 18 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                                                           
         }
@@ -143,7 +141,7 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(10, 
+            __builder.AddContent(8, 
 #line 22 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
              enlaceGenero(model.Generos[i])
 
@@ -158,9 +156,9 @@ else
 
 #line default
 #line hidden
-            __builder.AddMarkupContent(11, " |  ");
-            __builder.OpenElement(12, "span");
-            __builder.AddContent(13, 
+            __builder.AddMarkupContent(9, " |  ");
+            __builder.OpenElement(10, "span");
+            __builder.AddContent(11, 
 #line 25 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                             model.Pelicula.Lanzamiento.Value.ToString("dd MMM yyyy")
 
@@ -168,65 +166,60 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(14, "\n");
-            __builder.AddContent(15, " | Promedio: ");
-            __builder.AddContent(16, 
+            __builder.AddContent(12, " | Promedio: ");
+            __builder.AddContent(13, 
 #line 26 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                                 model.PromedioVotos.ToString("0.#")
 
 #line default
 #line hidden
             );
-            __builder.AddContent(17, "/5 | Tu voto: ");
-            __builder.AddContent(18, 
+            __builder.AddContent(14, "/5 | Tu voto: ");
+            __builder.AddContent(15, 
 #line 26 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                                                                                                  model.VotoUsuario.ToString("0.#")
 
 #line default
 #line hidden
             );
-            __builder.OpenElement(19, "div");
-            __builder.AddAttribute(20, "style", "display: flex;");
-            __builder.AddMarkupContent(21, "\n    ");
-            __builder.OpenElement(22, "span");
-            __builder.AddAttribute(23, "style", "display: inline-block; margin-right: 5px;");
-            __builder.OpenElement(24, "img");
-            __builder.AddAttribute(25, "src", 
+            __builder.OpenElement(16, "div");
+            __builder.AddAttribute(17, "style", "display: flex;");
+            __builder.OpenElement(18, "span");
+            __builder.AddAttribute(19, "style", "display: inline-block; margin-right: 5px;");
+            __builder.OpenElement(20, "img");
+            __builder.AddAttribute(21, "src", 
 #line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                                                                        model.Pelicula.Poster
 
 #line default
 #line hidden
             );
-            __builder.AddAttribute(26, "style", "width: 225px; height: 315px");
+            __builder.AddAttribute(22, "style", "width: 225px; height: 315px");
             __builder.CloseElement();
             __builder.CloseElement();
-            __builder.AddMarkupContent(27, "\n    ");
-            __builder.OpenElement(28, "iframe");
-            __builder.AddAttribute(29, "width", "560");
-            __builder.AddAttribute(30, "height", "315");
-            __builder.AddAttribute(31, "src", "https://www.youtube.com/embed/" + (
+            __builder.AddMarkupContent(23, "\n    ");
+            __builder.OpenElement(24, "iframe");
+            __builder.AddAttribute(25, "width", "560");
+            __builder.AddAttribute(26, "height", "315");
+            __builder.AddAttribute(27, "src", "https://www.youtube.com/embed/" + (
 #line 29 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                                                                          model.Pelicula.Trailer
 
 #line default
 #line hidden
             ));
-            __builder.AddAttribute(32, "frameborder", "0");
-            __builder.AddAttribute(33, "allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture");
-            __builder.AddAttribute(34, "allowfullscreen", true);
+            __builder.AddAttribute(28, "frameborder", "0");
+            __builder.AddAttribute(29, "allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture");
+            __builder.AddAttribute(30, "allowfullscreen", true);
             __builder.CloseElement();
-            __builder.AddMarkupContent(35, "\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(36, "\n");
-            __builder.OpenElement(37, "div");
-            __builder.AddAttribute(38, "style", "margin-top: 10px;");
-            __builder.AddMarkupContent(39, "\n    ");
-            __builder.AddMarkupContent(40, "<h3 style=\"color:white\">Resumen</h3>\n    ");
-            __builder.OpenElement(41, "div");
-            __builder.AddMarkupContent(42, "\n        ");
-            __builder.OpenComponent<Project.Client.Shared.MostrarMarkdown>(43);
-            __builder.AddAttribute(44, "ContenidoMarkdown", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+            __builder.AddMarkupContent(31, "\n");
+            __builder.OpenElement(32, "div");
+            __builder.AddAttribute(33, "style", "margin-top: 10px;");
+            __builder.AddMarkupContent(34, "<h3 style=\"color:white\">Resumen</h3>\n    ");
+            __builder.OpenElement(35, "div");
+            __builder.OpenComponent<Project.Client.Shared.MostrarMarkdown>(36);
+            __builder.AddAttribute(37, "ContenidoMarkdown", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 34 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                                              model.Pelicula.Resumen
 
@@ -234,31 +227,25 @@ else
 #line hidden
             ));
             __builder.CloseComponent();
-            __builder.AddMarkupContent(45, "\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(46, "\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(47, "\n");
-            __builder.OpenElement(48, "div");
-            __builder.AddAttribute(49, "style", "margin-top: 10px;");
-            __builder.AddMarkupContent(50, "\n    ");
-            __builder.AddMarkupContent(51, "<h3 style=\"color:white\">Actores</h3>\n    ");
-            __builder.OpenElement(52, "div");
-            __builder.AddAttribute(53, "style", "display: flex; flex-direction: column");
-            __builder.AddMarkupContent(54, "\n");
+            __builder.AddMarkupContent(38, "\n");
+            __builder.OpenElement(39, "div");
+            __builder.AddAttribute(40, "style", "margin-top: 10px;");
+            __builder.AddMarkupContent(41, "<h3 style=\"color:white\">Actores</h3>\n    ");
+            __builder.OpenElement(42, "div");
+            __builder.AddAttribute(43, "style", "display: flex; flex-direction: column");
 #line 40 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
          foreach (var actor in model.Actores)
         {
 
 #line default
 #line hidden
-            __builder.AddContent(55, "            ");
-            __builder.OpenElement(56, "div");
-            __builder.AddAttribute(57, "style", "margin-bottom: 2px;");
-            __builder.AddMarkupContent(58, "\n                ");
-            __builder.OpenElement(59, "img");
-            __builder.AddAttribute(60, "style", "width: 50px;");
-            __builder.AddAttribute(61, "src", 
+            __builder.OpenElement(44, "div");
+            __builder.AddAttribute(45, "style", "margin-bottom: 2px;");
+            __builder.OpenElement(46, "img");
+            __builder.AddAttribute(47, "style", "width: 50px;");
+            __builder.AddAttribute(48, "src", 
 #line 43 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                                                 actor.Foto
 
@@ -266,11 +253,11 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(62, "\n                ");
-            __builder.OpenElement(63, "span");
-            __builder.AddAttribute(64, "style", "display:inline-block;width: 200px;");
-            __builder.OpenElement(65, "a");
-            __builder.AddAttribute(66, "href", "/persona/" + (
+            __builder.AddMarkupContent(49, "\n                ");
+            __builder.OpenElement(50, "span");
+            __builder.AddAttribute(51, "style", "display:inline-block;width: 200px;");
+            __builder.OpenElement(52, "a");
+            __builder.AddAttribute(53, "href", "/persona/" + (
 #line 44 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                                                                                     actor.Id
 
@@ -283,7 +270,7 @@ else
 #line default
 #line hidden
             ));
-            __builder.AddContent(67, 
+            __builder.AddContent(54, 
 #line 44 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                                                                                                                                actor.Nombre
 
@@ -292,10 +279,10 @@ else
             );
             __builder.CloseElement();
             __builder.CloseElement();
-            __builder.AddMarkupContent(68, "\n                ");
-            __builder.AddMarkupContent(69, "<span style=\"display:inline-block; width: 45px;\">...</span>\n                ");
-            __builder.OpenElement(70, "span");
-            __builder.AddContent(71, 
+            __builder.AddMarkupContent(55, "\n                ");
+            __builder.AddMarkupContent(56, "<span style=\"display:inline-block; width: 45px;\">...</span>\n                ");
+            __builder.OpenElement(57, "span");
+            __builder.AddContent(58, 
 #line 46 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                        actor.Personaje
 
@@ -303,19 +290,14 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(72, "\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(73, "\n");
 #line 48 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
         }
 
 #line default
 #line hidden
-            __builder.AddContent(74, "    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(75, "\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(76, "\n");
 #line 51 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
 }
 
@@ -333,15 +315,15 @@ else
 #line default
 #line hidden
         (__builder2) => {
-            __builder2.OpenElement(77, "a");
-            __builder2.AddAttribute(78, "href", "peliculas/buscar?generoid=" + (
+            __builder2.OpenElement(59, "a");
+            __builder2.AddAttribute(60, "href", "peliculas/buscar?generoid=" + (
 #line 57 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                                                                                                   genero.Id
 
 #line default
 #line hidden
             ));
-            __builder2.AddContent(79, 
+            __builder2.AddContent(61, 
 #line 57 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Peliculas\VisualizarPelicula.razor"
                                                                                                               genero.Nombre
 

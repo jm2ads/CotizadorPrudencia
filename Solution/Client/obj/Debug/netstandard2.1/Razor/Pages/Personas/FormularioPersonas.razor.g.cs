@@ -95,80 +95,70 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             )));
             __builder.AddAttribute(3, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Forms.EditContext>)((context) => (__builder2) => {
-                __builder2.AddMarkupContent(4, "\n    ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator>(5);
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator>(4);
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(6, "\n\n    ");
-                __builder2.OpenElement(7, "div");
-                __builder2.AddAttribute(8, "class", "form-group");
-                __builder2.AddMarkupContent(9, "\n        ");
-                __builder2.AddMarkupContent(10, "<label>Nombre:</label>\n        ");
-                __builder2.OpenElement(11, "div");
-                __builder2.AddMarkupContent(12, "\n            ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(13);
-                __builder2.AddAttribute(14, "class", "form-control");
-                __builder2.AddAttribute(15, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddMarkupContent(5, "\n\n    ");
+                __builder2.OpenElement(6, "div");
+                __builder2.AddAttribute(7, "class", "form-group");
+                __builder2.AddMarkupContent(8, "<label>Nombre:</label>\n        ");
+                __builder2.OpenElement(9, "div");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(10);
+                __builder2.AddAttribute(11, "class", "form-control");
+                __builder2.AddAttribute(12, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 7 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\FormularioPersonas.razor"
                                                           Persona.Nombre
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(16, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Persona.Nombre = __value, Persona.Nombre))));
-                __builder2.AddAttribute(17, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => Persona.Nombre));
+                __builder2.AddAttribute(13, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Persona.Nombre = __value, Persona.Nombre))));
+                __builder2.AddAttribute(14, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => Persona.Nombre));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(18, "\n            ");
-                __Blazor.Project.Client.Pages.Personas.FormularioPersonas.TypeInference.CreateValidationMessage_0(__builder2, 19, 20, 
+                __builder2.AddMarkupContent(15, "\n            ");
+                __Blazor.Project.Client.Pages.Personas.FormularioPersonas.TypeInference.CreateValidationMessage_0(__builder2, 16, 17, 
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\FormularioPersonas.razor"
                                       () => Persona.Nombre
 
 #line default
 #line hidden
                 );
-                __builder2.AddMarkupContent(21, "\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(22, "\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(23, "\n    ");
-                __builder2.OpenElement(24, "div");
-                __builder2.AddAttribute(25, "class", "form-group");
-                __builder2.AddMarkupContent(26, "\n        ");
-                __builder2.AddMarkupContent(27, "<label>Fecha Nacimiento:</label>\n        ");
-                __builder2.OpenElement(28, "div");
-                __builder2.AddMarkupContent(29, "\n            ");
-                __Blazor.Project.Client.Pages.Personas.FormularioPersonas.TypeInference.CreateInputDate_1(__builder2, 30, 31, "form-control", 32, 
+                __builder2.AddMarkupContent(18, "\n    ");
+                __builder2.OpenElement(19, "div");
+                __builder2.AddAttribute(20, "class", "form-group");
+                __builder2.AddMarkupContent(21, "<label>Fecha Nacimiento:</label>\n        ");
+                __builder2.OpenElement(22, "div");
+                __Blazor.Project.Client.Pages.Personas.FormularioPersonas.TypeInference.CreateInputDate_1(__builder2, 23, 24, "form-control", 25, 
 #line 14 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\FormularioPersonas.razor"
                                                           Persona.FechaNacimiento
 
 #line default
 #line hidden
-                , 33, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Persona.FechaNacimiento = __value, Persona.FechaNacimiento)), 34, () => Persona.FechaNacimiento);
-                __builder2.AddMarkupContent(35, "\n            ");
-                __Blazor.Project.Client.Pages.Personas.FormularioPersonas.TypeInference.CreateValidationMessage_2(__builder2, 36, 37, 
+                , 26, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Persona.FechaNacimiento = __value, Persona.FechaNacimiento)), 27, () => Persona.FechaNacimiento);
+                __builder2.AddMarkupContent(28, "\n            ");
+                __Blazor.Project.Client.Pages.Personas.FormularioPersonas.TypeInference.CreateValidationMessage_2(__builder2, 29, 30, 
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\FormularioPersonas.razor"
                                       () => Persona.FechaNacimiento
 
 #line default
 #line hidden
                 );
-                __builder2.AddMarkupContent(38, "\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(39, "\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(40, "\n    ");
-                __builder2.OpenElement(41, "div");
-                __builder2.AddAttribute(42, "class", "form-group");
-                __builder2.AddMarkupContent(43, "\n        ");
-                __builder2.OpenComponent<Project.Client.Shared.InputImg>(44);
-                __builder2.AddAttribute(45, "Label", "Foto");
-                __builder2.AddAttribute(46, "ImagenSeleccionada", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, 
+                __builder2.AddMarkupContent(31, "\n    ");
+                __builder2.OpenElement(32, "div");
+                __builder2.AddAttribute(33, "class", "form-group");
+                __builder2.OpenComponent<Project.Client.Shared.InputImg>(34);
+                __builder2.AddAttribute(35, "Label", "Foto");
+                __builder2.AddAttribute(36, "ImagenSeleccionada", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, 
 #line 19 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\FormularioPersonas.razor"
                                                    ImagenSeleccionada
 
 #line default
 #line hidden
                 )));
-                __builder2.AddAttribute(47, "ImagenTemporal", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddAttribute(37, "ImagenTemporal", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #line 19 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\FormularioPersonas.razor"
                                                                                         imagenTemporal
 
@@ -176,29 +166,26 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
                 ));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(48, "\n    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(49, "\n    ");
-                __builder2.OpenElement(50, "div");
-                __builder2.AddAttribute(51, "class", "form-group form-markdown");
-                __builder2.AddMarkupContent(52, "\n        ");
-                __Blazor.Project.Client.Pages.Personas.FormularioPersonas.TypeInference.CreateInputMarkdown_3(__builder2, 53, 54, 
+                __builder2.AddMarkupContent(38, "\n    ");
+                __builder2.OpenElement(39, "div");
+                __builder2.AddAttribute(40, "class", "form-group form-markdown");
+                __Blazor.Project.Client.Pages.Personas.FormularioPersonas.TypeInference.CreateInputMarkdown_3(__builder2, 41, 42, 
 #line 23 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\FormularioPersonas.razor"
                               () => Persona.Biografia
 
 #line default
 #line hidden
-                , 55, "Biografía", 56, 
+                , 43, "Biografía", 44, 
 #line 22 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Personas\FormularioPersonas.razor"
                                      Persona.Biografia
 
 #line default
 #line hidden
-                , 57, Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Persona.Biografia = __value, Persona.Biografia)), 58, () => Persona.Biografia);
-                __builder2.AddMarkupContent(59, "\n    ");
+                , 45, Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Persona.Biografia = __value, Persona.Biografia)), 46, () => Persona.Biografia);
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(60, "\n\n    ");
-                __builder2.AddMarkupContent(61, "<button class=\"btn btn-success\" type=\"submit\">Guardar Cambios</button>\n");
+                __builder2.AddMarkupContent(47, "\n\n    ");
+                __builder2.AddMarkupContent(48, "<button class=\"btn btn-success\" type=\"submit\">Guardar Cambios</button>");
             }
             ));
             __builder.CloseComponent();

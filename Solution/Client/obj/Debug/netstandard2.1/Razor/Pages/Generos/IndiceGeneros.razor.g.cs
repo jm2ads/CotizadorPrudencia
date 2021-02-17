@@ -81,7 +81,7 @@ using Project.Shared.PrudenciaDTOs;
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Indice Géneros</h3>\n\n");
-            __builder.AddMarkupContent(1, "<div class=\"form-group\">\n    <a class=\"btn btn-info\" href=\"generos/crear\">Agregar Género</a>\n</div>\n\n");
+            __builder.AddMarkupContent(1, "<div class=\"form-group\"><a class=\"btn btn-info\" href=\"generos/crear\">Agregar Género</a></div>\n\n");
             __Blazor.Project.Client.Pages.Generos.IndiceGeneros.TypeInference.CreateListadoGenerico_0(__builder, 2, 3, 
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Generos\IndiceGeneros.razor"
                           Generos
@@ -89,52 +89,45 @@ using Project.Shared.PrudenciaDTOs;
 #line default
 #line hidden
             , 4, (__builder2) => {
-                __builder2.AddMarkupContent(5, "\n        ");
-                __builder2.OpenElement(6, "table");
-                __builder2.AddAttribute(7, "class", "table table-striped");
-                __builder2.AddMarkupContent(8, "\n            ");
-                __builder2.AddMarkupContent(9, "<thead>\n                <tr>\n                    <th></th>\n                    <th>Nombre</th>\n                </tr>\n            </thead>\n            ");
-                __builder2.OpenElement(10, "tbody");
-                __builder2.AddMarkupContent(11, "\n");
+                __builder2.OpenElement(5, "table");
+                __builder2.AddAttribute(6, "class", "table table-striped");
+                __builder2.AddMarkupContent(7, "<thead><tr><th></th>\n                    <th>Nombre</th></tr></thead>\n            ");
+                __builder2.OpenElement(8, "tbody");
 #line 21 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Generos\IndiceGeneros.razor"
                  foreach (var item in Generos)
                 {
 
 #line default
 #line hidden
-                __builder2.AddContent(12, "                    ");
-                __builder2.OpenElement(13, "tr");
-                __builder2.AddMarkupContent(14, "\n                        ");
-                __builder2.OpenElement(15, "td");
-                __builder2.AddMarkupContent(16, "\n                            ");
-                __builder2.OpenElement(17, "a");
-                __builder2.AddAttribute(18, "href", "/generos/editar/" + (
+                __builder2.OpenElement(9, "tr");
+                __builder2.OpenElement(10, "td");
+                __builder2.OpenElement(11, "a");
+                __builder2.AddAttribute(12, "href", "/generos/editar/" + (
 #line 25 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Generos\IndiceGeneros.razor"
                                                       item.Id
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(19, "class", "btn btn-success");
-                __builder2.AddContent(20, "Editar");
+                __builder2.AddAttribute(13, "class", "btn btn-success");
+                __builder2.AddContent(14, "Editar");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(21, "\n                            ");
-                __builder2.OpenElement(22, "button");
-                __builder2.AddAttribute(23, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+                __builder2.AddMarkupContent(15, "\n                            ");
+                __builder2.OpenElement(16, "button");
+                __builder2.AddAttribute(17, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #line 26 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Generos\IndiceGeneros.razor"
                                                 () => BorrarGenero(item)
 
 #line default
 #line hidden
                 ));
-                __builder2.AddAttribute(24, "class", "btn btn-danger");
-                __builder2.AddContent(25, "Borrar");
+                __builder2.AddAttribute(18, "class", "btn btn-danger");
+                __builder2.AddContent(19, "Borrar");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(26, "\n                        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(27, "\n                        ");
-                __builder2.OpenElement(28, "td");
-                __builder2.AddContent(29, 
+                __builder2.AddMarkupContent(20, "\n                        ");
+                __builder2.OpenElement(21, "td");
+                __builder2.AddContent(22, 
 #line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Generos\IndiceGeneros.razor"
                              item.Nombre
 
@@ -142,19 +135,14 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
                 );
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(30, "\n                    ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(31, "\n");
 #line 30 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Generos\IndiceGeneros.razor"
                 }
 
 #line default
 #line hidden
-                __builder2.AddContent(32, "            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(33, "\n        ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(34, "\n    ");
             }
             );
         }

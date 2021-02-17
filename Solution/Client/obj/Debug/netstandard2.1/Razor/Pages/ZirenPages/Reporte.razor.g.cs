@@ -80,7 +80,7 @@ using Project.Shared.PrudenciaDTOs;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Descargue sus Reportes</h3>\r\n\r\n\r\n");
+            __builder.AddMarkupContent(0, "<h3 style=\"color:white\">Descargue sus Reportes</h3>");
 #line 9 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
  if (oRespuestaReporteDTOList == null)
 {
@@ -89,12 +89,9 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
             __builder.OpenElement(1, "div");
             __builder.AddAttribute(2, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
-            __builder.AddMarkupContent(3, "\r\n");
-            __builder.OpenComponent<Project.Client.Shared.Cargando>(4);
+            __builder.OpenComponent<Project.Client.Shared.Cargando>(3);
             __builder.CloseComponent();
-            __builder.AddMarkupContent(5, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(6, "\r\n");
 #line 14 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
 }
 else
@@ -108,24 +105,21 @@ else
 
 #line default
 #line hidden
-            __builder.AddContent(7, "    ");
-            __builder.OpenElement(8, "div");
-            __builder.AddAttribute(9, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
-            __builder.AddMarkupContent(10, "\r\n        ");
-            __builder.OpenElement(11, "div");
-            __builder.AddMarkupContent(12, "\r\n            ");
-            __builder.OpenElement(13, "a");
-            __builder.AddAttribute(14, "href", 
+            __builder.OpenElement(4, "div");
+            __builder.AddAttribute(5, "style", "margin-right: 2%; margin-bottom: 10px; text-align: center;");
+            __builder.OpenElement(6, "div");
+            __builder.OpenElement(7, "a");
+            __builder.AddAttribute(8, "href", 
 #line 21 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
                       oRespuestaReporteDTOList[i].urlReporte
 
 #line default
 #line hidden
             );
-            __builder.AddAttribute(15, "target", "_blank");
-            __builder.AddAttribute(16, "class", "btn btn-info");
-            __builder.AddAttribute(17, "style", "width:250px");
-            __builder.AddContent(18, 
+            __builder.AddAttribute(9, "target", "_blank");
+            __builder.AddAttribute(10, "class", "btn btn-info");
+            __builder.AddAttribute(11, "style", "width:250px");
+            __builder.AddContent(12, 
 #line 21 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
                                                                                                                         oRespuestaReporteDTOList[i].reporte
 
@@ -133,11 +127,8 @@ else
 #line hidden
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(19, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(20, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(21, "\r\n");
 #line 24 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
 }
 
