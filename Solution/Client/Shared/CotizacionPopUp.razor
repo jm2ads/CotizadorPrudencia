@@ -26,13 +26,15 @@
                 </div>
 
 
-                <div class="modal-footer" style="    padding: 0;
-        background-color:transparent;
+                <div class="modal-footer" style="        padding: 0;
+        background-image: radial-gradient(circle, #803496, #70288d, #5f1c83, #4e107a, #3c0371);
+
         display: flex;
         justify-content: center;
-        align-items: center;
-    ">
-                    <button @onclick="onConfirm" type="button" class="btn btn-primary" style="width: 288px;border: 0">Ok</button>
+        align-items: center;">
+                    <button @onclick="onConfirm" type="button" class="btn btn-primary" style="width: 288px;border: 0">Continuar</button>
+
+                    <a href="https://ziren.com.ar/seguro-modo-comodo/" class="btn btn-primary" target="_blank" style="align-self:initial;font-size:smaller">Hacer Seguro modo cómodo</a>
                 </div>
             </div>
         </div>
@@ -47,7 +49,8 @@
 
     [Parameter] public RenderFragment ChildContent { get; set; }
     [Parameter] public EventCallback onConfirm { get; set; }
-    //  [Parameter] public EventCallback onCancel { get; set; }
+    [Parameter] public EventCallback onModoComodo { get; set; }
+   
     public void Mostrar() => MostrarConfirmacion = true;
     public void Ocultar() => MostrarConfirmacion = false;
 

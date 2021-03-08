@@ -134,8 +134,20 @@ else
 
     private async Task MarcaKeyUp(KeyboardEventArgs e)
     {
-        if (oMarcaDescripcion.Trim().Length < 3)
+        if (oMarcaDescripcion.Trim().Length < 2)
+        {
+            oMarcasAutosAuxList = (from c in oMarcasAutosList
+                                   where c.marcaID == 46
+                                   || c.marcaID == 18
+                                   || c.marcaID == 12
+                                   || c.marcaID == 17
+                                   || c.marcaID == 32
+                                   || c.marcaID == 11
+                                   || c.marcaID == 6
+                                   select c).ToList();
             return;
+        }
+
 
         oMarcasAutosAuxList = (from c in oMarcasAutosList
                                where c.descripcion.ToLower().Contains(oMarcaDescripcion.ToLower())

@@ -112,13 +112,14 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 79 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
+#line 80 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Cotizacion.razor"
        
 
     [Parameter] public int oCoberturaID { get; set; }
 
     private CotizacionAutoDTO oCotizacionAutoDTO = new CotizacionAutoDTO();
     private RespuestaCotizacionAutoDTO oRespuestaCotizacionAutoDTO;
+ 
     protected override async Task OnInitializedAsync()
     {
 
@@ -130,12 +131,17 @@ using System.Text.Json;
         var responseHttp = await repositorio.Post<CotizacionAutoDTO, RespuestaCotizacionAutoDTO>("api/Externo/Prudencia/cotizaciones/autos", oCotizacionAutoDTO);
         oRespuestaCotizacionAutoDTO = responseHttp.Response;
 
-      
-        oCotizacionAutoDTO.cotizacionID= oRespuestaCotizacionAutoDTO.cotizacionID;
+
+        oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoDTO.cotizacionID;
 
         CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
         Console.WriteLine(CotizacionAutoDTOJson);
+
+
+
+     
+
     }
     private async Task OnClickHandle()
     {

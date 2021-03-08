@@ -1,9 +1,3 @@
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.csprojAssemblyReference.cache
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.GeneratedMSBuildEditorConfig.editorconfig
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.AssemblyInfoInputs.cache
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.AssemblyInfo.cs
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.csproj.CoreCompileInputs.cache
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.MvcApplicationPartsAssemblyInfo.cache
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Client.StaticWebAssets.xml
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\appsettings.json
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\appsettingsPROD.json
@@ -26,9 +20,14 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\ref\Project.Server
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Server.pdb
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Humanizer.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Markdig.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Forms.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Web.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.WebAssembly.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.WebAssembly.Server.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -46,6 +45,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.EntityFr
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.Identity.Client.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
@@ -53,6 +53,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.Identity
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.JSInterop.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.JSInterop.WebAssembly.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
@@ -75,7 +76,9 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.Composition
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.Composition.Runtime.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.Composition.TypedParts.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.IO.Pipelines.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.Runtime.Caching.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Blazor.FileReader.dll
@@ -163,6 +166,12 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Client.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Shared.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Client.pdb
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Shared.pdb
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.csprojAssemblyReference.cache
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.GeneratedMSBuildEditorConfig.editorconfig
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.AssemblyInfoInputs.cache
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.AssemblyInfo.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.csproj.CoreCompileInputs.cache
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.MvcApplicationPartsAssemblyInfo.cache
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\staticwebassets\Project.Server.StaticWebAssets.Manifest.cache
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\staticwebassets\Project.Server.StaticWebAssets.xml
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\scopedcss\bundle\Project.Server.styles.css
@@ -172,12 +181,3 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\ref\Project.Server.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.pdb
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.genruntimeconfig.cache
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Forms.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Web.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.JSInterop.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.IO.Pipelines.dll

@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 49 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\AnoSeleccionar.razor"
+#line 53 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\AnoSeleccionar.razor"
        
 
     [Parameter] public int marcaID { get; set; }
@@ -125,7 +125,7 @@ using System.Text.Json;
 
         //oCotizacionAutoRapidaDTO = Singleton.oCotizacionAutoRapidaDTO;
 
-        for (int i = DateTime.Today.Year; i >= 1991; i--)
+        for (int i = DateTime.Today.Year; i >= 1999; i--)
         {
             oAnoAutosList.Add(i);
         }
@@ -141,7 +141,8 @@ using System.Text.Json;
             oCotizacionAutoDTO.vehiculo.anio = DateTime.Today.Year;
             oCotizacionAutoDTO.vehiculo.es0KM = true;
         }
-        else {
+        else
+        {
             oCotizacionAutoDTO.vehiculo.anio = anoID;
             oCotizacionAutoDTO.vehiculo.es0KM = false;
         }
@@ -151,12 +152,23 @@ using System.Text.Json;
         Console.WriteLine(CotizacionAutoDTOJson);
 
 
+        #region CotizacionEntitiesDTO
+
+        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+        cotizacionEntitiesDTO.ano = anoID;
+
+        cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+        Console.WriteLine(cotizacionEntitiesDTOJson);
+        #endregion
 
 
 
         navigationManager.NavigateTo("/ziren/modelo");
         //navigationManager.NavigateTo("/ziren/version");
     }
+   
 
 
 #line default

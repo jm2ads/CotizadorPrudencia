@@ -50,4 +50,4 @@ async function onFetch(event) {
 
 
 
-/* Manifest version: 3PSGRSID */
+/* Manifest version: GkVHApWK */

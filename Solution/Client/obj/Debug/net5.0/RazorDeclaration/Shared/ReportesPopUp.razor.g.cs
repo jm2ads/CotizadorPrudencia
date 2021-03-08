@@ -111,7 +111,7 @@ using Project.Shared.PrudenciaDTOs;
     [Parameter] public  List<RespuestaReporteDTO> oRespuestaReporteDTOList { get; set; }
     [Parameter] public RespuestaPolizaImpresionDTO oRespuestaPolizaImpresionDTO { get; set; }
     
-[Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
     [Parameter] public EventCallback onConfirm { get; set; }
     //  [Parameter] public EventCallback onCancel { get; set; }
     public void Mostrar() => MostrarConfirmacion = true;

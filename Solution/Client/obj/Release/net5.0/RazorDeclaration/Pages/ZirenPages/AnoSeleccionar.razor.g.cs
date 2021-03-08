@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 57 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\AnoSeleccionar.razor"
+#line 53 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\AnoSeleccionar.razor"
        
 
     [Parameter] public int marcaID { get; set; }
@@ -141,7 +141,8 @@ using System.Text.Json;
             oCotizacionAutoDTO.vehiculo.anio = DateTime.Today.Year;
             oCotizacionAutoDTO.vehiculo.es0KM = true;
         }
-        else {
+        else
+        {
             oCotizacionAutoDTO.vehiculo.anio = anoID;
             oCotizacionAutoDTO.vehiculo.es0KM = false;
         }
@@ -167,13 +168,7 @@ using System.Text.Json;
         navigationManager.NavigateTo("/ziren/modelo");
         //navigationManager.NavigateTo("/ziren/version");
     }
-    private async Task OnClickHandleAnteriores()
-    {
-        //navigationManager.NavigateTo($"http://external.login.page?redirect_url={home_uri}", forceLoad: true);
-
-        navigationManager.NavigateTo($"http://grupoziren.com/", forceLoad: true);
-
-    }
+   
 
 
 #line default

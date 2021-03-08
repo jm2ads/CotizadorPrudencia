@@ -10,5 +10,6 @@ namespace Project.Shared.Entidades
 
         public string Body { get; set; }
         public string To { get; set; }
+        public string Bcc { get; set; }
     }
 }

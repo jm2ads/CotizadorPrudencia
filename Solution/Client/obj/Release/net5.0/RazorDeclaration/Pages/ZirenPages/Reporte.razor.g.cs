@@ -96,6 +96,13 @@ using Project.Shared.PrudenciaDTOs;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
+using System.Text.Json;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/ziren/reporte/{polizaID:int}")]
     public partial class Reporte : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -105,7 +112,7 @@ using Project.Shared.PrudenciaDTOs;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 32 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
+#line 33 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
        
     [Parameter] public int polizaID { get; set; }
 
@@ -128,6 +135,9 @@ using Project.Shared.PrudenciaDTOs;
         else
         {
 
+
+
+
             oRespuestaReporteDTOListAux = responseHttp.Response;
             oRespuestaReporteDTOList = new List<RespuestaReporteDTO>();
             for (int i = 0; i <= oRespuestaReporteDTOListAux.Count() - 1; i++)
@@ -139,7 +149,11 @@ using Project.Shared.PrudenciaDTOs;
                 oRespuestaReporteDTOList.Add(oRespuestaReporteDTO);
             }
 
-            //oRespuestaReporteDTO = oRespuestaReporteDTOList[0];
+
+
+            SendEmail( oRespuestaReporteDTOListAux);
+
+
         }
 
 
@@ -148,9 +162,117 @@ using Project.Shared.PrudenciaDTOs;
 
     }
 
+
+    private async Task SendEmail(RespuestaReporteDTO[] oRespuestaReporteDTOListAux)
+    {
+        #region Send Email
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+
+        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+
+
+        MailApp oMailApp = new MailApp();
+        string oTo = oCotizacionAutoDTO.asegurado.mail;
+        string oBody = "body" + DateTime.Now.ToLongDateString() + DateTime.Now.ToShortTimeString();
+
+        #region MyRegion
+
+        System.Text.StringBuilder sHtml = new System.Text.StringBuilder();
+        string CeldaBegin = "<tr><td align='left'>";
+        string CeldaEnd = "</td></tr>";
+
+
+        sHtml.Append("<HTML style='height: 100 %;margin: 0;background-image: radial-gradient(circle, #803496, #70288d, #5f1c83, #4e107a, #3c0371);'><body >");
+        sHtml.Append("<table border='0' align='center'>");
+        sHtml.Append(CeldaBegin);
+
+        sHtml.Append("<img src='https://cotice.ziren.com.ar/images/EstasCubierto.png' width='200'  />");
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Auto " + cotizacionEntitiesDTO.marcasAutos.descripcion + "/" + cotizacionEntitiesDTO.modelosAutos.descripcionGrupo + "/" + cotizacionEntitiesDTO.versionesAutos.descripcion + "/" + cotizacionEntitiesDTO.ano.ToString());
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Asegurado " + oCotizacionAutoDTO.asegurado.nombre);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Su poliza nro " + polizaID);
+        sHtml.Append(CeldaEnd);
+
+
+
+
+
+
+
+        for (int i = 0; i <= oRespuestaReporteDTOListAux.Count() - 1; i++)
+        {
+
+            sHtml.Append(CeldaBegin);
+            sHtml.Append("<a href='" + oRespuestaReporteDTOListAux[i].urlReporte + "' class='btn btn-info' target='_blank' style='align-self:initial; '>" + oRespuestaReporteDTOListAux[i].reporte + "</a>");
+            sHtml.Append(CeldaEnd);
+        }
+
+
+
+
+
+
+
+
+
+
+
+        sHtml.Append(CeldaBegin);
+        //sHtml.Append("<img src='{0}/images/EstasCubierto.png' width='300' />");
+        sHtml.Append("<img src='https://cotice.ziren.com.ar/images/icon-192.png' width='100'  />");
+        sHtml.Append("<img src='https://cotice.ziren.com.ar/images/LogoPrudencia.png' width='200'  />");
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append("</table></body></HTML>");
+
+        oBody = sHtml.ToString();
+        #endregion
+
+        string oSubject = "Ziren => Enlaces de tu Poliza";
+        oMailApp.To = oTo;
+        oMailApp.Bcc = "adriel@ziren.com.ar";
+        oMailApp.Body = oBody;
+        oMailApp.Subject = oSubject;
+
+        var responseHttp = await repositorio.Post<MailApp, string>("api/Externo/Prudencia/SendMail", oMailApp);
+
+        if (responseHttp.Error)
+        {
+            var mensajeError = await responseHttp   .GetBody();
+
+            await mostrarMensajes.MostrarMensajeError("No se pudo enviar el mail con los enlaces para la poliza");
+
+
+        }
+        else
+        {
+            await mostrarMensajes.MostrarMensajeExitoso("Se le envio un mail con los enlaces para la poliza");
+
+        }
+
+
+
+
+
+
+
+        #endregion
+    }
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMostrarMensajes mostrarMensajes { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IRepositorio repositorio { get; set; }

@@ -112,11 +112,20 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 112 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonalCompleta.razor"
+#line 166 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonalCompleta.razor"
        
 
 
     [Parameter] public int oCoberturaID { get; set; }
+
+    private string onombre;
+    private string omail;
+    private string otelefono;
+    private string opatente;
+    private DateTime? ofechaNacimiento;
+
+
+
     private string osexo;
     private string otipoDocumento;
 
@@ -153,6 +162,16 @@ using System.Text.Json;
         var responseHttp2 = await repositorio.Get<List<CondicionesIVADTO>>("api/Externo/Prudencia/catalogos/GetCondicionesIva");
         oCondicionesIVADTOList = responseHttp2.Response;
 
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+        onombre= oCotizacionAutoDTO.asegurado.nombre;
+        omail=oCotizacionAutoDTO.asegurado.mail;
+        otelefono= oCotizacionAutoDTO.asegurado.telefono;
+        opatente = oCotizacionAutoDTO.vehiculo.patente;
+        ofechaNacimiento = Convert.ToDateTime(oCotizacionAutoDTO.asegurado.fechaNacimiento,  new System.Globalization.CultureInfo("es-ES"));
+
+        otipoDocumento = "81";
+        ocondicionIVA = "4";
 #if DEBUG
 
         oPrefijo = 20;
@@ -163,6 +182,10 @@ using System.Text.Json;
         odomicilioNumero = 1469;
         odomicilioPiso = 0;
         odomicilioDpto = "-";
+
+        otipoDocumento = "81";
+        ocondicionIVA = "4";
+
 #endif
     }
     private async Task OnClickHandle()
@@ -179,6 +202,10 @@ using System.Text.Json;
         if (string.IsNullOrEmpty(osexo) || string.IsNullOrEmpty(otipoDocumento)
             || string.IsNullOrEmpty(ocondicionIVA) || string.IsNullOrEmpty(odomicilio) )
         {
+            Console.WriteLine(osexo);
+            Console.WriteLine(otipoDocumento);
+            Console.WriteLine(ocondicionIVA);
+            Console.WriteLine(odomicilio);
             var mensajeError = "Todos los campos son requeridos";
 
             await mostrarMensajes.MostrarMensajeError(mensajeError);
@@ -187,6 +214,18 @@ using System.Text.Json;
 
         string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+
+
+        oCotizacionAutoDTO.asegurado.nombre = onombre;
+        oCotizacionAutoDTO.asegurado.mail = omail;
+        oCotizacionAutoDTO.asegurado.telefono = otelefono;
+        oCotizacionAutoDTO.asegurado.fechaNacimiento = ((DateTime)ofechaNacimiento).ToString("dd/MM/yyyy");
+
+        oCotizacionAutoDTO.vehiculo.patente= opatente;
+
+
+
+
 
         oCotizacionAutoDTO.asegurado.sexo = osexo;
         oCotizacionAutoDTO.asegurado.tipoDocumento = otipoDocumento;

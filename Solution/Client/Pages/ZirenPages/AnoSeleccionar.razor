@@ -7,10 +7,10 @@
 
 @using System.Text.Json;
 @inject IJSRuntime JsRuntime
-    <h3 style="color:white">Seleccione el  Año</h3>
+<h3 style="color:white">Seleccione el  Año</h3>
 @if (oAnoAutosList == null)
 {
-<Cargando></Cargando>
+    <Cargando></Cargando>
 }
 else
 {
@@ -20,37 +20,33 @@ else
     }
     else
     {
-<div style="display: flex; flex-wrap: wrap; align-items: center;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center;">
 
-    <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
-        <div>
-            <button type="button" class="btn btn-info" style="width:90px" @onclick="@(() => OnClickHandle(0))">
-                0 KM
-            </button>
-        </div>
-    </div>
-    @foreach (var anoID in oAnoAutosList)
-    {
-        <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
-            <div>
-                @*<a href="/ziren/modelo/@marcaID/@anoID" class="btn btn-success" style="width:200px"> @anoID.ToString()</a>*@
-                <button type="button" class="btn btn-info" style="width: 90px" @onclick="@(() => OnClickHandle(anoID))">
-                    @anoID.ToString()
-                </button>
+            <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+                <div>
+                    <button type="button" class="btn btn-info" style="width:90px" @onclick="@(() => OnClickHandle(0))">
+                        0 KM
+                    </button>
+                </div>
             </div>
-        </div>
-    }
-    <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
-        <div>
-            @*<button type="button" class="btn btn-info" style="width: 90px" @onclick="@(() => OnClickHandleAnteriores())">
-                Anteriores
-            </button>*@
-            <a href="http://grupoziren.com/" class="btn btn-info" target="_blank" style="align-self:initial; ">Anteriores</a>
+            @foreach (var anoID in oAnoAutosList)
+            {
+                <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+                    <div>
+                        @*<a href="/ziren/modelo/@marcaID/@anoID" class="btn btn-success" style="width:200px"> @anoID.ToString()</a>*@
+                        <button type="button" class="btn btn-info" style="width: 90px" @onclick="@(() => OnClickHandle(anoID))">
+                            @anoID.ToString()
+                        </button>
+                    </div>
+                </div>
+            }
+            <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+                <div>
+                    <a href="https://ziren.com.ar/modo-comodo/" class="btn btn-info" target="_blank" style="align-self:initial; ">Anteriores</a>
+                </div>
+            </div>
 
         </div>
-    </div>
-
-</div>
     }
 }
 
@@ -82,7 +78,8 @@ else
             oCotizacionAutoDTO.vehiculo.anio = DateTime.Today.Year;
             oCotizacionAutoDTO.vehiculo.es0KM = true;
         }
-        else {
+        else
+        {
             oCotizacionAutoDTO.vehiculo.anio = anoID;
             oCotizacionAutoDTO.vehiculo.es0KM = false;
         }
@@ -108,12 +105,6 @@ else
         navigationManager.NavigateTo("/ziren/modelo");
         //navigationManager.NavigateTo("/ziren/version");
     }
-    private async Task OnClickHandleAnteriores()
-    {
-        //navigationManager.NavigateTo($"http://external.login.page?redirect_url={home_uri}", forceLoad: true);
-
-        navigationManager.NavigateTo($"http://grupoziren.com/", forceLoad: true);
-
-    }
+   
 
 }

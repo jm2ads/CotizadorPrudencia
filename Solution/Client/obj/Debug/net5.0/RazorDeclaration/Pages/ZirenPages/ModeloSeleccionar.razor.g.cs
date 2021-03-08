@@ -112,13 +112,13 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 54 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ModeloSeleccionar.razor"
+#line 52 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ModeloSeleccionar.razor"
        
     [Parameter] public int marcaID { get; set; }
     [Parameter] public int anoID { get; set; }
 
 
-  
+
     private List<ModelosAutos> oModelosAutosList;
     private List<ModelosAutos> oModelosAutosAuxList;
     string oModeloDescripcion = "";
@@ -148,6 +148,22 @@ using System.Text.Json;
         CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
         Console.WriteLine(CotizacionAutoDTOJson);
+
+
+
+        #region CotizacionEntitiesDTO
+        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+
+
+        cotizacionEntitiesDTO.modelosAutos = oModelosAutos;
+
+        cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+        Console.WriteLine(cotizacionEntitiesDTOJson);
+        #endregion
+
+
 
         navigationManager.NavigateTo("/ziren/version");
 

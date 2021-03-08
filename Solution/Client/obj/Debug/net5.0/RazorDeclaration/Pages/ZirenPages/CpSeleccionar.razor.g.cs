@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 48 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CpSeleccionar.razor"
+#line 70 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CpSeleccionar.razor"
        
     string oCpDescripcion = "";
 

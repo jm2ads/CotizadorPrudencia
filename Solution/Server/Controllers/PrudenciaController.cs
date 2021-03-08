@@ -497,37 +497,50 @@ namespace Project.Server.Controllers
             string oToken = "Bearer " + oLogin.accessToken;
             //Dictionary<string, string> oCodPostalesDicc = new Dictionary<string, string>();
             List<string> oCodPostalesList = new List<string>();
-            List<CodigoPostalDTO> oCodigoPostalDTOList = null;
+            List<CodigoPostalDTO> oCodigoPostalDTOList = new List<CodigoPostalDTO> ();
+          
             HttpClient httpClient = new HttpClient();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
-            string url = oUriBase + "/catalogos/GetCodPostales?ProvinciaID=" + ProvinciaID.ToString() + "&PageSize=100000";
-           
-            var responseHttp = await httpClient.GetAsync(url);
 
-            if (responseHttp.IsSuccessStatusCode)
+            for (int i = 1; i <= 3; i++)
             {
-                oCodigoPostalDTOList = JsonConvert.DeserializeObject<List<CodigoPostalDTO>>(responseHttp.Content.ReadAsStringAsync().Result);
+                string url = oUriBase + "/catalogos/GetCodPostales?ProvinciaID=" + ProvinciaID.ToString() + "&PageSize=100000&PageNumber=" + i.ToString();
 
-                //oCodPostalesDicc = (Dictionary<string, string>)oCodigoPostalDTOList
-                //    .Select(o => new { o.codigoPostalID, o.localidad })
-                //    .Distinct();
+                var responseHttp = await httpClient.GetAsync(url);
 
-                oCodPostalesList = oCodigoPostalDTOList.
-                   Select(x => x.codigoPostalID.ToString())
-                   .Distinct().ToList();
-                if (oCodPostalesList.Count == 0)
+                if (responseHttp.IsSuccessStatusCode)
                 {
-                    return NotFound();
+                    List<CodigoPostalDTO> oCodigoPostalDTOListAux = JsonConvert.DeserializeObject<List<CodigoPostalDTO>>(responseHttp.Content.ReadAsStringAsync().Result);
+                  
+
+                    foreach (CodigoPostalDTO codigoPostalDTO in oCodigoPostalDTOListAux)
+                    {
+                        oCodigoPostalDTOList.Add(codigoPostalDTO);
+                    }
+
                 }
-                return this.Ok(oCodPostalesList);
+                else
+                {
+                    return this.BadRequest(error: new { message = responseHttp.Content.ReadAsStringAsync().Result });
+                }
+            }
+           
+
+            oCodPostalesList = oCodigoPostalDTOList.
+                  Select(x => x.codigoPostalID.ToString())
+                  .Distinct().ToList();
+
+            if (oCodPostalesList.Count == 0)
+            {
+                return NotFound();
             }
             else
-            {
-                return this.BadRequest(error: new { message = responseHttp.Content.ReadAsStringAsync().Result });
+            { 
+                return this.Ok(oCodPostalesList); 
             }
 
-            //return oCodPostalesList;
+            
         }
 
 
@@ -796,16 +809,22 @@ namespace Project.Server.Controllers
         [HttpPost("SendMail")]
         public async Task<ActionResult<string>> SendMail(MailApp oMailApp)
         {
+
+            //string oUrlRaiz = string.Format("{0}://{1}", HttpContext.Request.Scheme, HttpContext.Request.Host);
+            //oMailApp.Body = String.Format(oMailApp.Body, oUrlRaiz);
+             // string imagen = oUrlRaiz + "/images/pt.jpg";
             #region MyRegion
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
             client.UseDefaultCredentials = false;
             client.EnableSsl = true;
-            client.Credentials = new NetworkCredential("jm2.informatic@gmail.com", "Gugu2801");
+            client.Credentials = new NetworkCredential("clientes@ziren.com.ar", "brianadriel3166");
 
 
             MailMessage mailMessage = new MailMessage();
-            mailMessage.From = new MailAddress("jm2.informatic@gmail.com");
+            mailMessage.IsBodyHtml = true;
+            mailMessage.From = new MailAddress("clientes@ziren.com.ar","Ziren ");
             mailMessage.To.Add(oMailApp.To);
+            mailMessage.Bcc.Add(oMailApp.Bcc);
             mailMessage.Body = oMailApp.Body;
             mailMessage.Subject = oMailApp.Subject;
 

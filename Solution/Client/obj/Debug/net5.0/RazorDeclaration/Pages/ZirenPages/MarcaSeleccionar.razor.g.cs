@@ -131,7 +131,16 @@ using System.Text.Json;
 
         var responseHttp = await repositorio.Get<List<MarcasAutos>>("api/Externo/Prudencia/catalogos/GetMarcasAutos");
         oMarcasAutosList = responseHttp.Response;
-        oMarcasAutosAuxList = responseHttp.Response;
+        // oMarcasAutosAuxList = responseHttp.Response;
+        oMarcasAutosAuxList = (from c in oMarcasAutosList
+                               where c.marcaID == 46
+                               || c.marcaID == 18
+                               || c.marcaID == 12
+                               || c.marcaID == 17
+                               || c.marcaID == 32
+                               || c.marcaID == 11
+                               || c.marcaID == 6
+                               select c).ToList();
     }
 
     protected override async Task OnParametersSetAsync()
@@ -155,6 +164,21 @@ using System.Text.Json;
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
         Console.WriteLine(CotizacionAutoDTOJson);
 
+        #region CotizacionEntitiesDTO
+
+        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+
+        MarcasAutos marcasAutos = (from c in oMarcasAutosList
+                                   where c.marcaID == omarcaID
+                                   select c).FirstOrDefault();
+
+        cotizacionEntitiesDTO.marcasAutos = marcasAutos;
+
+        cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+        Console.WriteLine(cotizacionEntitiesDTOJson);
+        #endregion
 
 
         navigationManager.NavigateTo("/ziren/ano");
@@ -163,6 +187,20 @@ using System.Text.Json;
 
     private async Task MarcaKeyUp(KeyboardEventArgs e)
     {
+        if (oMarcaDescripcion.Trim().Length < 2)
+        {
+            oMarcasAutosAuxList = (from c in oMarcasAutosList
+                                   where c.marcaID == 46
+                                   || c.marcaID == 18
+                                   || c.marcaID == 12
+                                   || c.marcaID == 17
+                                   || c.marcaID == 32
+                                   || c.marcaID == 11
+                                   || c.marcaID == 6
+                                   select c).ToList();
+            return;
+        }
+
 
         oMarcasAutosAuxList = (from c in oMarcasAutosList
                                where c.descripcion.ToLower().Contains(oMarcaDescripcion.ToLower())

@@ -135,9 +135,11 @@ using System.Text.Json;
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
         Console.WriteLine(CotizacionAutoDTOJson);
 
-      
-
-
+        #region CotizacionEntitiesDTO
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = new CotizacionEntitiesDTO();
+        string cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+        #endregion
     }
 
 

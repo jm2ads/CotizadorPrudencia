@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 299 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
+#line 300 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
        
     [Parameter] public int oAdjuntoID1 { get; set; }
     [Parameter] public int oAdjuntoID2 { get; set; }
@@ -130,7 +130,17 @@ using System.Text.Json;
     private int oCotizacionID;
     private bool oMostrarCargando;
 
-    private string oMedioPagoID;
+    private string oMedioPagoIDAux;
+    public string oMedioPagoID
+    {
+        get { return oMedioPagoIDAux; }
+        set
+        {
+            oMedioPagoIDAux = value;
+            OnMedioPagoChange();
+        }
+    }
+
     private List<TipoDocumentoDTO> oTipoDocumentoDTOList;
     private List<CondicionesIVADTO> oCondicionesIVADTOList;
     private List<ProvinciaDTO> oProvinciasList;
@@ -410,6 +420,15 @@ using System.Text.Json;
 
         }
     }
+
+    private async void OnMedioPagoChange()
+    {
+        if (oMedioPagoID == "0")
+            await JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+        //navigationManager.NavigateTo($"https://ziren.com.ar/", forceLoad: true);
+    }
+
+
 
 #line default
 #line hidden

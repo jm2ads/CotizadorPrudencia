@@ -9,7 +9,7 @@
       "url": "_content\/Tewr.Blazor.FileReader\/FileReaderComponent.js.map"
     },
     {
-      "hash": "sha256-wB\/2gRajqOkPhJ8SfE2JmPiHezJzxanWMatUtlVgPfY=",
+      "hash": "sha256-ZPK\/CYTO2B6WImZBl4av0Co\/6S+nH37BGTkdIMUJD7o=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -801,19 +801,19 @@
       "url": "_framework\/dotnet.5.0.0.js"
     },
     {
-      "hash": "sha256-YlQNyVFqqX5GJ6jrgnlNoXOpf2VaFvqhGX+NFDpFvXc=",
+      "hash": "sha256-31Xq2Tj8ymM+mye3gsgVtyZIOir6tFv+3IE6annpgZQ=",
       "url": "_framework\/Project.Shared.dll"
     },
     {
-      "hash": "sha256-7ZjWxizCeTwk0jFPwB26Fyumv9fRRB0qRFMCENrwQgI=",
+      "hash": "sha256-71yt2Vz3nLmvL+af2bN71dM1fOxZuDuS5xkFsFwl\/Hs=",
       "url": "_framework\/Project.Shared.pdb"
     },
     {
-      "hash": "sha256-XJI6TGjXs2I949pEJDURoThxGdJ4GaMP8Wnu3mvpaEU=",
+      "hash": "sha256-H84pjbzYj0XjIqftBKzH0D2Zn6AX+\/kujCJ1S2VGKx8=",
       "url": "_framework\/Project.Client.dll"
     },
     {
-      "hash": "sha256-F5Pq6tN0wBdJyaBwragBBLZOmyOmo\/2rlb3SxFFtemg=",
+      "hash": "sha256-pByp8y2yz\/Bx7bTaZ7KPfN1zKHdbxlneVAzGjOktwZE=",
       "url": "_framework\/Project.Client.pdb"
     },
     {
@@ -1609,7 +1609,7 @@
       "url": "_framework\/dotnet.5.0.0.js.gz"
     },
     {
-      "hash": "sha256-iMxSLUz8z5p25K4Im9dvOXo+aIDwgdxLqk9IxGrvA44=",
+      "hash": "sha256-s5ztalFOGM4MXcJqIRdUgjRSdYTt71aT42pD\/dpIDTk=",
       "url": "_framework\/Project.Shared.dll.gz"
     },
     {
@@ -1657,7 +1657,7 @@
       "url": "css\/open-iconic\/README.md"
     },
     {
-      "hash": "sha256-rEEIS6HLzvWjnMwn\/h\/hk6LFv8jfHIjNl0paDaUC3mM=",
+      "hash": "sha256-Nu+7YBs1\/Z39miz95Z8xyTEpqQC0KZhcCt+gxzwnLYs=",
       "url": "css\/site.css"
     },
     {
@@ -1673,7 +1673,7 @@
       "url": "images\/CotizacionPopUp.jpeg"
     },
     {
-      "hash": "sha256-SLl3PpfhBs7zQ1m3dsRyw6pmJQK21RyKyjlf197FFBk=",
+      "hash": "sha256-TiuF0w+QAZs5U2IWoLlWg2Rp+d7zG4BteVWQ6HZkI9M=",
       "url": "images\/EstasCubierto.png"
     },
     {
@@ -1697,7 +1697,7 @@
       "url": "images\/icon-512.png"
     },
     {
-      "hash": "sha256-yLR8LeJstwpiSKgDbcXW4mUP5pJj0+fqpgEMHrYMF54=",
+      "hash": "sha256-gS+inIRXwlo0Fq4epIpzP\/9Q0fHnFWa32aCV9Xup7YM=",
       "url": "images\/LogoPrudencia.png"
     },
     {
@@ -1709,7 +1709,7 @@
       "url": "images\/Ziren56.png"
     },
     {
-      "hash": "sha256-ASHwBH5E5H7in5yGqheR8hdMKtOvDIRuOiz22V7dK\/E=",
+      "hash": "sha256-pBI32cVxQ001MGnYfBsz1qyC2mR9gQzJn4mQOnVf\/WE=",
       "url": "index.html"
     },
     {
@@ -1725,5 +1725,5 @@
       "url": "manifest.json"
     }
   ],
-  "version": "8UiNbrKA"
+  "version": "yTzOj1zg"
 };

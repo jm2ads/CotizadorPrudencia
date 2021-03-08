@@ -7,8 +7,10 @@ namespace Project.Client.Helpers
 {
     public interface IMostrarMensajes
     {
+
         Task MostrarMensajeError(string mensaje);
         Task MostrarMensajeExitoso(string mensaje);
+        Task MostrarMensajeBase(string titulo, string mensaje, string tipoMensaje);
         Task MostrarMensajeConImagen( string mensaje);
     }
 }

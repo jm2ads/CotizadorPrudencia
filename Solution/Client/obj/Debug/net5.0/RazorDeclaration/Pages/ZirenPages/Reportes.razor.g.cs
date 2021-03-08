@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 70 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
+#line 69 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reportes.razor"
        
 
     private List<RespuestaReporteDTO> oRespuestaReporteDTOList= new List<RespuestaReporteDTO> ();

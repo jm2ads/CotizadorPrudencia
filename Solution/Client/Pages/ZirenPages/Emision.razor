@@ -5,6 +5,7 @@
 @inject IJSRuntime JsRuntime
 @using System.Text.Json;
 <h3 style="color:white">Emision de Poliza</h3>
+<label style="color:white;font-size: 0.8em;align-content:initial">Sitio Seguro</label>
 
 @if (oTipoMedioPagoDTOList == null || oProvinciasList == null || oCondicionesIVADTOList == null || oTipoDocumentoDTOList == null || oMostrarCargando)
 {
@@ -69,7 +70,7 @@ else
                 <div class="col-md-5">
                     <label style="color:white">Tipo Medio Pago</label>
                     <div>
-                        <InputSelect @bind-Value="oMedioPagoID" class="form-control">
+                        <InputSelect  class="form-control"  @bind-Value="oMedioPagoID"  >
                             <option value="">Medio de Pago ...</option>
                             @foreach (TipoMedioPagoDTO oTipoMedioPagoDTO in oTipoMedioPagoDTOList)
                                 {
@@ -313,7 +314,17 @@ else
     private int oCotizacionID;
     private bool oMostrarCargando;
 
-    private string oMedioPagoID;
+    private string oMedioPagoIDAux;
+    public string oMedioPagoID
+    {
+        get { return oMedioPagoIDAux; }
+        set
+        {
+            oMedioPagoIDAux = value;
+            OnMedioPagoChange();
+        }
+    }
+
     private List<TipoDocumentoDTO> oTipoDocumentoDTOList;
     private List<CondicionesIVADTO> oCondicionesIVADTOList;
     private List<ProvinciaDTO> oProvinciasList;
@@ -593,4 +604,13 @@ else
 
         }
     }
+
+    private async void OnMedioPagoChange()
+    {
+        if (oMedioPagoID == "0")
+            await JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+        //navigationManager.NavigateTo($"https://ziren.com.ar/", forceLoad: true);
+    }
+
+
 }

@@ -112,57 +112,72 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\VersionSeleccionar.razor"
-       
-    [Parameter] public int marcaID { get; set; }
-    [Parameter] public int anoID { get; set; }
-    [Parameter] public int modeloID { get; set; }
+#line 64 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\VersionSeleccionar.razor"
+           
+        [Parameter] public int marcaID { get; set; }
+        [Parameter] public int anoID { get; set; }
+        [Parameter] public int modeloID { get; set; }
 
 
-    private bool TieneGNC = false;
-    string oVersionDescripcion = "";
-    private List<VersionesAutos> oVersionesAutosList;
-    private List<VersionesAutos> oVersionesAutosAuxList;
+        private bool TieneGNC = false;
+        string oVersionDescripcion = "";
+        private List<VersionesAutos> oVersionesAutosList;
+        private List<VersionesAutos> oVersionesAutosAuxList;
 
-    protected override async Task OnInitializedAsync()
-    {
-        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
-        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+        protected override async Task OnInitializedAsync()
+        {
+            string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+            CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
 
-        var responseHttp = await repositorio.Get<List<VersionesAutos>>("api/Externo/Prudencia/catalogos/GetVersionesModelosAutos/" + oCotizacionAutoDTO.vehiculo.anio.ToString() + "/" + oCotizacionAutoDTO.vehiculo.marcaID.ToString() + "/" + oCotizacionAutoDTO.vehiculo.modeloID.ToString());
-        oVersionesAutosList = responseHttp.Response;
-        oVersionesAutosAuxList = responseHttp.Response;
+            var responseHttp = await repositorio.Get<List<VersionesAutos>>("api/Externo/Prudencia/catalogos/GetVersionesModelosAutos/" + oCotizacionAutoDTO.vehiculo.anio.ToString() + "/" + oCotizacionAutoDTO.vehiculo.marcaID.ToString() + "/" + oCotizacionAutoDTO.vehiculo.modeloID.ToString());
+            oVersionesAutosList = responseHttp.Response;
+            oVersionesAutosAuxList = responseHttp.Response;
 
-    }
-    private async Task OnClickHandle(int omodeloID)
-    {
-        VersionesAutos oVersionesAutos = (from c in oVersionesAutosList
-                                          where c.modeloID == omodeloID
-                                          select c).FirstOrDefault();
+        }
+        private async Task OnClickHandle(int omodeloID)
+        {
+            VersionesAutos oVersionesAutos = (from c in oVersionesAutosList
+                                              where c.modeloID == omodeloID
+                                              select c).FirstOrDefault();
 
 
 
-        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
-        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+            string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+            CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
 
-        oCotizacionAutoDTO.vehiculo.modeloID = omodeloID;
-        oCotizacionAutoDTO.vehiculo.tipoUsoID = 1;
-        oCotizacionAutoDTO.vehiculo.tieneGNC = TieneGNC;
-        //oCotizacionAutoDTO.vehiculo.tipoVehiculoID = oModelosAutos.tipoVehiculoID;             VERRRRRRRRRRRRRRRR
-        CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-        await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
-        Console.WriteLine(CotizacionAutoDTOJson);
+            oCotizacionAutoDTO.vehiculo.modeloID = omodeloID;
+            oCotizacionAutoDTO.vehiculo.tipoUsoID = 1;
+            oCotizacionAutoDTO.vehiculo.tieneGNC = TieneGNC;
+            //oCotizacionAutoDTO.vehiculo.tipoVehiculoID = oModelosAutos.tipoVehiculoID;             VERRRRRRRRRRRRRRRR
+            CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+            await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+            Console.WriteLine(CotizacionAutoDTOJson);
 
-        navigationManager.NavigateTo("/ziren/provincia");
-    }
-    private async Task MarcaKeyUp(KeyboardEventArgs e)
-    {
 
-        oVersionesAutosAuxList = (from c in oVersionesAutosList
-                                  where c.descripcion.ToLower().Contains(oVersionDescripcion.ToLower())
-                                  select c).ToList();
 
-    }
+            #region CotizacionEntitiesDTO
+            string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+            CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+
+
+            cotizacionEntitiesDTO.versionesAutos = oVersionesAutos;
+
+            cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+            await JsRuntime.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+            Console.WriteLine(cotizacionEntitiesDTOJson);
+            #endregion
+
+            navigationManager.NavigateTo("/ziren/provincia");
+        }
+        private async Task MarcaKeyUp(KeyboardEventArgs e)
+        {
+
+            oVersionesAutosAuxList = (from c in oVersionesAutosList
+                                      where c.descripcion.ToLower().Contains(oVersionDescripcion.ToLower())
+                                      select c).ToList();
+
+        }
+    
 
 #line default
 #line hidden

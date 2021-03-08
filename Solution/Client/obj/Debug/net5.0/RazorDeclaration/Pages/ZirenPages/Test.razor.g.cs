@@ -103,7 +103,7 @@ using System.Text.Json;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/ziren/test")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/test")]
     public partial class Test : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -112,9 +112,27 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 172 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Test.razor"
+#line 120 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Test.razor"
        
+    private const string fsAStyleOff = "background-image: url('/images/Coberturas/a.png');border: 0ch;width: 190px;height: 125px;background-size:contain";
+    private const string fsAStyleOn = "background-image: url('/images/Coberturas/aClicked.png');border: 0ch;width: 190px;height: 125px";
 
+    private const string fsB1StyleOff = "background-image: url('/images/Coberturas/b1.png');border: 0ch;width: 190px;height: 125px";
+    private const string fsB1StyleOn = "background-image: url('/images/Coberturas/b1Clicked.png');border: 0ch;width: 190px;height: 125px";
+
+    private const string fsCStyleOff = "background-image: url('/images/Coberturas/c.png');border: 0ch;width: 380px;height: 125px";
+    private const string fsCStyleOn = "background-image: url('/images/Coberturas/cClicked.png');border: 0ch;width: 380px;height: 125px";
+
+    private const string fsCfStyleOff = "background-image: url('/images/Coberturas/cf.png');border: 0ch;width: 380px;height: 125px";
+    private const string fsCfStyleOn = "background-image: url('/images/Coberturas/cfClicked.png');border: 0ch;width: 380px;height: 125px";
+
+    private const string fsD2StyleOff = "background-image: url('/images/Coberturas/d2.png');border: 0ch;width: 380px;height: 125px";
+    private const string fsD2StyleOn = "background-image: url('/images/Coberturas/d2Clicked.png');border: 0ch;width: 380px;height: 125px";
+    private string fsAStyle;
+    private string fsB1Style;
+    private string fsCStyle;
+    private string fsCfStyle;
+    private string fsD2Style;
 
     [Parameter] public int oAdjuntoID1 { get; set; }
     [Parameter] public int oAdjuntoID2 { get; set; }
@@ -132,7 +150,7 @@ using System.Text.Json;
     private int oCotizacionID;
     private bool oMostrarCargando;
 
-    private string oMedioPagoID;
+    // private string oMedioPagoID;
     private List<TipoDocumentoDTO> oTipoDocumentoDTOList;
     private List<CondicionesIVADTO> oCondicionesIVADTOList;
     private List<ProvinciaDTO> oProvinciasList;
@@ -145,101 +163,129 @@ using System.Text.Json;
 
 
     private CotizacionAutoDTO oCotizacionAutoDTO;
+
+    private string oMedioPagoIDAux;
+    public string oMedioPagoID
+    {
+
+        get { return oMedioPagoIDAux; }
+        set
+        {
+            oMedioPagoIDAux = value;
+            OnMedioPagoChange();
+        }
+    }
+
+    private void OnMedioPagoChange()
+    {
+        if (oMedioPagoID == "0")
+            navigationManager.NavigateTo($"https://ziren.com.ar/", forceLoad: true);
+    }
+
     protected override async Task OnInitializedAsync()
     {
-        //string serviceAddress = "https://api.weatherbit.io/v2.0/current?lat=41.902&lon=12.491&key=e620395ee64b4c229d28da71213f032c&lang=es";
-        string serviceAddress = "https://www.amiiboapi.com/api/character";
-        HttpClient client = new HttpClient();
-        var responseHttp2 = await client.GetAsync(serviceAddress);
-        if (responseHttp2.IsSuccessStatusCode)
-        {
-            var result3 = (responseHttp2.Content.ReadAsStringAsync().Result);
-
-        }
-        else
-        {
-            var result2 = (responseHttp2.Content.ReadAsStringAsync().Result);
-
-        }
-
-        oTime = DateTime.Now.Hour.ToString().PadLeft(2, '0') + ":" + DateTime.Now.Minute.ToString().PadLeft(2, '0') + ":" + DateTime.Now.Second.ToString().PadLeft(2, '0');
 
 
 
-        Console.WriteLine("b111" + oAdjuntoID1);
-        Console.WriteLine("b222" + oAdjuntoID2);
-        Console.WriteLine("b333" + oAdjuntoID3);
-        Console.WriteLine("b444" + oAdjuntoID4);
-        Console.WriteLine("b555" + oAdjuntoID5);
-
-        oMostrarCargando = false;
-        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
-        oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
-
-        var responseHttp = await repositorio.Get<List<TipoDocumentoDTO>>("api/Externo/Prudencia/catalogos/GetTiposDocumentos");
-        oTipoDocumentoDTOList = responseHttp.Response;
-
-        oTipoDocumentoDTOList = (from c in oTipoDocumentoDTOList
-                                 where c.tipoDocumentoID == "80" || c.tipoDocumentoID == "81" || c.tipoDocumentoID == "83"
-                                 select c).ToList();
-
-
-
-
-
-
-        oEmitirCotizacionAutoDTO.medioDePago = new MedioPagoDTO();
-        oEmitirCotizacionAutoDTO.prendario = new AseguradoPatrimonialDTO();
-        oEmitirCotizacionAutoDTO.adjuntos = new AdjuntoDTO[5];
-
-        oInicioVigencia = DateTime.Today;
-        oVencimientoMedioPago = DateTime.Today;
-        oVtoPruebaHidr = DateTime.Today;
-        ofechaNacimiento = DateTime.Today.AddYears(-40);
-#if DEBUG
-
-
-        oEmitirCotizacionAutoDTO.motor = "XXXXXhathat";
-        oEmitirCotizacionAutoDTO.chasis = "XXXXX";
-        oInicioVigencia = DateTime.Now;
-        oEmitirCotizacionAutoDTO.observaciones = "XXXXX";
-        oVencimientoMedioPago = DateTime.Now.AddMonths(10);
-        oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago = "0070019130004054334990";
-        oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta = "Ale Sosa";
-        oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta = "DNI";
-        oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta = "18205329";
-
-
-
-
-        oEmitirCotizacionAutoDTO.gncMarca = "Marca";
-        oEmitirCotizacionAutoDTO.gncCapacidad = 1000;
-        oEmitirCotizacionAutoDTO.gncOblea = "oblea4667";
-        oEmitirCotizacionAutoDTO.gncRegulador = "Regulador";
-
-
-
-        oEmitirCotizacionAutoDTO.prendario.nombre = "nombre";
-        oEmitirCotizacionAutoDTO.prendario.numeroDocumento = "20182053297";
-        ofechaNacimiento = DateTime.Now.AddYears(-40);
-        oEmitirCotizacionAutoDTO.prendario.domicilio = "domicilio";
-        oEmitirCotizacionAutoDTO.prendario.domicilioNumero = 2346;
-        oEmitirCotizacionAutoDTO.prendario.domicilioPiso = 8;
-        oEmitirCotizacionAutoDTO.prendario.domicilioDpto = "B";
-        oEmitirCotizacionAutoDTO.prendario.localidad = "localidad";
-        oEmitirCotizacionAutoDTO.prendario.codigoPostal = "1429";
-        oEmitirCotizacionAutoDTO.prendario.telefono = "1144487654";
-        oEmitirCotizacionAutoDTO.prendario.mail = "XXXXX@XX.com";
-
-#endif
+        fsAStyle = fsAStyleOff;
+        fsB1Style = fsB1StyleOff;
+        fsCStyle = fsCStyleOff;
+        fsCfStyle = fsCfStyleOff;
+        fsD2Style = fsD2StyleOff;
 
     }
+
+
+
+    private async Task OnButtonPopUpClick(string mensajeTipo)
+    {
+
+        string franquiciaStr = "<div> Es el monto a pagar por el asegurado en caso de tener un daño";
+        franquiciaStr = franquiciaStr + " (SOLO APLICA  en el auto. Ej: Si tenés un daño en el auto con un costo de reparación de $30.000";
+        franquiciaStr = franquiciaStr + " y tu franquicia es de $10.000, solo pagás $10.000 y LA COMPAÑÍA  los $20.000 restantes.";
+
+        string limitebasicoStr = "<div>Rotura de cristales laterales y cerradura: Le serán reconocidos al Asegurado los gastos que ocasione la reposición, hasta la suma de $20.000";
+        limitebasicoStr = limitebasicoStr + " <br /> Rotura de parabrisas y/ o luneta: reposición del parabrisas y/ o luneta trasera en caso de rotura, hasta la suma que seguidamente se indica por uno o varios eventos ocurridos durante la vigencia de la póliza: ";
+        limitebasicoStr = limitebasicoStr + " <br/> A) $ 30.000.- si el valor del vehículo del vehículo asegurado más el de los accesorios cubiertos y detallados en la póliza con que pudiera contar no supera la suma de $ 350.000";
+        limitebasicoStr = limitebasicoStr + " <br/> B) $ 50.000.- si el valor del vehículo asegurado más el de los accesorios cubiertos y detallados en la póliza con que pudiera contar supera la suma de $ 350.000 </div>";
+
+        string limiteaumentadoStr = "<div> Rotura de cristales laterales y cerradura: Le serán reconocidos al Asegurado";
+        limiteaumentadoStr = limiteaumentadoStr + " los gastos que ocasione la reposición, hasta la suma de $ 40.000 ";
+        limiteaumentadoStr = limiteaumentadoStr + " <br /> Rotura de parabrisas y/oluneta: reposición en caso de rotura, hasta la suma que seguidamente se indica";
+        limiteaumentadoStr = limiteaumentadoStr + " por uno o varios eventos ocurridos durante la vigencia de la póliza será de hasta $ 55.000.-cualquiera sea el valor de la unidad. ";
+
+        string limitegranizoStr = "<div> El Asegurador amplia la cobertura de la póliza a cubrir los daños parciales ocasionados";
+        limitegranizoStr = limitegranizoStr + " al vehículo asegurado a consecuencia de granizo hasta la suma de $100.000";
+
+        switch (mensajeTipo.ToLower())
+        {
+            case "franquicia":
+                await mostrarMensajes.MostrarMensajeBase("Que es la Franquicia? ", franquiciaStr, "info");
+                break;
+            case "limitebasico":
+                await mostrarMensajes.MostrarMensajeBase("Limite Basico ", limitebasicoStr, "info");
+                break;
+            case "limiteaumentado":
+                await mostrarMensajes.MostrarMensajeBase("Limite Aumentado ", limiteaumentadoStr, "info");
+                break;
+            case "limitegranizo":
+                await mostrarMensajes.MostrarMensajeBase("Limite de Granizo ", limitegranizoStr, "info");
+                break;
+            case "verlimite":
+                await mostrarMensajes.MostrarMensajeBase("Limite ", "Aca que va?", "info");
+                break;
+            default:
+
+
+                break;
+
+
+
+
+        }
+
+
+
+
+    }
+
+
+
+
     private async Task SendMail()
     {
         MailApp oMailApp = new MailApp();
         string oTo = "jm2@outlook.com.ar";
+        oMailApp.Bcc = "jm2@outlook.com.ar";
         string oBody = "body" + DateTime.Now.ToLongDateString() + DateTime.Now.ToShortTimeString();
-        string oSubject = "Subject" + DateTime.Now.ToLongDateString() + DateTime.Now.ToShortTimeString();
+
+        #region MyRegion
+
+        System.Text.StringBuilder sHtml = new System.Text.StringBuilder();
+        string CeldaBegin = "<tr><td align='center'>";
+        string CeldaEnd = "</td></tr>";
+
+
+        sHtml.Append("<HTML style='height: 100 %;margin: 0;background-image: radial-gradient(circle, #803496, #70288d, #5f1c83, #4e107a, #3c0371);'><body background='radial-gradient(circle, #803496, #70288d, #5f1c83, #4e107a, #3c0371)'>");
+        sHtml.Append("<table border='0' align='center'>");
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Su poliza");
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("<a href='http://grupoziren.com/' class='btn btn-info' target='_blank' style='align-self:initial; '>Click Me</a>");
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("<img src='https://cotice.ziren.com.ar/images/EstasCubierto.png' width='300'  />");
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append("</table></body></HTML>");
+
+        oBody = sHtml.ToString();
+        #endregion
+
+        string oSubject =  "Su Poliza" + DateTime.Now.ToLongDateString() + DateTime.Now.ToShortTimeString();
         oMailApp.To = oTo;
         oMailApp.Body = oBody;
         oMailApp.Subject = oSubject;
@@ -250,13 +296,13 @@ using System.Text.Json;
         {
             var mensajeError = await responseHttp.GetBody();
 
-            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            await mostrarMensajes.MostrarMensajeError("No se pudo enviar el mail con los enlaces para la poliza");
 
 
         }
         else
         {
-            await mostrarMensajes.MostrarMensajeExitoso("Mensaje enviado con exito");
+            await mostrarMensajes.MostrarMensajeExitoso("Mensaje envio un mail con los enlaces para la poliza");
 
         }
     }
@@ -444,7 +490,7 @@ using System.Text.Json;
         TimeZoneInfo.ClearCachedData();
         oTime = DateTime.Now.ToLocalTime().Hour.ToString().PadLeft(2, '0') + ":" + DateTime.Now.Minute.ToString().PadLeft(2, '0') + ":" + DateTime.Now.Second.ToString().PadLeft(2, '0');
 
-            
+
     }
 
 #line default
