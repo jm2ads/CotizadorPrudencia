@@ -1,13 +1,12 @@
 ﻿@page "/ziren/modelo"
 @inject IRepositorio repositorio
 @inject IMostrarMensajes mostrarMensajes
-
-
 @inject NavigationManager navigationManager
 @inject IJSRuntime JsRuntime
 @using System.Text.Json;
 
 <h3 style="color:white"> Seleccione Modelo</h3>
+
 <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
     <input @bind-value="oModeloDescripcion" @bind-value:event="oninput"
            @onkeyup="@((KeyboardEventArgs e) => MarcaKeyUp(e))" autocomplete="off"
@@ -22,24 +21,18 @@ else
 {
     @if (oModelosAutosList.Count == 0)
     {
-        <text  >No hay registros para mostrar</text>
+        <label style="color:white">No hay registros para mostrar</label>
+
+
     }
     else
     {
         <div style="display: flex; flex-wrap: wrap; align-items: center;">
-
-
-            @*<div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
-                    <div>
-                        <a href="/ziren/provincia/@marcaID/@anoID/130108" class="btn btn-success">PT CRUISER 2.4 LIMITED AUT</a>
-                    </div>
-                </div>*@
             @foreach (var oModelosAutos in oModelosAutosAuxList)
             {
                 <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
                     <div>
-                        @*<a href="/ziren/provincia/@marcaID/@anoID/130108" class="btn btn-success" style="width:200px"> @oModelosAutos.modeloID.ToString()</a>*@
-                        <button type="button" class="btn btn-info" style="width:auto" @onclick="@(() => OnClickHandle(@oModelosAutos.codigoGrupoID))">
+                        <button type="button" class="btn btn-success" style="width:auto" @onclick="@(() => OnClickHandle(@oModelosAutos.codigoGrupoID))">
                             @oModelosAutos.descripcionGrupo
                         </button>
                     </div>
@@ -66,6 +59,7 @@ else
         var responseHttp = await repositorio.Get<List<ModelosAutos>>("api/Externo/Prudencia/catalogos/GetModelosMarcasAutos3/" + oCotizacionAutoDTO.vehiculo.anio.ToString() + "/" + oCotizacionAutoDTO.vehiculo.marcaID.ToString());
         oModelosAutosList = responseHttp.Response;
         oModelosAutosAuxList = responseHttp.Response;
+
 
     }
     private async Task OnClickHandle(int ocodigoGrupoID)

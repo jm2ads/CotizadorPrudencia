@@ -112,12 +112,13 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 70 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CpSeleccionar.razor"
+#line 63 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CpSeleccionar.razor"
        
-    string oCpDescripcion = "";
-
-    private List<string> oCodigoPostalList;
-    private List<string> oCodigoPostalAuxList;
+    private string oCpDescripcion = "";
+    private string provinciaID = "";
+    //private List<string> oCodigoPostalList;
+    //private List<string> oCodigoPostalAuxList;
+    private List<CodigoPostalDTO> oCodigoPostalList = new List<CodigoPostalDTO>();
 
 
 
@@ -125,21 +126,23 @@ using System.Text.Json;
     {
         string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+        provinciaID = oCotizacionAutoDTO.asegurado.provinciaID;
 
-        var responseHttp = await repositorio.Get<List<string>>("api/Externo/Prudencia/catalogos/GetCodPostalesDistinct/" + oCotizacionAutoDTO.asegurado.provinciaID);
-        oCodigoPostalList = responseHttp.Response;
-        oCodigoPostalAuxList = responseHttp.Response;
+        //var responseHttp = await repositorio.Get<List<string>>("api/Externo/Prudencia/catalogos/GetCodPostalesDistinct/" + oCotizacionAutoDTO.asegurado.provinciaID);
+        //oCodigoPostalList = responseHttp.Response;
+        //oCodigoPostalAuxList = responseHttp.Response;
 
 
 
     }
-    private async Task OnClickHandle(string ocodigoPostalID)
+    private async Task OnClickHandle(CodigoPostalDTO codigoPostalDTO)
     {
         //Singleton.oCotizacionAutoDTO.asegurado.codigoPostal = ocodigoPostalID;
         string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
 
-        oCotizacionAutoDTO.asegurado.codigoPostal = ocodigoPostalID;
+        oCotizacionAutoDTO.asegurado.codigoPostal = codigoPostalDTO.codigoPostalID;
+        oCotizacionAutoDTO.asegurado.localidad = codigoPostalDTO.localidad;
 
         CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
@@ -150,9 +153,27 @@ using System.Text.Json;
     }
     private async Task CPKeyUp(KeyboardEventArgs e)
     {
-        oCodigoPostalAuxList = (from c in oCodigoPostalList
-                                where c.ToLower().Contains(oCpDescripcion.ToLower())
-                                select c).ToList();
+        //int number;
+        //bool Isnumber = Int32.TryParse(oCpDescripcion, out number);
+        //if (!Isnumber)
+        //{
+        //    oCpDescripcion = string.Empty;
+        //}
+
+        if (oCpDescripcion.Trim().Length < 4)
+            return;
+
+        var responseHttp = await repositorio.Get<List<CodigoPostalDTO>>("api/Externo/Prudencia/catalogos/GetCpLocalidad/" + provinciaID + "/" + oCpDescripcion);
+        List<CodigoPostalDTO> oCodigoPostalAuxList = responseHttp.Response;
+        if (provinciaID == "1")
+            oCodigoPostalAuxList = (List<CodigoPostalDTO>)oCodigoPostalAuxList.Take(1).ToList();
+        oCodigoPostalList = oCodigoPostalAuxList;
+        //oCodigoPostalAuxList = responseHttp.Response;
+
+
+        //oCodigoPostalAuxList = (from c in oCodigoPostalList
+        //                        where c.ToLower().Contains(oCpDescripcion.ToLower())
+        //                        select c).ToList();
     }
 
 #line default

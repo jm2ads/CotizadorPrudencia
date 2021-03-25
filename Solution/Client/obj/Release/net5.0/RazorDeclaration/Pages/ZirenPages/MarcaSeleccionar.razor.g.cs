@@ -97,7 +97,7 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\MarcaSeleccionar.razor"
+#line 6 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\MarcaSeleccionar.razor"
 using System.Text.Json;
 
 #line default
@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 63 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\MarcaSeleccionar.razor"
+#line 65 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\MarcaSeleccionar.razor"
        
 
     private List<MarcasAutos> oMarcasAutosList;
@@ -140,6 +140,15 @@ using System.Text.Json;
                                || c.marcaID == 32
                                || c.marcaID == 11
                                || c.marcaID == 6
+
+                               || c.marcaID == 45
+                               || c.marcaID == 19
+                               || c.marcaID == 30
+                               || c.marcaID == 36
+                               || c.marcaID == 20
+                               || c.marcaID == 28
+                               || c.marcaID == 8
+                               || c.marcaID == 43
                                select c).ToList();
     }
 
@@ -211,7 +220,6 @@ using System.Text.Json;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILocalStorageManager LocalStorageManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMostrarMensajes mostrarMensajes { get; set; }

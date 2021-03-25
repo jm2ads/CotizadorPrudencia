@@ -113,7 +113,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 48 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
+#line 52 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
         private Login oLogin = null;
 
     private CotizacionAutoDTO oCotizacionAutoDTO;

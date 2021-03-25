@@ -420,6 +420,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\P
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Pages\ZirenPages\Confirmacion.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Pages\ZirenPages\Cotizacion.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Pages\ZirenPages\CotizacionRapida.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Pages\ZirenPages\CotizacionRapidaM.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Pages\ZirenPages\CpSeleccionar.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Pages\ZirenPages\Emision.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Pages\ZirenPages\FormularioImagenRow.razor.g.cs
@@ -435,6 +436,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\P
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Pages\ZirenPages\Test.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Pages\ZirenPages\VersionSeleccionar.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Shared\Cargando.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Shared\ConfirmacionPopUp.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Shared\CotizacionPopUp.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Shared\CustomNotFound.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\RazorDeclaration\Shared\CustomTypeahead.razor.g.cs
@@ -462,6 +464,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Pages\ZirenP
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Pages\ZirenPages\Confirmacion.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Pages\ZirenPages\Cotizacion.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Pages\ZirenPages\CotizacionRapida.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Pages\ZirenPages\CotizacionRapidaM.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Pages\ZirenPages\CpSeleccionar.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Pages\ZirenPages\Emision.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Pages\ZirenPages\FormularioImagenRow.razor.g.cs
@@ -477,6 +480,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Pages\ZirenP
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Pages\ZirenPages\Test.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Pages\ZirenPages\VersionSeleccionar.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Shared\Cargando.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Shared\ConfirmacionPopUp.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Shared\CotizacionPopUp.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Shared\CustomNotFound.razor.g.cs
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Debug\net5.0\Razor\Shared\CustomTypeahead.razor.g.cs

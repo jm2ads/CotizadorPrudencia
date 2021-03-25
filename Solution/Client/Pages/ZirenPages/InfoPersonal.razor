@@ -3,7 +3,7 @@
 @inject IRepositorio repositorio
 @inject IMostrarMensajes mostrarMensajes
 @inject NavigationManager navigationManager
-
+@inject BrowserService Service
 @inject IJSRuntime JsRuntime
 @using System.Text.Json;
 
@@ -17,13 +17,13 @@
                 <InputText @bind-Value="onombre" class="form-control" placeholder="Nombre y Apellido"></InputText>
             </div>
         </div>
+        @*<div class="col-md-3">
+                <label style="color:white">Patente</label>
+                <div>
+                    <InputText @bind-Value="opatente" class="form-control" placeholder="Patente"></InputText>
+                </div>
+            </div>*@
         <div class="col-md-3">
-            <label style="color:white">Patente</label>
-            <div>
-                <InputText @bind-Value="opatente" class="form-control" placeholder="Patente"></InputText>
-            </div>
-        </div>
-        <div class="col-md-4">
             <label style="color:white">Fecha de Nacimiento</label>
             <div>
                 <InputDate class="form-control" @bind-Value="ofechaNacimiento"></InputDate>
@@ -49,7 +49,7 @@
 
     <div class="row" style="margin:10px">
         <div class="col-md-3">
-            <button type="button" class="btn btn-info" style="width:200px" @onclick="@(() => OnClickHandle())">Siguiente</button>
+            <button type="button" class="btn btn-success" style="width:200px" @onclick="@(() => OnClickHandle())">Siguiente</button>
         </div>
     </div>
 </EditForm>
@@ -71,31 +71,57 @@
     private string opatente;
 
     private DateTime? ofechaNacimiento;
-
+    private BrowserDimension browserDimension;
     protected override async Task OnInitializedAsync()
     {
 
 
         ofechaNacimiento = DateTime.Today.AddYears(-30);
-
+        browserDimension = await Service.GetDimensions();
 
 
 #if DEBUG
         onombre = "Alejandro Sosa";
         omail = "jm2@outlook.com.ar";
         otelefono = "1144406739";
-        opatente= UtilidadesString.GetRandomString(6);
+
 #endif
+        opatente = UtilidadesString.GetRandomString(6);
     }
 
     private async Task OnClickHandle()
     {
-        if (string.IsNullOrEmpty(onombre)  || string.IsNullOrEmpty(omail) || string.IsNullOrEmpty(otelefono)  || string.IsNullOrEmpty(opatente) )
+        if (string.IsNullOrEmpty(onombre) || string.IsNullOrEmpty(omail) || string.IsNullOrEmpty(otelefono) || string.IsNullOrEmpty(opatente))
         {
             var mensajeError = "Todos los campos son requeridos";
             await mostrarMensajes.MostrarMensajeError(mensajeError);
             return;
         }
+
+        if (!(new System.ComponentModel.DataAnnotations.EmailAddressAttribute().IsValid(omail)))
+        {
+            var mensajeError = "El Mail debe ser Valido";
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+        if (otelefono.Length < 10)
+        {
+            var mensajeError = "El Telefono debe ser Valido";
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+
+        Int64 number;
+
+        bool Isnumber = Int64.TryParse(otelefono, out number);
+        if (!Isnumber)
+        {
+            var mensajeError = "El Telefono debe ser Solo Numerico";
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+
+
         string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
 
@@ -110,9 +136,109 @@
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
         Console.WriteLine(CotizacionAutoDTOJson);
 
-
-
-        navigationManager.NavigateTo("/ziren/CotizacionRapida");
+        SendEmail(oCotizacionAutoDTO.asegurado);
+       
+        if (browserDimension.Width > 768)
+            navigationManager.NavigateTo("/ziren/CotizacionRapida");
+        else
+            navigationManager.NavigateTo("/ziren/CotizacionRapidaM");
     }
 
+
+    private async Task SendEmail(AseguradoPatrimonialDTO asegurado)
+    {
+        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+        #region Send Email
+
+
+
+
+        #region MyRegion
+
+        System.Text.StringBuilder sHtml = new System.Text.StringBuilder();
+        string CeldaBegin = "<tr><td align='left'>";
+        string CeldaEnd = "</td></tr>";
+
+
+        sHtml.Append("<HTML style='height: 100 %;margin: 0;background-image: radial-gradient(circle, #803496, #70288d, #5f1c83, #4e107a, #3c0371);'><body >");
+        sHtml.Append("<table border='0' align='center'>");
+        sHtml.Append(CeldaBegin);
+
+        sHtml.Append("Nombre : " + asegurado.nombre);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Mail : " + asegurado.mail);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Tel : " + asegurado.telefono);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Fec.Nac : " + asegurado.fechaNacimiento);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("C.P. : " + asegurado.codigoPostal);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Marca : " + cotizacionEntitiesDTO.marcasAutos.descripcion);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Modelo : " + cotizacionEntitiesDTO.modelosAutos.descripcionGrupo);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Version : " + cotizacionEntitiesDTO.versionesAutos.descripcion);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Ano : " + cotizacionEntitiesDTO.ano);
+        sHtml.Append(CeldaEnd);
+
+
+
+        sHtml.Append(CeldaBegin);
+
+        sHtml.Append("<img src='https://cotice.ziren.com.ar/images/icon-192.png' width='100'  />");
+        sHtml.Append("<img src='https://cotice.ziren.com.ar/images/LogoPrudencia.png' width='200'  />");
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append("</table></body></HTML>");
+
+
+        #endregion
+
+        string oSubject = "Ziren Cotizador=> Nueva Consulta!!!";
+
+        MailApp oMailApp = new MailApp();
+        oMailApp.To = "adriel@ziren.com.ar";
+        //oMailApp.Bcc = "jm2@outlook.com.ar";
+        oMailApp.Body = sHtml.ToString();
+        oMailApp.Subject = oSubject;
+
+        var responseHttp = await repositorio.Post<MailApp, string>("api/Externo/Prudencia/SendMail", oMailApp);
+
+        if (responseHttp.Error)
+        {
+            Console.WriteLine("No se pudo enviar el mail con los enlaces para la poliza");
+
+        }
+        else
+        {
+            Console.WriteLine("Se le envio un mail con los enlaces para la poliza");
+        }
+
+
+
+
+
+
+
+        #endregion
+    }
 }

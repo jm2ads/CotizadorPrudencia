@@ -45,7 +45,7 @@
       "url": "css\/open-iconic\/README.md"
     },
     {
-      "hash": "sha256-Nu+7YBs1\/Z39miz95Z8xyTEpqQC0KZhcCt+gxzwnLYs=",
+      "hash": "sha256-ngTtLvyqwojJypx1WRdgUV7Vz12qvKIHJy8t5gmPvBs=",
       "url": "css\/site.css"
     },
     {
@@ -97,7 +97,7 @@
       "url": "images\/Ziren56.png"
     },
     {
-      "hash": "sha256-pBI32cVxQ001MGnYfBsz1qyC2mR9gQzJn4mQOnVf\/WE=",
+      "hash": "sha256-H8GIpEtmOKRsTk93btWLt+k0BQmOb\/LOVp+C3yj\/EHY=",
       "url": "index.html"
     },
     {
@@ -105,7 +105,7 @@
       "url": "js\/pwa.js"
     },
     {
-      "hash": "sha256-AfS2rM7Xiebw4uvTjpGFlhx\/TzC7gUMDzpyai\/qXSrY=",
+      "hash": "sha256-5adpFX2bC4lQk3vW8UyzSfyYhVG3UUaULMXbbw79fP8=",
       "url": "js\/Utilidades.js"
     },
     {
@@ -185,7 +185,7 @@
       "url": "_framework\/Microsoft.Extensions.DependencyInjection.dll"
     },
     {
-      "hash": "sha256-CudxHSjQWtmkKDVUjVtbBuXN1ViEUglm2E4kFDy3F6s=",
+      "hash": "sha256-80n8h1ui3zOXUNk3tmhuoYgaxzIpdhAjoN2kdwWLnY0=",
       "url": "_framework\/Microsoft.Extensions.DependencyInjection.Abstractions.dll"
     },
     {
@@ -225,7 +225,7 @@
       "url": "_framework\/Project.Shared.dll"
     },
     {
-      "hash": "sha256-0+1rNz6+Z54M2BypYZ4o26LQr9\/YCwBjf61UBQlc5hM=",
+      "hash": "sha256-nToAdIAZr\/Le4DcjJ+oHpyVQEaI6Iwpbjz2TffD2Dv4=",
       "url": "_framework\/Project.Client.dll"
     },
     {
@@ -249,7 +249,7 @@
       "url": "_framework\/System.Collections.dll"
     },
     {
-      "hash": "sha256-ufu\/34\/RqEROJBFcPUQnObEQAmTaoGqz9wPIbHxuccw=",
+      "hash": "sha256-PJcGOvFmC7h5WGu3NRtcAUCv\/lMqrHtisSVKdMcqPW4=",
       "url": "_framework\/System.ComponentModel.Annotations.dll"
     },
     {
@@ -325,7 +325,7 @@
       "url": "_framework\/System.Private.CoreLib.dll"
     },
     {
-      "hash": "sha256-OLnekuw5iQYPosc151\/fxFrOQXHDN0pIfNYQ7yqBRLU=",
+      "hash": "sha256-pqOGicFWfVqX5zum5hrw+2rRnaHNHvB3BjHM7dDHHao=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -333,5 +333,5 @@
       "url": "_framework\/blazor.webassembly.js"
     }
   ],
-  "version": "GkVHApWK"
+  "version": "lfZwz7rr"
 };

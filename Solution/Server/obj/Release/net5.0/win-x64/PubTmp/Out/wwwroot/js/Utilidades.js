@@ -74,3 +74,20 @@ function arrayBufferToBase64(buffer) {
     }
     return window.btoa(binary);
 }
+
+    getDimensions = function() {
+            return {
+        width: window.innerWidth,
+                    height: window.innerHeight
+                };
+        };
+
+
+async function getDimensions() {
+    window.getDimensions = function () {
+        return {
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+    };
+}

@@ -8,7 +8,7 @@
 @using System.Text.Json;
 
 <h3 style="color:white">Seleccione la Provincia</h3>
-<label style="color:white;font-size: 0.8em;align-content:initial">Declarar código postal correcto ya que afecta al costo de tu seguro, para tener una cotización correcta 🤗</label>
+<label style="color:white;font-size: 0.8em;align-content:initial">Declarar la provincia correcta ya que afecta al costo de tu seguro, para tener una cotización correcta 🤗</label>
 @if (oProvinciasList == null)
 {
 <Cargando></Cargando>
@@ -32,7 +32,7 @@ else
                 <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
                     <div>
                         @*<a href="/ziren/CotizacionRapida/@marcaID/@anoID/130108/@oProvincias.Key" class="btn btn-success" style="width:200px"> @oProvincias.Value</a>*@
-                        <button type="button" class="btn btn-info" style="width:auto" @onclick="@(() => OnClickHandle(@oProvincias.provinciaID))">
+                        <button type="button" class="btn btn-success" style="width:auto" @onclick="@(() => OnClickHandle(@oProvincias.provinciaID))">
                             @oProvincias.descripcion
                         </button>
                     </div>

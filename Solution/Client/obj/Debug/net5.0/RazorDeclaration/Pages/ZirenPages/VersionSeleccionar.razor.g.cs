@@ -112,12 +112,13 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\VersionSeleccionar.razor"
+#line 57 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\VersionSeleccionar.razor"
            
         [Parameter] public int marcaID { get; set; }
         [Parameter] public int anoID { get; set; }
         [Parameter] public int modeloID { get; set; }
 
+        ConfirmacionPopUp confirmacionPopUp;
 
         private bool TieneGNC = false;
         string oVersionDescripcion = "";
@@ -147,7 +148,7 @@ using System.Text.Json;
 
             oCotizacionAutoDTO.vehiculo.modeloID = omodeloID;
             oCotizacionAutoDTO.vehiculo.tipoUsoID = 1;
-            oCotizacionAutoDTO.vehiculo.tieneGNC = TieneGNC;
+            // oCotizacionAutoDTO.vehiculo.tieneGNC = TieneGNC;
             //oCotizacionAutoDTO.vehiculo.tipoVehiculoID = oModelosAutos.tipoVehiculoID;             VERRRRRRRRRRRRRRRR
             CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
             await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
@@ -164,10 +165,12 @@ using System.Text.Json;
 
             cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
             await JsRuntime.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
-            Console.WriteLine(cotizacionEntitiesDTOJson);
+
             #endregion
 
-            navigationManager.NavigateTo("/ziren/provincia");
+
+            confirmacionPopUp.Mostrar();
+            //navigationManager.NavigateTo("/ziren/provincia");
         }
         private async Task MarcaKeyUp(KeyboardEventArgs e)
         {
@@ -176,6 +179,32 @@ using System.Text.Json;
                                       where c.descripcion.ToLower().Contains(oVersionDescripcion.ToLower())
                                       select c).ToList();
 
+        }
+
+        private async Task onConfirm()
+        {
+            confirmacionPopUp.Ocultar();
+            string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+            CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+            oCotizacionAutoDTO.vehiculo.tieneGNC = true;
+            CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+            await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+            Console.WriteLine(CotizacionAutoDTOJson);
+            navigationManager.NavigateTo("/ziren/provincia");
+
+        }
+
+        private async Task onRefuse()
+        {
+
+            confirmacionPopUp.Ocultar();
+            string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+            CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+            oCotizacionAutoDTO.vehiculo.tieneGNC = false;
+            CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+            await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+            Console.WriteLine(CotizacionAutoDTOJson);
+            navigationManager.NavigateTo("/ziren/provincia");
         }
     
 

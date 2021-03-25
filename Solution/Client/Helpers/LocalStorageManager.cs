@@ -23,5 +23,7 @@ namespace Project.Client.Helpers
         {
             await js.SetInLocalStorage(oKey, oJson);
         }
+
+
     }
 }

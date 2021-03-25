@@ -97,7 +97,7 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ModeloSeleccionar.razor"
+#line 6 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ModeloSeleccionar.razor"
 using System.Text.Json;
 
 #line default
@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 52 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ModeloSeleccionar.razor"
+#line 45 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ModeloSeleccionar.razor"
        
     [Parameter] public int marcaID { get; set; }
     [Parameter] public int anoID { get; set; }
@@ -130,6 +130,7 @@ using System.Text.Json;
         var responseHttp = await repositorio.Get<List<ModelosAutos>>("api/Externo/Prudencia/catalogos/GetModelosMarcasAutos3/" + oCotizacionAutoDTO.vehiculo.anio.ToString() + "/" + oCotizacionAutoDTO.vehiculo.marcaID.ToString());
         oModelosAutosList = responseHttp.Response;
         oModelosAutosAuxList = responseHttp.Response;
+
 
     }
     private async Task OnClickHandle(int ocodigoGrupoID)

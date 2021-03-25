@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 48 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
+#line 65 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
        
 
 
@@ -179,7 +179,7 @@ using System.Text.Json;
 
             await mostrarMensajes.MostrarMensajeError(mensajeError);
             Console.WriteLine(mensajeError);
-            navigationManager.NavigateTo("/ziren/infopersonalCompleta");
+            navigationManager.NavigateTo("/ziren/infopersonalCompleta/"+ oCoberturaID);
         }
         else
         {
@@ -231,7 +231,7 @@ using System.Text.Json;
         Console.WriteLine("555" + oAdjuntos[4].id);
         if (oCotizacionAutoDTO.vehiculo.es0KM == true)
         {
-            if (oAdjuntos[0].id==0 || oAdjuntos[1].id == 0)
+            if (oAdjuntos[0].id == 0 || oAdjuntos[1].id == 0)
             {
                 var mensajeError = "Debe cargar los dos documentos";
 
@@ -244,7 +244,7 @@ using System.Text.Json;
         {
             int oSumSinFoto = 0;
 
-            if (oAdjuntos[0].id == 0 )
+            if (oAdjuntos[0].id == 0)
                 oSumSinFoto = oSumSinFoto + 1;
             if (oAdjuntos[1].id == 0)
                 oSumSinFoto = oSumSinFoto + 1;

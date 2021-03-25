@@ -2,11 +2,21 @@
 @inject IRepositorio repositorio
 @inject IMostrarMensajes mostrarMensajes
 @inject NavigationManager navigationManager
-
 @inject IJSRuntime JsRuntime
-@inject ILocalStorageManager LocalStorageManager
 @using System.Text.Json;
 <h3 style="color:white">Seleccione la Marca</h3>
+
+@*<div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-12 col-sm-12 col-lg-11">
+            <label style="color: white;font-size: 0.8em;align-content: end;margin-left: 5px">
+                Si la marca de su vehiculo no aparece, tipee las primeras letras
+            </label>
+        </div>
+    </div>*@
+<label style="color:white;font-size: 0.8em;align-content:initial;margin:5px">Si la marca de su vehiculo no aparece, tipee las primeras letras</label>
+
+
 <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
     <input @bind-value="oMarcaDescripcion" @bind-value:event="oninput" autocomplete="off"
            @onkeyup="@((KeyboardEventArgs e) => MarcaKeyUp(e))"
@@ -15,35 +25,27 @@
 @if (oMarcasAutosAuxList == null)
 {
     <Cargando></Cargando>
-   
+
 }
 else
 {
     @if (oMarcasAutosAuxList.Count == 0)
     {
 
-        <text  >No hay registros para mostrar</text>
+        <label style="color:white">No hay registros para mostrar</label>
 
 
     }
     else
     {
-
-
-
-
         <div style="display: flex; flex-wrap: wrap; align-items: center;">
             @foreach (var oMarcasAutos in oMarcasAutosAuxList)
             {
                 <div style="margin-right: 1%; margin-bottom: 10px; text-align: center;">
-                  
                     <div>
-                             <button type="submit" class="btn btn-info" style="width:auto" value="@oMarcasAutos.marcaID" @onclick="@(() => OnClickHandle(oMarcasAutos.marcaID))">
+                        <button type="submit" class="btn btn-success" style="width:auto" value="@oMarcasAutos.marcaID" @onclick="@(() => OnClickHandle(oMarcasAutos.marcaID))">
                             @oMarcasAutos.descripcion
                         </button>
-
-
-
                     </div>
                 </div>
             }
@@ -87,6 +89,15 @@ else
                                || c.marcaID == 32
                                || c.marcaID == 11
                                || c.marcaID == 6
+
+                               || c.marcaID == 45
+                               || c.marcaID == 19
+                               || c.marcaID == 30
+                               || c.marcaID == 36
+                               || c.marcaID == 20
+                               || c.marcaID == 28
+                               || c.marcaID == 8
+                               || c.marcaID == 43
                                select c).ToList();
     }
 

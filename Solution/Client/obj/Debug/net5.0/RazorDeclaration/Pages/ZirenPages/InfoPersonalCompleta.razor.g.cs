@@ -202,15 +202,45 @@ using System.Text.Json;
         if (string.IsNullOrEmpty(osexo) || string.IsNullOrEmpty(otipoDocumento)
             || string.IsNullOrEmpty(ocondicionIVA) || string.IsNullOrEmpty(odomicilio) )
         {
-            Console.WriteLine(osexo);
-            Console.WriteLine(otipoDocumento);
-            Console.WriteLine(ocondicionIVA);
-            Console.WriteLine(odomicilio);
+
             var mensajeError = "Todos los campos son requeridos";
 
             await mostrarMensajes.MostrarMensajeError(mensajeError);
             return;
         }
+
+        if (string.IsNullOrEmpty(onombre) || string.IsNullOrEmpty(omail) || string.IsNullOrEmpty(otelefono) || string.IsNullOrEmpty(opatente))
+        {
+            var mensajeError = "Todos los campos son requeridos";
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+
+        if (!(new System.ComponentModel.DataAnnotations.EmailAddressAttribute().IsValid(omail)))
+        {
+            var mensajeError = "El Mail debe ser Valido";
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+        if (otelefono.Length < 10)
+        {
+            var mensajeError = "El Telefono debe ser Valido";
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+
+        Int64 number;
+
+        bool Isnumber = Int64.TryParse(otelefono, out number);
+        if (!Isnumber)
+        {
+            var mensajeError = "El Telefono debe ser Solo Numerico";
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+
+
+
 
         string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
@@ -238,7 +268,7 @@ using System.Text.Json;
         oCotizacionAutoDTO.asegurado.domicilioPiso = odomicilioPiso;
         oCotizacionAutoDTO.asegurado.domicilioDpto = odomicilioDpto;
 
-        oCotizacionAutoDTO.asegurado.localidad = "Localidad TODO";
+        //oCotizacionAutoDTO.asegurado.localidad = "Localidad TODO";
         oCotizacionAutoDTO.asegurado.paisID = opaisID;
 
 

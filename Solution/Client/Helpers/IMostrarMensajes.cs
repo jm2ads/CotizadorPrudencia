@@ -11,6 +11,7 @@ namespace Project.Client.Helpers
         Task MostrarMensajeError(string mensaje);
         Task MostrarMensajeExitoso(string mensaje);
         Task MostrarMensajeBase(string titulo, string mensaje, string tipoMensaje);
+        //Task MostrarMensajeConfimacion(this Microsoft.JSInterop.IJSRuntime js,string titulo, string mensaje, string tipoMensaje);
         Task MostrarMensajeConImagen( string mensaje);
     }
 }

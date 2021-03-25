@@ -219,14 +219,6 @@ using System.Text.Json;
 
 
 
-
-
-
-
-
-
-
-
         sHtml.Append(CeldaBegin);
         //sHtml.Append("<img src='{0}/images/EstasCubierto.png' width='300' />");
         sHtml.Append("<img src='https://cotice.ziren.com.ar/images/icon-192.png' width='100'  />");

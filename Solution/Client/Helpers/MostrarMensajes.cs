@@ -29,14 +29,22 @@ namespace Project.Client.Helpers
         {
             await js.InvokeVoidAsync("Swal.fire", titulo, mensaje, tipoMensaje);
         }
+        public async Task MostrarMensajeBase(string titulo, string mensaje, string tipoMensaje)
+        {
+            await js.InvokeVoidAsync("Swal.fire", titulo, mensaje, tipoMensaje);
+        }
+
+       
+        //public async static ValueTask<string> MostrarMensajeConfimacion(this IJSRuntime js,string titulo, string mensaje, string tipoMensaje)
+        //{
+        //    return await js.InvokeAsync<string>("Swal.fire", titulo, mensaje, tipoMensaje);
+        //}
+
         public async Task MostrarMensajeConImagen(string mensaje)
         {
           await js.InvokeVoidAsync("Swal.fire({title: 'Sweet!',text: 'Modal with a custom image.',imageUrl: '/images/Coberturas/a.png',imageWidth: 400,imageHeight: 200,imageAlt: 'Custom image',})");
         }
 
-        public async Task MostrarMensajeBase(string titulo, string mensaje, string tipoMensaje)
-        {
-            await js.InvokeVoidAsync("Swal.fire", titulo, mensaje, tipoMensaje);
-        }
+       
     }
 }

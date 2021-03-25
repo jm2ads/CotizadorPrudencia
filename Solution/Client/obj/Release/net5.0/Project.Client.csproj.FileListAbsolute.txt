@@ -699,3 +699,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\ref\Project.Clie
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\Project.Client.pdb
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\serviceworkers\wwwroot\service-worker.js
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\service-worker-assets.js
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\RazorDeclaration\Pages\ZirenPages\CotizacionRapidaM.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\RazorDeclaration\Shared\ConfirmacionPopUp.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\Razor\Pages\ZirenPages\CotizacionRapidaM.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\Razor\Shared\ConfirmacionPopUp.razor.g.cs

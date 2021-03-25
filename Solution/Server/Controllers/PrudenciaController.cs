@@ -194,10 +194,10 @@ namespace Project.Server.Controllers
             {
                 oModelosAutosList = JsonConvert.DeserializeObject<List<ModelosAutos>>(responseHttp.Content.ReadAsStringAsync().Result);
 
-                if (oModelosAutosList.Count == 0)
-                {
-                    return NotFound();
-                }
+                //if (oModelosAutosList.Count == 0)
+                //{
+                //    return NotFound();
+                //}
                 return this.Ok(oModelosAutosList);
             }
             else
@@ -431,7 +431,7 @@ namespace Project.Server.Controllers
 
 
                 oCProvinciaDTOList = (from c in oCProvinciaDTOList
-                                      where int.Parse(c.provinciaID) < 98
+                                      where int.Parse(c.provinciaID) < 97
                                       && int.Parse(c.provinciaID) > 0
                                       orderby int.Parse(c.provinciaID) ascending
                                       select c).ToList();
@@ -453,6 +453,49 @@ namespace Project.Server.Controllers
             //return oCProvinciaDTOList;
         }
 
+        [HttpGet("catalogos/GetCpLocalidad/{ProvinciaID}/{CpLodalidad}")]
+        public async Task<ActionResult<List<CodigoPostalDTO>>> GetCodPostales(Int32 ProvinciaID,string CpLodalidad)
+        {
+            Login oLogin = await GetLoginAsync();
+            string oToken = "Bearer " + oLogin.accessToken;
+
+            List<CodigoPostalDTO> oCodigoPostalDTOList = null;
+            HttpClient httpClient = new HttpClient();
+
+            httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
+
+            string url;
+            bool CpLodalidadIsNumber = Int16.TryParse(CpLodalidad, out Int16 resultAux);
+            if (CpLodalidadIsNumber)
+            {
+                url = oUriBase + "/catalogos/GetCodPostales?ProvinciaID=" + ProvinciaID.ToString() + "&CodigoPostalID=" + CpLodalidad + "&PageSize=10000";
+            }
+            else
+            {
+                url = oUriBase + "/catalogos/GetCodPostales?ProvinciaID=" + ProvinciaID.ToString() + "&Localidad=" + CpLodalidad + "&PageSize=10000";
+            }
+
+
+            //var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
+            var responseHttp = await httpClient.GetAsync(url);
+
+            if (responseHttp.IsSuccessStatusCode)
+            {
+                oCodigoPostalDTOList = JsonConvert.DeserializeObject<List<CodigoPostalDTO>>(responseHttp.Content.ReadAsStringAsync().Result);
+
+                if (oCodigoPostalDTOList.Count == 0)
+                {
+                    return NotFound();
+                }
+                return this.Ok(oCodigoPostalDTOList);
+            }
+            else
+            {
+                return this.BadRequest(error: new { message = responseHttp.Content.ReadAsStringAsync().Result });
+            }
+
+            //  return oCodigoPostalDTOList;
+        }
 
         [HttpGet("catalogos/GetCodPostales/{ProvinciaID}")]
         public async Task<ActionResult<List<CodigoPostalDTO>>> GetCodPostales(Int32 ProvinciaID)
@@ -824,7 +867,7 @@ namespace Project.Server.Controllers
             mailMessage.IsBodyHtml = true;
             mailMessage.From = new MailAddress("clientes@ziren.com.ar","Ziren ");
             mailMessage.To.Add(oMailApp.To);
-            mailMessage.Bcc.Add(oMailApp.Bcc);
+            //mailMessage.Bcc.Add(oMailApp.Bcc);
             mailMessage.Body = oMailApp.Body;
             mailMessage.Subject = oMailApp.Subject;
 

@@ -7,7 +7,7 @@
 
 @using System.Text.Json;
 @inject IJSRuntime JsRuntime
-<h3 style="color:white">Seleccione el  Año</h3>
+<h3 style="color:white">Seleccione el  Año de su Vehiculo</h3>
 @if (oAnoAutosList == null)
 {
     <Cargando></Cargando>
@@ -24,7 +24,7 @@ else
 
             <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
                 <div>
-                    <button type="button" class="btn btn-info" style="width:90px" @onclick="@(() => OnClickHandle(0))">
+                    <button type="button" class="btn btn-success" style="width:90px" @onclick="@(() => OnClickHandle(0))">
                         0 KM
                     </button>
                 </div>
@@ -34,7 +34,7 @@ else
                 <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
                     <div>
                         @*<a href="/ziren/modelo/@marcaID/@anoID" class="btn btn-success" style="width:200px"> @anoID.ToString()</a>*@
-                        <button type="button" class="btn btn-info" style="width: 90px" @onclick="@(() => OnClickHandle(anoID))">
+                        <button type="button" class="btn btn-success" style="width: 90px" @onclick="@(() => OnClickHandle(anoID))">
                             @anoID.ToString()
                         </button>
                     </div>
@@ -42,7 +42,7 @@ else
             }
             <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
                 <div>
-                    <a href="https://ziren.com.ar/modo-comodo/" class="btn btn-info" target="_blank" style="align-self:initial; ">Anteriores</a>
+                    <a href="https://ziren.com.ar/modo-comodo/" class="btn btn-success" target="_blank" style="align-self:initial; ">Anteriores</a>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@ else
 
         //oCotizacionAutoRapidaDTO = Singleton.oCotizacionAutoRapidaDTO;
 
-        for (int i = DateTime.Today.Year; i >= 1999; i--)
+        for (int i = DateTime.Today.Year; i >= 1998; i--)
         {
             oAnoAutosList.Add(i);
         }

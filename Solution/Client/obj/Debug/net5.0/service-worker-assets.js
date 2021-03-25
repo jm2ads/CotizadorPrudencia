@@ -9,7 +9,7 @@
       "url": "_content\/Tewr.Blazor.FileReader\/FileReaderComponent.js.map"
     },
     {
-      "hash": "sha256-fsZ53dxMRh3DeOVpPoFetRUyEjd17imN7NToeE5nWds=",
+      "hash": "sha256-AG6vvgFds65Lk87GhBCAB2daVNbk0sSXu+CgO7h1A54=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -801,19 +801,19 @@
       "url": "_framework\/dotnet.5.0.0.js"
     },
     {
-      "hash": "sha256-h7ewIL1W8elY+j0gi2M801pUQXDHOS82ZW3ABdmGGug=",
+      "hash": "sha256-INNhlvIn6YrUgqORU11dPQFoOyK\/XmS0kGkEk6XalOs=",
       "url": "_framework\/Project.Shared.dll"
     },
     {
-      "hash": "sha256-561ppeuQrrWnamamhQkuMqyPk\/6Kp6QxEMTbhifBIIc=",
+      "hash": "sha256-OyvpW6OMKqmrZiHyBDRu6N9hLYDskThhPjpblNZzVNc=",
       "url": "_framework\/Project.Shared.pdb"
     },
     {
-      "hash": "sha256-k6Y43c3KQyAKFD\/RIADMnAj6ER7xcgEIz5Q2b7sX5Qs=",
+      "hash": "sha256-24DxI04RHckCTOO+giiy186axnIGDZQPfow11bKcTvQ=",
       "url": "_framework\/Project.Client.dll"
     },
     {
-      "hash": "sha256-1GBaL3hNNu7BBuxN8m+etiTpLJQtchHfe14iogzYoXs=",
+      "hash": "sha256-VS1ZUPTLLPKB2vTsPOsCjYiQOBxetoZvY7+j\/aqv3Lc=",
       "url": "_framework\/Project.Client.pdb"
     },
     {
@@ -1609,7 +1609,7 @@
       "url": "_framework\/dotnet.5.0.0.js.gz"
     },
     {
-      "hash": "sha256-W4z45YLV\/wjW6dLvf4V5BzAl9rb0XYO5vPLsRNm3s3Y=",
+      "hash": "sha256-ulXdCdH41FCGiYjut+doDewXXyWrJWvLE3+zZFM2DKU=",
       "url": "_framework\/Project.Shared.dll.gz"
     },
     {
@@ -1657,7 +1657,7 @@
       "url": "css\/open-iconic\/README.md"
     },
     {
-      "hash": "sha256-Nu+7YBs1\/Z39miz95Z8xyTEpqQC0KZhcCt+gxzwnLYs=",
+      "hash": "sha256-ngTtLvyqwojJypx1WRdgUV7Vz12qvKIHJy8t5gmPvBs=",
       "url": "css\/site.css"
     },
     {
@@ -1709,7 +1709,7 @@
       "url": "images\/Ziren56.png"
     },
     {
-      "hash": "sha256-9yGEmLiUYrHFx1sgQydirBZMZGX6+F+DDHlwSelF3+k=",
+      "hash": "sha256-H8GIpEtmOKRsTk93btWLt+k0BQmOb\/LOVp+C3yj\/EHY=",
       "url": "index.html"
     },
     {
@@ -1717,7 +1717,7 @@
       "url": "js\/pwa.js"
     },
     {
-      "hash": "sha256-AfS2rM7Xiebw4uvTjpGFlhx\/TzC7gUMDzpyai\/qXSrY=",
+      "hash": "sha256-5adpFX2bC4lQk3vW8UyzSfyYhVG3UUaULMXbbw79fP8=",
       "url": "js\/Utilidades.js"
     },
     {
@@ -1725,5 +1725,5 @@
       "url": "manifest.json"
     }
   ],
-  "version": "AqSt9LqJ"
+  "version": "LO6Xw6TP"
 };

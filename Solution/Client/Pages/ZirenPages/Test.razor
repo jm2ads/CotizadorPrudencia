@@ -5,9 +5,48 @@
 @inject IJSRuntime JsRuntime
 @using System.Text.Json;
 <h3 style="color:white">test</h3>
-<label style="color:white;font-size: 0.8em;align-content:initial">Sitio Seguro</label>
 
-
+<div class="container" style="display: block;display: flex;justify-content:center;align-items: center;align-content:center;margin-left:auto;margin-right:auto">
+    <span style="color:white;font-size: 0.6em;align-content:initial;">
+        SELECCIONE LA COBERTURA PRESIONANDO EL  BOTÓN SWITCH (IMAGEN DEL BOTÓN) EN LA PARTE SUPERIOR IZQUIERDA EN CADA CUADRO DE COBERTURA. SE ACTIVARAN LOS CUADROS QUE COMPONEN LA COBERTURA SELECCIONADA.
+        EL VALOR  DE LA CUOTA APARECERÁ EN EL BOTÓN CUOTA
+        <button type="button" class="img-fluid" style="width: 80px;
+        height: 24px;
+        background-image: url('/images/Cotizacion/cuota.png');
+        background-color: transparent;
+        background-size: cover;
+        border: 0;
+        padding: 0;
+        color: whitesmoke;
+        font-size: 0.6rem;    ">
+            Cuota $2200
+        </button>
+        <br />
+        PODES ACTIVAR O DESACTIVAR LAS COBERTURAS E IR PROBANDO LA QUE SE AJUSTE A TUS NECESIDADES !
+    </span>
+</div>
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-12 col-sm-12 col-lg-10">
+        <span style="color:white;font-size: 0.6em;align-content:initial;">
+            SELECCIONE LA COBERTURA PRESIONANDO EL  BOTÓN SWITCH (IMAGEN DEL BOTÓN) EN LA PARTE SUPERIOR IZQUIERDA EN CADA CUADRO DE COBERTURA. SE ACTIVARAN LOS CUADROS QUE COMPONEN LA COBERTURA SELECCIONADA.
+            EL VALOR  DE LA CUOTA APARECERÁ EN EL BOTÓN CUOTA
+            <button type="button" class="img-fluid" style="width: 80px;
+        height: 24px;
+        background-image: url('/images/Cotizacion/cuota.png');
+        background-color: transparent;
+        background-size: cover;
+        border: 0;
+        padding: 0;
+        color: whitesmoke;
+        font-size: 0.6rem;    ">
+                Cuota $2200
+            </button>
+            <br />
+            PODES ACTIVAR O DESACTIVAR LAS COBERTURAS E IR PROBANDO LA QUE SE AJUSTE A TUS NECESIDADES !
+        </span>
+    </div>
+</div>
 <div class="container" style="display: block;display: flex;justify-content:center;align-items: center;align-content:center;margin-left:auto;margin-right:auto">
 
     <div style="display: flex;flex-wrap: wrap;align-items: center;justify-content: center">
@@ -94,7 +133,7 @@
 
         <div class="row">
             <div class="col-9 col-sm-9 col-md-8" style="border:1px solid #ffd800">
-                <img src="/images/Cotizacion/auto.png" class="img-fluid" style="width:120px"  width="120"/>
+                <img src="/images/Cotizacion/auto.png" class="img-fluid" style="width:120px" width="120" />
                 <img src="/images/Cotizacion/gnc.png" class="img-fluid" style="width: 120px" />
                 <img src="/images/Cotizacion/suma-asegurada.png" class="img-fluid" style="width: 120px" />
                 <img src="/images/Cotizacion/confirmar.png" class="img-fluid" style="width: 120px" />
@@ -289,7 +328,7 @@
         oBody = sHtml.ToString();
         #endregion
 
-        string oSubject =  "Su Poliza" + DateTime.Now.ToLongDateString() + DateTime.Now.ToShortTimeString();
+        string oSubject = "Su Poliza" + DateTime.Now.ToLongDateString() + DateTime.Now.ToShortTimeString();
         oMailApp.To = oTo;
         oMailApp.Body = oBody;
         oMailApp.Subject = oSubject;

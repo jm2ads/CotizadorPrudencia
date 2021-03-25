@@ -35,7 +35,7 @@ namespace Project.Client
             services.AddScoped<IMostrarMensajes, MostrarMensajes>();
             services.AddScoped<ILocalStorageManager, LocalStorageManager>();
             services.AddFileReaderService(options => options.InitializeOnFirstCall = true);
-            
+            services.AddScoped<BrowserService>();
         }
     }
 }

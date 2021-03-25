@@ -4,7 +4,17 @@
 @inject IMostrarMensajes mostrarMensajes
 @inject IJSRuntime JsRuntime
 @using System.Text.Json;
-<h3 style="color:white">Suba Imagenes del Auto</h3>
+<h3 style="color:white">SUBA IMÁGENES DEL AUTO</h3>
+<div class="container" style="display: block;display: flex;justify-content:center;align-items: center;align-content:center;margin-left:auto;margin-right:auto">
+    <span style="color:white;font-size: 0.6em;align-content:initial;margin-bottom:10px">
+        LAS FOTOS DEBEN SER TOMADAS COMO INDICA LA IMAGEN DE EJEMPLO. DEBEN SER TOMADAS CON BUENA ILUMINACION
+        ( DE DIA O BUENA ILUMINACIÓN ARTIFICIAL), TODAS DE UN MISMO MOMENTO Y  LUGAR,ACTUALES DEL DIA DE LA FECHA .
+        CON LAS VENTANILLAS CERRADAS (NO CON LAS VENTANILLAS BAJAS ).
+        <br />
+        PUEDES SELECCIONAR DE TU GALERÍA DE FOTOS O TOMAR LA FOTO. VERÁS LA IMAGEN SELECCIONADA Y UNA VEZ QUE APARECE EL BOTÓN SUBIR,
+        LO PRESIONAMOS PARA TERMINAR DE CARGAR LA IMAGEN
+    </span>
+</div>
 @if (oCotizacionAutoDTO == null)
 {
     <Cargando></Cargando>
@@ -24,19 +34,26 @@ else
             }
             else
             {
-                <img src="/images/FotosEjemplo.jpg" alt="Fotos" style="display:block;margin:auto;width:50%" />
-
+                <img src="/images/Cotizacion/front.png" alt="Fotos" style="display:block;margin:auto;width:25%" />
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="0" oLabelText="Parte Delantera" @key="0" />
+                
+                <img src="/images/Cotizacion/back.png" alt="Fotos" style="display:block;margin:auto;width:25%" />
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="1" oLabelText="Parte Trasera" @key="1" />
+                
+                <img src="/images/Cotizacion/left.png" alt="Fotos" style="display:block;margin:auto;width:25%" />
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="2" oLabelText="Lateral Izquierdo Completo (Lado Conductor)" @key="2" />
+                
+                <img src="/images/Cotizacion/right.png" alt="Fotos" style="display:block;margin:auto;width:25%" />
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="3" oLabelText="Lateral Derecho Completo (Lado Acompanante)" @key="3" />
+              
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="4" oLabelText="Foto 5" @key="4" />
 
                 <label style="color:white;font-size: 0.8em;align-content:center">
-                   SI LAS FOTOS NO SON CORRECTAS O LEGIBLES, SE TE AVISARA POR MAIL Y CELULAR  PARA QUE NOS LA ENVIES CORRECTAMENTE, DE NO HACERLO, LA POLIZA LAMENTABLEMENTE QUEDARA SIN EFECTO.
+                    EL VEHÍCULO DEBE ESTAR EN BUENAS CONDICIONES PARA PODER ASEGURARSE.
+                    ADVERTENCIA: SI LAS FOTOS CARGADAS NO SON CORRECTAS O LEGIBLES, TE CONTACTAREMOS A LA BREVEDAD POSIBLE POR MAIL Y CELULAR. PARA QUE PUEDAS TOMAR LAS FOTOS CORRECTAS Y ENVIARLAS. DE NO HACERLO EL SEGURO LAMENTABLEMENTE QUEDARÁ SIN EFECTO .
                 </label>
 
-                
+
             }
 
         </div>
@@ -111,7 +128,7 @@ else
 
             await mostrarMensajes.MostrarMensajeError(mensajeError);
             Console.WriteLine(mensajeError);
-            navigationManager.NavigateTo("/ziren/infopersonalCompleta");
+            navigationManager.NavigateTo("/ziren/infopersonalCompleta/"+ oCoberturaID);
         }
         else
         {
@@ -163,7 +180,7 @@ else
         Console.WriteLine("555" + oAdjuntos[4].id);
         if (oCotizacionAutoDTO.vehiculo.es0KM == true)
         {
-            if (oAdjuntos[0].id==0 || oAdjuntos[1].id == 0)
+            if (oAdjuntos[0].id == 0 || oAdjuntos[1].id == 0)
             {
                 var mensajeError = "Debe cargar los dos documentos";
 
@@ -176,7 +193,7 @@ else
         {
             int oSumSinFoto = 0;
 
-            if (oAdjuntos[0].id == 0 )
+            if (oAdjuntos[0].id == 0)
                 oSumSinFoto = oSumSinFoto + 1;
             if (oAdjuntos[1].id == 0)
                 oSumSinFoto = oSumSinFoto + 1;

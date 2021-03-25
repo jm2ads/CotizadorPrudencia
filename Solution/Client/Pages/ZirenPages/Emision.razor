@@ -80,13 +80,13 @@ else
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <label style="color:white">Vencimiento Medio Pago:</label>
+                    <label style="color:white">Fecha Vencimiento Tarjeta de Credito:</label>
                     <div>
                         <InputDate class="form-control" @bind-Value="oVencimientoMedioPago"></InputDate>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label style="color:white">Numero Medio Pago:</label>
+                    <label style="color:white">Numero Tarjeta de Credito o CBU:</label>
                     <div>
                         <InputText class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago"></InputText>
 
@@ -96,20 +96,20 @@ else
             </div>
             <div class="row" style="margin:10px">
                 <div class="col-md-4">
-                    <label style="color:white">Nombre Titular Tarjeta:</label>
+                    <label style="color:white">Nombre y Apellido Titular Tarjeta o CBU:</label>
                     <div>
                         <InputText class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta"></InputText>
 
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label style="color:white">tipoDocTitularTarjeta:</label>
+                    <label style="color:white">Tipo Doc Titular Tarjeta:</label>
                     <div>
-                        <InputText class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta"></InputText>
+                        <InputText  class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta" ></InputText>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label style="color:white">Nro Doc Titular Tarjeta:</label>
+                    <label style="color:white">Nro DNI Titular Tarjeta Credito:</label>
                     <div>
                         <InputText class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta"></InputText>
                     </div>
@@ -125,7 +125,7 @@ else
             <div class="row" style="margin:10px">
 
                 <div class="col-md-5">
-                    <label>Marca:</label>
+                    <label>Regulador Marca:</label>
                     <InputText class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.gncMarca"></InputText>
                 </div>
                 <div class="col-md-3">
@@ -382,7 +382,6 @@ else
 
         oEmitirCotizacionAutoDTO.motor = "XXXXXhathat";
         oEmitirCotizacionAutoDTO.chasis = "XXXXX";
-        oInicioVigencia = DateTime.Now;
         oEmitirCotizacionAutoDTO.observaciones = "XXXXX";
         oVencimientoMedioPago = DateTime.Now.AddMonths(10);
         oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago = "0070019130004054334990";
@@ -430,6 +429,12 @@ else
             await mostrarMensajes.MostrarMensajeError("Debe Seleccionar un medio de Pago");
             return;
         }
+        if ((DateTime)oInicioVigencia < DateTime.Today || (DateTime)oInicioVigencia > DateTime.Today.AddDays(10))
+        {
+            await mostrarMensajes.MostrarMensajeError("La Fecha de Inicio de Vigencia no puede ser menor a hoy ni mayor a 10 dias a partir de hoy");
+            return;
+        }
+
 
         //if (string.IsNullOrEmpty(oMedioPagoID) || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago)
         //    || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta) || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta)

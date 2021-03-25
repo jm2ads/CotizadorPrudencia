@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 120 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Test.razor"
+#line 159 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Test.razor"
        
     private const string fsAStyleOff = "background-image: url('/images/Coberturas/a.png');border: 0ch;width: 190px;height: 125px;background-size:contain";
     private const string fsAStyleOn = "background-image: url('/images/Coberturas/aClicked.png');border: 0ch;width: 190px;height: 125px";
@@ -285,7 +285,7 @@ using System.Text.Json;
         oBody = sHtml.ToString();
         #endregion
 
-        string oSubject =  "Su Poliza" + DateTime.Now.ToLongDateString() + DateTime.Now.ToShortTimeString();
+        string oSubject = "Su Poliza" + DateTime.Now.ToLongDateString() + DateTime.Now.ToShortTimeString();
         oMailApp.To = oTo;
         oMailApp.Body = oBody;
         oMailApp.Subject = oSubject;
