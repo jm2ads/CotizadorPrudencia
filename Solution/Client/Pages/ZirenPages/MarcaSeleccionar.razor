@@ -14,14 +14,8 @@
             </label>
         </div>
     </div>*@
-<label style="color:white;font-size: 0.8em;align-content:initial;margin:5px">Si la marca de su vehiculo no aparece, tipee las primeras letras</label>
 
 
-<div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
-    <input @bind-value="oMarcaDescripcion" @bind-value:event="oninput" autocomplete="off"
-           @onkeyup="@((KeyboardEventArgs e) => MarcaKeyUp(e))"
-           type="text" class="form-control" id="titulo" placeholder="Marca" />
-</div>
 @if (oMarcasAutosAuxList == null)
 {
     <Cargando></Cargando>
@@ -38,6 +32,15 @@ else
     }
     else
     {
+        <label style="color:white;font-size: 0.8em;align-content:initial;margin:5px">Si la marca de su vehiculo no aparece, tipee las primeras letras</label>
+
+        <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+            <input @bind-value="oMarcaDescripcion" @bind-value:event="oninput" autocomplete="off"
+                   @onkeyup="@((KeyboardEventArgs e) => MarcaKeyUp(e))"
+                   type="text" class="form-control" id="titulo" placeholder="Marca" />
+        </div>
+
+
         <div style="display: flex; flex-wrap: wrap; align-items: center;">
             @foreach (var oMarcasAutos in oMarcasAutosAuxList)
             {
@@ -76,7 +79,7 @@ else
     protected override async Task OnInitializedAsync()
     {
 
-
+        Console.WriteLine("Inicia :" + DateTime.Now);
 
         var responseHttp = await repositorio.Get<List<MarcasAutos>>("api/Externo/Prudencia/catalogos/GetMarcasAutos");
         oMarcasAutosList = responseHttp.Response;
@@ -99,6 +102,7 @@ else
                                || c.marcaID == 8
                                || c.marcaID == 43
                                select c).ToList();
+        Console.WriteLine("Fin :" + DateTime.Now);
     }
 
     protected override async Task OnParametersSetAsync()

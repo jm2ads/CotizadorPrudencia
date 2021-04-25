@@ -19,7 +19,6 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Server.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\ref\Project.Server.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Server.pdb
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Humanizer.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Markdig.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Forms.dll

@@ -125,7 +125,7 @@ using System.Text.Json;
 
         //oCotizacionAutoRapidaDTO = Singleton.oCotizacionAutoRapidaDTO;
 
-        for (int i = DateTime.Today.Year; i >= 1998; i--)
+        for (int i = DateTime.Today.Year; i >= 2002; i--)
         {
             oAnoAutosList.Add(i);
         }

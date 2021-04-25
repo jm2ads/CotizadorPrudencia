@@ -9,7 +9,15 @@
       "DEBUG",
       "NET",
       "NET5_0",
-      "NETCOREAPP"
+      "NETCOREAPP",
+      "NET5_0_OR_GREATER",
+      "NETCOREAPP1_0_OR_GREATER",
+      "NETCOREAPP1_1_OR_GREATER",
+      "NETCOREAPP2_0_OR_GREATER",
+      "NETCOREAPP2_1_OR_GREATER",
+      "NETCOREAPP2_2_OR_GREATER",
+      "NETCOREAPP3_0_OR_GREATER",
+      "NETCOREAPP3_1_OR_GREATER"
     ],
     "languageVersion": "9.0",
     "platform": "",
@@ -322,17 +330,6 @@
             "assemblyVersion": "2.8.0.0",
             "fileVersion": "2.8.26.1919"
           }
-        }
-      },
-      "Markdig/0.23.0": {
-        "runtime": {
-          "lib/netcoreapp3.1/Markdig.dll": {
-            "assemblyVersion": "0.23.0.0",
-            "fileVersion": "0.23.0.0"
-          }
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Markdig.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/5.0.2": {
@@ -2444,7 +2441,6 @@
       },
       "Project.Client/1.0.0": {
         "dependencies": {
-          "Markdig": "0.23.0",
           "Microsoft.AspNetCore.Components.WebAssembly": "5.0.2",
           "Project.Shared": "1.0.0",
           "System.Net.Http.Json": "5.0.0",
@@ -4126,13 +4122,6 @@
       "sha512": "sha512-OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
-    },
-    "Markdig/0.23.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-jPPcnHGSDSedPvwZ6jiMJpvK3iJGA2djU6TFmEr6XK2BiYK1ier2lTHVwDt41XLxDbfGu5Dn42hKDzwqs049PA==",
-      "path": "markdig/0.23.0",
-      "hashPath": "markdig.0.23.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization/5.0.2": {
       "type": "package",

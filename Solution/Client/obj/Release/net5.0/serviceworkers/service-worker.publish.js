@@ -50,4 +50,4 @@ async function onFetch(event) {
 
 
 
-/* Manifest version: lfZwz7rr */
+/* Manifest version: qLQ9Z37z */

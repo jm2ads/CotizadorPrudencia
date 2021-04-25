@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 166 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonalCompleta.razor"
+#line 158 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonalCompleta.razor"
        
 
 
@@ -167,7 +167,7 @@ using System.Text.Json;
         onombre= oCotizacionAutoDTO.asegurado.nombre;
         omail=oCotizacionAutoDTO.asegurado.mail;
         otelefono= oCotizacionAutoDTO.asegurado.telefono;
-        opatente = oCotizacionAutoDTO.vehiculo.patente;
+        opatente = "";// oCotizacionAutoDTO.vehiculo.patente;
         ofechaNacimiento = Convert.ToDateTime(oCotizacionAutoDTO.asegurado.fechaNacimiento,  new System.Globalization.CultureInfo("es-ES"));
 
         otipoDocumento = "81";
@@ -251,7 +251,7 @@ using System.Text.Json;
         oCotizacionAutoDTO.asegurado.telefono = otelefono;
         oCotizacionAutoDTO.asegurado.fechaNacimiento = ((DateTime)ofechaNacimiento).ToString("dd/MM/yyyy");
 
-        oCotizacionAutoDTO.vehiculo.patente= opatente;
+        oCotizacionAutoDTO.vehiculo.patente= opatente.ToUpper();
 
 
 

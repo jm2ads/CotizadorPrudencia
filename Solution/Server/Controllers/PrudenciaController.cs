@@ -459,7 +459,7 @@ namespace Project.Server.Controllers
             Login oLogin = await GetLoginAsync();
             string oToken = "Bearer " + oLogin.accessToken;
 
-            List<CodigoPostalDTO> oCodigoPostalDTOList = null;
+            List<CodigoPostalDTO> oCodigoPostalDTOList = new List<CodigoPostalDTO> ();
             HttpClient httpClient = new HttpClient();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
@@ -483,10 +483,10 @@ namespace Project.Server.Controllers
             {
                 oCodigoPostalDTOList = JsonConvert.DeserializeObject<List<CodigoPostalDTO>>(responseHttp.Content.ReadAsStringAsync().Result);
 
-                if (oCodigoPostalDTOList.Count == 0)
-                {
-                    return NotFound();
-                }
+                //if (oCodigoPostalDTOList.Count == 0)
+                //{
+                //    return NotFound(oCodigoPostalDTOList);
+                //}
                 return this.Ok(oCodigoPostalDTOList);
             }
             else
@@ -732,7 +732,7 @@ namespace Project.Server.Controllers
             string url = oUriBase + "/cotizaciones/autos/" + oCotizacionId + "/emitir";
             var enviarJSON = JsonConvert.SerializeObject(oEmitirCotizacionAutoDTO);
 
-
+          
             var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
             var responseHttp = await httpClient.PostAsync(url, enviarContent);
 
@@ -888,7 +888,66 @@ namespace Project.Server.Controllers
         }
 
 
+        [HttpPost("SendPolizaMail")]
+        public async Task<ActionResult<string>> SendPolizaMail(SendPolizaMailDTO sendPolizaMailDTO)
+        {
+            string basePath = Environment.CurrentDirectory;
+            string Body = System.IO.File.ReadAllText(basePath + "/Helpers/templateMail.html", Encoding.UTF8);
+            Body = Body.Replace("XXXXNomApe", sendPolizaMailDTO.cotizacionAutoDTO.asegurado.nombre);
+            Body = Body.Replace("XXXXMarca", sendPolizaMailDTO.cotizacionEntitiesDTO.marcasAutos.descripcion);
+            Body = Body.Replace("XXXXModelo", sendPolizaMailDTO.cotizacionEntitiesDTO.modelosAutos.descripcionGrupo);
+            Body = Body.Replace("XXXXAno", sendPolizaMailDTO.cotizacionEntitiesDTO.ano.ToString());
+            Body = Body.Replace("XXXXPatente", sendPolizaMailDTO.cotizacionAutoDTO.vehiculo.patente);
+            Body = Body.Replace("XXXXXLocalidad", sendPolizaMailDTO.cotizacionAutoDTO.asegurado.localidad);
 
+            RespuestaReporteDTO respuestaReporteDTO = (from c in sendPolizaMailDTO.respuestaReporteDTOList
+                                       where c.reporte == "POLIZA"
+                                                       select c).FirstOrDefault();
+            Body = Body.Replace("XXXXPoliza", respuestaReporteDTO.urlReporte);
+
+            respuestaReporteDTO = (from c in sendPolizaMailDTO.respuestaReporteDTOList
+                                   where c.reporte == "TARJETA DE CIRCULACION"
+                                   select c).FirstOrDefault();
+            Body = Body.Replace("XXXXCirculacion", respuestaReporteDTO.urlReporte);
+
+            respuestaReporteDTO = (from c in sendPolizaMailDTO.respuestaReporteDTOList
+                                   where c.reporte == "MERCOSUR"
+                                   select c).FirstOrDefault();
+            Body = Body.Replace("XXXXMercosur", respuestaReporteDTO.urlReporte);
+
+            //string oUrlRaiz = string.Format("{0}://{1}", HttpContext.Request.Scheme, HttpContext.Request.Host);
+            //oMailApp.Body = String.Format(oMailApp.Body, oUrlRaiz);
+            // string imagen = oUrlRaiz + "/images/pt.jpg";
+            #region MyRegion
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+            client.UseDefaultCredentials = false;
+            client.EnableSsl = true;
+            client.Credentials = new NetworkCredential("clientes@ziren.com.ar", "brianadriel3166");
+
+
+            MailMessage mailMessage = new MailMessage();
+            mailMessage.IsBodyHtml = true;
+            mailMessage.From = new MailAddress("clientes@ziren.com.ar", "Ziren ");
+            mailMessage.To.Add(sendPolizaMailDTO.mailApp.To);
+            //mailMessage.Bcc.Add(oMailApp.Bcc);
+            mailMessage.Body = Body;
+            mailMessage.Subject = sendPolizaMailDTO.mailApp.Subject;
+
+            try
+            {
+                client.Send(mailMessage);
+                return this.Ok("Ok");
+            }
+            catch (Exception ex)
+            {
+                return this.BadRequest(error: new { message = ex.Message });
+            }
+            #endregion
+
+
+
+            // return oRespuestaPolizaAutoDTO;
+        }
 
 
         [HttpGet("Prueba")]

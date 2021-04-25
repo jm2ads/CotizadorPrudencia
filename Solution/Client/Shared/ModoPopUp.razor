@@ -1,0 +1,155 @@
+﻿
+@if (MostrarModo)
+{
+
+
+    <div class="modal-backdrop show"></div>
+    <div class="modal fade show" id="exampleModal" tabindex="-1"
+         role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true" style="display: block;display: flex;justify-content: center;align-items: center;">
+
+        <div class="modal-dialog" role="document" style="width: 288px;top: 0px;margin-top: 5px;display: flex;
+        justify-content: center;align-items: center;
+">
+            <div class="modal-content" style="padding: 0;
+        background-image: radial-gradient(circle, #803496, #70288d, #5f1c83, #4e107a, #3c0371);
+         display: flex;
+        justify-content: center;
+        align-items: center;">
+
+                <div class="modal-body" style="padding: 0;justify-content: center;
+        width: 370px;background-image: radial-gradient(circle, #803496, #70288d, #5f1c83, #4e107a, #3c0371);">
+                    <div class="row" style="padding: 0;justify-content: center;margin-top:10px;">
+                        <div class="col-sm-12">
+                            <button @onclick="onContinuar" type="button" class="btn btn-info" style="width: 250px;margin: 1px;border: 0">
+                                CONTINUAR
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin:0px">
+                        <div class="col-sm-12">
+                            <label style="margin: 1px;color: white;">
+                                -CARGA FOTOS DEL VEHÍCULO 🚘 🚗
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin:0px">
+                        <div class="col-sm-12">
+                            <label style="margin: 1px;color: white;">
+                                - ADMITE SÓLO 💳 TARJETA DE CRÉDITO 🏦 DÉBITO EN CUENTA (número CBU).
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin:0px">
+                        <div class="col-sm-12">
+                            <label style="margin: 1px;color:#28a745">
+                                -DOCUMENTACIÓN EN EL MOMENTO   📲 🙌🏼 RECIBIS PÓLIZA, TARJETA DE CIRCULACIÓN Y DOCUMENTACIÓN EN EL MOMENTO!!!
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding: 0;justify-content: center;margin-top:10px;">
+                        <div class="col-sm-12">
+                            <button @onclick="onModoComodo" type="button" class="btn btn-info" style="width: 250px;margin: 1px;border: 0">
+                                MODO CÓMODO
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin:0px">
+                        <div class="col-sm-12" >
+                            <label style="margin: 1px;color: white;">
+                                - CARGA POR FOTOS 📸 🤳 📃 DE LA DOCUMENTACIÓN (CÉDULA, DNI O REGISTRO, FOTOS DEL AUTO)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin:0px">
+                        <div class="col-sm-12">
+                            <label style="margin: 1px;color: white;">
+                                - MÍNIMA CARGA DE DATOS MANUAL✌🏼
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin:0px">
+                        <div class="col-sm-12">
+                            <label style="margin: 1px;color: white;">
+                                -ADMITE 💵 EFECTIVO  💳 TARJETA DE CRÉDITO, 🏦 DEBITO EN CUENTA (número CBU)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin:0px">
+                        <div class="col-sm-12">
+                            <label style="margin: 1px;color:#28a745;">
+                                - PROCESAMOS LOS DATOS Y TE ENVIAMOS EL SEGURO DENTRO DE LAS 24hs⏳
+                            </label>
+                        </div>
+                    </div>
+
+
+                    @*<div class="row"  style="padding: 0;justify-content: center;margin-top:10px;">
+            <div class="col-sm-12">
+                <button @onclick="onPagoEF" type="button" class="btn btn-info" style="width: 250px;margin: 1px;border: 0">
+                    PAGO EN EFECTIVO
+                </button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <label style="margin: 1px;color:red;font-weight:bold">
+                    - SI DESEA PAGAR EN EFECTIVO  (RAPIPAGO, PAGOFACIL, COBRO EXPRESS, ETC.)
+                </label>
+            </div>
+        </div>*@
+                </div>
+
+
+                <div class="modal-footer" style="        padding: 0;
+        width: 300px;
+        background-image: radial-gradient(circle, #803496, #70288d, #5f1c83, #4e107a, #3c0371);
+        display: flex;
+        justify-content: center;
+        align-items: center;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private bool MostrarModo = false;
+    [Parameter] public string Titulo { get; set; } = "Confirmación";
+    [Parameter] public List<RespuestaReporteDTO> oRespuestaReporteDTOList { get; set; }
+    [Parameter] public RespuestaPolizaImpresionDTO oRespuestaPolizaImpresionDTO { get; set; }
+
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public EventCallback onContinuar { get; set; }
+    [Parameter] public EventCallback onPagoEF { get; set; }
+    [Parameter] public EventCallback onModoComodo { get; set; }
+
+    public void Mostrar() => MostrarModo = true;
+    public void Ocultar() => MostrarModo = false;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+
+
+
+    }
+
+
+
+
+    void onCancel()
+    {
+        MostrarModo = false;
+    }
+
+
+
+}

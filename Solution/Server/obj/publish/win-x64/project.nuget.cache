@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Yy2kK7W+KZEnXrFXxcHOUMzjbU/3ANcVbJSkz0rIgfz206bmPTkcj8GxvDFIciM3wSJRG+JB7TUFzmYw3KA5rQ==",
+  "dgSpecHash": "iMjiYthOkOedE2ousnSaA1IfTFjZ6ec+fNoMzBl9qs1GMLSJLepA4orr7KFV9G9C9gzhvBs/B3F06sfBdaKGgg==",
   "success": true,
   "projectFilePath": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Server\\Project.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Facundo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\Facundo\\.nuget\\packages\\markdig\\0.23.0\\markdig.0.23.0.nupkg.sha512",
     "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.2\\microsoft.aspnetcore.authorization.5.0.2.nupkg.sha512",
     "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.aspnetcore.components\\5.0.2\\microsoft.aspnetcore.components.5.0.2.nupkg.sha512",
     "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\5.0.2\\microsoft.aspnetcore.components.analyzers.5.0.2.nupkg.sha512",
@@ -209,9 +208,9 @@
     "C:\\Users\\Facundo\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\Facundo\\.nuget\\packages\\tewr.blazor.filereader\\1.2.0.19363\\tewr.blazor.filereader.1.2.0.19363.nupkg.sha512",
     "C:\\Users\\Facundo\\.nuget\\packages\\webpush\\1.0.11\\webpush.1.0.11.nupkg.sha512",
-    "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\5.0.0\\microsoft.netcore.app.runtime.win-x64.5.0.0.nupkg.sha512",
-    "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\5.0.0\\microsoft.windowsdesktop.app.runtime.win-x64.5.0.0.nupkg.sha512",
-    "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\5.0.0\\microsoft.aspnetcore.app.runtime.win-x64.5.0.0.nupkg.sha512"
+    "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\5.0.5\\microsoft.netcore.app.runtime.win-x64.5.0.5.nupkg.sha512",
+    "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\5.0.5\\microsoft.windowsdesktop.app.runtime.win-x64.5.0.5.nupkg.sha512",
+    "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\5.0.5\\microsoft.aspnetcore.app.runtime.win-x64.5.0.5.nupkg.sha512"
   ],
   "logs": []
 }

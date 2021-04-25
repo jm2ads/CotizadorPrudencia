@@ -23,7 +23,7 @@ namespace Project.Shared.PrudenciaDTOs
         public int vehiculoID { get; set; }
         public RespuestaVehiculoDTO vehiculo { get; set; }
 
-        public Boolean usaAcarreo { get; set; }
+        public Boolean usaAcarreo { get; set; } = true;
         public RespuestaDetalleCotizacionAuto[] coberturas { get; set; }
         public Decimal? primaTotal { get; set; }
         public Decimal? premioMensual { get; set; }

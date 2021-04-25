@@ -74,3 +74,51 @@ function arrayBufferToBase64(buffer) {
     }
     return window.btoa(binary);
 }
+
+getDimensions = function () {
+  
+            return {
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                };
+        };
+
+
+
+
+
+window.exampleJsFunctions = {
+
+        focusElement: function (element) {
+            element.focus();
+    }
+
+    ,
+
+    disableElement: function (element) {
+        element.disabled = true;
+    }
+
+        
+    }
+
+
+window.exampleJsFunctions2 = {
+   
+    disableElement: function (element) {
+    element.disabled  =true;
+    }
+}
+
+
+async function InputTextDisable(disable) {
+    window.exampleJsFunctions = {
+        focusElement: function (element) {
+            element.focus();
+        }
+    }
+}
+
+
+
+

@@ -209,7 +209,7 @@ else
         onombre= oCotizacionAutoDTO.asegurado.nombre;
         omail=oCotizacionAutoDTO.asegurado.mail;
         otelefono= oCotizacionAutoDTO.asegurado.telefono;
-        opatente = oCotizacionAutoDTO.vehiculo.patente;
+        opatente = "";// oCotizacionAutoDTO.vehiculo.patente;
         ofechaNacimiento = Convert.ToDateTime(oCotizacionAutoDTO.asegurado.fechaNacimiento,  new System.Globalization.CultureInfo("es-ES"));
 
         otipoDocumento = "81";
@@ -293,7 +293,7 @@ else
         oCotizacionAutoDTO.asegurado.telefono = otelefono;
         oCotizacionAutoDTO.asegurado.fechaNacimiento = ((DateTime)ofechaNacimiento).ToString("dd/MM/yyyy");
 
-        oCotizacionAutoDTO.vehiculo.patente= opatente;
+        oCotizacionAutoDTO.vehiculo.patente= opatente.ToUpper();
 
 
 

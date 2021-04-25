@@ -7,8 +7,9 @@
 
 <h3 style="color:white;margin:5px">Cotizacion de tu Vehiculo</h3>
 
-<CotizacionPopUp @ref="cotizacionPopUp" onConfirm="onConfirm" onModoComodo="onModoComodo">
-</CotizacionPopUp>
+<CotizacionPopUp @ref="cotizacionPopUp" onConfirm="onConfirm"></CotizacionPopUp>
+
+<ModoPopUp @ref="modoPopUp" onContinuar="onContinuar" onModoComodo="onModoComodo" onPagoEF="onPagoEf"></ModoPopUp>
 @if (cotizacionEntitiesDTO == null)
 {
     <Cargando></Cargando>
@@ -23,25 +24,20 @@ else
         @cotizacionEntitiesDTO.ano
     </label>
 
-
-    @*<span style="color:white;font-size: 0.6em;align-content:initial;margin-bottom:10px">
-            SELECCIONE LA COBERTURA PRESIONANDO EL  BOTÓN SWITCH (IMAGEN DEL BOTÓN) EN LA PARTE SUPERIOR IZQUIERDA EN CADA CUADRO DE COBERTURA. SE ACTIVARAN LOS CUADROS QUE COMPONEN LA COBERTURA SELECCIONADA.
+    <div style="margin-left:5px">
+        <span style="color:white;font-size: 0.6em;align-content:initial;">
+            SELECCIONE LA COBERTURA PRESIONANDO EL  BOTÓN SWITCH
+            <button type="button" class="img-fluid" style="width: 34px; height: 21px; background-image: url('/images/Cotizacion/off.png'); background-color: transparent; background-size: cover; border: 0; padding: 0; color: whitesmoke; font-size: 0.6rem; ">
+            </button>
+            EN LA PARTE SUPERIOR IZQUIERDA EN CADA CUADRO DE COBERTURA. SE ACTIVARAN LOS CUADROS QUE COMPONEN LA COBERTURA SELECCIONADA.
             EL VALOR  DE LA CUOTA APARECERÁ EN EL BOTÓN CUOTA
-            <button type="button" class="img-fluid" style="width: 80px;
-        height: 24px;
-        background-image: url('/images/Cotizacion/cuota.png');
-        background-color: transparent;
-        background-size: cover;
-        border: 0;
-        padding: 0;
-        color: whitesmoke;
-        font-size: 0.6rem;    ">
-                Cuota $2200
+            <button type="button" class="img-fluid" style="width: 68px; height: 21px; background-image: url('/images/Cotizacion/cuota.png'); background-color: transparent; background-size: cover; border: 0; padding: 0; color: whitesmoke; font-size: 0.6rem; ">
+                Cuota $$$$
             </button>
             <br />
             PODES ACTIVAR O DESACTIVAR LAS COBERTURAS E IR PROBANDO LA QUE SE AJUSTE A TUS NECESIDADES !
-        </span>*@
-
+        </span>
+    </div>
 
 
 
@@ -66,46 +62,46 @@ else
 
 
 
-      
-            <div class="container-fluid" style="display: block;display: flex;justify-content:center;align-items: center;align-content:center;margin-left:auto;margin-right:auto">
 
-                <div style="display: flex;flex-wrap: wrap;align-items: center;justify-content: center">
-                    @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C" || oAntiguedadGrupo == "D" || oAntiguedadGrupo == "E")
+        <div class="container-fluid" style="display: block;display: flex;justify-content:center;align-items: center;align-content:center;margin-left:auto;margin-right:auto">
+
+            <div style="display: flex;flex-wrap: wrap;align-items: center;justify-content: center">
+                @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C" || oAntiguedadGrupo == "D" || oAntiguedadGrupo == "E")
+                {
+                    @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a > 0)
                     {
-                        @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a > 0)
-                        {
-                            <div style="border-color:darkmagenta;border-width: thin;border-style: solid;width: 190px;height: 125px;position: relative">
-                                <fieldset id="fsA" style="@fsAStyle">
-                                    <button type="button" @onclick="@(() => OnCoberturaClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a))"
-                                            style="@btnPolizaAStyle" />
-                                </fieldset>
-                            </div>
-                        }
+                        <div style="border-color:darkmagenta;border-width: thin;border-style: solid;width: 190px;height: 125px;position: relative" @onclick="@(() => OnCoberturaClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a))">
+                            <fieldset id="fsA" style="@fsAStyle">
+                                <button type="button" @onclick="@(() => OnCoberturaClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a))"
+                                        style="@btnPolizaAStyle" />
+                            </fieldset>
+                        </div>
                     }
-                    @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C" || oAntiguedadGrupo == "D")
+                }
+                @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C" || oAntiguedadGrupo == "D")
+                {
+                    @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1 > 0)
                     {
-                        @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1 > 0)
-                        {
-                            <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 190px;height: 125px;position: relative">
-                                <fieldset id="fsB1" style="@fsB1Style">
-                                    <button type="button" @onclick="@(() => OnCoberturaClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))"
-                                            style="@btnPolizaB1Style" />
-                                </fieldset>
-                            </div>
-                        }
+                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 190px;height: 125px;position: relative"  @onclick="@(() => OnCoberturaClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))">
+                            <fieldset id="fsB1" style="@fsB1Style">
+                                <button type="button" @onclick="@(() => OnCoberturaClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))"
+                                        style="@btnPolizaB1Style" />
+                            </fieldset>
+                        </div>
                     }
+                }
 
-                    @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C")
+                @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B" || oAntiguedadGrupo == "C")
+                {
+                    @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c > 0)
                     {
-                        @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c > 0)
-                        {
-                            <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 380px;height: 125px;position: relative">
-                                <fieldset id="fsC" style="@fsCStyle">
-                                    <button type="button" @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))"
-                                            style="@btnPolizaCStyle" />
+                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 380px;height: 125px;position: relative"  @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))">
+                            <fieldset id="fsC" style="@fsCStyle">
+                                <button type="button" @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))"
+                                        style="@btnPolizaCStyle" />
 
-                                    <button type="button" @onclick="@(() => OnButtonPopUpClick("limitebasico"))"
-                                            style="        width: 57px;
+                                <button type="button" @onclick="@(() => OnButtonPopUpClick("limitebasico"))"
+                                        style="        width: 57px;
         height: 16px;
         position: absolute;
         top: 21px;
@@ -117,24 +113,24 @@ else
         padding: 0" />
 
 
-                                </fieldset>
-                            </div>
-                        }
+                            </fieldset>
+                        </div>
                     }
+                }
 
 
-                    @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B")
+                @if (oAntiguedadGrupo == "A" || oAntiguedadGrupo == "B")
+                {
+
+                    @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf > 0)
                     {
+                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 380px;height: 125px;position: relative" @onclick="@(() => OnCoberturaClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))">
+                            <fieldset id="fsCf" style="@fsCfStyle">
+                                <button type="button" @onclick="@(() => OnCoberturaClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))"
+                                        style="@btnPolizaCfStyle" />
 
-                        @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf > 0)
-                        {
-                            <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 380px;height: 125px;position: relative">
-                                <fieldset id="fsCf" style="@fsCfStyle">
-                                    <button type="button" @onclick="@(() => OnCoberturaClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))"
-                                            style="@btnPolizaCfStyle" />
-
-                                    <button type="button" @onclick="@(() => OnButtonPopUpClick("limiteaumentado"))"
-                                            style="        width: 86px;
+                                <button type="button" @onclick="@(() => OnButtonPopUpClick("limiteaumentado"))"
+                                        style="        width: 86px;
         height: 16px;
         position: absolute;
         top: 21px;
@@ -144,8 +140,8 @@ else
         background-size: cover;
         border: 0;
         padding: 0" />
-                                    <button type="button" @onclick="@(() => OnButtonPopUpClick("limitegranizo"))"
-                                            style="width: 70px;
+                                <button type="button" @onclick="@(() => OnButtonPopUpClick("limitegranizo"))"
+                                        style="width: 70px;
         height: 16px;
         position: absolute;
         bottom: 0px;
@@ -156,19 +152,19 @@ else
         border: 0;
         padding: 0" />
 
-                                </fieldset>
-                            </div>
-                        }
+                            </fieldset>
+                        </div>
                     }
+                }
 
 
-                    @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2 > 0)
-                    {
-                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 380px;height: 125px;position: relative">
-                            <fieldset id="fsD2" style="@fsD2Style">
-                                <button type="button" @onclick="@(() => OnCoberturaClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2))"
-                                        style="@btnPolizaD2Style" />
-                                <button type="button" @onclick="@(() => OnButtonPopUpClick("franquicia"))" style="        width: 89px;
+                @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2 > 0)
+                {
+                    <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 380px;height: 125px;position: relative" @onclick="@(() => OnCoberturaClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2))">
+                        <fieldset id="fsD2" style="@fsD2Style">
+                            <button type="button" @onclick="@(() => OnCoberturaClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2))"
+                                    style="@btnPolizaD2Style" />
+                            <button type="button" @onclick="@(() => OnButtonPopUpClick("franquicia"))" style="        width: 89px;
         height: 16px;
         position: absolute;
         bottom: 5px;
@@ -179,27 +175,27 @@ else
         border: 0;
         padding: 0" />
 
-                            </fieldset>
-                        </div>
-                    }
+                        </fieldset>
+                    </div>
+                }
 
-
-                </div>
 
             </div>
 
+        </div>
 
 
 
-            <div class="container-fluid">
+
+        <div class="container-fluid" style="margin-top:10px">
 
 
-                <div class="row">
+            <div class="row">
 
-                    <div class="col-9 col-sm-9 col-md-9">
+                <div class="col-8 col-sm-8 col-md-8" style="padding:5px">
 
 
-                        <button type="button" class="img-fluid" style="width: 115px;height: 37px;
+                    <button type="button" class="img-fluid" style="width: 116px;height: 37px;
         background-image: url('/images/Cotizacion/suma-asegurada.png');
         background-color: transparent;
         background-size: cover;
@@ -207,11 +203,11 @@ else
         padding: 0;
         color: whitesmoke;
         font-size: 0.9rem;">
-                            Total $@((oRespuestaCotizacionAutoRapidaDTO.vehiculo.sumaAsegurada + oGncValor).ToString("C", new System.Globalization.CultureInfo("es-ar")).Replace(",00", "").Replace("ARS", ""))
+                        Total $@((oRespuestaCotizacionAutoRapidaDTO.vehiculo.sumaAsegurada + oGncValor).ToString("C", new System.Globalization.CultureInfo("es-ar")).Replace(",00", "").Replace("ARS", ""))
 
-                        </button>
+                    </button>
 
-                        <button type="button" class="img-fluid" style="width: 115px;height: 37px;
+                    <button type="button" class="img-fluid" style="width: 116px;height: 37px;
         background-image: url('/images/Cotizacion/cuota.png');
         background-color: transparent;
         background-size: cover;
@@ -219,10 +215,10 @@ else
         padding: 0;
         color: whitesmoke;
         font-size: 0.9rem;">
-                            Cuota $@oCoberturaValorSeleccionado.ToString("C", new System.Globalization.CultureInfo("es-ar")).Replace(",00", "").Replace("ARS", "")
-                        </button>
+                        Cuota $@oCoberturaValorSeleccionado.ToString("C", new System.Globalization.CultureInfo("es-ar")).Replace(",00", "").Replace("ARS", "")
+                    </button>
 
-                        <button type="button" class="img-fluid" style="width: 115px;height: 37px;
+                    <button type="button" class="img-fluid" style="width: 116px;height: 37px;
         background-image: url('/images/Cotizacion/auto.png');
         background-color: transparent;
         background-size: cover;
@@ -230,11 +226,11 @@ else
         padding: 0;
         color: whitesmoke;
         font-size: 0.9rem;">
-                            Auto  $@oRespuestaCotizacionAutoRapidaDTO.vehiculo.sumaAsegurada.ToString("C", new System.Globalization.CultureInfo("es-ar")).Replace(",00", "").Replace("ARS", "")
-                        </button>
+                        Auto  $@oRespuestaCotizacionAutoRapidaDTO.vehiculo.sumaAsegurada.ToString("C", new System.Globalization.CultureInfo("es-ar")).Replace(",00", "").Replace("ARS", "")
+                    </button>
 
 
-                        <button type="button" @onclick="@(() => OnConfirmClick( oCoberturaIDSelected ))" class="img-fluid" style="        width: 115px;
+                    <button type="button" @onclick="@(() => OnConfirmClick( oCoberturaIDSelected ))" class="img-fluid" style="        width: 116px;
         height: 37px;
         background-image: url('/images/Cotizacion/confirmar.png');
         background-color: transparent;
@@ -243,10 +239,10 @@ else
         padding: 0;
         color: whitesmoke;
         font-size: 0.8rem;">
-                            CONFIRMAR
-                        </button>
+                        CONFIRMAR
+                    </button>
 
-                        <button type="button" id="btnGNG" class="img-fluid" style="        width: 115px;
+                    <button type="button" id="btnGNG" class="img-fluid" style="        width: 116px;
         display: @displayGNC;
         height: 37px;
         background-image: url('/images/Cotizacion/gnc.png');
@@ -256,8 +252,8 @@ else
         padding: 0;
         color: whitesmoke;
         font-size: 0.9rem;">
-                            GNC  $@oGncValor.ToString("C", new System.Globalization.CultureInfo("es-ar")).Replace(",00", "").Replace("ARS", "")
-                        </button>
+                        GNC  $@oGncValor.ToString("C", new System.Globalization.CultureInfo("es-ar")).Replace(",00", "").Replace("ARS", "")
+                    </button>
 
 
 
@@ -270,583 +266,741 @@ else
 
 
 
-                    </div>
+                </div>
 
-                    <div class="col-3 col-sm-3 col-md-3">
-                        <img src="/images/ziren.png" style="width: 90px;margin:auto;display:block;
+                <div class="col-4 col-sm-4 col-md-4" style="justify-content:center;padding:0px">
+                    <img src="/images/ziren.png" style="width: 125px;margin:auto;display:block;
         border: 0;
         padding: 0;" />
-                        <img src="/images/prudencia.png" style="        width: 90px;
+                    <img src="/images/prudencia.png" style="        width: 125px;
         ;
         margin: auto;
         display: block;
         border: 0;
         padding: 0;" />
-                    </div>
-                </div>
-
-            </div>
-           
-
-
-
-
-
-
-            <br />
-
-            }
-
-            }
-
-            <div class="container-fluid" style="margin:5px">
-
-                <div class="row">
-
-                    <label style="color: white;font-size: 0.8em;align-content: end;margin-left: 5px">
-                        POLIZA ANUAL CON REFACTURACION CUATRIMESTRAL(MANTIENE PRECIO POR 4 MESES)
-                    </label>
-                </div>
-                <div class="row">
-                    <label style="color: white;font-size: 0.8em;align-content: end;margin-left: 5px">
-                        Pólizas contratadas por Prudencia Compañia Argentina de Seguros generales S A /CUIT 30-50004359-4/ Nº de inscripto en SSN 0040
-                    </label>
                 </div>
             </div>
-            @code {
+
+        </div>
 
 
-                //private const string btnPolizaStyleOff = "width: 32px;height: 20px;position: absolute;top: 7px;left: 8px;background-color: transparent;background-image: url('/images/Cotizacion/off.png');border: 0;padding: 0";
-                //private const string btnPolizaStyleOn = "width: 32px;height: 20px;position: absolute;top: 7px;left: 8px;background-color: transparent;background-image: url('/images/Cotizacion/on.png');border: 0;padding: 0";
-        private const string btnPolizaStyleOff = "width: 45px;height: 30px;position: absolute;top: 2px;left: 2px;background-color: transparent;background-image: url('/images/Cotizacion/off.png');border: 0;padding: 0;background-size:contain";
-        private const string btnPolizaStyleOn = "width: 45px;height: 30px;position: absolute;top: 2px;left: 2px;background-color: transparent;background-image: url('/images/Cotizacion/on.png');border: 0;padding: 0;background-size:contain";
-
-        private const string fsAStyleOff = "background-image: url('/images/Coberturas/a.png');border: 0ch;width: 190px;height: 125px;background-size:contain";
-        private const string fsAStyleOn = "background-image: url('/images/Coberturas/aClicked.png');border: 0ch;width: 190px;height: 125px;background-size:contain";
-
-        private const string fsB1StyleOff = "background-image: url('/images/Coberturas/b1.png');border: 0ch;width: 190px;height: 125px;background-size:contain";
-        private const string fsB1StyleOn = "background-image: url('/images/Coberturas/b1Clicked.png');border: 0ch;width: 190px;height: 125px;background-size:contain";
-
-        private const string fsCStyleOff = "background-image: url('/images/Coberturas/c.png');border: 0ch;width: 380px;height: 125px;background-size:contain";
-        private const string fsCStyleOn = "background-image: url('/images/Coberturas/cClicked.png');border: 0ch;width: 380px;height: 125px;background-size:contain";
-
-        private const string fsCfStyleOff = "background-image: url('/images/Coberturas/cf.png');border: 0ch;width: 380px;height: 125px;background-size:contain";
-        private const string fsCfStyleOn = "background-image: url('/images/Coberturas/cfClicked.png');border: 0ch;width: 380px;height: 125px;background-size:contain";
-
-        private const string fsD2StyleOff = "background-image: url('/images/Coberturas/d2.png');border: 0ch;width: 380px;height: 125px;background-size:contain";
-        private const string fsD2StyleOn = "background-image: url('/images/Coberturas/d2Clicked.png');border: 0ch;width: 380px;height: 125px;background-size:contain";
-
-        private string btnPolizaAStyle;
-        private string btnPolizaB1Style;
-        private string btnPolizaCStyle;
-        private string btnPolizaCfStyle;
-        private string btnPolizaD2Style;
-
-        private string fsAStyle;
-        private string fsB1Style;
-        private string fsCStyle;
-        private string fsCfStyle;
-        private string fsD2Style;
 
 
-        private string oAntiguedadGrupo = "F";
-        private int oGncValor = 0;
-        private string oCoberturaIDSeleccionada;
-        private decimal oCoberturaValorSeleccionado;
 
-        private string oCobSrc_a;
-        private string oCobSrc_b;
-        private string oCobSrc_b1;
-        private string oCobSrc_c;
-        private string oCobSrc_c1;
-        private string oCobSrc_cf;
-        private string oCobSrc_d2;
-        [Parameter] public int modeloID { get; set; }
-        //[Inject] protected ServicioSingleton Singleton { get; set; }
-        private CotizacionAutoRapidaDTO oCotizacionAutoRapidaDTO = new CotizacionAutoRapidaDTO();
-        private RespuestaCotizacionAutoRapidaDTO oRespuestaCotizacionAutoRapidaDTO;
-        private CotizacionEntitiesDTO cotizacionEntitiesDTO;
 
-        CotizacionPopUp cotizacionPopUp;
-        int oCoberturaIDSelected;
 
-        private string displayGNC;
-        protected override async Task OnInitializedAsync()
+        <br />
+
+    }
+
+}
+
+<div class="container-fluid" style="margin:5px">
+
+    <div class="row">
+
+        <label style="color: white;font-size: 0.8em;align-content: end;margin-left: 5px">
+            PÓLIZA ANUAL CON ACTUALIZACIÓN DE CUOTA CUATRIMESTRAL (actualiza valor de cuota cada 4 meses )
+        </label>
+    </div>
+    <div class="row">
+        <label style="color: white;font-size: 0.8em;align-content: end;margin-left: 5px">
+            Pólizas contratadas por Prudencia Compañia Argentina de Seguros generales S A /CUIT 30-50004359-4/ Nº de inscripto en SSN 0040
+        </label>
+    </div>
+</div>
+@code {
+
+
+    //private const string btnPolizaStyleOff = "width: 32px;height: 20px;position: absolute;top: 7px;left: 8px;background-color: transparent;background-image: url('/images/Cotizacion/off.png');border: 0;padding: 0";
+    //private const string btnPolizaStyleOn = "width: 32px;height: 20px;position: absolute;top: 7px;left: 8px;background-color: transparent;background-image: url('/images/Cotizacion/on.png');border: 0;padding: 0";
+    private const string btnPolizaStyleOff = "width: 45px;height: 30px;position: absolute;top: 2px;left: 2px;background-color: transparent;background-image: url('/images/Cotizacion/off.png');border: 0;padding: 0;background-size:contain";
+    private const string btnPolizaStyleOn = "width: 45px;height: 30px;position: absolute;top: 2px;left: 2px;background-color: transparent;background-image: url('/images/Cotizacion/on.png');border: 0;padding: 0;background-size:contain";
+
+    private const string fsAStyleOff = "background-image: url('/images/Coberturas/a.png');border: 0ch;width: 190px;height: 125px;background-size:contain";
+    private const string fsAStyleOn = "background-image: url('/images/Coberturas/aClicked.png');border: 0ch;width: 190px;height: 125px;background-size:contain";
+
+    private const string fsB1StyleOff = "background-image: url('/images/Coberturas/b1.png');border: 0ch;width: 190px;height: 125px;background-size:contain";
+    private const string fsB1StyleOn = "background-image: url('/images/Coberturas/b1Clicked.png');border: 0ch;width: 190px;height: 125px;background-size:contain";
+
+    private const string fsCStyleOff = "background-image: url('/images/Coberturas/c.png');border: 0ch;width: 380px;height: 125px;background-size:contain";
+    private const string fsCStyleOn = "background-image: url('/images/Coberturas/cClicked.png');border: 0ch;width: 380px;height: 125px;background-size:contain";
+
+    private const string fsCfStyleOff = "background-image: url('/images/Coberturas/cf.png');border: 0ch;width: 380px;height: 125px;background-size:contain";
+    private const string fsCfStyleOn = "background-image: url('/images/Coberturas/cfClicked.png');border: 0ch;width: 380px;height: 125px;background-size:contain";
+
+    private const string fsD2StyleOff = "background-image: url('/images/Coberturas/d2.png');border: 0ch;width: 380px;height: 125px;background-size:contain";
+    private const string fsD2StyleOn = "background-image: url('/images/Coberturas/d2Clicked.png');border: 0ch;width: 380px;height: 125px;background-size:contain";
+
+    private string btnPolizaAStyle;
+    private string btnPolizaB1Style;
+    private string btnPolizaCStyle;
+    private string btnPolizaCfStyle;
+    private string btnPolizaD2Style;
+
+    private string fsAStyle;
+    private string fsB1Style;
+    private string fsCStyle;
+    private string fsCfStyle;
+    private string fsD2Style;
+
+
+    private string oAntiguedadGrupo = "F";
+    private int oGncValor = 0;
+    private string oCoberturaIDSeleccionada;
+    private decimal oCoberturaValorSeleccionado;
+
+    private string oCobSrc_a;
+    private string oCobSrc_b;
+    private string oCobSrc_b1;
+    private string oCobSrc_c;
+    private string oCobSrc_c1;
+    private string oCobSrc_cf;
+    private string oCobSrc_d2;
+    [Parameter] public int modeloID { get; set; }
+    //[Inject] protected ServicioSingleton Singleton { get; set; }
+    private CotizacionAutoRapidaDTO oCotizacionAutoRapidaDTO = new CotizacionAutoRapidaDTO();
+    private RespuestaCotizacionAutoRapidaDTO oRespuestaCotizacionAutoRapidaDTO;
+    private CotizacionEntitiesDTO cotizacionEntitiesDTO;
+
+
+    CotizacionPopUp cotizacionPopUp;
+    ModoPopUp modoPopUp;
+    int oCoberturaIDSelected;
+
+    private string displayGNC;
+    protected override async Task OnInitializedAsync()
+    {
+
+        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+
+        btnPolizaAStyle = btnPolizaStyleOff;
+        btnPolizaB1Style = btnPolizaStyleOff;
+        btnPolizaCStyle = btnPolizaStyleOff;
+        btnPolizaCfStyle = btnPolizaStyleOff;
+        btnPolizaD2Style = btnPolizaStyleOff;
+
+        fsAStyle = fsAStyleOff;
+        fsB1Style = fsB1StyleOff;
+        fsCStyle = fsCStyleOff;
+        fsCfStyle = fsCfStyleOff;
+        fsD2Style = fsD2StyleOff;
+
+
+        oCobSrc_a = "a";
+        oCobSrc_b = "b";
+        oCobSrc_b1 = "b1";
+        oCobSrc_c = "c";
+        oCobSrc_c1 = "c1";
+        oCobSrc_cf = "cf";
+        oCobSrc_d2 = "d2";
+
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+        int oAntiguedad = DateTime.Today.Year - oCotizacionAutoDTO.vehiculo.anio;
+
+        if (oCotizacionAutoDTO.vehiculo.tieneGNC == true)
         {
+            displayGNC = "block";
+        }
+        else
+        {
+            displayGNC = "none";
+        }
 
-            string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
-            cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
-
-            btnPolizaAStyle = btnPolizaStyleOff;
-            btnPolizaB1Style = btnPolizaStyleOff;
-            btnPolizaCStyle = btnPolizaStyleOff;
-            btnPolizaCfStyle = btnPolizaStyleOff;
-            btnPolizaD2Style = btnPolizaStyleOff;
-
-            fsAStyle = fsAStyleOff;
-            fsB1Style = fsB1StyleOff;
-            fsCStyle = fsCStyleOff;
-            fsCfStyle = fsCfStyleOff;
-            fsD2Style = fsD2StyleOff;
-
-
-            oCobSrc_a = "a";
-            oCobSrc_b = "b";
-            oCobSrc_b1 = "b1";
-            oCobSrc_c = "c";
-            oCobSrc_c1 = "c1";
-            oCobSrc_cf = "cf";
-            oCobSrc_d2 = "d2";
-
-            string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
-            CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
-            int oAntiguedad = DateTime.Today.Year - oCotizacionAutoDTO.vehiculo.anio;
-
+        if (oAntiguedad <= 10)
+        {
+            oAntiguedadGrupo = "A";
             if (oCotizacionAutoDTO.vehiculo.tieneGNC == true)
-            {
-                displayGNC = "block";
-            }
+                oGncValor = 60000;
+        }
+        else
+        {
+            if (oCotizacionAutoDTO.vehiculo.tieneGNC == true)
+                oGncValor = 60000;
+
+            if (oAntiguedad <= 15)
+                oAntiguedadGrupo = "B";
             else
             {
-                displayGNC = "none";
-            }
-
-            if (oAntiguedad <= 10)
-            {
-                oAntiguedadGrupo = "A";
-                if (oCotizacionAutoDTO.vehiculo.tieneGNC == true)
-                    oGncValor = 60000;
-            }
-            else
-            {
-                if (oCotizacionAutoDTO.vehiculo.tieneGNC == true)
-                    oGncValor = 50000;
-
-                if (oAntiguedad <= 15)
-                    oAntiguedadGrupo = "B";
+                if (oAntiguedad <= 20)
+                    oAntiguedadGrupo = "C";
                 else
                 {
-                    if (oAntiguedad <= 20)
-                        oAntiguedadGrupo = "C";
+                    if (oAntiguedad <= 25)
+                        oAntiguedadGrupo = "D";
                     else
                     {
-                        if (oAntiguedad <= 25)
-                            oAntiguedadGrupo = "D";
+                        if (oAntiguedad <= 30)
+                            oAntiguedadGrupo = "E";
                         else
-                        {
-                            if (oAntiguedad <= 30)
-                                oAntiguedadGrupo = "E";
-                            else
-                                oAntiguedadGrupo = "F";
-                        }
+                            oAntiguedadGrupo = "F";
                     }
                 }
             }
-
-
-            oCotizacionAutoDTO.tieneAcreedorPrendario = false;
-            oCotizacionAutoDTO.clausulaAjuste = 0;
-            oCotizacionAutoDTO.tipoAjustePrima = "N";
-            oCotizacionAutoDTO.porcAjustePrima = 0;
-            //oCotizacionAutoDTO.vehiculo.patente = "XXX000";
-            oCotizacionAutoDTO.vehiculo.sumaAsegurada = -1;
-
-
-            //oCotizacionAutoRapidaDTO.cotizacionID = oCotizacionAutoDTO.cotizacionID;
-            oCotizacionAutoRapidaDTO.codigoPostal = oCotizacionAutoDTO.asegurado.codigoPostal;
-            oCotizacionAutoRapidaDTO.tieneAcreedorPrendario = oCotizacionAutoDTO.tieneAcreedorPrendario;
-            oCotizacionAutoRapidaDTO.clausulaAjuste = oCotizacionAutoDTO.clausulaAjuste;
-            oCotizacionAutoRapidaDTO.tipoAjustePrima = oCotizacionAutoDTO.tipoAjustePrima;
-            oCotizacionAutoRapidaDTO.porcAjustePrima = oCotizacionAutoDTO.porcAjustePrima;
-
-            oCotizacionAutoRapidaDTO.vehiculo = oCotizacionAutoDTO.vehiculo;
-
-            var responseHttp = await repositorio.Post<CotizacionAutoRapidaDTO, RespuestaCotizacionAutoRapidaDTO>("api/Externo/Prudencia/cotizaciones/autosrapida", oCotizacionAutoRapidaDTO);
-
-            if (responseHttp.Error)
-            {
-                var mensajeError = await responseHttp.GetBody();
-
-                await mostrarMensajes.MostrarMensajeError(mensajeError);
-                Console.WriteLine(mensajeError);
-                navigationManager.NavigateTo("/ziren/infopersonal");
-            }
-            else
-            {
-
-                oRespuestaCotizacionAutoRapidaDTO = responseHttp.Response;
-                oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoRapidaDTO.cotizacionID;
-
-                CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-                await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
-                Console.WriteLine(CotizacionAutoDTOJson);
-            }
-
-
-
         }
-        private async Task OnCoberturaClick(string oCoberturaIDStr, decimal Valor)
+
+
+        oCotizacionAutoDTO.tieneAcreedorPrendario = false;
+        oCotizacionAutoDTO.clausulaAjuste = 20;
+        oCotizacionAutoDTO.clausulaAjuste = 0;
+        oCotizacionAutoDTO.tipoAjustePrima = "N";
+        oCotizacionAutoDTO.porcAjustePrima = 0;
+        //oCotizacionAutoDTO.vehiculo.patente = "XXX000";
+        oCotizacionAutoDTO.vehiculo.sumaAsegurada = -1;
+        oCotizacionAutoDTO.vehiculo.valorGNC = oGncValor;
+
+
+        //oCotizacionAutoRapidaDTO.cotizacionID = oCotizacionAutoDTO.cotizacionID;
+        oCotizacionAutoRapidaDTO.codigoPostal = oCotizacionAutoDTO.asegurado.codigoPostal;
+        oCotizacionAutoRapidaDTO.tieneAcreedorPrendario = oCotizacionAutoDTO.tieneAcreedorPrendario;
+        oCotizacionAutoRapidaDTO.clausulaAjuste = oCotizacionAutoDTO.clausulaAjuste;
+        oCotizacionAutoRapidaDTO.tipoAjustePrima = oCotizacionAutoDTO.tipoAjustePrima;
+        oCotizacionAutoRapidaDTO.porcAjustePrima = oCotizacionAutoDTO.porcAjustePrima;
+
+        oCotizacionAutoRapidaDTO.vehiculo = oCotizacionAutoDTO.vehiculo;
+
+        var responseHttp = await repositorio.Post<CotizacionAutoRapidaDTO, RespuestaCotizacionAutoRapidaDTO>("api/Externo/Prudencia/cotizaciones/autosrapida", oCotizacionAutoRapidaDTO);
+
+        if (responseHttp.Error)
         {
-            int oCoberturaID;
-            switch (oCoberturaIDStr)
-            {
-                case "a":
+            var mensajeError = await responseHttp.GetBody();
 
-                    if (oCobSrc_a == "aClicked")
-                    {
-                        oCoberturaID = 0;
-                        oCoberturaValorSeleccionado = 0;
-                        oCoberturaIDSeleccionada = "";
-                        oCoberturaIDSelected = 0;
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            Console.WriteLine(mensajeError);
+            navigationManager.NavigateTo("/ziren/infopersonal");
+        }
+        else
+        {
 
-                        fsAStyle = fsAStyleOff;
-                        fsB1Style = fsB1StyleOff;
-                        fsCStyle = fsCStyleOff;
-                        fsCfStyle = fsCfStyleOff;
-                        fsD2Style = fsD2StyleOff;
+            oRespuestaCotizacionAutoRapidaDTO = responseHttp.Response;
+            oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoRapidaDTO.cotizacionID;
 
-                        btnPolizaAStyle = btnPolizaStyleOff;
-                        btnPolizaB1Style = btnPolizaStyleOff;
-                        btnPolizaCStyle = btnPolizaStyleOff;
-                        btnPolizaCfStyle = btnPolizaStyleOff;
-                        btnPolizaD2Style = btnPolizaStyleOff;
+            CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+            await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+            await OnCoberturaClick("a", oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a);
+            Console.WriteLine(CotizacionAutoDTOJson);
+        }
 
-                        oCobSrc_a = "a";
-                        oCobSrc_b1 = "b1";
-                        oCobSrc_c = "c";
-                        oCobSrc_cf = "cf";
-                        oCobSrc_d2 = "d2";
-                    }
-                    else
-                    {
-                        oCoberturaID = 1;
-                        oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a;
-                        oCoberturaIDSeleccionada = "1";
-                        oCoberturaIDSelected = 1;
 
-                        fsAStyle = fsAStyleOn;
-                        fsB1Style = fsB1StyleOff;
-                        fsCStyle = fsCStyleOff;
-                        fsCfStyle = fsCfStyleOff;
-                        fsD2Style = fsD2StyleOff;
 
-                        btnPolizaAStyle = btnPolizaStyleOn;
-                        btnPolizaB1Style = btnPolizaStyleOff;
-                        btnPolizaCStyle = btnPolizaStyleOff;
-                        btnPolizaCfStyle = btnPolizaStyleOff;
-                        btnPolizaD2Style = btnPolizaStyleOff;
+    }
+    private async Task OnCoberturaClick(string oCoberturaIDStr, decimal Valor)
+    {
+        int oCoberturaID;
+        switch (oCoberturaIDStr)
+        {
+            case "a":
 
-                        oCobSrc_a = "aClicked";
-                        oCobSrc_b1 = "b1";
-                        oCobSrc_c = "c";
-                        oCobSrc_cf = "cf";
-                        oCobSrc_d2 = "d2";
-                    }
-                    break;
-                case "b1":
-
-                    if (oCobSrc_b1 == "b1Clicked")
-                    {
-                        oCoberturaID = 1;
-                        oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a;
-                        oCoberturaIDSeleccionada = "1";
-                        oCoberturaIDSelected = 1;
-
-                        fsAStyle = fsAStyleOn;
-                        fsB1Style = fsB1StyleOff;
-                        fsCStyle = fsCStyleOff;
-                        fsCfStyle = fsCfStyleOff;
-                        fsD2Style = fsD2StyleOff;
-
-                        btnPolizaAStyle = btnPolizaStyleOn;
-                        btnPolizaB1Style = btnPolizaStyleOff;
-                        btnPolizaCStyle = btnPolizaStyleOff;
-                        btnPolizaCfStyle = btnPolizaStyleOff;
-                        btnPolizaD2Style = btnPolizaStyleOff;
-
-                        oCobSrc_a = "aClicked";
-                        oCobSrc_b1 = "b1";
-                        oCobSrc_c = "c";
-                        oCobSrc_cf = "cf";
-                        oCobSrc_d2 = "d2";
-                    }
-                    else
-                    {
-                        oCoberturaID = 2;
-                        oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1;
-                        oCoberturaIDSeleccionada = "2";
-                        oCoberturaIDSelected = 2;
-
-                        fsAStyle = fsAStyleOn;
-                        fsB1Style = fsB1StyleOn;
-                        fsCStyle = fsCStyleOff;
-                        fsCfStyle = fsCfStyleOff;
-                        fsD2Style = fsD2StyleOff;
-
-                        btnPolizaAStyle = btnPolizaStyleOn;
-                        btnPolizaB1Style = btnPolizaStyleOn;
-                        btnPolizaCStyle = btnPolizaStyleOff;
-                        btnPolizaCfStyle = btnPolizaStyleOff;
-                        btnPolizaD2Style = btnPolizaStyleOff;
-
-                        oCobSrc_a = "aClicked";
-                        oCobSrc_b1 = "b1Clicked";
-                        oCobSrc_c = "c";
-                        oCobSrc_cf = "cf";
-                        oCobSrc_d2 = "d2";
-                    }
-                    break;
-                case "c":
-
-                    if (oCobSrc_c == "cClicked")
-                    {
-                        oCoberturaID = 2;
-                        oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1;
-                        oCoberturaIDSeleccionada = "2";
-                        oCoberturaIDSelected = 2;
-
-                        fsAStyle = fsAStyleOn;
-                        fsB1Style = fsB1StyleOn;
-                        fsCStyle = fsCStyleOff;
-                        fsCfStyle = fsCfStyleOff;
-                        fsD2Style = fsD2StyleOff;
-
-                        btnPolizaAStyle = btnPolizaStyleOn;
-                        btnPolizaB1Style = btnPolizaStyleOn;
-                        btnPolizaCStyle = btnPolizaStyleOff;
-                        btnPolizaCfStyle = btnPolizaStyleOff;
-                        btnPolizaD2Style = btnPolizaStyleOff;
-
-                        oCobSrc_a = "aClicked";
-                        oCobSrc_b1 = "b1Clicked";
-                        oCobSrc_c = "c";
-                        oCobSrc_cf = "cf";
-                        oCobSrc_d2 = "d2";
-                    }
-                    else
-                    {
-                        oCoberturaID = 5;
-                        oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c;
-                        oCoberturaIDSeleccionada = "5";
-                        oCoberturaIDSelected = 5;
-
-                        fsAStyle = fsAStyleOn;
-                        fsB1Style = fsB1StyleOn;
-                        fsCStyle = fsCStyleOn;
-                        fsCfStyle = fsCfStyleOff;
-                        fsD2Style = fsD2StyleOff;
-
-                        btnPolizaAStyle = btnPolizaStyleOn;
-                        btnPolizaB1Style = btnPolizaStyleOn;
-                        btnPolizaCStyle = btnPolizaStyleOn;
-                        btnPolizaCfStyle = btnPolizaStyleOff;
-                        btnPolizaD2Style = btnPolizaStyleOff;
-
-                        oCobSrc_a = "aClicked";
-                        oCobSrc_b1 = "b1Clicked";
-                        oCobSrc_c = "cClicked";
-                        oCobSrc_cf = "cf";
-                        oCobSrc_d2 = "d2";
-                    }
-                    break;
-                case "cf":
-
-                    if (oCobSrc_cf == "cfClicked")
-                    {
-                        oCoberturaID = 5;
-                        oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c;
-                        oCoberturaIDSeleccionada = "5";
-                        oCoberturaIDSelected = 5;
-
-                        fsAStyle = fsAStyleOn;
-                        fsB1Style = fsB1StyleOn;
-                        fsCStyle = fsCStyleOn;
-                        fsCfStyle = fsCfStyleOff;
-                        fsD2Style = fsD2StyleOff;
-
-                        btnPolizaAStyle = btnPolizaStyleOn;
-                        btnPolizaB1Style = btnPolizaStyleOn;
-                        btnPolizaCStyle = btnPolizaStyleOn;
-                        btnPolizaCfStyle = btnPolizaStyleOff;
-                        btnPolizaD2Style = btnPolizaStyleOff;
-
-                        oCobSrc_a = "aClicked";
-                        oCobSrc_b1 = "b1Clicked";
-                        oCobSrc_c = "cClicked";
-                        oCobSrc_cf = "cf";
-                        oCobSrc_d2 = "d2";
-                    }
-                    else
-                    {
-                        oCoberturaID = 23;
-                        oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf;
-                        oCoberturaIDSeleccionada = "23";
-                        oCoberturaIDSelected = 23;
-
-                        fsAStyle = fsAStyleOn;
-                        fsB1Style = fsB1StyleOn;
-                        fsCStyle = fsCStyleOn;
-                        fsCfStyle = fsCfStyleOn;
-                        fsD2Style = fsD2StyleOff;
-
-                        btnPolizaAStyle = btnPolizaStyleOn;
-                        btnPolizaB1Style = btnPolizaStyleOn;
-                        btnPolizaCStyle = btnPolizaStyleOn;
-                        btnPolizaCfStyle = btnPolizaStyleOn;
-                        btnPolizaD2Style = btnPolizaStyleOff;
-
-                        oCobSrc_a = "aClicked";
-                        oCobSrc_b1 = "b1Clicked";
-                        oCobSrc_c = "cClicked";
-                        oCobSrc_cf = "cfClicked";
-                        oCobSrc_d2 = "d2";
-                    }
-                    break;
-                case "d2":
-
-                    if (oCobSrc_d2 == "d2Clicked")
-                    {
-                        oCoberturaID = 23;
-                        oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf;
-                        oCoberturaIDSeleccionada = "23";
-                        oCoberturaIDSelected = 23;
-
-                        fsAStyle = fsAStyleOn;
-                        fsB1Style = fsB1StyleOn;
-                        fsCStyle = fsCStyleOn;
-                        fsCfStyle = fsCfStyleOn;
-                        fsD2Style = fsD2StyleOff;
-
-                        btnPolizaAStyle = btnPolizaStyleOn;
-                        btnPolizaB1Style = btnPolizaStyleOn;
-                        btnPolizaCStyle = btnPolizaStyleOn;
-                        btnPolizaCfStyle = btnPolizaStyleOn;
-                        btnPolizaD2Style = btnPolizaStyleOff;
-
-                        oCobSrc_a = "aClicked";
-                        oCobSrc_b1 = "b1Clicked";
-                        oCobSrc_c = "cClicked";
-                        oCobSrc_cf = "cfClicked";
-                        oCobSrc_d2 = "d2";
-                    }
-                    else
-                    {
-                        oCoberturaID = 10;
-                        oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2;
-                        oCoberturaIDSeleccionada = "10";
-                        oCoberturaIDSelected = 10;
-
-                        fsAStyle = fsAStyleOn;
-                        fsB1Style = fsB1StyleOn;
-                        fsCStyle = fsCStyleOn;
-                        fsCfStyle = fsCfStyleOn;
-                        fsD2Style = fsD2StyleOn;
-
-                        btnPolizaAStyle = btnPolizaStyleOn;
-                        btnPolizaB1Style = btnPolizaStyleOn;
-                        btnPolizaCStyle = btnPolizaStyleOn;
-                        btnPolizaCfStyle = btnPolizaStyleOn;
-                        btnPolizaD2Style = btnPolizaStyleOn;
-
-                        oCobSrc_a = "aClicked";
-                        oCobSrc_b1 = "b1Clicked";
-                        oCobSrc_c = "cClicked";
-                        oCobSrc_cf = "cfClicked";
-                        oCobSrc_d2 = "d2Clicked";
-                    }
-                    break;
-                default:
+                if (oCobSrc_a == "aClicked")
+                {
                     oCoberturaID = 0;
+                    oCoberturaValorSeleccionado = 0;
+                    oCoberturaIDSeleccionada = "";
                     oCoberturaIDSelected = 0;
-                    break;
+
+                    fsAStyle = fsAStyleOff;
+                    fsB1Style = fsB1StyleOff;
+                    fsCStyle = fsCStyleOff;
+                    fsCfStyle = fsCfStyleOff;
+                    fsD2Style = fsD2StyleOff;
+
+                    btnPolizaAStyle = btnPolizaStyleOff;
+                    btnPolizaB1Style = btnPolizaStyleOff;
+                    btnPolizaCStyle = btnPolizaStyleOff;
+                    btnPolizaCfStyle = btnPolizaStyleOff;
+                    btnPolizaD2Style = btnPolizaStyleOff;
+
+                    oCobSrc_a = "a";
+                    oCobSrc_b1 = "b1";
+                    oCobSrc_c = "c";
+                    oCobSrc_cf = "cf";
+                    oCobSrc_d2 = "d2";
+                }
+                else
+                {
+                    oCoberturaID = 1;
+                    oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a;
+                    oCoberturaIDSeleccionada = "1";
+                    oCoberturaIDSelected = 1;
+
+                    fsAStyle = fsAStyleOn;
+                    fsB1Style = fsB1StyleOff;
+                    fsCStyle = fsCStyleOff;
+                    fsCfStyle = fsCfStyleOff;
+                    fsD2Style = fsD2StyleOff;
+
+                    btnPolizaAStyle = btnPolizaStyleOn;
+                    btnPolizaB1Style = btnPolizaStyleOff;
+                    btnPolizaCStyle = btnPolizaStyleOff;
+                    btnPolizaCfStyle = btnPolizaStyleOff;
+                    btnPolizaD2Style = btnPolizaStyleOff;
+
+                    oCobSrc_a = "aClicked";
+                    oCobSrc_b1 = "b1";
+                    oCobSrc_c = "c";
+                    oCobSrc_cf = "cf";
+                    oCobSrc_d2 = "d2";
+                }
+                break;
+            case "b1":
+
+                if (oCobSrc_b1 == "b1Clicked")
+                {
+                    oCoberturaID = 1;
+                    oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a;
+                    oCoberturaIDSeleccionada = "1";
+                    oCoberturaIDSelected = 1;
+
+                    fsAStyle = fsAStyleOn;
+                    fsB1Style = fsB1StyleOff;
+                    fsCStyle = fsCStyleOff;
+                    fsCfStyle = fsCfStyleOff;
+                    fsD2Style = fsD2StyleOff;
+
+                    btnPolizaAStyle = btnPolizaStyleOn;
+                    btnPolizaB1Style = btnPolizaStyleOff;
+                    btnPolizaCStyle = btnPolizaStyleOff;
+                    btnPolizaCfStyle = btnPolizaStyleOff;
+                    btnPolizaD2Style = btnPolizaStyleOff;
+
+                    oCobSrc_a = "aClicked";
+                    oCobSrc_b1 = "b1";
+                    oCobSrc_c = "c";
+                    oCobSrc_cf = "cf";
+                    oCobSrc_d2 = "d2";
+                }
+                else
+                {
+                    oCoberturaID = 2;
+                    oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1;
+                    oCoberturaIDSeleccionada = "2";
+                    oCoberturaIDSelected = 2;
+
+                    fsAStyle = fsAStyleOn;
+                    fsB1Style = fsB1StyleOn;
+                    fsCStyle = fsCStyleOff;
+                    fsCfStyle = fsCfStyleOff;
+                    fsD2Style = fsD2StyleOff;
+
+                    btnPolizaAStyle = btnPolizaStyleOn;
+                    btnPolizaB1Style = btnPolizaStyleOn;
+                    btnPolizaCStyle = btnPolizaStyleOff;
+                    btnPolizaCfStyle = btnPolizaStyleOff;
+                    btnPolizaD2Style = btnPolizaStyleOff;
+
+                    oCobSrc_a = "aClicked";
+                    oCobSrc_b1 = "b1Clicked";
+                    oCobSrc_c = "c";
+                    oCobSrc_cf = "cf";
+                    oCobSrc_d2 = "d2";
+                }
+                break;
+            case "c":
+
+                if (oCobSrc_c == "cClicked")
+                {
+                    oCoberturaID = 2;
+                    oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1;
+                    oCoberturaIDSeleccionada = "2";
+                    oCoberturaIDSelected = 2;
+
+                    fsAStyle = fsAStyleOn;
+                    fsB1Style = fsB1StyleOn;
+                    fsCStyle = fsCStyleOff;
+                    fsCfStyle = fsCfStyleOff;
+                    fsD2Style = fsD2StyleOff;
+
+                    btnPolizaAStyle = btnPolizaStyleOn;
+                    btnPolizaB1Style = btnPolizaStyleOn;
+                    btnPolizaCStyle = btnPolizaStyleOff;
+                    btnPolizaCfStyle = btnPolizaStyleOff;
+                    btnPolizaD2Style = btnPolizaStyleOff;
+
+                    oCobSrc_a = "aClicked";
+                    oCobSrc_b1 = "b1Clicked";
+                    oCobSrc_c = "c";
+                    oCobSrc_cf = "cf";
+                    oCobSrc_d2 = "d2";
+                }
+                else
+                {
+                    oCoberturaID = 5;
+                    oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c;
+                    oCoberturaIDSeleccionada = "5";
+                    oCoberturaIDSelected = 5;
+
+                    fsAStyle = fsAStyleOn;
+                    fsB1Style = fsB1StyleOn;
+                    fsCStyle = fsCStyleOn;
+                    fsCfStyle = fsCfStyleOff;
+                    fsD2Style = fsD2StyleOff;
+
+                    btnPolizaAStyle = btnPolizaStyleOn;
+                    btnPolizaB1Style = btnPolizaStyleOn;
+                    btnPolizaCStyle = btnPolizaStyleOn;
+                    btnPolizaCfStyle = btnPolizaStyleOff;
+                    btnPolizaD2Style = btnPolizaStyleOff;
+
+                    oCobSrc_a = "aClicked";
+                    oCobSrc_b1 = "b1Clicked";
+                    oCobSrc_c = "cClicked";
+                    oCobSrc_cf = "cf";
+                    oCobSrc_d2 = "d2";
+                }
+                break;
+            case "cf":
+
+                if (oCobSrc_cf == "cfClicked")
+                {
+                    oCoberturaID = 5;
+                    oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c;
+                    oCoberturaIDSeleccionada = "5";
+                    oCoberturaIDSelected = 5;
+
+                    fsAStyle = fsAStyleOn;
+                    fsB1Style = fsB1StyleOn;
+                    fsCStyle = fsCStyleOn;
+                    fsCfStyle = fsCfStyleOff;
+                    fsD2Style = fsD2StyleOff;
+
+                    btnPolizaAStyle = btnPolizaStyleOn;
+                    btnPolizaB1Style = btnPolizaStyleOn;
+                    btnPolizaCStyle = btnPolizaStyleOn;
+                    btnPolizaCfStyle = btnPolizaStyleOff;
+                    btnPolizaD2Style = btnPolizaStyleOff;
+
+                    oCobSrc_a = "aClicked";
+                    oCobSrc_b1 = "b1Clicked";
+                    oCobSrc_c = "cClicked";
+                    oCobSrc_cf = "cf";
+                    oCobSrc_d2 = "d2";
+                }
+                else
+                {
+                    oCoberturaID = 23;
+                    oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf;
+                    oCoberturaIDSeleccionada = "23";
+                    oCoberturaIDSelected = 23;
+
+                    fsAStyle = fsAStyleOn;
+                    fsB1Style = fsB1StyleOn;
+                    fsCStyle = fsCStyleOn;
+                    fsCfStyle = fsCfStyleOn;
+                    fsD2Style = fsD2StyleOff;
+
+                    btnPolizaAStyle = btnPolizaStyleOn;
+                    btnPolizaB1Style = btnPolizaStyleOn;
+                    btnPolizaCStyle = btnPolizaStyleOn;
+                    btnPolizaCfStyle = btnPolizaStyleOn;
+                    btnPolizaD2Style = btnPolizaStyleOff;
+
+                    oCobSrc_a = "aClicked";
+                    oCobSrc_b1 = "b1Clicked";
+                    oCobSrc_c = "cClicked";
+                    oCobSrc_cf = "cfClicked";
+                    oCobSrc_d2 = "d2";
+                }
+                break;
+            case "d2":
+
+                if (oCobSrc_d2 == "d2Clicked")
+                {
+                    oCoberturaID = 23;
+                    oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf;
+                    oCoberturaIDSeleccionada = "23";
+                    oCoberturaIDSelected = 23;
+
+                    fsAStyle = fsAStyleOn;
+                    fsB1Style = fsB1StyleOn;
+                    fsCStyle = fsCStyleOn;
+                    fsCfStyle = fsCfStyleOn;
+                    fsD2Style = fsD2StyleOff;
+
+                    btnPolizaAStyle = btnPolizaStyleOn;
+                    btnPolizaB1Style = btnPolizaStyleOn;
+                    btnPolizaCStyle = btnPolizaStyleOn;
+                    btnPolizaCfStyle = btnPolizaStyleOn;
+                    btnPolizaD2Style = btnPolizaStyleOff;
+
+                    oCobSrc_a = "aClicked";
+                    oCobSrc_b1 = "b1Clicked";
+                    oCobSrc_c = "cClicked";
+                    oCobSrc_cf = "cfClicked";
+                    oCobSrc_d2 = "d2";
+                }
+                else
+                {
+                    oCoberturaID = 10;
+                    oCoberturaValorSeleccionado = @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2;
+                    oCoberturaIDSeleccionada = "10";
+                    oCoberturaIDSelected = 10;
+
+                    fsAStyle = fsAStyleOn;
+                    fsB1Style = fsB1StyleOn;
+                    fsCStyle = fsCStyleOn;
+                    fsCfStyle = fsCfStyleOn;
+                    fsD2Style = fsD2StyleOn;
+
+                    btnPolizaAStyle = btnPolizaStyleOn;
+                    btnPolizaB1Style = btnPolizaStyleOn;
+                    btnPolizaCStyle = btnPolizaStyleOn;
+                    btnPolizaCfStyle = btnPolizaStyleOn;
+                    btnPolizaD2Style = btnPolizaStyleOn;
+
+                    oCobSrc_a = "aClicked";
+                    oCobSrc_b1 = "b1Clicked";
+                    oCobSrc_c = "cClicked";
+                    oCobSrc_cf = "cfClicked";
+                    oCobSrc_d2 = "d2Clicked";
+                }
+                break;
+            default:
+                oCoberturaID = 0;
+                oCoberturaIDSelected = 0;
+                break;
 
 
 
-
-            }
-            Console.WriteLine(oCoberturaID);
 
         }
+        Console.WriteLine(oCoberturaID);
 
-        private async Task OnConfirmClick(int oCoberturaIDSelectedAux)
+    }
+
+    private async Task OnConfirmClick(int oCoberturaIDSelectedAux)
+    {
+        if (oCoberturaIDSelectedAux == 0)
         {
-            if (oCoberturaIDSelectedAux == 0)
-            {
-                await mostrarMensajes.MostrarMensajeError("Debe Seleccionar una Cobertura");
-                return;
-
-            }
-            oCoberturaIDSelected = 0;
-
-            oCoberturaIDSelected = oCoberturaIDSelectedAux;
-            Console.WriteLine("oCoberturaIDSelected OnConfirmClick" + oCoberturaIDSelected);
-            cotizacionPopUp.Mostrar();
+            await mostrarMensajes.MostrarMensajeError("Debe Seleccionar una Cobertura");
+            return;
 
         }
+        oCoberturaIDSelected = 0;
 
-        private async Task onConfirm()
+        oCoberturaIDSelected = oCoberturaIDSelectedAux;
+        Console.WriteLine("oCoberturaIDSelected OnConfirmClick" + oCoberturaIDSelected);
+        cotizacionPopUp.Mostrar();
+
+    }
+
+    private async Task onConfirm()
+    {
+        cotizacionPopUp.Ocultar();
+        modoPopUp.Mostrar();
+
+    }
+    private async Task onContinuar()
+    {
+        cotizacionPopUp.Ocultar();
+        navigationManager.NavigateTo($"/ziren/infopersonalcompleta/{oCoberturaIDSelected}");
+    }
+    private async Task onModoComodo()
+    {
+        modoPopUp.Ocultar();
+        JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+        SendEmail("ModoComodo");
+    }
+    private async Task onPagoEf()
+    {
+        modoPopUp.Ocultar();
+        JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo-efectivo/", "_blank");
+        SendEmail("PagoEfectivo");
+    }
+    private async Task SendEmail(string origen)
+    {
+        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO cotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+        #region Send Email
+        Decimal valor;
+        string coberturaStr;
+        switch (oCoberturaIDSelected)
         {
-            cotizacionPopUp.Ocultar();
-            Console.WriteLine("oCoberturaIDSelected onConfirm" + oCoberturaIDSelected);
-            navigationManager.NavigateTo($"/ziren/infopersonalcompleta/{oCoberturaIDSelected}");
+            case 1:
+                valor = oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a;
+                coberturaStr = "a";
+                break;
+            case 2:
+
+                valor = oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1;
+                coberturaStr = "b1";
+                break;
+            case 5:
+
+                valor = oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c;
+                coberturaStr = "c";
+                break;
+            case 23:
+
+                valor = oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf;
+                coberturaStr = "cf";
+                break;
+            case 10:
+
+                valor = oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2;
+                coberturaStr = "d2";
+                break;
+            default:
+                valor = 0;
+                coberturaStr = "error";
+                break;
+
+
+
+
         }
 
-        private async Task onModoComodo()
+        //
+        #region MyRegion
+
+        System.Text.StringBuilder sHtml = new System.Text.StringBuilder();
+        string CeldaBegin = "<tr><td align='left'>";
+        string CeldaEnd = "</td></tr>";
+
+
+        sHtml.Append("<HTML style='height: 100 %;margin: 0;background-image: radial-gradient(circle, #803496, #70288d, #5f1c83, #4e107a, #3c0371);'><body >");
+        sHtml.Append("<table border='0' align='center'>");
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Nombre : " + cotizacionAutoDTO.asegurado.nombre);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Cobertura : " + coberturaStr);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Valor : " + valor);
+        sHtml.Append(CeldaEnd);
+
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Mail : " + cotizacionAutoDTO.asegurado.mail);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Tel : " + cotizacionAutoDTO.asegurado.telefono);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Fec.Nac : " + cotizacionAutoDTO.asegurado.fechaNacimiento);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("C.P. : " + cotizacionAutoDTO.asegurado.codigoPostal);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Marca : " + cotizacionEntitiesDTO.marcasAutos.descripcion);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Modelo : " + cotizacionEntitiesDTO.modelosAutos.descripcionGrupo);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Version : " + cotizacionEntitiesDTO.versionesAutos.descripcion);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Ano : " + cotizacionEntitiesDTO.ano);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Gnc : " + cotizacionAutoDTO.vehiculo.tieneGNC);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Gnc Valor: " + oGncValor);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Provincia : " + cotizacionEntitiesDTO.provincia.descripcion);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+
+        sHtml.Append("<img src='https://cotice.ziren.com.ar/images/icon-192.png' width='100'  />");
+        sHtml.Append("<img src='https://cotice.ziren.com.ar/images/LogoPrudencia.png' width='200'  />");
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append("</table></body></HTML>");
+
+
+        #endregion
+
+        string oSubject = "Ziren Cotizador=> Nueva Consulta Origen " + origen;
+
+        MailApp oMailApp = new MailApp();
+        oMailApp.To = "clientes@ziren.com.ar";
+        //oMailApp.Bcc = "jm2@outlook.com.ar";
+        oMailApp.Body = sHtml.ToString();
+        oMailApp.Subject = oSubject;
+
+        var responseHttp = await repositorio.Post<MailApp, string>("api/Externo/Prudencia/SendMail", oMailApp);
+
+        if (responseHttp.Error)
         {
-            cotizacionPopUp.Ocultar();
-            JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
-
-            //navigationManager.NavigateTo($"https://ziren.com.ar/", forceLoad: true);
-
-
+            Console.WriteLine("No se pudo enviar el mail con los enlaces para la poliza");
 
         }
-        private async Task OnButtonPopUpClick(string mensajeTipo)
+        else
         {
-
-            string franquiciaStr = "<div> Es el monto a pagar por el asegurado en caso de tener un daño";
-            franquiciaStr = franquiciaStr + " (SOLO APLICA  en el auto. Ej: Si tenés un daño en el auto con un costo de reparación de $30.000";
-            franquiciaStr = franquiciaStr + " y tu franquicia es de $10.000, solo pagás $10.000 y LA COMPAÑÍA  los $20.000 restantes.";
-
-            string limitebasicoStr = "<div>Rotura de cristales laterales y cerradura: Le serán reconocidos al Asegurado los gastos que ocasione la reposición, hasta la suma de $20.000";
-            limitebasicoStr = limitebasicoStr + " <br /> Rotura de parabrisas y/ o luneta: reposición del parabrisas y/ o luneta trasera en caso de rotura, hasta la suma que seguidamente se indica por uno o varios eventos ocurridos durante la vigencia de la póliza: ";
-            limitebasicoStr = limitebasicoStr + " <br/> A) $ 30.000.- si el valor del vehículo del vehículo asegurado más el de los accesorios cubiertos y detallados en la póliza con que pudiera contar no supera la suma de $ 350.000";
-            limitebasicoStr = limitebasicoStr + " <br/> B) $ 50.000.- si el valor del vehículo asegurado más el de los accesorios cubiertos y detallados en la póliza con que pudiera contar supera la suma de $ 350.000 </div>";
-
-            string limiteaumentadoStr = "<div> Rotura de cristales laterales y cerradura: Le serán reconocidos al Asegurado";
-            limiteaumentadoStr = limiteaumentadoStr + " los gastos que ocasione la reposición, hasta la suma de $ 40.000 ";
-            limiteaumentadoStr = limiteaumentadoStr + " <br /> Rotura de parabrisas y/oluneta: reposición en caso de rotura, hasta la suma que seguidamente se indica";
-            limiteaumentadoStr = limiteaumentadoStr + " por uno o varios eventos ocurridos durante la vigencia de la póliza será de hasta $ 55.000.-cualquiera sea el valor de la unidad. ";
-
-            string limitegranizoStr = "<div> El Asegurador amplia la cobertura de la póliza a cubrir los daños parciales ocasionados";
-            limitegranizoStr = limitegranizoStr + " al vehículo asegurado a consecuencia de granizo hasta la suma de $100.000";
-
-            switch (mensajeTipo.ToLower())
-            {
-                case "franquicia":
-                    await mostrarMensajes.MostrarMensajeBase("Que es la Franquicia? ", franquiciaStr, "info");
-                    break;
-                case "limitebasico":
-                    await mostrarMensajes.MostrarMensajeBase("Limite Basico ", limitebasicoStr, "info");
-                    break;
-                case "limiteaumentado":
-                    await mostrarMensajes.MostrarMensajeBase("Limite Aumentado ", limiteaumentadoStr, "info");
-                    break;
-                case "limitegranizo":
-                    await mostrarMensajes.MostrarMensajeBase("Limite de Granizo ", limitegranizoStr, "info");
-                    break;
-                case "verlimite":
-                    await mostrarMensajes.MostrarMensajeBase("Limite ", "Aca que va?", "info");
-                    break;
-                default:
-
-
-                    break;
+            Console.WriteLine("Se le envio un mail con los enlaces para la poliza");
+        }
 
 
 
 
-            }
+
+
+
+        #endregion
+    }
+    private async Task OnButtonPopUpClick(string mensajeTipo)
+    {
+
+        string franquiciaStr = "<div> Es el monto a pagar por el asegurado en caso de tener un daño";
+        franquiciaStr = franquiciaStr + " (SOLO APLICA  en el auto. Ej: Si tenés un daño en el auto con un costo de reparación de $30.000";
+        franquiciaStr = franquiciaStr + " y tu franquicia es de $10.000, solo pagás $10.000 y LA COMPAÑÍA  los $20.000 restantes.";
+
+        string limitebasicoStr = "<div>Rotura de cristales laterales y cerradura: Le serán reconocidos al Asegurado los gastos que ocasione la reposición, hasta la suma de $20.000";
+        limitebasicoStr = limitebasicoStr + " <br /> Rotura de parabrisas y/ o luneta: reposición del parabrisas y/ o luneta trasera en caso de rotura, hasta la suma que seguidamente se indica por uno o varios eventos ocurridos durante la vigencia de la póliza: ";
+        limitebasicoStr = limitebasicoStr + " <br/> A) $ 30.000.- si el valor del vehículo del vehículo asegurado más el de los accesorios cubiertos y detallados en la póliza con que pudiera contar no supera la suma de $ 350.000";
+        limitebasicoStr = limitebasicoStr + " <br/> B) $ 50.000.- si el valor del vehículo asegurado más el de los accesorios cubiertos y detallados en la póliza con que pudiera contar supera la suma de $ 350.000 </div>";
+
+        string limiteaumentadoStr = "<div> Rotura de cristales laterales y cerradura: Le serán reconocidos al Asegurado";
+        limiteaumentadoStr = limiteaumentadoStr + " los gastos que ocasione la reposición, hasta la suma de $ 40.000 ";
+        limiteaumentadoStr = limiteaumentadoStr + " <br /> Rotura de parabrisas y/oluneta: reposición en caso de rotura, hasta la suma que seguidamente se indica";
+        limiteaumentadoStr = limiteaumentadoStr + " por uno o varios eventos ocurridos durante la vigencia de la póliza será de hasta $ 55.000.-cualquiera sea el valor de la unidad. ";
+
+        string limitegranizoStr = "<div> El Asegurador amplia la cobertura de la póliza a cubrir los daños parciales ocasionados";
+        limitegranizoStr = limitegranizoStr + " al vehículo asegurado a consecuencia de granizo hasta la suma de $100.000";
+
+        switch (mensajeTipo.ToLower())
+        {
+            case "franquicia":
+                await mostrarMensajes.MostrarMensajeBase("Que es la Franquicia? ", franquiciaStr, "info");
+                break;
+            case "limitebasico":
+                await mostrarMensajes.MostrarMensajeBase("Limite Basico ", limitebasicoStr, "info");
+                break;
+            case "limiteaumentado":
+                await mostrarMensajes.MostrarMensajeBase("Limite Aumentado ", limiteaumentadoStr, "info");
+                break;
+            case "limitegranizo":
+                await mostrarMensajes.MostrarMensajeBase("Limite de Granizo ", limitegranizoStr, "info");
+                break;
+            case "verlimite":
+                await mostrarMensajes.MostrarMensajeBase("Limite ", "Aca que va?", "info");
+                break;
+            default:
+
+
+                break;
 
 
 
@@ -856,6 +1010,11 @@ else
 
 
 
+    }
 
 
-            }
+
+
+
+
+}

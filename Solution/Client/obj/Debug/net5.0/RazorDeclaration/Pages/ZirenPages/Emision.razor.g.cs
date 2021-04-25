@@ -97,7 +97,7 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
+#line 7 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
 using System.Text.Json;
 
 #line default
@@ -112,8 +112,9 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 300 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
+#line 323 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
        
+
     [Parameter] public int oAdjuntoID1 { get; set; }
     [Parameter] public int oAdjuntoID2 { get; set; }
     [Parameter] public int oAdjuntoID3 { get; set; }
@@ -144,10 +145,12 @@ using System.Text.Json;
     private List<TipoDocumentoDTO> oTipoDocumentoDTOList;
     private List<CondicionesIVADTO> oCondicionesIVADTOList;
     private List<ProvinciaDTO> oProvinciasList;
-    private List<TipoMedioPagoDTO> oTipoMedioPagoDTOList;
+    private List<TipoMedioPagoDTO> oTipoMedioPagoDTOList = new List<TipoMedioPagoDTO>();
     private DateTime? ofechaNacimiento;
     private DateTime? oInicioVigencia;
-    private DateTime? oVencimientoMedioPago;
+    private string oVencimientoMedioPago;
+    private string oVencimientoMedioPagoAno;
+    private string oVencimientoMedioPagoMes;
     private DateTime? oVtoPruebaHidr;
 
 
@@ -161,8 +164,16 @@ using System.Text.Json;
         Console.WriteLine("b444" + oAdjuntoID4);
         Console.WriteLine("b555" + oAdjuntoID5);
 
+        //await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNumeroMedioPago", false);
+        //await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNombreTitularTarjeta", false);
+        //await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoMes", false);
+        //await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoAno", false);
+        //await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtTipoDocTitularTarjeta", false);
+        //await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNroDocTitularTarjeta", false);
+
+
         oMostrarCargando = false;
-        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        string CotizacionAutoDTOJson = await JSRuntime.GetFromLocalStorage("CotizacionAutoDTO");
         oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
 
         var responseHttp = await repositorio.Get<List<TipoDocumentoDTO>>("api/Externo/Prudencia/catalogos/GetTiposDocumentos");
@@ -182,7 +193,19 @@ using System.Text.Json;
         oProvinciasList = responseHttp3.Response;
 
         var responseHttp4 = await repositorio.Get<List<TipoMedioPagoDTO>>("api/Externo/Prudencia/catalogos/GetMediosDePago");
-        oTipoMedioPagoDTOList = responseHttp4.Response;
+        List<TipoMedioPagoDTO> oTipoMedioPagoDTOListAux = responseHttp4.Response;
+        foreach (TipoMedioPagoDTO tipoMedioPagoDTO in oTipoMedioPagoDTOListAux)
+        {
+            if (tipoMedioPagoDTO.medioPagoID == "0")
+                continue;
+            if (tipoMedioPagoDTO.medioPagoID == "3")
+                tipoMedioPagoDTO.nombre = "TARJETA DE CREDITO - MERCADO PAGO";
+
+            oTipoMedioPagoDTOList.Add(tipoMedioPagoDTO);
+        }
+
+
+;
 
 
         oEmitirCotizacionAutoDTO.medioDePago = new MedioPagoDTO();
@@ -190,7 +213,8 @@ using System.Text.Json;
         oEmitirCotizacionAutoDTO.adjuntos = new AdjuntoDTO[5];
 
         oInicioVigencia = DateTime.Today;
-        oVencimientoMedioPago = DateTime.Today;
+        oVencimientoMedioPagoAno = DateTime.Today.Day.ToString().PadLeft(2, '0');
+        oVencimientoMedioPagoMes = DateTime.Today.Year.ToString();
         oVtoPruebaHidr = DateTime.Today;
         ofechaNacimiento = DateTime.Today.AddYears(-40);
 #if DEBUG
@@ -198,19 +222,19 @@ using System.Text.Json;
 
         oEmitirCotizacionAutoDTO.motor = "XXXXXhathat";
         oEmitirCotizacionAutoDTO.chasis = "XXXXX";
-        oInicioVigencia = DateTime.Now;
         oEmitirCotizacionAutoDTO.observaciones = "XXXXX";
-        oVencimientoMedioPago = DateTime.Now.AddMonths(10);
-        oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago = "0070019130004054334990";
-        oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta = "Ale Sosa";
+        oVencimientoMedioPagoAno = DateTime.Today.AddMonths(10).Day.ToString().PadLeft(2, '0');
+        oVencimientoMedioPagoMes = DateTime.Today.AddMonths(10).Year.ToString();
+        oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago = "4338330002590988";
+        oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta = "Noguera Adriel";
         oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta = "DNI";
-        oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta = "18205329";
+        oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta = "37683118";
 
 
 
 
         oEmitirCotizacionAutoDTO.gncMarca = "Marca";
-        oEmitirCotizacionAutoDTO.gncCapacidad = 1000;
+        oEmitirCotizacionAutoDTO.gncCapacidad = 30;
         oEmitirCotizacionAutoDTO.gncOblea = "oblea4667";
         oEmitirCotizacionAutoDTO.gncRegulador = "Regulador";
 
@@ -246,6 +270,12 @@ using System.Text.Json;
             await mostrarMensajes.MostrarMensajeError("Debe Seleccionar un medio de Pago");
             return;
         }
+        if ((DateTime)oInicioVigencia < DateTime.Today || (DateTime)oInicioVigencia > DateTime.Today.AddDays(10))
+        {
+            await mostrarMensajes.MostrarMensajeError("La Fecha de Inicio de Vigencia no puede ser menor a hoy ni mayor a 10 dias a partir de hoy");
+            return;
+        }
+
 
         //if (string.IsNullOrEmpty(oMedioPagoID) || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago)
         //    || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta) || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta)
@@ -286,7 +316,9 @@ using System.Text.Json;
 
 
         oEmitirCotizacionAutoDTO.inicioVigencia = ((DateTime)oInicioVigencia).ToString("dd/MM/yyyy");
-        oEmitirCotizacionAutoDTO.medioDePago.vencimientoMedioPago = ((DateTime)oVencimientoMedioPago).ToString("dd/MM/yyyy");
+
+        oEmitirCotizacionAutoDTO.medioDePago.vencimientoMedioPago = oVencimientoMedioPagoMes + "/" + oVencimientoMedioPagoAno;
+
         oEmitirCotizacionAutoDTO.gncVtoPruebaHidr = ((DateTime)oVtoPruebaHidr).ToString("dd/MM/yyyy");
         oEmitirCotizacionAutoDTO.medioDePago.medioPagoID = int.Parse(oMedioPagoID);
 
@@ -379,7 +411,7 @@ using System.Text.Json;
 
 
         oEmitirCotizacionAutoDTO.inicioVigencia = ((DateTime)oInicioVigencia).ToString("dd/MM/yyyy");
-        oEmitirCotizacionAutoDTO.medioDePago.vencimientoMedioPago = ((DateTime)oVencimientoMedioPago).ToString("dd/MM/yyyy");
+        oEmitirCotizacionAutoDTO.medioDePago.vencimientoMedioPago = oVencimientoMedioPagoMes + "/" + oVencimientoMedioPagoAno;
         oEmitirCotizacionAutoDTO.gncVtoPruebaHidr = ((DateTime)oVtoPruebaHidr).ToString("dd/MM/yyyy");
         oEmitirCotizacionAutoDTO.medioDePago.medioPagoID = int.Parse(oMedioPagoID);
 
@@ -423,9 +455,31 @@ using System.Text.Json;
 
     private async void OnMedioPagoChange()
     {
-        if (oMedioPagoID == "0")
-            await JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
-        //navigationManager.NavigateTo($"https://ziren.com.ar/", forceLoad: true);
+
+        await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNumeroMedioPago", false);
+        await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNombreTitularTarjeta", false);
+        await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoMes", false);
+        await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoAno", false);
+        await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtTipoDocTitularTarjeta", false);
+        await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNroDocTitularTarjeta", false);
+        if (oMedioPagoID == "2")
+        {
+
+            await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNumeroMedioPago", true);
+            await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNombreTitularTarjeta", true);
+
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNumeroMedioPago", true);
+            await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNombreTitularTarjeta", true);
+            await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoMes", true);
+            await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoAno", true);
+            await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtTipoDocTitularTarjeta", true);
+            await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNroDocTitularTarjeta", true);
+        }
+        // await JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+
     }
 
 
@@ -433,7 +487,7 @@ using System.Text.Json;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMostrarMensajes mostrarMensajes { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IRepositorio repositorio { get; set; }

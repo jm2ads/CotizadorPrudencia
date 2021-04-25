@@ -103,23 +103,44 @@ app {
 }
 
 
-/*@media only screen and (orientation: landscape) and (max-width: 767.98px) {
+
+
+
+
+
+/*#aviso-movil-horizontal {
+    display: none;
+}
+
+
+@media only screen and (max-width: 767.98px) and (orientation:landscape) {
     #app {
         display: none;
     }
 
     #aviso-movil-horizontal {
-        display: none;
+        display: block;
     }
 }
-@media only screen and (orientation:portrait) and (max-width: 767.98px) {
-    #app {
-        display: none;
-    }
+
+@media only screen and (max-width: 767.98px) and (orientation:portrait) {
     #aviso-movil-horizontal {
         display: none;
     }
-}*/
+
+    #app {
+        display: block;
+    }
+}
+*/
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 767.98px) {

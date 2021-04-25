@@ -121,6 +121,9 @@ using System.Text.Json;
 
 
 
+
+
+
     CotizacionPopUp cotizacionPopUp;
     private List<RespuestaReporteDTO> oRespuestaReporteDTOList = new List<RespuestaReporteDTO>();
     RespuestaPolizaImpresionDTO oRespuestaPolizaImpresionDTO = null;
@@ -129,6 +132,12 @@ using System.Text.Json;
 
     protected async override Task OnInitializedAsync()
     {
+
+        Console.WriteLine("Inicia Request Index :" + DateTime.Now);
+        var responseHttp4 = await repositorio.Get<List<TipoMedioPagoDTO>>("api/Externo/Prudencia/catalogos/GetMediosDePago");
+        Console.WriteLine("Fin Request Index :" + DateTime.Now);
+
+
         #region MyRegion
         //await repositorio.Post("api/notificaciones/TextToSpeech", "Esto es un Test");
         //permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
@@ -153,18 +162,6 @@ using System.Text.Json;
         #endregion
 
 
-        string oUser = "586701";
-        string oPassword = "586701";
-
-        UserPassWord oUserPassWord = new UserPassWord();
-
-        oUserPassWord.user = oUser;
-        oUserPassWord.password = oPassword;
-
-
-
-        //var HttpResponse = await repositorio.Post<UserPassWord, Login>("api/Externo/Prudencia/login", oUserPassWord);
-        //oLogin = HttpResponse.Response;
 
 
     }

@@ -25,33 +25,62 @@
 <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
     <input @bind-value="oCpDescripcion" @bind-value:event="oninput"
            @onkeyup="@((KeyboardEventArgs e) => CPKeyUp(e))"
-           type="text" class="form-control" id="cp" placeholder="C.P." />
+           type="text" class="form-control" id="cp" placeholder="C.P. o Localidad" />
 </div>
 
 
 
-@if (oCodigoPostalList.Count == 0 & oCpDescripcion.Trim().Length > 3)
+@if (oCodigoPostalList.Count == 0)
 {
-    <label style="color:white">No hay registros para mostrar</label>
+    if (oCpDescripcion.Trim().Length > 3)
+    {
+        if (buscandoCP)
+        {
+            <Cargando></Cargando>
+        }
+
+        else
+        {
+            <label style="color:white">No se encontraron C.P. con ese filtro</label>
+        }
+    }
+    else
+    {
+        if (provinciaID == "1")
+        {
+            <label style="color: white;margin: 5px">Ingrese los 4 numeros de su C.P.</label>
+        }
+        else
+        {
+            <label style="color: white;margin: 5px">Ingrese al menos 4 digitos de su C.P. o Localidad</label>
+        }
+    }
+
 
 }
 else
 {
 
-
-
-    <div style="display: flex; flex-wrap: wrap; align-items: center;">
-        @foreach (var oCodigoPostal in oCodigoPostalList)
-        {
-            <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
-                <div>
-                    <button type="button" class="btn btn-success" style="width:auto" @onclick="@(() => OnClickHandle(oCodigoPostal))">
-                        @(oCodigoPostal.localidad +"(" + oCodigoPostal.codigoPostalID +")")
-                    </button>
+    if (buscandoCP)
+    {
+        <Cargando></Cargando>
+    }
+    else
+    {
+        <div style="display: flex; flex-wrap: wrap; align-items: center;">
+            @foreach (var oCodigoPostal in oCodigoPostalList)
+            {
+                <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+                    <div>
+                        <button type="button" class="btn btn-success" style="width:auto" @onclick="@(() => OnClickHandle(oCodigoPostal))">
+                            @(oCodigoPostal.localidad +"(" + oCodigoPostal.codigoPostalID +")")
+                        </button>
+                    </div>
                 </div>
-            </div>
-        }
-    </div>
+            }
+        </div>
+    }
+
 
 
 
@@ -67,7 +96,7 @@ else
     //private List<string> oCodigoPostalAuxList;
     private List<CodigoPostalDTO> oCodigoPostalList = new List<CodigoPostalDTO>();
 
-
+    private bool buscandoCP = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -110,11 +139,18 @@ else
         if (oCpDescripcion.Trim().Length < 4)
             return;
 
+        buscandoCP = true;
+        List<CodigoPostalDTO> oCodigoPostalAuxList = new List<CodigoPostalDTO>();
         var responseHttp = await repositorio.Get<List<CodigoPostalDTO>>("api/Externo/Prudencia/catalogos/GetCpLocalidad/" + provinciaID + "/" + oCpDescripcion);
-        List<CodigoPostalDTO> oCodigoPostalAuxList = responseHttp.Response;
+        oCodigoPostalAuxList = responseHttp.Response;
         if (provinciaID == "1")
             oCodigoPostalAuxList = (List<CodigoPostalDTO>)oCodigoPostalAuxList.Take(1).ToList();
+
+        buscandoCP = false;
         oCodigoPostalList = oCodigoPostalAuxList;
+
+
+
         //oCodigoPostalAuxList = responseHttp.Response;
 
 

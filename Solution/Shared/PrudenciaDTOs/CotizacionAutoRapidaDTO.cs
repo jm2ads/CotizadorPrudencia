@@ -21,7 +21,7 @@ namespace Project.Shared.PrudenciaDTOs
 
         public VehiculoDTO vehiculo { get; set; }
 
-        public bool usaAcarreo { get; set; }
+        public bool usaAcarreo { get; set; } = true;
 
 
 

@@ -153,6 +153,25 @@ using System.Text.Json;
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
         Console.WriteLine(CotizacionAutoDTOJson);
 
+
+        #region CotizacionEntitiesDTO
+        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+
+
+
+        ProvinciaDTO oProvincias = (from c in oProvinciasList
+                                           where c.provinciaID == oprovinciasID
+                                           select c).FirstOrDefault();
+
+        cotizacionEntitiesDTO.provincia = oProvincias;
+
+        cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+        Console.WriteLine(cotizacionEntitiesDTOJson);
+        #endregion
+
+
         navigationManager.NavigateTo("/ziren/cp");
     }
 

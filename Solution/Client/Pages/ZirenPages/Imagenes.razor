@@ -5,7 +5,7 @@
 @inject IJSRuntime JsRuntime
 @using System.Text.Json;
 <h3 style="color:white">SUBA IMÁGENES DEL AUTO</h3>
-<div class="container" style="display: block;display: flex;justify-content:center;align-items: center;align-content:center;margin-left:auto;margin-right:auto">
+<div class="container-fluid" style="display: block;display: flex;justify-content:center;align-items: center;align-content:center;margin-left:auto;margin-right:auto">
     <span style="color:white;font-size: 0.6em;align-content:initial;margin-bottom:10px">
         LAS FOTOS DEBEN SER TOMADAS COMO INDICA LA IMAGEN DE EJEMPLO. DEBEN SER TOMADAS CON BUENA ILUMINACION
         ( DE DIA O BUENA ILUMINACIÓN ARTIFICIAL), TODAS DE UN MISMO MOMENTO Y  LUGAR,ACTUALES DEL DIA DE LA FECHA .
@@ -24,36 +24,33 @@ else
     <EditForm Model="oAdjuntos" OnValidSubmit="oOnValidSubmit">
         <DataAnnotationsValidator />
 
-        <div class="form-group" style="margin-left:5px">
-
+        <div class="container-fluid">
             @if (oCotizacionAutoDTO.vehiculo.es0KM == true)
             {
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="0" oLabelText="Factura" @key="0" />
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="1" oLabelText="Cert. Rodamiento" @key="1" />
-
             }
             else
             {
-                <img src="/images/Cotizacion/front.png" alt="Fotos" style="display:block;margin:auto;width:25%" />
+                <img src="/images/Cotizacion/front.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="0" oLabelText="Parte Delantera" @key="0" />
-                
-                <img src="/images/Cotizacion/back.png" alt="Fotos" style="display:block;margin:auto;width:25%" />
+
+                <img src="/images/Cotizacion/back.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="1" oLabelText="Parte Trasera" @key="1" />
-                
-                <img src="/images/Cotizacion/left.png" alt="Fotos" style="display:block;margin:auto;width:25%" />
+
+                <img src="/images/Cotizacion/left.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="2" oLabelText="Lateral Izquierdo Completo (Lado Conductor)" @key="2" />
-                
-                <img src="/images/Cotizacion/right.png" alt="Fotos" style="display:block;margin:auto;width:25%" />
+
+                <img src="/images/Cotizacion/right.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="3" oLabelText="Lateral Derecho Completo (Lado Acompanante)" @key="3" />
-              
+
+                <img src="/images/Cotizacion/gncTubo.png" alt="Fotos" style="display:block;margin:auto;width:25%" />
                 <FormularioImagenRow oAdjuntos="oAdjuntos" oAdjuntoID="4" oLabelText="Foto 5" @key="4" />
 
                 <label style="color:white;font-size: 0.8em;align-content:center">
                     EL VEHÍCULO DEBE ESTAR EN BUENAS CONDICIONES PARA PODER ASEGURARSE.
                     ADVERTENCIA: SI LAS FOTOS CARGADAS NO SON CORRECTAS O LEGIBLES, TE CONTACTAREMOS A LA BREVEDAD POSIBLE POR MAIL Y CELULAR. PARA QUE PUEDAS TOMAR LAS FOTOS CORRECTAS Y ENVIARLAS. DE NO HACERLO EL SEGURO LAMENTABLEMENTE QUEDARÁ SIN EFECTO .
                 </label>
-
-
             }
 
         </div>
@@ -99,8 +96,7 @@ else
             oRespuestaCotizacionAutoDTO = responseHttp.Response;
             oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoDTO.cotizacionID;
 
-            //CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-            //await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+          
         }
 
 
@@ -111,9 +107,7 @@ else
 
 
         #region Confirmacion
-        //string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
-        //CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
-
+      
         int oCotizacionID = oCotizacionAutoDTO.cotizacionID;
 
         ConfirmacionCotizacionAutoDTO oConfirmacionCotizacionAutoDTO = new ConfirmacionCotizacionAutoDTO();
@@ -134,8 +128,7 @@ else
         {
             oRespuestaCotizacionAutoDTO = responseHttp2.Response;
             oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoDTO.cotizacionID;
-            //CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-            //await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+          
         }
 
 
@@ -144,15 +137,6 @@ else
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
         #endregion
 
-
-
-
-
-
-
-
-        //string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
-        //oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
         oAdjuntos = new AdjuntoDTO[5];
 
         oAdjuntos[0] = new AdjuntoDTO();

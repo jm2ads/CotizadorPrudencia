@@ -113,8 +113,8 @@ using Project.Shared.PrudenciaDTOs;
 
     [Parameter] public RenderFragment ChildContent { get; set; }
     [Parameter] public EventCallback onConfirm { get; set; }
-    [Parameter] public EventCallback onModoComodo { get; set; }
-   
+    //[Parameter] public EventCallback onModoComodo { get; set; }
+
     public void Mostrar() => MostrarConfirmacion = true;
     public void Ocultar() => MostrarConfirmacion = false;
 

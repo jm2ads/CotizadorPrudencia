@@ -2,15 +2,6 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "Markdig/0.23.0": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/Markdig.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Markdig.dll": {}
-        }
-      },
       "Microsoft.AspNetCore.Authorization/5.0.2": {
         "type": "package",
         "dependencies": {
@@ -357,15 +348,6 @@
       }
     },
     "net5.0/browser-wasm": {
-      "Markdig/0.23.0": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/Markdig.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Markdig.dll": {}
-        }
-      },
       "Microsoft.AspNetCore.Authorization/5.0.2": {
         "type": "package",
         "dependencies": {
@@ -713,28 +695,6 @@
     }
   },
   "libraries": {
-    "Markdig/0.23.0": {
-      "sha512": "jPPcnHGSDSedPvwZ6jiMJpvK3iJGA2djU6TFmEr6XK2BiYK1ier2lTHVwDt41XLxDbfGu5Dn42hKDzwqs049PA==",
-      "type": "package",
-      "path": "markdig/0.23.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net452/Markdig.dll",
-        "lib/net452/Markdig.xml",
-        "lib/netcoreapp2.1/Markdig.dll",
-        "lib/netcoreapp2.1/Markdig.xml",
-        "lib/netcoreapp3.1/Markdig.dll",
-        "lib/netcoreapp3.1/Markdig.xml",
-        "lib/netstandard2.0/Markdig.dll",
-        "lib/netstandard2.0/Markdig.xml",
-        "lib/netstandard2.1/Markdig.dll",
-        "lib/netstandard2.1/Markdig.xml",
-        "markdig.0.23.0.nupkg.sha512",
-        "markdig.nuspec",
-        "markdig.png"
-      ]
-    },
     "Microsoft.AspNetCore.Authorization/5.0.2": {
       "sha512": "yNRS94no3W9npaoy0tmrHu0XXgWKlKkNwx6/M4lti5EZthWg0LjRKj2BhXzZaT1y3R+CdGJg7Eh+n9dbpOvG7Q==",
       "type": "package",
@@ -1373,7 +1333,6 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Markdig >= 0.23.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 5.0.2",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 5.0.2",
       "Project.Shared >= 1.0.0",
@@ -1383,7 +1342,8 @@
   },
   "packageFolders": {
     "C:\\Users\\Facundo\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -1396,11 +1356,13 @@
       "outputPath": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\Facundo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1431,10 +1393,6 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "Markdig": {
-            "target": "Package",
-            "version": "[0.23.0, )"
-          },
           "Microsoft.AspNetCore.Components.WebAssembly": {
             "target": "Package",
             "version": "[5.0.2, )"
@@ -1466,7 +1424,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
-            "version": "[5.0.0, 5.0.0]"
+            "version": "[5.0.5, 5.0.5]"
           }
         ],
         "frameworkReferences": {
@@ -1474,7 +1432,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

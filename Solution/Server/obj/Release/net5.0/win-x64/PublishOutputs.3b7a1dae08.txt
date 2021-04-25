@@ -5,8 +5,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\icudt_CJK.dat
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\icudt_EFIGS.dat
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\icudt_no_CJK.dat
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\dotnet.5.0.0.js
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\Markdig.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\dotnet.5.0.5.js
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\Microsoft.AspNetCore.Components.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\Microsoft.AspNetCore.Components.Forms.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\Microsoft.AspNetCore.Components.Web.dll
@@ -68,6 +67,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\css\open-iconic\README.md.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\css\site.css.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\favicon.ico.br
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\images\1-01.png.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\images\AutoSumaAsegurada.png.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\images\CotizacionPopUp.jpeg.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\images\EstasCubierto.png.br
@@ -89,10 +89,9 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\icudt_CJK.dat.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\icudt_EFIGS.dat.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\icudt_no_CJK.dat.br
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\dotnet.5.0.0.js.br
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\dotnet.5.0.5.js.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_content\Tewr.Blazor.FileReader\FileReaderComponent.js.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_content\Tewr.Blazor.FileReader\FileReaderComponent.js.map.br
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\Markdig.dll.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\Microsoft.AspNetCore.Components.dll.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\Microsoft.AspNetCore.Components.Forms.dll.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\Microsoft.AspNetCore.Components.Web.dll.br
@@ -153,6 +152,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\css\open-iconic\README.md.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\css\site.css.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\favicon.ico.gz
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\images\1-01.png.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\images\AutoSumaAsegurada.png.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\images\CotizacionPopUp.jpeg.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\images\EstasCubierto.png.gz
@@ -174,10 +174,9 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\icudt_CJK.dat.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\icudt_EFIGS.dat.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\icudt_no_CJK.dat.gz
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\dotnet.5.0.0.js.gz
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\dotnet.5.0.5.js.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_content\Tewr.Blazor.FileReader\FileReaderComponent.js.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_content\Tewr.Blazor.FileReader\FileReaderComponent.js.map.gz
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\Markdig.dll.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\Microsoft.AspNetCore.Components.dll.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\Microsoft.AspNetCore.Components.Forms.dll.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\Microsoft.AspNetCore.Components.Web.dll.gz
@@ -241,6 +240,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\Cotizacion\cuota.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\Cotizacion\front.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\Cotizacion\gnc.png
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\Cotizacion\gncTubo.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\Cotizacion\left.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\Cotizacion\limite-aumentado.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\Cotizacion\limite-basico.png
@@ -251,8 +251,10 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\Cotizacion\right.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\Cotizacion\suma-asegurada.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\FotosEjemplo.jpg
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\grupoziren-logo.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\logo.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\prudencia.png
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\PrudencioAdrielito.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\pt.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\test.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\Images\wait.gif
@@ -297,6 +299,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Data.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Diagnostics.Contracts.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Diagnostics.Debug.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Diagnostics.DiagnosticSource.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Diagnostics.FileVersionInfo.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Diagnostics.Process.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Diagnostics.StackTrace.dll
@@ -485,7 +488,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\hostfxr.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\hostpolicy.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\mscordaccore.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\mscordaccore_amd64_amd64_5.0.20.51904.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\mscordaccore_amd64_amd64_5.0.521.16609.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\mscordbi.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\mscorrc.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\ucrtbase.dll
@@ -496,8 +499,12 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Authentication.OAuth.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Authentication.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Authorization.Policy.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Authorization.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Components.Authorization.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Components.Forms.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Components.Server.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Components.Web.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Components.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Connections.Abstractions.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.CookiePolicy.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Cors.dll
@@ -525,6 +532,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Identity.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Localization.Routing.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Localization.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Metadata.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Mvc.Abstractions.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Mvc.ApiExplorer.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Mvc.Core.dll
@@ -575,6 +583,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.Configuration.Xml.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.Configuration.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.DependencyInjection.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.Diagnostics.HealthChecks.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.FileProviders.Abstractions.dll
@@ -603,25 +612,22 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.Options.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.Primitives.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.WebEncoders.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.JSInterop.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Net.Http.Headers.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Diagnostics.EventLog.Messages.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Diagnostics.EventLog.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Drawing.Common.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.IO.Pipelines.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Security.Cryptography.Pkcs.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Security.Cryptography.Xml.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Security.Permissions.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Windows.Extensions.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\aspnetcorev2_inprocess.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Humanizer.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Markdig.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Authorization.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Components.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Components.Forms.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Components.Web.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Components.WebAssembly.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Components.WebAssembly.Server.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.JsonPatch.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Metadata.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
@@ -638,7 +644,6 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.EntityFrameworkCore.Sqlite.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.DependencyInjection.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.DependencyModel.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Identity.Client.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.IdentityModel.JsonWebTokens.dll
@@ -646,7 +651,6 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.IdentityModel.Protocols.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.JSInterop.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.JSInterop.WebAssembly.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
@@ -669,9 +673,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Composition.Runtime.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Composition.TypedParts.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Configuration.ConfigurationManager.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Diagnostics.DiagnosticSource.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.IO.Pipelines.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Runtime.Caching.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Blazor.FileReader.dll
@@ -750,6 +752,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\O
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\css\open-iconic\README.md
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\css\site.css
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\favicon.ico
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\images\1-01.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\images\AutoSumaAsegurada.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\images\CotizacionPopUp.jpeg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\images\EstasCubierto.png

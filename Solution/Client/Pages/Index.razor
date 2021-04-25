@@ -47,12 +47,15 @@
 <div style="position:absolute;bottom:0;">
 
 
-    <label style="color:white;font-size: 0.5em;align-content:end">Version 21.3.24.1</label>
+    <label style="color:white;font-size: 0.5em;align-content:end">Version 21.4.25.1</label>
 </div>
 @code { private Login oLogin = null;
 
     private CotizacionAutoDTO oCotizacionAutoDTO;
     private string permisoNotificaciones = string.Empty;
+
+
+
 
 
 
@@ -64,6 +67,12 @@
 
     protected async override Task OnInitializedAsync()
     {
+
+        Console.WriteLine("Inicia Request Index :" + DateTime.Now);
+        var responseHttp4 = await repositorio.Get<List<TipoMedioPagoDTO>>("api/Externo/Prudencia/catalogos/GetMediosDePago");
+        Console.WriteLine("Fin Request Index :" + DateTime.Now);
+
+
         #region MyRegion
         //await repositorio.Post("api/notificaciones/TextToSpeech", "Esto es un Test");
         //permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
@@ -88,18 +97,6 @@
         #endregion
 
 
-        string oUser = "586701";
-        string oPassword = "586701";
-
-        UserPassWord oUserPassWord = new UserPassWord();
-
-        oUserPassWord.user = oUser;
-        oUserPassWord.password = oPassword;
-
-
-
-        //var HttpResponse = await repositorio.Post<UserPassWord, Login>("api/Externo/Prudencia/login", oUserPassWord);
-        //oLogin = HttpResponse.Response;
 
 
     }

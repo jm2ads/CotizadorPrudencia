@@ -19,7 +19,6 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\Project.
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\ref\Project.Server.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\Project.Server.pdb
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\Humanizer.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\Markdig.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\Microsoft.AspNetCore.Components.WebAssembly.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\Microsoft.AspNetCore.Components.WebAssembly.Server.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\Microsoft.AspNetCore.JsonPatch.dll
@@ -344,7 +343,6 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\dbgshim.
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\hostfxr.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\hostpolicy.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\mscordaccore.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\mscordaccore_amd64_amd64_5.0.20.51904.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\mscordbi.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\mscorrc.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\ucrtbase.dll
@@ -498,3 +496,5 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\ref\Proj
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\Project.Server.pdb
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\Project.Server.genruntimeconfig.cache
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\Project.Server.csprojAssemblyReference.cache
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\mscordaccore_amd64_amd64_5.0.521.16609.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\System.Diagnostics.EventLog.Messages.dll

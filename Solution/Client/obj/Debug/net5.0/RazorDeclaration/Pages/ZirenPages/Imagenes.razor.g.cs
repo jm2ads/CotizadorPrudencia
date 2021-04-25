@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
+#line 62 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
        
 
 
@@ -150,8 +150,7 @@ using System.Text.Json;
             oRespuestaCotizacionAutoDTO = responseHttp.Response;
             oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoDTO.cotizacionID;
 
-            //CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-            //await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+          
         }
 
 
@@ -162,9 +161,7 @@ using System.Text.Json;
 
 
         #region Confirmacion
-        //string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
-        //CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
-
+      
         int oCotizacionID = oCotizacionAutoDTO.cotizacionID;
 
         ConfirmacionCotizacionAutoDTO oConfirmacionCotizacionAutoDTO = new ConfirmacionCotizacionAutoDTO();
@@ -185,8 +182,7 @@ using System.Text.Json;
         {
             oRespuestaCotizacionAutoDTO = responseHttp2.Response;
             oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoDTO.cotizacionID;
-            //CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-            //await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+          
         }
 
 
@@ -195,15 +191,6 @@ using System.Text.Json;
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
         #endregion
 
-
-
-
-
-
-
-
-        //string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
-        //oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
         oAdjuntos = new AdjuntoDTO[5];
 
         oAdjuntos[0] = new AdjuntoDTO();

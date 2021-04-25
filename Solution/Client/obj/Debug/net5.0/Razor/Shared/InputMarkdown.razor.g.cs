@@ -162,8 +162,8 @@ using System.Linq.Expressions;
             __builder.OpenElement(18, "div");
             __builder.AddAttribute(19, "class", "markdown-container");
             __builder.AddAttribute(20, "style", "overflow: auto;");
-            __builder.OpenComponent<Project.Client.Shared.MostrarMarkdown>(21);
-            __builder.AddAttribute(22, "ContenidoMarkdown", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+            __builder.OpenElement(21, "MostrarMarkdown");
+            __builder.AddAttribute(22, "ContenidoMarkdown", 
 #nullable restore
 #line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputMarkdown.razor"
                                              CurrentValue
@@ -171,8 +171,8 @@ using System.Linq.Expressions;
 #line default
 #line hidden
 #nullable disable
-            ));
-            __builder.CloseComponent();
+            );
+            __builder.CloseElement();
             __builder.CloseElement();
             __builder.CloseElement();
         }

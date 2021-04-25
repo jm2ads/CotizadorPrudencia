@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\MarcaSeleccionar.razor"
+#line 68 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\MarcaSeleccionar.razor"
        
 
     private List<MarcasAutos> oMarcasAutosList;
@@ -127,7 +127,7 @@ using System.Text.Json;
     protected override async Task OnInitializedAsync()
     {
 
-
+        Console.WriteLine("Inicia :" + DateTime.Now);
 
         var responseHttp = await repositorio.Get<List<MarcasAutos>>("api/Externo/Prudencia/catalogos/GetMarcasAutos");
         oMarcasAutosList = responseHttp.Response;
@@ -150,6 +150,7 @@ using System.Text.Json;
                                || c.marcaID == 8
                                || c.marcaID == 43
                                select c).ToList();
+        Console.WriteLine("Fin :" + DateTime.Now);
     }
 
     protected override async Task OnParametersSetAsync()

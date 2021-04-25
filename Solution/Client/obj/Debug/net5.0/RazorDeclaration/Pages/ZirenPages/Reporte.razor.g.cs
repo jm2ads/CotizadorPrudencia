@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
+#line 41 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
        
     [Parameter] public int polizaID { get; set; }
 
@@ -138,20 +138,49 @@ using System.Text.Json;
 
 
 
+            string reporteAux = "";
+
             oRespuestaReporteDTOListAux = responseHttp.Response;
             oRespuestaReporteDTOList = new List<RespuestaReporteDTO>();
             for (int i = 0; i <= oRespuestaReporteDTOListAux.Count() - 1; i++)
             {
+                switch (oRespuestaReporteDTOListAux[i].reporte)
+                {
+                    case "TarjetaCirculacion.pdf":
+                        reporteAux = "TARJETA DE CIRCULACION";
+                        break;
+                    case "Poliza.pdf":
+                        reporteAux = "POLIZA";
+                        break;
+                    case "Factura.pdf":
+                        reporteAux = "FACTURA";
+                        break;
+                    case "TarjetaMercosur.pdf":
+                        reporteAux = "MERCOSUR";
+                        break;
+                    case "Clausulas.pdf":
+                        reporteAux = "CLAUSULAS";
+                        break;
+                    default:
+                        continue;
+
+                        break;
+
+                }
+
+
                 RespuestaReporteDTO oRespuestaReporteDTO = new RespuestaReporteDTO();
-                oRespuestaReporteDTO.reporte = oRespuestaReporteDTOListAux[i].reporte;
+                oRespuestaReporteDTO.reporte = reporteAux;// oRespuestaReporteDTOListAux[i].reporte;
                 oRespuestaReporteDTO.urlReporte = oRespuestaReporteDTOListAux[i].urlReporte;
 
                 oRespuestaReporteDTOList.Add(oRespuestaReporteDTO);
+
             }
 
 
 
-            SendEmail( oRespuestaReporteDTOListAux);
+
+            SendEmail(oRespuestaReporteDTOListAux);
 
 
         }
@@ -165,82 +194,31 @@ using System.Text.Json;
 
     private async Task SendEmail(RespuestaReporteDTO[] oRespuestaReporteDTOListAux)
     {
-        #region Send Email
+
         string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
 
         string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
         CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
 
-
         MailApp oMailApp = new MailApp();
-        string oTo = oCotizacionAutoDTO.asegurado.mail;
-        string oBody = "body" + DateTime.Now.ToLongDateString() + DateTime.Now.ToShortTimeString();
-
-        #region MyRegion
-
-        System.Text.StringBuilder sHtml = new System.Text.StringBuilder();
-        string CeldaBegin = "<tr><td align='left'>";
-        string CeldaEnd = "</td></tr>";
-
-
-        sHtml.Append("<HTML style='height: 100 %;margin: 0;background-image: radial-gradient(circle, #803496, #70288d, #5f1c83, #4e107a, #3c0371);'><body >");
-        sHtml.Append("<table border='0' align='center'>");
-        sHtml.Append(CeldaBegin);
-
-        sHtml.Append("<img src='https://cotice.ziren.com.ar/images/EstasCubierto.png' width='200'  />");
-        sHtml.Append(CeldaEnd);
-
-        sHtml.Append(CeldaBegin);
-        sHtml.Append("Auto " + cotizacionEntitiesDTO.marcasAutos.descripcion + "/" + cotizacionEntitiesDTO.modelosAutos.descripcionGrupo + "/" + cotizacionEntitiesDTO.versionesAutos.descripcion + "/" + cotizacionEntitiesDTO.ano.ToString());
-        sHtml.Append(CeldaEnd);
-
-        sHtml.Append(CeldaBegin);
-        sHtml.Append("Asegurado " + oCotizacionAutoDTO.asegurado.nombre);
-        sHtml.Append(CeldaEnd);
-
-        sHtml.Append(CeldaBegin);
-        sHtml.Append("Su poliza nro " + polizaID);
-        sHtml.Append(CeldaEnd);
-
-
-
-
-
-
-
-        for (int i = 0; i <= oRespuestaReporteDTOListAux.Count() - 1; i++)
-        {
-
-            sHtml.Append(CeldaBegin);
-            sHtml.Append("<a href='" + oRespuestaReporteDTOListAux[i].urlReporte + "' class='btn btn-info' target='_blank' style='align-self:initial; '>" + oRespuestaReporteDTOListAux[i].reporte + "</a>");
-            sHtml.Append(CeldaEnd);
-        }
-
-
-
-        sHtml.Append(CeldaBegin);
-        //sHtml.Append("<img src='{0}/images/EstasCubierto.png' width='300' />");
-        sHtml.Append("<img src='https://cotice.ziren.com.ar/images/icon-192.png' width='100'  />");
-        sHtml.Append("<img src='https://cotice.ziren.com.ar/images/LogoPrudencia.png' width='200'  />");
-        sHtml.Append(CeldaEnd);
-
-        sHtml.Append("</table></body></HTML>");
-
-        oBody = sHtml.ToString();
-        #endregion
-
         string oSubject = "Ziren => Enlaces de tu Poliza";
-        oMailApp.To = oTo;
-        oMailApp.Bcc = "adriel@ziren.com.ar";
-        oMailApp.Body = oBody;
+        oMailApp.To = oCotizacionAutoDTO.asegurado.mail;
+        oMailApp.Bcc = "clientes@ziren.com.ar";
+        // oMailApp.Body = oBody;
         oMailApp.Subject = oSubject;
 
-        var responseHttp = await repositorio.Post<MailApp, string>("api/Externo/Prudencia/SendMail", oMailApp);
 
-        if (responseHttp.Error)
+        SendPolizaMailDTO sendPolizaMailDTO = new SendPolizaMailDTO();
+        sendPolizaMailDTO.mailApp = oMailApp;
+        sendPolizaMailDTO.cotizacionAutoDTO = oCotizacionAutoDTO;
+        sendPolizaMailDTO.cotizacionEntitiesDTO = cotizacionEntitiesDTO;
+        sendPolizaMailDTO.respuestaReporteDTOList = oRespuestaReporteDTOList;
+        var responseHttp2 = await repositorio.Post<SendPolizaMailDTO, string>("api/Externo/Prudencia/SendPolizaMail", sendPolizaMailDTO);
+
+        if (responseHttp2.Error)
         {
-            var mensajeError = await responseHttp   .GetBody();
+            var mensajeError = await responseHttp2.GetBody();
 
             await mostrarMensajes.MostrarMensajeError("No se pudo enviar el mail con los enlaces para la poliza");
 
@@ -251,15 +229,8 @@ using System.Text.Json;
             await mostrarMensajes.MostrarMensajeExitoso("Se le envio un mail con los enlaces para la poliza");
 
         }
-
-
-
-
-
-
-
-        #endregion
     }
+
 
 #line default
 #line hidden

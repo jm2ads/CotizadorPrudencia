@@ -1,4 +1,5 @@
-﻿using Microsoft.JSInterop;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System.Threading.Tasks;
 
 public class BrowserService
@@ -15,7 +16,9 @@ public class BrowserService
         return await _js.InvokeAsync<BrowserDimension>("getDimensions");
     }
 
-}
+ }
+
+
 
 public class BrowserDimension
 {

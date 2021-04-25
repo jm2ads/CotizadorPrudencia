@@ -191,8 +191,8 @@ using System.Text.Json;
         await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
         Console.WriteLine(CotizacionAutoDTOJson);
 
-        SendEmail(oCotizacionAutoDTO.asegurado);
-       
+        SendEmail(oCotizacionAutoDTO);
+
         if (browserDimension.Width > 768)
             navigationManager.NavigateTo("/ziren/CotizacionRapida");
         else
@@ -200,7 +200,7 @@ using System.Text.Json;
     }
 
 
-    private async Task SendEmail(AseguradoPatrimonialDTO asegurado)
+    private async Task SendEmail(CotizacionAutoDTO cotizacionAutoDTO)
     {
         string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
         CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
@@ -220,23 +220,23 @@ using System.Text.Json;
         sHtml.Append("<table border='0' align='center'>");
         sHtml.Append(CeldaBegin);
 
-        sHtml.Append("Nombre : " + asegurado.nombre);
+        sHtml.Append("Nombre : " + cotizacionAutoDTO.asegurado.nombre);
         sHtml.Append(CeldaEnd);
 
         sHtml.Append(CeldaBegin);
-        sHtml.Append("Mail : " + asegurado.mail);
+        sHtml.Append("Mail : " + cotizacionAutoDTO.asegurado.mail);
         sHtml.Append(CeldaEnd);
 
         sHtml.Append(CeldaBegin);
-        sHtml.Append("Tel : " + asegurado.telefono);
+        sHtml.Append("Tel : " + cotizacionAutoDTO.asegurado.telefono);
         sHtml.Append(CeldaEnd);
 
         sHtml.Append(CeldaBegin);
-        sHtml.Append("Fec.Nac : " + asegurado.fechaNacimiento);
+        sHtml.Append("Fec.Nac : " + cotizacionAutoDTO.asegurado.fechaNacimiento);
         sHtml.Append(CeldaEnd);
 
         sHtml.Append(CeldaBegin);
-        sHtml.Append("C.P. : " + asegurado.codigoPostal);
+        sHtml.Append("C.P. : " + cotizacionAutoDTO.asegurado.codigoPostal);
         sHtml.Append(CeldaEnd);
 
         sHtml.Append(CeldaBegin);
@@ -255,7 +255,13 @@ using System.Text.Json;
         sHtml.Append("Ano : " + cotizacionEntitiesDTO.ano);
         sHtml.Append(CeldaEnd);
 
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Gnc : " + cotizacionAutoDTO.vehiculo.tieneGNC);
+        sHtml.Append(CeldaEnd);
 
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Provincia : " + cotizacionEntitiesDTO.provincia.descripcion);
+        sHtml.Append(CeldaEnd);
 
         sHtml.Append(CeldaBegin);
 
@@ -271,7 +277,7 @@ using System.Text.Json;
         string oSubject = "Ziren Cotizador=> Nueva Consulta!!!";
 
         MailApp oMailApp = new MailApp();
-        oMailApp.To = "adriel@ziren.com.ar";
+        oMailApp.To = "clientes@ziren.com.ar";
         //oMailApp.Bcc = "jm2@outlook.com.ar";
         oMailApp.Body = sHtml.ToString();
         oMailApp.Subject = oSubject;
@@ -281,7 +287,6 @@ using System.Text.Json;
         if (responseHttp.Error)
         {
             Console.WriteLine("No se pudo enviar el mail con los enlaces para la poliza");
-
         }
         else
         {

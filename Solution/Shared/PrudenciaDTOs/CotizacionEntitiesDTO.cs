@@ -13,5 +13,7 @@ namespace Project.Shared.PrudenciaDTOs
         public ModelosAutos modelosAutos { get; set; }
 
         public VersionesAutos versionesAutos { get; set; }
+
+        public ProvinciaDTO provincia { get; set; }
     }
 }

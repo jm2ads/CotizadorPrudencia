@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 63 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CpSeleccionar.razor"
+#line 92 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CpSeleccionar.razor"
        
     private string oCpDescripcion = "";
     private string provinciaID = "";
@@ -120,7 +120,7 @@ using System.Text.Json;
     //private List<string> oCodigoPostalAuxList;
     private List<CodigoPostalDTO> oCodigoPostalList = new List<CodigoPostalDTO>();
 
-
+    private bool buscandoCP = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -163,11 +163,18 @@ using System.Text.Json;
         if (oCpDescripcion.Trim().Length < 4)
             return;
 
+        buscandoCP = true;
+        List<CodigoPostalDTO> oCodigoPostalAuxList = new List<CodigoPostalDTO>();
         var responseHttp = await repositorio.Get<List<CodigoPostalDTO>>("api/Externo/Prudencia/catalogos/GetCpLocalidad/" + provinciaID + "/" + oCpDescripcion);
-        List<CodigoPostalDTO> oCodigoPostalAuxList = responseHttp.Response;
+        oCodigoPostalAuxList = responseHttp.Response;
         if (provinciaID == "1")
             oCodigoPostalAuxList = (List<CodigoPostalDTO>)oCodigoPostalAuxList.Take(1).ToList();
+
+        buscandoCP = false;
         oCodigoPostalList = oCodigoPostalAuxList;
+
+
+
         //oCodigoPostalAuxList = responseHttp.Response;
 
 

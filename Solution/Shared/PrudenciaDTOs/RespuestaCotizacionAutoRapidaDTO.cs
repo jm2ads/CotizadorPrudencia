@@ -24,7 +24,7 @@ namespace Project.Shared.PrudenciaDTOs
         public RespuestaVehiculoDTO vehiculo { get; set; }
 
 
-        public Boolean usaAcarreo { get; set; }
+        public Boolean usaAcarreo { get; set; } = true;
         public RespuestaDetalleCotizacionAuto[] coberturas { get; set; }
 
        
