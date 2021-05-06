@@ -75,8 +75,8 @@ else
                     {
                         <div style="border-color:darkmagenta;border-width: thin;border-style: solid;width: 278px;height: 183px;position: relative" @onclick="@(() => OnCoberturaClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a))">
                             <fieldset id="fsA" style="@fsAStyle">
-                                <button type="button" @onclick="@(() => OnCoberturaClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a))"
-                                        style="@btnPolizaAStyle" />
+                                @*<button type="button" @onclick="@(() => OnCoberturaClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a))"
+                                        style="@btnPolizaAStyle" />*@
                             </fieldset>
                         </div>
                     }
@@ -87,8 +87,8 @@ else
                     {
                         <div style="border-color: darkmagenta;border-width: thin;border-style: solid; width: 278px;height: 183px;position: relative"  @onclick="@(() => OnCoberturaClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))">
                             <fieldset id="fsB1" style="@fsB1Style">
-                                <button type="button" @onclick="@(() => OnCoberturaClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))"
-                                        style="@btnPolizaB1Style" />
+                                @*<button type="button" @onclick="@(() => OnCoberturaClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))"
+                                        style="@btnPolizaB1Style" />*@
                             </fieldset>
                         </div>
                     }
@@ -98,13 +98,17 @@ else
                 {
                     @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c > 0)
                     {
-                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 556px;height: 183px;position: relative"  @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))">
+                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 556px;height: 183px;position: relative;z-index:1;"  @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))">
+                         
+                            
+                            
+                            
                             <fieldset id="fsC" style="@fsCStyle">
-                                <button type="button" @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))"
-                                        style="@btnPolizaCStyle" />
+                                @*<button type="button" @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))"
+                                        style="@btnPolizaCStyle" />*@
 
                                 <button type="button" @onclick="@(() => OnButtonPopUpClick("limitebasico"))"
-                                        style="        width: 76px;
+                                        style="width: 76px;
         height: 22px;
         position: absolute;
         top: 21px;
@@ -113,6 +117,7 @@ else
         background-image: url('/images/Cotizacion/limite-basico.png');
         background-size: cover;
         border: 0;
+        z-index: 2;
         padding: 0" />
 
 
@@ -129,8 +134,8 @@ else
                     {
                         <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 556px;height: 183px;position: relative"  @onclick="@(() => OnCoberturaClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))">
                             <fieldset id="fsCf" style="@fsCfStyle">
-                                <button type="button" @onclick="@(() => OnCoberturaClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))"
-                                        style="@btnPolizaCfStyle" />
+                                @*<button type="button" @onclick="@(() => OnCoberturaClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))"
+                                        style="@btnPolizaCfStyle" />*@
 
                                 <button type="button" @onclick="@(() => OnButtonPopUpClick("limiteaumentado"))"
                                         style="        width: 114px;
@@ -165,8 +170,8 @@ else
                 {
                     <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 556px;height: 183px;position: relative" @onclick="@(() => OnCoberturaClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2))">
                         <fieldset id="fsD2" style="@fsD2Style">
-                            <button type="button" @onclick="@(() => OnCoberturaClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2))"
-                                    style="@btnPolizaD2Style" />
+                            @*<button type="button" @onclick="@(() => OnCoberturaClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2))"
+                                    style="@btnPolizaD2Style" />*@
                             <button type="button" @onclick="@(() => OnButtonPopUpClick("franquicia"))" style="        width:118px;
         height: 22px;
         position: absolute;

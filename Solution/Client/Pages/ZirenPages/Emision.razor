@@ -44,12 +44,12 @@ else
                 <div class="col-md-5">
                     <label style="color:white">Fecha de Inicio de póliza/seguro (A PARTIR DE QUE DIA QUIERO EL SEGURO)</label>
                     <div>
-                        <InputDate class="form-control" @bind-Value="oInicioVigencia"></InputDate>
+                        <InputDate  class="form-control" @bind-Value="oInicioVigencia"></InputDate>
                     </div>
                 </div>
 
                 <div class="col-md-5">
-                    <label style="color:white">Observaciones:</label>
+                    <label style="color:white">Observaciones de su Vehículo completar solo si tiene daños : </label>
                     <div>
                         <InputText class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.observaciones"></InputText>
 
@@ -101,7 +101,7 @@ else
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label style="color:white">Numero Tarjeta de Credito o CBU:</label>
+                    <label style="color:white">Numero Tarjeta de Credito o Numero CBU:</label>
                     <div>
                         <InputText id="txtNumeroMedioPago" class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago"></InputText>
 
@@ -127,7 +127,7 @@ else
                 <div class="col-md-4">
                     <label style="color:white">Nro DNI Titular Tarjeta Credito:</label>
                     <div>
-                        <InputText id="txtNroDocTitularTarjeta" class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta"></InputText>
+                        <InputText id="txtNroDocTitularTarjeta" class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta" ></InputText>
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@ else
                     <InputText class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.gncMarca"></InputText>
                 </div>
                 <div class="col-md-3">
-                    <label style="color:white">Gnc Capacidad:</label>
+                    <label style="color:white">GNC Capacidad:</label>
                     @*<InputNumber class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.gncCapacidad"></InputNumber>*@
                     <InputSelect @bind-Value="oEmitirCotizacionAutoDTO.gncCapacidad" class="form-control">
                         <option value="">Capacidad ...</option>
@@ -160,15 +160,15 @@ else
             </div>
             <div class="row" style="margin:10px">
                 <div class="col-md-4">
-                    <label style="color:white">Gnc Nro Oblea:</label>
+                    <label style="color:white">GNC Nro Oblea:</label>
                     <InputText class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.gncOblea"></InputText>
                 </div>
                 <div class="col-md-4">
-                    <label style="color:white">Gnc Regulador Nro de Serie:</label>
+                    <label style="color:white">GNC Regulador Nro de Serie:</label>
                     <InputText class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.gncRegulador"></InputText>
                 </div>
                 <div class="col-md-4">
-                    <label style="color:white">Gnc Oblea Fecha Vto:</label>
+                    <label style="color:white">GNC Oblea Fecha Vto:</label>
                     <InputDate class="form-control" @bind-Value="oVtoPruebaHidr"></InputDate>
                 </div>
             </div>
@@ -405,6 +405,12 @@ else
         {
             if (tipoMedioPagoDTO.medioPagoID == "0")
                 continue;
+            if (tipoMedioPagoDTO.medioPagoID == "1")
+                tipoMedioPagoDTO.nombre = "TARJETA NARANJA";
+
+            if (tipoMedioPagoDTO.medioPagoID == "2")
+                tipoMedioPagoDTO.nombre = "CBU - DEBITO EN CUENTA";
+
             if (tipoMedioPagoDTO.medioPagoID == "3")
                 tipoMedioPagoDTO.nombre = "TARJETA DE CREDITO - MERCADO PAGO";
 
@@ -424,6 +430,8 @@ else
         oVencimientoMedioPagoMes = DateTime.Today.Year.ToString();
         oVtoPruebaHidr = DateTime.Today;
         ofechaNacimiento = DateTime.Today.AddYears(-40);
+
+        oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta = "DNI";
 #if DEBUG
 
 
@@ -434,7 +442,7 @@ else
         oVencimientoMedioPagoMes = DateTime.Today.AddMonths(10).Year.ToString();
         oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago = "4338330002590988";
         oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta = "Noguera Adriel";
-        oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta = "DNI";
+
         oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta = "37683118";
 
 
@@ -579,6 +587,11 @@ else
             return;
         }
 
+        if ((DateTime)oInicioVigencia < DateTime.Today || (DateTime)oInicioVigencia > DateTime.Today.AddDays(7))
+        {
+            await mostrarMensajes.MostrarMensajeError("La Fecha de Inicio de Vigencia no puede ser menor a hoy ni mayor a 7 dias a partir de hoy");
+            return;
+        }
         //if (string.IsNullOrEmpty(oMedioPagoID) || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago)
         //    || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta) || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta)
         //    || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta))
@@ -655,6 +668,10 @@ else
         {
             //= responseHttp.Response;
             oRespuestaPolizaAutoDTO = responseHttp.Response;
+          
+            string oRespuestaPolizaAutoDTOJson = JsonSerializer.Serialize(oRespuestaPolizaAutoDTO);
+            Console.WriteLine(oRespuestaPolizaAutoDTOJson);
+
             navigationManager.NavigateTo($"/ziren/reporte/{ oRespuestaPolizaAutoDTO.polizaID}");
 
         }
@@ -682,7 +699,7 @@ else
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNombreTitularTarjeta", true);
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoMes", true);
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoAno", true);
-            await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtTipoDocTitularTarjeta", true);
+           // await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtTipoDocTitularTarjeta", true);
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNroDocTitularTarjeta", true);
         }
         // await JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");

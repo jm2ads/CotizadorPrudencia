@@ -1,3 +1,4 @@
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Helpers\templateMail.html
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\Project.Server.exe
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\dotnet.timezones.blat
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\PubTmp\Out\wwwroot\_framework\dotnet.wasm

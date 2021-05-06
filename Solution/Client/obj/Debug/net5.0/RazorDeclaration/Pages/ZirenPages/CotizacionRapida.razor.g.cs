@@ -112,7 +112,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 314 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
+#line 319 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
        
 
     private const string btnPolizaStyleOff = "width: 66px;height: 44px;position: absolute;top: 2px;left: 2px;background-color: transparent;background-image: url('/images/Cotizacion/off.png');border: 0;padding: 0;background-size:contain";

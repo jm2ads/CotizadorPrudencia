@@ -498,3 +498,4 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\Project.
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\win-x64\Project.Server.csprojAssemblyReference.cache
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\mscordaccore_amd64_amd64_5.0.521.16609.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\System.Diagnostics.EventLog.Messages.dll
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\win-x64\Helpers\templateMail.html

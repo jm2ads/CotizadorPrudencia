@@ -12,6 +12,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\BlazorDebugProxy\M
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\BlazorDebugProxy\Newtonsoft.Json.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Server.StaticWebAssets.xml
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Server.exe
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Helpers\templateMail.html
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Server.deps.json
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Server.runtimeconfig.json
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Server.runtimeconfig.dev.json

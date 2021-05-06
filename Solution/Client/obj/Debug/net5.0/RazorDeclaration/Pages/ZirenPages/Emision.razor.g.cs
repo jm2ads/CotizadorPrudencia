@@ -198,6 +198,12 @@ using System.Text.Json;
         {
             if (tipoMedioPagoDTO.medioPagoID == "0")
                 continue;
+            if (tipoMedioPagoDTO.medioPagoID == "1")
+                tipoMedioPagoDTO.nombre = "TARJETA NARANJA";
+
+            if (tipoMedioPagoDTO.medioPagoID == "2")
+                tipoMedioPagoDTO.nombre = "CBU - DEBITO EN CUENTA";
+
             if (tipoMedioPagoDTO.medioPagoID == "3")
                 tipoMedioPagoDTO.nombre = "TARJETA DE CREDITO - MERCADO PAGO";
 
@@ -217,6 +223,8 @@ using System.Text.Json;
         oVencimientoMedioPagoMes = DateTime.Today.Year.ToString();
         oVtoPruebaHidr = DateTime.Today;
         ofechaNacimiento = DateTime.Today.AddYears(-40);
+
+        oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta = "DNI";
 #if DEBUG
 
 
@@ -227,7 +235,7 @@ using System.Text.Json;
         oVencimientoMedioPagoMes = DateTime.Today.AddMonths(10).Year.ToString();
         oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago = "4338330002590988";
         oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta = "Noguera Adriel";
-        oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta = "DNI";
+
         oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta = "37683118";
 
 
@@ -372,6 +380,11 @@ using System.Text.Json;
             return;
         }
 
+        if ((DateTime)oInicioVigencia < DateTime.Today || (DateTime)oInicioVigencia > DateTime.Today.AddDays(7))
+        {
+            await mostrarMensajes.MostrarMensajeError("La Fecha de Inicio de Vigencia no puede ser menor a hoy ni mayor a 7 dias a partir de hoy");
+            return;
+        }
         //if (string.IsNullOrEmpty(oMedioPagoID) || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.numeroMedioPago)
         //    || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.nombreTitularTarjeta) || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.tipoDocTitularTarjeta)
         //    || string.IsNullOrEmpty(oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta))
@@ -448,6 +461,10 @@ using System.Text.Json;
         {
             //= responseHttp.Response;
             oRespuestaPolizaAutoDTO = responseHttp.Response;
+          
+            string oRespuestaPolizaAutoDTOJson = JsonSerializer.Serialize(oRespuestaPolizaAutoDTO);
+            Console.WriteLine(oRespuestaPolizaAutoDTOJson);
+
             navigationManager.NavigateTo($"/ziren/reporte/{ oRespuestaPolizaAutoDTO.polizaID}");
 
         }
@@ -475,7 +492,7 @@ using System.Text.Json;
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNombreTitularTarjeta", true);
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoMes", true);
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoAno", true);
-            await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtTipoDocTitularTarjeta", true);
+           // await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtTipoDocTitularTarjeta", true);
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNroDocTitularTarjeta", true);
         }
         // await JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");

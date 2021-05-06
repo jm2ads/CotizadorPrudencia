@@ -180,3 +180,4 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\Project.Server.d
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\ref\Project.Server.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\Project.Server.pdb
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\Project.Server.genruntimeconfig.cache
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Release\net5.0\Helpers\templateMail.html

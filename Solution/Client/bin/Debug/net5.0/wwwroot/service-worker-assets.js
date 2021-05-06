@@ -9,7 +9,7 @@
       "url": "_content\/Tewr.Blazor.FileReader\/FileReaderComponent.js.map"
     },
     {
-      "hash": "sha256-4MLanHWFHnJjqHjcPfQmgE6u4cN7mUvvYdeQFEQeaZQ=",
+      "hash": "sha256-XBwfTUnONqRl3MDaNHP7mhhLNVqUgcvpyhjqtSrh0Ww=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -805,11 +805,11 @@
       "url": "_framework\/Project.Shared.pdb"
     },
     {
-      "hash": "sha256-00tqbWefhzvp34LXxaoDGZaJI3LEvUTm95QpuRkQqeQ=",
+      "hash": "sha256-8I4oA5qpxUTXCrCnRymopeB\/utneVvTub3M9ADiaEVQ=",
       "url": "_framework\/Project.Client.dll"
     },
     {
-      "hash": "sha256-bsxvrtu5vktYSz4o6ob9XKJn0aYn8sSsdxbhQf8xU7o=",
+      "hash": "sha256-o9SQrrttj1qtEsCoOFO2WYadVwZOgyJwoAaMA\/23FnE=",
       "url": "_framework\/Project.Client.pdb"
     },
     {
@@ -1721,5 +1721,5 @@
       "url": "manifest.json"
     }
   ],
-  "version": "fzWEglpO"
+  "version": "VdeND\/SI"
 };

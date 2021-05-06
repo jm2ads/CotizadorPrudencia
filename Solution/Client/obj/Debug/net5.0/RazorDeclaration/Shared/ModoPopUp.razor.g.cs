@@ -104,7 +104,7 @@ using Project.Shared.PrudenciaDTOs;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 122 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ModoPopUp.razor"
+#line 128 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ModoPopUp.razor"
        
     private bool MostrarModo = false;
     [Parameter] public string Titulo { get; set; } = "Confirmación";
