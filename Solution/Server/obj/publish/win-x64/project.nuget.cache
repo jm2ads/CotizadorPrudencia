@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iMjiYthOkOedE2ousnSaA1IfTFjZ6ec+fNoMzBl9qs1GMLSJLepA4orr7KFV9G9C9gzhvBs/B3F06sfBdaKGgg==",
+  "dgSpecHash": "Qf/t0cr35f8sNnGKrcY8APb6fx5o4TPntV7szYuCRia4DitEZG8eOu+o0CNkY7YrnOoHNGrAzfWLX4AibVo7bg==",
   "success": true,
   "projectFilePath": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Server\\Project.Server.csproj",
   "expectedPackageFiles": [
@@ -207,10 +207,7 @@
     "C:\\Users\\Facundo\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Facundo\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\Facundo\\.nuget\\packages\\tewr.blazor.filereader\\1.2.0.19363\\tewr.blazor.filereader.1.2.0.19363.nupkg.sha512",
-    "C:\\Users\\Facundo\\.nuget\\packages\\webpush\\1.0.11\\webpush.1.0.11.nupkg.sha512",
-    "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\5.0.5\\microsoft.netcore.app.runtime.win-x64.5.0.5.nupkg.sha512",
-    "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\5.0.5\\microsoft.windowsdesktop.app.runtime.win-x64.5.0.5.nupkg.sha512",
-    "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\5.0.5\\microsoft.aspnetcore.app.runtime.win-x64.5.0.5.nupkg.sha512"
+    "C:\\Users\\Facundo\\.nuget\\packages\\webpush\\1.0.11\\webpush.1.0.11.nupkg.sha512"
   ],
   "logs": []
 }

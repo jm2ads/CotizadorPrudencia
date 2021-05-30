@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "EwLa3YUPlJ6jo8zjeKYJA5Q/W1xj84kNxQuljpbClsZxw/vV1FQKJpK1AJox4ZiqdIWJ5j29lnmKu9ZUDEMngw==",
+  "dgSpecHash": "G5Otg8DqEjs+J2iSSsnPg9PkywNjXzLtBPvLHF7SDYU9CGGjdk82zi5u69HMcdZOo0zBHCr52mOGAwBxhQuosA==",
   "success": true,
   "projectFilePath": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Client\\Project.Client.csproj",
   "expectedPackageFiles": [
@@ -32,7 +32,7 @@
     "C:\\Users\\Facundo\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Users\\Facundo\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",
     "C:\\Users\\Facundo\\.nuget\\packages\\tewr.blazor.filereader\\1.2.0.19363\\tewr.blazor.filereader.1.2.0.19363.nupkg.sha512",
-    "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.5\\microsoft.netcore.app.runtime.browser-wasm.5.0.5.nupkg.sha512"
+    "C:\\Users\\Facundo\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.6\\microsoft.netcore.app.runtime.browser-wasm.5.0.6.nupkg.sha512"
   ],
   "logs": []
 }

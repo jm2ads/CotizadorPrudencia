@@ -599,6 +599,7 @@ using System.Text.Json;
     {
         cotizacionPopUp.Ocultar();
         navigationManager.NavigateTo($"/ziren/infopersonalcompleta/{oCoberturaIDSelected}");
+        SendEmail("ModoContinuar");
     }
     private async Task onModoComodo()
     {
