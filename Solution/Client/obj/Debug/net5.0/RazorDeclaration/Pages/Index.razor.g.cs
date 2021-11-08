@@ -84,27 +84,34 @@ using Project.Shared.Entidades;
 #nullable disable
 #nullable restore
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
-using Project.Client.Repositorios;
+using Project.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+using Project.Client.Repositorios;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.PrudenciaDTOs;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
+#line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
 using System.Text.Json;
 
 #line default
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/index")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/{ProductorCode}")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -113,14 +120,20 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 52 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
-        private Login oLogin = null;
+#line 54 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
+       private Login oLogin = null;
+
+    [Parameter] public string ProductorCode { get; set; }
+
+
+
+
 
     private CotizacionAutoDTO oCotizacionAutoDTO;
     private string permisoNotificaciones = string.Empty;
 
 
-
+    private string ProductorImage;
 
 
 
@@ -132,7 +145,29 @@ using System.Text.Json;
 
     protected async override Task OnInitializedAsync()
     {
+        
 
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 78 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
+         if (ProductorCode == null)
+        {
+            ProductorImage = "/images/logo.png";
+        }
+        else
+        {
+            ProductorImage = "/images/" + ProductorCode + ".jpg";
+        }
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 85 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
+         
+       
         Console.WriteLine("Inicia Request Index :" + DateTime.Now);
         var responseHttp4 = await repositorio.Get<List<TipoMedioPagoDTO>>("api/Externo/Prudencia/catalogos/GetMediosDePago");
         Console.WriteLine("Fin Request Index :" + DateTime.Now);

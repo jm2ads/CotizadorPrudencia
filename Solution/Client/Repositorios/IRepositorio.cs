@@ -1,5 +1,6 @@
 ﻿using Project.Shared.Entidades;
 using Project.Shared.PrudenciaDTOs;
+using Project.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

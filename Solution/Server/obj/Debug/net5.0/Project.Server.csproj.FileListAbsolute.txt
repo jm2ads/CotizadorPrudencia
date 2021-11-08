@@ -81,7 +81,6 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.IdentityMod
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.IO.Pipelines.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.Runtime.Caching.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Blazor.FileReader.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\WebPush.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
@@ -166,6 +165,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Client.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Shared.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Client.pdb
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\bin\Debug\net5.0\Project.Shared.pdb
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.csproj.AssemblyReference.cache
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.GeneratedMSBuildEditorConfig.editorconfig
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.AssemblyInfoInputs.cache
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.AssemblyInfo.cs
@@ -180,4 +180,3 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\ref\Project.Server.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.pdb
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.genruntimeconfig.cache
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Debug\net5.0\Project.Server.csproj.AssemblyReference.cache

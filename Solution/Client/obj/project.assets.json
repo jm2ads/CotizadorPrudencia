@@ -315,24 +315,6 @@
           "lib/net5.0/System.Net.Http.Json.dll": {}
         }
       },
-      "Tewr.Blazor.FileReader/1.2.0.19363": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components": "3.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Blazor.FileReader.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Blazor.FileReader.dll": {}
-        },
-        "build": {
-          "buildTransitive/Tewr.Blazor.FileReader.props": {}
-        },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/Tewr.Blazor.FileReader.props": {}
-        }
-      },
       "Project.Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -659,24 +641,6 @@
         },
         "runtime": {
           "lib/net5.0/System.Net.Http.Json.dll": {}
-        }
-      },
-      "Tewr.Blazor.FileReader/1.2.0.19363": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components": "3.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Blazor.FileReader.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Blazor.FileReader.dll": {}
-        },
-        "build": {
-          "buildTransitive/Tewr.Blazor.FileReader.props": {}
-        },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/Tewr.Blazor.FileReader.props": {}
         }
       },
       "Project.Shared/1.0.0": {
@@ -1305,26 +1269,6 @@
         "version.txt"
       ]
     },
-    "Tewr.Blazor.FileReader/1.2.0.19363": {
-      "sha512": "TiN0Lq2tRFKooLA8WuGVxCXx5ezU2DSsxS0CGhLt7zG2usdPPkXCBrvkDn8m6pfC8pd0JW2YseySoGhEcYwXog==",
-      "type": "package",
-      "path": "tewr.blazor.filereader/1.2.0.19363",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/Microsoft.AspNetCore.StaticWebAssets.props",
-        "build/Tewr.Blazor.FileReader.props",
-        "buildMultiTargeting/Tewr.Blazor.FileReader.props",
-        "buildTransitive/Tewr.Blazor.FileReader.props",
-        "icon.png",
-        "lib/netstandard2.0/Blazor.FileReader.dll",
-        "lib/netstandard2.0/Blazor.FileReader.xml",
-        "staticwebassets/FileReaderComponent.js",
-        "staticwebassets/FileReaderComponent.js.map",
-        "tewr.blazor.filereader.1.2.0.19363.nupkg.sha512",
-        "tewr.blazor.filereader.nuspec"
-      ]
-    },
     "Project.Shared/1.0.0": {
       "type": "project",
       "path": "../Shared/Project.Shared.csproj",
@@ -1336,8 +1280,7 @@
       "Microsoft.AspNetCore.Components.WebAssembly >= 5.0.2",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 5.0.2",
       "Project.Shared >= 1.0.0",
-      "System.Net.Http.Json >= 5.0.0",
-      "Tewr.Blazor.FileReader >= 1.2.0.19363"
+      "System.Net.Http.Json >= 5.0.0"
     ]
   },
   "packageFolders": {
@@ -1371,7 +1314,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/Azure-DevOps-YPF/_packaging/Ingenieria_de_Desarrollo-YPF/nuget/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
@@ -1405,10 +1349,6 @@
           "System.Net.Http.Json": {
             "target": "Package",
             "version": "[5.0.0, )"
-          },
-          "Tewr.Blazor.FileReader": {
-            "target": "Package",
-            "version": "[1.2.0.19363, )"
           }
         },
         "imports": [

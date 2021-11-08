@@ -84,13 +84,20 @@ using Project.Shared.Entidades;
 #nullable disable
 #nullable restore
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
-using Project.Client.Repositorios;
+using Project.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+using Project.Client.Repositorios;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.PrudenciaDTOs;
 
 #line default
@@ -118,20 +125,20 @@ using System.Text.Json;
     private const string btnPolizaStyleOff = "width: 66px;height: 44px;position: absolute;top: 2px;left: 2px;background-color: transparent;background-image: url('/images/Cotizacion/off.png');border: 0;padding: 0;background-size:contain";
     private const string btnPolizaStyleOn = "width: 66px;height: 44px;position: absolute;top: 2px;left: 2px;background-color: transparent;background-image: url('/images/Cotizacion/on.png');border: 0;padding: 0;background-size:contain";
 
-    private const string fsAStyleOff = "background-image: url('/images/Coberturas/a.png');border: 0ch;width: 278px;height: 183px;background-size:contain";
-    private const string fsAStyleOn = "background-image: url('/images/Coberturas/aClicked.png');border: 0ch;width: 278px;height: 183px;background-size:contain";
+    private const string fsAStyleOff = "background-image: url('/images/Coberturas/a.png');border: 0ch;width: 278px;height: 182px;background-size:contain";
+    private const string fsAStyleOn = "background-image: url('/images/Coberturas/aClicked.png');border: 0ch;width: 278px;height: 182px;background-size:contain";
 
-    private const string fsB1StyleOff = "background-image: url('/images/Coberturas/b1.png');border: 0ch;width: 278px;height: 183px;background-size:contain";
-    private const string fsB1StyleOn = "background-image: url('/images/Coberturas/b1Clicked.png');border: 0ch;width: 278px;height: 183px;background-size:contain";
+    private const string fsB1StyleOff = "background-image: url('/images/Coberturas/b1.png');border: 0ch;width: 278px;height: 182px;background-size:contain";
+    private const string fsB1StyleOn = "background-image: url('/images/Coberturas/b1Clicked.png');border: 0ch;width: 278px;height: 182px;background-size:contain";
 
-    private const string fsCStyleOff = "background-image: url('/images/Coberturas/c.png');border: 0ch;width: 556px;height: 183px;background-size:contain";
-    private const string fsCStyleOn = "background-image: url('/images/Coberturas/cClicked.png');border: 0ch;width: 556px;height: 183px;background-size:contain";
+    private const string fsCStyleOff = "background-image: url('/images/Coberturas/c.png');border: 0ch;width: 556px;height: 182px;background-size:contain";
+    private const string fsCStyleOn = "background-image: url('/images/Coberturas/cClicked.png');border: 0ch;width: 556px;height: 182px;background-size:contain";
 
-    private const string fsCfStyleOff = "background-image: url('/images/Coberturas/cf.png');border: 0ch;width: 556px;height: 183px;background-size:contain";
-    private const string fsCfStyleOn = "background-image: url('/images/Coberturas/cfClicked.png');border: 0ch;width: 556px;height: 183px;background-size:contain";
+    private const string fsCfStyleOff = "background-image: url('/images/Coberturas/cf.png');border: 0ch;width: 556px;height: 182px;background-size:contain";
+    private const string fsCfStyleOn = "background-image: url('/images/Coberturas/cfClicked.png');border: 0ch;width: 556px;height: 182px;background-size:contain";
 
-    private const string fsD2StyleOff = "background-image: url('/images/Coberturas/d2.png');border: 0ch;width: 556px;height: 183px;background-size:contain";
-    private const string fsD2StyleOn = "background-image: url('/images/Coberturas/d2Clicked.png');border: 0ch;width: 556px;height: 183px;background-size:contain";
+    private const string fsD2StyleOff = "background-image: url('/images/Coberturas/d2.png');border: 0ch;width: 556px;height: 182px;background-size:contain";
+    private const string fsD2StyleOn = "background-image: url('/images/Coberturas/d2Clicked.png');border: 0ch;width: 556px;height: 182px;background-size:contain";
 
     private string btnPolizaAStyle;
     private string btnPolizaB1Style;

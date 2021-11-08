@@ -1,0 +1,55 @@
+﻿@page "/Vendedor/editar/{vendedorId:int}"
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensaje
+@inject NavigationManager navigationManager
+
+<h3 style="color:white">Editar Grupo</h3>
+
+@if (vendedor == null)
+{
+    <text>Cargando...</text> }
+else
+{
+    <FormVendedor vendedor="vendedor" oOnValidSubmit="Editar"></FormVendedor>
+}
+@code {
+    [Parameter] public int vendedorId { get; set; }
+    [Parameter] public string Url { get; set; }
+    private Vendedor vendedor;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpResponse = await repositorio.Get<Vendedor>("api/Vendedores/" + vendedorId);
+        if (httpResponse.Error)
+        {
+            if (httpResponse.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("Grupos");
+            }
+            else
+            {
+                await mostrarMensaje.MostrarMensajeError(await httpResponse.GetBody());
+            }
+        }
+        else
+        {
+            vendedor = httpResponse.Response;
+        }
+
+
+
+    }
+    private async Task Editar()
+    {
+
+        var httpResponse = await repositorio.Put("api/Vendedor/" + vendedor.VendedorId, vendedor);
+        if (httpResponse.Error)
+        {
+            await mostrarMensaje.MostrarMensajeError(await httpResponse.GetBody());
+        }
+        else
+        {
+            navigationManager.NavigateTo("/admin/Grupos");
+        }
+    }
+}

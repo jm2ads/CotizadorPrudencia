@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "storage1": {
+      "restored": true,
+      "restoreTime": "2021-06-07T20:46:35.5075766Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2021-06-07T23:55:15.8030349Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "eb573f7e-fbdb-46ba-9956-53532aedfaa6"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "ProjectServer20210607170010ResourceGroup"
+    }
+  }
+}

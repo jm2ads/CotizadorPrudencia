@@ -29,8 +29,7 @@ namespace Project.Server.Controllers
     {
         private IMemoryCache oMemoryCache;
         private readonly IConfiguration oConfiguration;
-        private readonly NotificacionesService oNotificacionesService;
-      
+       
         private string oUriBase;
         private string oUser;
         private string oPassword;
@@ -38,12 +37,11 @@ namespace Project.Server.Controllers
 
 
         //private Login oLogin;
-        public PrudenciaController(IMemoryCache memoryCache, IConfiguration configuration,NotificacionesService notificacionesService)
+        public PrudenciaController(IMemoryCache memoryCache, IConfiguration configuration)
         {
             oMemoryCache = memoryCache;
             oConfiguration = configuration;
-            this.oNotificacionesService = notificacionesService;
-
+           
 
             oUriBase = oConfiguration["prudencia_UriBase"];
             oUser = oConfiguration["prudencia_user"];

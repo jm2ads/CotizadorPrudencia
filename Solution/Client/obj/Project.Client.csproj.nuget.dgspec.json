@@ -29,7 +29,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Azure-DevOps-YPF/_packaging/Ingenieria_de_Desarrollo-YPF/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -63,10 +64,6 @@
             "System.Net.Http.Json": {
               "target": "Package",
               "version": "[5.0.0, )"
-            },
-            "Tewr.Blazor.FileReader": {
-              "target": "Package",
-              "version": "[1.2.0.19363, )"
             }
           },
           "imports": [
@@ -124,7 +121,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Azure-DevOps-YPF/_packaging/Ingenieria_de_Desarrollo-YPF/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -163,11 +161,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
         }
       }
     }

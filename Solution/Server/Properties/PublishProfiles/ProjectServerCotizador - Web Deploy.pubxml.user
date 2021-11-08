@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvdNGny2yb0uTFQO+d59CHgAAAAACAAAAAAAQZgAAAAEAACAAAAANf/Yhe7NiUrP5wWUZgQgoeVGuyoDt5zlVG/+mgGTGGgAAAAAOgAAAAAIAACAAAAAvvcGyO9Jk/ryYDIwVlStFFHdfrEukOSNSejZhc0VoqIAAAABOMMpIwu0kr67tMiYAt5IJ5B2kGqFr5v0kAWiMxD1BQ4jRa87gcXyxJsffn93y8OdRp8j7poZuOJUE64s4FUF5fDBECWknRF2EDgcQf2yvW4nMZ2+hgzvQMjo+ArlN0CxGnMNVTlWb1GoEQA8G9OwlpEeGTvWsxX4z36a5db85xEAAAABO3sB4b1NXIG9GuvqOxbwQAgLKrNS6KrYUdxAhBDjCfcUWMUd+9knscPyX2ExpuJ8XQQ68bTWB34apk/OAPVoY</EncryptedPassword>
+    <History>True|2021-06-05T18:14:42.9974396Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="Project.Server.ApplicationDbContext">
+      <Value>Data Source=tcp:zirenserverdbserver1.database.windows.net,1433%3bInitial Catalog=Project.Server_db%3bUser Id=ziren%40zirenserverdbserver1%3bPassword=#Prudencia1</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

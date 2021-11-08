@@ -1,0 +1,216 @@
+﻿
+
+<EditForm Model="organizador" OnValidSubmit="oOnValidSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Nomrbre:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.Nombre"></InputText>
+                <ValidationMessage For="@(() => organizador.Nombre)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Apellido:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.Apellido"></InputText>
+                <ValidationMessage For="@(() => organizador.Apellido)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Dni:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.Dni"></InputText>
+                <ValidationMessage For="@(() => organizador.Dni)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Url:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.Url"></InputText>
+                <ValidationMessage For="@(() => organizador.Url)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Matricula:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.Matricula"></InputText>
+                <ValidationMessage For="@(() => organizador.Matricula)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Mail:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.Mail"></InputText>
+                <ValidationMessage For="@(() => organizador.Mail)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Celular1:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.Celular1"></InputText>
+                <ValidationMessage For="@(() => organizador.Celular1)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Celular2:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.Celular2"></InputText>
+                <ValidationMessage For="@(() => organizador.Celular2)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Domicilio:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.Domicilio"></InputText>
+                <ValidationMessage For="@(() => organizador.Domicilio)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Localidad:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.Localidad"></InputText>
+                <ValidationMessage For="@(() => organizador.Localidad)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">ComisionPrima:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="organizador.ComisionPrima"></InputNumber>
+                <ValidationMessage For="@(() => organizador.ComisionPrima)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Logo:</label>
+            <div>
+                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenURL="@imagenURL" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">ModoComodo:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.ModoComodo"></InputText>
+                <ValidationMessage For="@(() => organizador.ModoComodo)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Deseo Dar Datos:</label>
+            <div>
+                <InputCheckbox class="form-control" @bind-Value="organizador.BotonDeseoDarDatos"></InputCheckbox>
+                <ValidationMessage For="@(() => organizador.BotonDeseoDarDatos)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Acarreo:</label>
+            <div>
+                <InputCheckbox class="form-control" @bind-Value="organizador.Acarreo"></InputCheckbox>
+                <ValidationMessage For="@(() => organizador.Acarreo)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">GNC_Montos:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="organizador.GncMonto"></InputNumber>
+                <ValidationMessage For="@(() => organizador.GncMonto)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Ajuste:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="organizador.Ajuste"></InputNumber>
+                <ValidationMessage For="@(() => organizador.Ajuste)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">DescuentoRecargas:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="organizador.DescuentoRecarga"></InputNumber>
+                <ValidationMessage For="@(() => organizador.DescuentoRecarga)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Whatsapp:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.Whatsapp"></InputText>
+                <ValidationMessage For="@(() => organizador.Ajuste)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">DescuentoRecargas:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="organizador.DescuentoRecarga"></InputNumber>
+                <ValidationMessage For="@(() => organizador.DescuentoRecarga)" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <button class="btn btn-success" type="submit">Guardar Cambios</button>
+</EditForm>
+
+@code {
+    [Parameter] public Organizador organizador { get; set; }
+    [Parameter] public EventCallback oOnValidSubmit { get; set; }
+
+    private string imagenURL;
+
+    protected override void OnInitialized()
+    {
+
+       
+        if (!string.IsNullOrEmpty(organizador.Logo))
+        {
+            imagenURL = organizador.Logo;
+            organizador.Logo = null;
+        }
+    }
+    private void ImagenSeleccionada(string imagenBase64)
+    {
+        organizador.Logo = imagenBase64;
+        imagenURL = null;
+    }
+}

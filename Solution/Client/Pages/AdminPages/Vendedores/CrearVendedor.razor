@@ -1,0 +1,34 @@
+﻿@page "/Vendedor/crear/{productorId:int}/{Url}"
+@inject IRepositorio repositorio
+@inject NavigationManager navigationManager
+@inject IMostrarMensajes mostrarMensajes
+
+<h3 style="color:white">Crear Vendedor (de @Url)</h3>
+
+
+<FormVendedor grupo="grupo" oOnValidSubmit="Crear"></FormVendedor>
+@code {
+    [Parameter] public int productorId { get; set; }
+    [Parameter] public string Url { get; set; }
+    private Vendedor vendedor = new Vendedor();
+
+
+    private async Task Crear()
+    {
+        vendedor.ProductorId = productorId;
+        var httpResponse = await repositorio.Post("api/Vendedores", vendedor);
+
+
+        if (httpResponse.Error)
+        {
+            var body = await httpResponse.GetBody();
+
+            await mostrarMensajes.MostrarMensajeError(await httpResponse.GetBody());
+        }
+        else
+        {
+            //  await mostrarMensajes.MostrarMensajeExitoso(await httpResponse.GetBody());
+            navigationManager.NavigateTo("/admin/Grupos");
+        }
+    }
+}

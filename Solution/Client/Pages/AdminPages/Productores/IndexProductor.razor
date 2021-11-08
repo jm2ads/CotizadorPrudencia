@@ -1,0 +1,137 @@
+﻿@page "/admin/Productores/{organizadorId:int}/{Url}"
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensajes
+@inject NavigationManager navigationManager
+@inject IJSRuntime JsRuntime
+@using System.Text.Json;
+<h3 style="color:white">Productores</h3>
+
+
+<div class="form-group">
+    <a class="btn btn-success" href="productor/Crear/@organizadorId/@Url">Productor Nuevo</a>
+</div>
+@if (productorList == null)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    @if (productorList.Count == 0)
+    {
+        <label style="color:white">No hay registros para mostrar</label>
+    }
+    else
+    {
+        <div style="display: flex; flex-wrap: wrap; align-items: center;">
+
+
+            @foreach (var productor in productorList)
+            {
+
+                <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                    <a href="/admin/Vendedores/@productor.ProductorId/@productor.Url">
+                        <img src="data:image/jpeg;base64, @productor.Logo" alt="Poster" style="width: 112px; height:150px;" />
+                    </a>
+                    <div>
+                        <a class="btn btn-warning" style="margin:3px" href="/admin/Vendedores/@productor.ProductorId/@productor.Url">Vendedores</a>
+                    </div>
+                    <div>
+                        <a class="btn btn-info" style="margin:3px" href="productor/editar/@productor.ProductorId/@Url">Editar</a>
+                        <button @onclick="@(() => BorrarProductor(productor))" class="btn btn-danger">Borrar</button>
+                    </div>
+                </div>
+
+
+            }
+        </div>
+
+
+
+    }
+
+}
+
+
+@code {
+
+
+    [Parameter] public int organizadorId { get; set; }
+    [Parameter] public string Url { get; set; }
+    private List<Grupo> grupoList;
+    private Grupo grupo = new Grupo();
+
+    private List<Organizador> organizadorList = new List<Organizador>();
+    private Organizador organizador = new Organizador();
+
+    private List<Productor> productorList ;
+    private Productor productor = new Productor();
+
+    private List<Vendedor> vendedorList = new List<Vendedor>();
+    private Vendedor vendedor = new Vendedor();
+
+    string oMarcaDescripcion = "";
+
+
+
+
+
+
+
+
+    private CotizacionAutoDTO oCotizacionAutoDTO;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        await Cargar();
+
+
+
+    }
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+
+
+
+    }
+
+
+    private async Task OnClickHandle(int omarcaID)
+    {
+
+
+
+
+        navigationManager.NavigateTo("/ziren/ano");
+
+    }
+
+    private async Task MarcaKeyUp(KeyboardEventArgs e)
+    {
+
+
+
+
+    }
+    private async Task Cargar()
+    {
+        var responseHttp = await repositorio.Get<List<Productor>>("api/Productores/GetByOrganizadorId/" + organizadorId);
+        productorList = responseHttp.Response;
+    }
+    private async Task BorrarProductor(Productor productor)
+    {
+        var responseHttp = await repositorio.Delete($"api/Productores/{productor.ProductorId}");
+        if (responseHttp.Error)
+        {
+            Console.WriteLine(responseHttp.HttpResponseMessage.StatusCode);
+            await mostrarMensajes.MostrarMensajeError(await responseHttp.GetBody());
+        }
+        else
+        {
+            await Cargar();
+        }
+
+    }
+}

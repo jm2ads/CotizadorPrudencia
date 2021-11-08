@@ -1,0 +1,107 @@
+﻿@page "/admin/Organizadores/{grupoId:int}/{Url}"
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensajes
+@inject NavigationManager navigationManager
+@inject IJSRuntime JsRuntime
+@using System.Text.Json;
+<h3 style="color:white">Organizadores (Grupo @Url)</h3>
+
+<div class="form-group">
+    <a class="btn btn-success" href="organizador/Crear/@grupoId/@Url">Grupo Nuevo</a>
+</div>
+
+
+@if (organizadorList == null)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    @if (organizadorList.Count == 0)
+    {
+        <label style="color:white">No hay registros para mostrar</label>
+    }
+    else
+    {
+        <div style="display: flex; flex-wrap: wrap; align-items: center;">
+
+            @foreach (var organizador in organizadorList)
+            {
+                <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                    <a href="/admin/Productores/@organizador.OrganizadorId/@organizador.Url">
+                        <img src="data:image/jpeg;base64, @organizador.Logo" alt="Poster" style="width: 112px; height:150px;" />
+                    </a>
+                    <div>
+                        <a class="btn btn-warning" style="margin:3px"  href="/admin/Productores/@organizador.OrganizadorId/@organizador.Url">Productores</a>
+                    </div>
+                    <div>
+                        <a class="btn btn-info" style="margin:3px"  href="organizador/editar/@organizador.OrganizadorId/@Url">Editar</a>
+                        <button @onclick="@(() => BorrarOrganizador(organizador))" class="btn btn-danger">Borrar</button>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}
+
+
+@code {
+    [Parameter] public int grupoId { get; set; }
+    [Parameter] public string Url { get; set; }
+
+
+
+    private List<Grupo> grupoList;
+    private Grupo grupo = new Grupo();
+
+    private List<Organizador> organizadorList ;
+    private Organizador organizador = new Organizador();
+
+    private List<Productor> productorList = new List<Productor>();
+    private Productor productor = new Productor();
+
+    private List<Vendedor> vendedorList = new List<Vendedor>();
+    private Vendedor vendedor = new Vendedor();
+
+    string oMarcaDescripcion = "";
+
+
+
+    private int organizadorId;
+
+    private int productorId;
+
+    private int vendedorId;
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        await Cargar();
+
+    }
+
+
+
+
+    private async Task Cargar()
+    {
+        var responseHttp = await repositorio.Get<List<Organizador>>("api/Organizadores/GetByGrupoId/" + grupoId);
+        organizadorList = responseHttp.Response;
+    }
+    private async Task BorrarOrganizador(Organizador organizador)
+    {
+        var responseHttp = await repositorio.Delete($"api/Organizadores/{organizador.OrganizadorId}");
+        if (responseHttp.Error)
+        {
+            Console.WriteLine(responseHttp.HttpResponseMessage.StatusCode);
+            await mostrarMensajes.MostrarMensajeError(await responseHttp.GetBody());
+        }
+        else
+        {
+            await Cargar();
+        }
+
+    }
+}

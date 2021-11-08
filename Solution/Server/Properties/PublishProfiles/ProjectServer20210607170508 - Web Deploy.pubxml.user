@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvdNGny2yb0uTFQO+d59CHgAAAAACAAAAAAAQZgAAAAEAACAAAACYHuRHyqryi1FcCiWA/lg/saLxVXWrNt1u7M4ZJSmEuwAAAAAOgAAAAAIAACAAAACE/GIIroYYTHqSRKmZR/1YsEUhmFR8sQ3/36G/1W5BgoAAAABvKF87Q7cHxe+/dD5oBeU8T1tLpMwxlfyK6o0RVR0x5ArPIuJ+HkqVphuZMTnQQO5u6b+1ktix7ZxikVzcD16iT4Zq8wR3j57YrrqMmsLNxCLpJEPrlMp6PUEggSbInV05qhqTeOfwl/LOC3LTk9gTJAkjibAkRn1H9FjcfcPdg0AAAADGU+sBbK/6vubDiDofF/4Ep+C4EsQ5OCa0LAPsUVX9fS4vQPPqBb9PK16vxLUsZlhK7KDdbHZ+CCHBHB7kIb/F</EncryptedPassword>
+    <History>True|2021-06-25T04:58:50.1182608Z;True|2021-06-07T21:05:30.2256970-03:00;False|2021-06-07T20:50:03.1039658-03:00;False|2021-06-07T20:47:18.2041961-03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="Project.Server.ApplicationDbContext">
+      <Value>Data Source=tcp:projectserverdbserver.database.windows.net,1433%3bInitial Catalog=Project.Server_db%3bUser Id=ZirenUser%40projectserverdbserver%3bPassword=ZirenPass1</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

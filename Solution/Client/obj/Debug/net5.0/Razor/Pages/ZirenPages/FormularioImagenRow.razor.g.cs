@@ -81,13 +81,20 @@ using Project.Shared.Entidades;
 #nullable disable
 #nullable restore
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
-using Project.Client.Repositorios;
+using Project.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+using Project.Client.Repositorios;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.PrudenciaDTOs;
 
 #line default
@@ -132,7 +139,7 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
 #nullable disable
                 )));
-                __builder2.AddAttribute(10, "ImagenTemporal", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddAttribute(10, "ImagenTemporal", 
 #nullable restore
 #line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\FormularioImagenRow.razor"
                                                                                                    imagenTemporal
@@ -140,7 +147,7 @@ using Project.Shared.PrudenciaDTOs;
 #line default
 #line hidden
 #nullable disable
-                ));
+                );
                 __builder2.CloseComponent();
                 __builder2.CloseElement();
                 __builder2.AddMarkupContent(11, "\r\n        ");

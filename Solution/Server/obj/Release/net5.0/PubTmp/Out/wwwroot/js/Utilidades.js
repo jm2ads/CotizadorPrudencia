@@ -74,3 +74,58 @@ function arrayBufferToBase64(buffer) {
     }
     return window.btoa(binary);
 }
+
+getDimensions = function () {
+  
+            return {
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                };
+        };
+
+
+
+
+
+window.JsFunctions = {
+
+        focusElement: function (element) {
+            element.focus();
+    }
+
+    ,
+    focusElementB: function (id) {
+        const element = document.getElementById(id);
+        element.focus();
+    }
+    ,
+
+
+    enableElementB: function (id, truefalse) {
+         const element = document.getElementById(id);
+        element.disabled = !truefalse;
+    }
+
+    ,
+    disableElement: function (element) {
+        element.disabled = true;
+    }
+
+        
+    }
+
+
+
+
+
+async function InputTextDisable(disable) {
+    window.JsFunctions = {
+        focusElement: function (element) {
+            element.focus();
+        }
+    }
+}
+
+
+
+

@@ -221,11 +221,11 @@
       "url": "_framework\/Blazor.FileReader.dll"
     },
     {
-      "hash": "sha256-BcISdb9De\/tVCCRcc8\/QhqxvuUgF20kKpsDAzefxDn4=",
+      "hash": "sha256-tuAliep5kafD2UshTprivd2yBrR\/bgYn7l\/ZUK1zlVE=",
       "url": "_framework\/Project.Shared.dll"
     },
     {
-      "hash": "sha256-uN1i4Z9UyjA5JdOVZa1xf+mGgWZiNEuD6vrgcE6dRL4=",
+      "hash": "sha256-rTLLE9wnZuib35kG852K6CYwTK8JswrrwoWC7Mq3odU=",
       "url": "_framework\/Project.Client.dll"
     },
     {
@@ -325,7 +325,7 @@
       "url": "_framework\/System.Private.CoreLib.dll"
     },
     {
-      "hash": "sha256-E8+dmPVHn1x3v4VeQIBfRoISte8mZxUcZges8n\/lPO0=",
+      "hash": "sha256-\/u5owMtbLrJqP4GDdaEdZ5fTaO8J8R6FqQPrywWZc+U=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -333,5 +333,5 @@
       "url": "_framework\/blazor.webassembly.js"
     }
   ],
-  "version": "SBuBoLKd"
+  "version": "e1rsS1Vw"
 };

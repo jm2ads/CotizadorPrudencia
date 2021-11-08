@@ -1,0 +1,117 @@
+﻿@page "/indexadmin"
+
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensajes
+@inject NavigationManager navigationManager
+@inject ILocalStorageManager LocalStorageManager
+@inject IJSRuntime js
+@inject IMostrarMensajes mostrarMensajes
+@using System.Text.Json;
+
+
+
+
+
+<h2 style="color:white">Admin </h2>
+
+<EditForm Model="xID">
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Usuario</label>
+            <div>
+                <InputText @bind-Value="adminNombre" class="form-control"></InputText>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">PassWord</label>
+            <div>
+                <InputText @bind-Value="adminPassWord" class="form-control"></InputText>
+
+                @*<InputPassword Class="form-control" @bind-Value="@admin.AdminPassWord"/>*@
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-3">
+            <button type="button" class="btn btn-success" style="width:200px" @onclick="@(() => OnClickHandle())">Login</button>
+        </div>
+    </div>
+</EditForm>
+
+
+
+<div style="display: flex;justify-content:center;align-items: center;align-content:center;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto">
+    <img src="@ProductorImage" style="width:150px" />
+</div>
+
+
+@code {
+    [Parameter] public int xID { get; set; }
+
+    private Admin admin = new Admin();
+
+
+    private string adminNombre;
+    private string adminPassWord;
+
+    private string ProductorImage;
+
+
+
+    CotizacionPopUp cotizacionPopUp;
+    private List<RespuestaReporteDTO> oRespuestaReporteDTOList = new List<RespuestaReporteDTO>();
+    RespuestaPolizaImpresionDTO oRespuestaPolizaImpresionDTO = null;
+
+
+
+    protected async override Task OnInitializedAsync()
+    {
+
+        ProductorImage = "/images/logo.png";
+#if DEBUG
+        adminNombre = "Admin";
+        adminPassWord = "Admin1234";
+#endif
+
+    }
+
+
+
+    private async Task OnClickHandle()
+    {
+        if (string.IsNullOrEmpty(adminNombre) || string.IsNullOrEmpty(adminPassWord))
+        {
+            var mensajeError = "Todos los campos son requeridos";
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+
+
+        var responseHttp = await repositorio.Get<Admin>("api/Admin/" + adminNombre);
+        Admin admin = responseHttp.Response;
+        if (admin==null)
+        {
+            var mensajeError = "Usuario y clave Invalidos";
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+        if (admin.AdminPassWord != adminPassWord)
+        {
+            var mensajeError = "Clave Invalidos";
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+
+        navigationManager.NavigateTo($"/admin/Grupos");
+    }
+
+
+}

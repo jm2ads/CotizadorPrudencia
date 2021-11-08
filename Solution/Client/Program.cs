@@ -1,5 +1,4 @@
-﻿using Blazor.FileReader;
-using Project.Client.Helpers;
+﻿using Project.Client.Helpers;
 using Project.Client.Repositorios;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,7 +33,7 @@ namespace Project.Client
             services.AddScoped<IRepositorio, Repositorio>();
             services.AddScoped<IMostrarMensajes, MostrarMensajes>();
             services.AddScoped<ILocalStorageManager, LocalStorageManager>();
-            services.AddFileReaderService(options => options.InitializeOnFirstCall = true);
+           // services.AddFileReaderService(options => options.InitializeOnFirstCall = true);
             services.AddScoped<BrowserService>();
         }
     }

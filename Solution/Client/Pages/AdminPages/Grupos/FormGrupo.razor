@@ -1,0 +1,222 @@
+﻿
+
+<EditForm Model="grupo" OnValidSubmit="oOnValidSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Nomrbre:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.Nombre"></InputText>
+                <ValidationMessage For="@(() => grupo.Nombre)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Apellido:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.Apellido"></InputText>
+                <ValidationMessage For="@(() => grupo.Apellido)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Dni:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.Dni"></InputText>
+                <ValidationMessage For="@(() => grupo.Dni)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Url:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.Url"></InputText>
+                <ValidationMessage For="@(() => grupo.Url)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Matricula:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.Matricula"></InputText>
+                <ValidationMessage For="@(() => grupo.Matricula)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Mail:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.Mail"></InputText>
+                <ValidationMessage For="@(() => grupo.Mail)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Celular1:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.Celular1"></InputText>
+                <ValidationMessage For="@(() => grupo.Celular1)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Celular2:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.Celular2"></InputText>
+                <ValidationMessage For="@(() => grupo.Celular2)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Domicilio:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.Domicilio"></InputText>
+                <ValidationMessage For="@(() => grupo.Domicilio)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Localidad:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.Localidad"></InputText>
+                <ValidationMessage For="@(() => grupo.Localidad)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">ComisionPrima:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="grupo.ComisionPrima"></InputNumber>
+                <ValidationMessage For="@(() => grupo.ComisionPrima)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Logo:</label>
+            <div>
+                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenURL="@imagenURL" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">ModoComodo:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.ModoComodo"></InputText>
+                <ValidationMessage For="@(() => grupo.ModoComodo)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Deseo Dar Datos:</label>
+            <div>
+                <InputCheckbox class="form-control" @bind-Value="grupo.BotonDeseoDarDatos"></InputCheckbox>
+                <ValidationMessage For="@(() => grupo.BotonDeseoDarDatos)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Acarreo:</label>
+            <div>
+                <InputCheckbox class="form-control" @bind-Value="grupo.Acarreo"></InputCheckbox>
+                <ValidationMessage For="@(() => grupo.Acarreo)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">GNC_Montos:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="grupo.GncMonto"></InputNumber>
+                <ValidationMessage For="@(() => grupo.GncMonto)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Ajuste:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="grupo.Ajuste"></InputNumber>
+                <ValidationMessage For="@(() => grupo.Ajuste)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">DescuentoRecargas:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="grupo.DescuentoRecarga"></InputNumber>
+                <ValidationMessage For="@(() => grupo.DescuentoRecarga)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Whatsapp:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.Whatsapp"></InputText>
+                <ValidationMessage For="@(() => grupo.Ajuste)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">DescuentoRecargas:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="grupo.DescuentoRecarga"></InputNumber>
+                <ValidationMessage For="@(() => grupo.DescuentoRecarga)" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <button class="btn btn-success" type="submit">Guardar Cambios</button>
+</EditForm>
+
+@code {
+    [Parameter] public Grupo grupo { get; set; }
+    [Parameter] public EventCallback oOnValidSubmit { get; set; }
+
+    private string imagenURL;
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("on initialized");
+        Console.WriteLine(grupo.Logo);
+        Console.WriteLine(grupo.Nombre);
+        if (grupo.GrupoId == 0)
+        {
+            //grupo.FechaNacimiento = DateTime.Today.AddYears(-12);
+        }
+        if (!string.IsNullOrEmpty(grupo.Logo))
+        {
+            imagenURL = grupo.Logo;
+            Console.WriteLine(imagenURL);
+            grupo.Logo = null;
+        }
+    }
+    private void ImagenSeleccionada(string imagenBase64)
+    {
+        grupo.Logo = imagenBase64;
+        imagenURL = null;
+    }
+}

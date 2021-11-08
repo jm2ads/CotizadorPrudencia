@@ -1,0 +1,216 @@
+﻿
+
+<EditForm Model="productor" OnValidSubmit="oOnValidSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Nomrbre:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.Nombre"></InputText>
+                <ValidationMessage For="@(() => productor.Nombre)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Apellido:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.Apellido"></InputText>
+                <ValidationMessage For="@(() => productor.Apellido)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Dni:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.Dni"></InputText>
+                <ValidationMessage For="@(() => productor.Dni)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Url:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.Url"></InputText>
+                <ValidationMessage For="@(() => productor.Url)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Matricula:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.Matricula"></InputText>
+                <ValidationMessage For="@(() => productor.Matricula)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Mail:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.Mail"></InputText>
+                <ValidationMessage For="@(() => productor.Mail)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Celular1:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.Celular1"></InputText>
+                <ValidationMessage For="@(() => productor.Celular1)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Celular2:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.Celular2"></InputText>
+                <ValidationMessage For="@(() => productor.Celular2)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Domicilio:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.Domicilio"></InputText>
+                <ValidationMessage For="@(() => productor.Domicilio)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Localidad:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.Localidad"></InputText>
+                <ValidationMessage For="@(() => productor.Localidad)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">ComisionPrima:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="productor.ComisionPrima"></InputNumber>
+                <ValidationMessage For="@(() => productor.ComisionPrima)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Logo:</label>
+            <div>
+                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenURL="@imagenURL" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">ModoComodo:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.ModoComodo"></InputText>
+                <ValidationMessage For="@(() => productor.ModoComodo)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Deseo Dar Datos:</label>
+            <div>
+                <InputCheckbox class="form-control" @bind-Value="productor.BotonDeseoDarDatos"></InputCheckbox>
+                <ValidationMessage For="@(() => productor.BotonDeseoDarDatos)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Acarreo:</label>
+            <div>
+                <InputCheckbox class="form-control" @bind-Value="productor.Acarreo"></InputCheckbox>
+                <ValidationMessage For="@(() => productor.Acarreo)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">GNC_Montos:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="productor.GncMonto"></InputNumber>
+                <ValidationMessage For="@(() => productor.GncMonto)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Ajuste:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="productor.Ajuste"></InputNumber>
+                <ValidationMessage For="@(() => productor.Ajuste)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">DescuentoRecargas:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="productor.DescuentoRecarga"></InputNumber>
+                <ValidationMessage For="@(() => productor.DescuentoRecarga)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Whatsapp:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.Whatsapp"></InputText>
+                <ValidationMessage For="@(() => productor.Ajuste)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">DescuentoRecargas:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="productor.DescuentoRecarga"></InputNumber>
+                <ValidationMessage For="@(() => productor.DescuentoRecarga)" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <button class="btn btn-success" type="submit">Guardar Cambios</button>
+</EditForm>
+
+@code {
+    [Parameter] public Productor productor { get; set; }
+    [Parameter] public EventCallback oOnValidSubmit { get; set; }
+
+    private string imagenURL;
+
+    protected override void OnInitialized()
+    {
+     
+      
+        if (!string.IsNullOrEmpty(productor.Logo))
+        {
+            imagenURL = productor.Logo;
+            productor.Logo = null;
+        }
+    }
+    private void ImagenSeleccionada(string imagenBase64)
+    {
+        productor.Logo = imagenBase64;
+        imagenURL = null;
+    }
+}

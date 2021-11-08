@@ -84,28 +84,21 @@ using Project.Shared.Entidades;
 #nullable disable
 #nullable restore
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
-using Project.Client.Repositorios;
+using Project.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+using Project.Client.Repositorios;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.PrudenciaDTOs;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 1 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
-using System.IO;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
-using Blazor.FileReader;
 
 #line default
 #line hidden
@@ -118,33 +111,31 @@ using Blazor.FileReader;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 32 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
+#line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
         [Parameter] public string Label { get; set; } = "Imagen";
-    [Parameter] public string ImagenTemporal { get; set; }
-    [Parameter] public EventCallback<string> ImagenSeleccionada { get; set; }
-    private string imagenBase64;
-    ElementReference inputElement;
+            [Parameter] public string ImagenURL { get; set; }
+            [Parameter] public EventCallback<string> ImagenSeleccionada { get; set; }
+            private string imagenBase64;
 
-    async Task ImageFileSelected()
-    {
-        foreach (var file in await fileReaderService.CreateReference(inputElement).EnumerateFilesAsync())
-        {
-            using (MemoryStream memoryStream = await file.CreateMemoryStreamAsync(4 * 1024))
+            async Task OnChange(InputFileChangeEventArgs e)
             {
-                var bytesImagen = new byte[memoryStream.Length];
-                memoryStream.Read(bytesImagen, 0, (int)memoryStream.Length);
-                imagenBase64 = Convert.ToBase64String(bytesImagen);
-                await ImagenSeleccionada.InvokeAsync(imagenBase64);
-                ImagenTemporal = null;
-                StateHasChanged();
-            }
-        }
-    } 
+                var imagenes = e.GetMultipleFiles();
+
+                foreach (var imagen in imagenes)
+                {
+                    var arrbytes = new byte[imagen.Size];
+                    await imagen.OpenReadStream().ReadAsync(arrbytes);
+                    imagenBase64 = Convert.ToBase64String(arrbytes);
+                    ImagenURL = null;
+                    await ImagenSeleccionada.InvokeAsync(imagenBase64);
+                    StateHasChanged();
+                }
+
+            } 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFileReaderService fileReaderService { get; set; }
     }
 }
 #pragma warning restore 1591

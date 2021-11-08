@@ -29,7 +29,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Azure-DevOps-YPF/_packaging/Ingenieria_de_Desarrollo-YPF/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -63,10 +64,6 @@
             "System.Net.Http.Json": {
               "target": "Package",
               "version": "[5.0.0, )"
-            },
-            "Tewr.Blazor.FileReader": {
-              "target": "Package",
-              "version": "[1.2.0.19363, )"
             }
           },
           "imports": [
@@ -124,7 +121,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Azure-DevOps-YPF/_packaging/Ingenieria_de_Desarrollo-YPF/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -159,7 +157,7 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
@@ -169,11 +167,11 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[5.0.2, )"
             },
             "WebPush": {
               "target": "Package",
@@ -227,7 +225,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Azure-DevOps-YPF/_packaging/Ingenieria_de_Desarrollo-YPF/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {

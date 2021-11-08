@@ -1,0 +1,34 @@
+﻿@page "/productor/crear/{organizadorId:int}/{Url}"
+@inject IRepositorio repositorio
+@inject NavigationManager navigationManager
+@inject IMostrarMensajes mostrarMensajes
+
+<h3 style="color:white">Crear Productor (de @Url)</h3>
+
+<FormProductor productor="productor" oOnValidSubmit="Crear"></FormProductor>
+@code {
+
+    [Parameter] public int organizadorId { get; set; }
+    [Parameter] public string Url { get; set; }
+    private Productor productor = new Productor();
+
+
+    private async Task Crear()
+    {
+        productor.OrganizadorId = organizadorId;
+        var httpResponse = await repositorio.Post("api/Productores", productor);
+
+
+        if (httpResponse.Error)
+        {
+            var body = await httpResponse.GetBody();
+
+            await mostrarMensajes.MostrarMensajeError(await httpResponse.GetBody());
+        }
+        else
+        {
+            //  await mostrarMensajes.MostrarMensajeExitoso(await httpResponse.GetBody());
+            navigationManager.NavigateTo("/admin/Grupos");
+        }
+    }
+}

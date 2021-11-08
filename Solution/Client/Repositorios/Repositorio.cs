@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Project.Shared.Entidades;
 using Project.Shared.PrudenciaDTOs;
+using Project.Shared.Models;
 namespace Project.Client.Repositorios
 {
     public class Repositorio : IRepositorio

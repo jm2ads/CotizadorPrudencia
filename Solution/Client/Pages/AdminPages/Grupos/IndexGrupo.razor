@@ -1,0 +1,300 @@
+﻿@page "/admin/Grupos"
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensajes
+@inject NavigationManager navigationManager
+@inject IJSRuntime JsRuntime
+@using System.Text.Json;
+<h3 style="color:white">Grupos</h3>
+
+
+<div class="form-group">
+    <a class="btn btn-success" href="grupo/Crear">Grupo Nuevo</a>
+</div>
+@if (grupoList == null)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    @if (grupoList.Count == 0)
+    {
+        <label style="color:white">No hay registros para mostrar</label>
+    }
+    else
+    {
+        <div style="display: flex; flex-wrap: wrap; align-items: center;">
+
+
+            @foreach (var grupo in grupoList)
+            {
+
+                <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                    <a href="/admin/Organizadores/@grupo.GrupoId/@grupo.Url">
+                        <img src="data:image/jpeg;base64, @grupo.Logo" alt="Poster" style="width: 112px; height:150px;"/>
+                    </a>
+                    <div>
+                        <a class="btn btn-warning" style="margin:3px" href="/admin/Organizadores/@grupo.GrupoId/@grupo.Url">Organizadores</a>
+                    </div>
+                    <div>
+                        <a class="btn btn-info" style="margin:3px" href="grupo/editar/@grupo.GrupoId">Editar</a>
+                        <button @onclick="@(() => BorrarGrupo(grupo))" class="btn btn-danger">Borrar</button>
+                    </div>
+                </div>
+
+
+            }
+        </div>
+
+
+        @*
+                <EditForm Model="grupo">
+                <div class="row" style="margin:10px">
+                    <div class="col-6">
+                        <label style="color:white">Grupo</label>
+                        <div>
+                            <InputSelect class="form-control" @bind-Value="grupoId">
+                                <option value="0" selected="selected">Selecciones Grupo ...</option>
+                                @foreach (Grupo _grupo in grupoList)
+                                        {
+                                    <option value="@_grupo.GrupoId">@_grupo.Url</option>
+                                        }
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                </div>
+
+                @if (organizadorList.Count > 0)
+                {
+                    <div class="row" style="margin:10px">
+                        <label style="color:white">Organizador</label>
+                        <div>
+                            <InputSelect class="form-control" @bind-Value="organizadorId">
+                                <option value="0">Selecciones Organizador ...</option>
+                                @foreach (Organizador _organizador in organizadorList)
+                                            {
+                                    <option value="@_organizador.GrupoId">@_organizador.Url</option>
+                                            }
+                            </InputSelect>
+                        </div>
+
+                    </div>
+
+                    @if (productorList.Count > 0)
+                    {
+
+                        <div class="row" style="margin:10px">
+                            <label style="color:white">Productor</label>
+                            <div>
+                                <InputSelect class="form-control" @bind-Value="productorId">
+                                    <option value="0">Selecciones Grupo ...</option>
+                                    @foreach (Productor _Productor in productorList)
+                                                    {
+                                        <option value="@_Productor.ProductorId">@_Productor.Url</option>
+                                                    }
+                                </InputSelect>
+                            </div>
+
+                        </div>
+
+
+                        @if (vendedorList.Count > 0)
+                        {
+
+
+                            <div class="row" style="margin:10px">
+                                <label style="color:white">Grupo</label>
+                                <div>
+                                    <InputSelect class="form-control" @bind-Value="vendedorId">
+                                        <option value="0">Selecciones Vendedor ...</option>
+                                        @foreach (Vendedor _Vendedor in vendedorList)
+                                                            {
+                                            <option value="@_Vendedor.VendedorId">@_Vendedor.Url</option>
+                                                            }
+                                    </InputSelect>
+                                </div>
+
+                            </div>
+
+                        }
+                    }
+                }
+
+
+
+            </EditForm>
+        *@
+
+
+
+
+
+    }
+
+}
+
+
+@code {
+
+
+    private List<Grupo> grupoList;
+    private Grupo grupo = new Grupo();
+
+    private List<Organizador> organizadorList = new List<Organizador>();
+    private Organizador organizador = new Organizador();
+
+    private List<Productor> productorList = new List<Productor>();
+    private Productor productor = new Productor();
+
+    private List<Vendedor> vendedorList = new List<Vendedor>();
+    private Vendedor vendedor = new Vendedor();
+
+    string oMarcaDescripcion = "";
+
+    private int grupoIdAux;
+    public int grupoId
+    {
+        get { return grupoIdAux; }
+        set
+        {
+            grupoIdAux = value;
+            OnGrupoChange(value);
+        }
+    }
+
+
+    private int organizadorIdAux;
+    public int organizadorId
+    {
+        get { return organizadorIdAux; }
+        set
+        {
+            organizadorIdAux = value;
+            OnOrganizadorChange(value);
+        }
+    }
+
+    private int productorIdAux;
+    public int productorId
+    {
+        get { return productorIdAux; }
+        set
+        {
+            productorIdAux = value;
+            OnProductorChange(value);
+        }
+    }
+
+    private int vendedorIdAux;
+    public int vendedorId
+    {
+        get { return vendedorIdAux; }
+        set
+        {
+            vendedorIdAux = value;
+            //OnVendedorChange(value);
+        }
+    }
+
+
+
+
+
+
+
+
+    private CotizacionAutoDTO oCotizacionAutoDTO;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+       await Cargar();
+
+
+    }
+    private async void OnGrupoChange(int grupoid)
+    {
+        organizadorList.Clear();
+        productorList.Clear();
+        vendedorList.Clear();
+
+        organizadorId = 0;
+        productorId = 0;
+        vendedorId = 0;
+        organizadorList = (from c in grupoList
+                           where c.GrupoId == grupoid
+                           select c).FirstOrDefault().OrganizadoresList.ToList();
+    }
+
+    private async void OnOrganizadorChange(int organizadorId)
+    {
+        productorList.Clear();
+        vendedorList.Clear();
+
+        productorId = 0;
+        vendedorId = 0;
+        productorList = (from c in organizadorList
+                         where c.GrupoId == organizadorId
+                         select c).FirstOrDefault().ProductoresList.ToList();
+    }
+
+
+
+
+    private async void OnProductorChange(int productorId)
+    {
+        vendedorList.Clear();
+
+        vendedorId = 0;
+        vendedorList = (from c in productorList
+                        where c.ProductorId == productorId
+                        select c).FirstOrDefault().VendedoresList.ToList();
+    }
+
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+
+
+
+    }
+
+
+    private async Task OnClickHandle(int omarcaID)
+    {
+
+
+
+
+        navigationManager.NavigateTo("/ziren/ano");
+
+    }
+
+    private async Task MarcaKeyUp(KeyboardEventArgs e)
+    {
+
+
+
+
+    }
+    private async Task Cargar()
+    {
+        var responseHttp = await repositorio.Get<List<Grupo>>("api/Grupos");
+        grupoList = responseHttp.Response;
+    }
+    private async Task BorrarGrupo(Grupo grupo)
+    {
+        var responseHttp = await repositorio.Delete($"api/Grupos/{grupo.GrupoId}");
+        if (responseHttp.Error)
+        {
+            Console.WriteLine(responseHttp.HttpResponseMessage.StatusCode);
+            await mostrarMensajes.MostrarMensajeError(await responseHttp.GetBody());
+        }
+        else
+        {
+            await Cargar();
+        }
+
+    }
+}

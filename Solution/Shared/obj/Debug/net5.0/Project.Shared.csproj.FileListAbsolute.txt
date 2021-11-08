@@ -2,6 +2,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Shared\bin\Debug\net5.0\Project.Shared.dep
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\bin\Debug\net5.0\Project.Shared.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\bin\Debug\net5.0\ref\Project.Shared.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\bin\Debug\net5.0\Project.Shared.pdb
+D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\net5.0\Project.Shared.csproj.AssemblyReference.cache
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\net5.0\Project.Shared.GeneratedMSBuildEditorConfig.editorconfig
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\net5.0\Project.Shared.AssemblyInfoInputs.cache
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\net5.0\Project.Shared.AssemblyInfo.cs
@@ -9,4 +10,3 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\net5.0\Project.Shared.csp
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\net5.0\Project.Shared.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\net5.0\ref\Project.Shared.dll
 D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\net5.0\Project.Shared.pdb
-D:\JM2\WP\CotizadorPrudencia\Solution\Shared\obj\Debug\net5.0\Project.Shared.csproj.AssemblyReference.cache

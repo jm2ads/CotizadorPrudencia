@@ -1,0 +1,222 @@
+﻿
+
+<EditForm Model="vendedor" OnValidSubmit="oOnValidSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Nomrbre:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="vendedor.Nombre"></InputText>
+                <ValidationMessage For="@(() => vendedor.Nombre)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Apellido:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="vendedor.Apellido"></InputText>
+                <ValidationMessage For="@(() => vendedor.Apellido)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Dni:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="vendedor.Dni"></InputText>
+                <ValidationMessage For="@(() => vendedor.Dni)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Url:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="vendedor.Url"></InputText>
+                <ValidationMessage For="@(() => vendedor.Url)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Matricula:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="vendedor.Matricula"></InputText>
+                <ValidationMessage For="@(() => vendedor.Matricula)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Mail:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="vendedor.Mail"></InputText>
+                <ValidationMessage For="@(() => vendedor.Mail)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Celular1:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="vendedor.Celular1"></InputText>
+                <ValidationMessage For="@(() => vendedor.Celular1)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Celular2:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="vendedor.Celular2"></InputText>
+                <ValidationMessage For="@(() => vendedor.Celular2)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Domicilio:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="vendedor.Domicilio"></InputText>
+                <ValidationMessage For="@(() => vendedor.Domicilio)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Localidad:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="vendedor.Localidad"></InputText>
+                <ValidationMessage For="@(() => vendedor.Localidad)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">ComisionPrima:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="vendedor.ComisionPrima"></InputNumber>
+                <ValidationMessage For="@(() => vendedor.ComisionPrima)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Logo:</label>
+            <div>
+                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenURL="@imagenURL" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">ModoComodo:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="vendedor.ModoComodo"></InputText>
+                <ValidationMessage For="@(() => vendedor.ModoComodo)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Deseo Dar Datos:</label>
+            <div>
+                <InputCheckbox class="form-control" @bind-Value="vendedor.BotonDeseoDarDatos"></InputCheckbox>
+                <ValidationMessage For="@(() => vendedor.BotonDeseoDarDatos)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Acarreo:</label>
+            <div>
+                <InputCheckbox class="form-control" @bind-Value="vendedor.Acarreo"></InputCheckbox>
+                <ValidationMessage For="@(() => vendedor.Acarreo)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">GNC_Montos:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="vendedor.GncMonto"></InputNumber>
+                <ValidationMessage For="@(() => vendedor.GncMonto)" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Ajuste:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="vendedor.Ajuste"></InputNumber>
+                <ValidationMessage For="@(() => vendedor.Ajuste)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">DescuentoRecargas:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="vendedor.DescuentoRecarga"></InputNumber>
+                <ValidationMessage For="@(() => vendedor.DescuentoRecarga)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Whatsapp:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="vendedor.Whatsapp"></InputText>
+                <ValidationMessage For="@(() => vendedor.Ajuste)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">DescuentoRecargas:</label>
+            <div>
+                <InputNumber class="form-control" @bind-Value="vendedor.DescuentoRecarga"></InputNumber>
+                <ValidationMessage For="@(() => vendedor.DescuentoRecarga)" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <button class="btn btn-success" type="submit">Guardar Cambios</button>
+</EditForm>
+
+@code {
+    [Parameter] public Vendedor vendedor { get; set; }
+    [Parameter] public EventCallback oOnValidSubmit { get; set; }
+
+    private string imagenURL;
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("on initialized");
+        Console.WriteLine(vendedor.Logo);
+        Console.WriteLine(vendedor.Nombre);
+        if (vendedor.VendedorId == 0)
+        {
+            //vendedor.FechaNacimiento = DateTime.Today.AddYears(-12);
+        }
+        if (!string.IsNullOrEmpty(vendedor.Logo))
+        {
+            imagenURL = vendedor.Logo;
+            Console.WriteLine(imagenURL);
+            vendedor.Logo = null;
+        }
+    }
+    private void ImagenSeleccionada(string imagenBase64)
+    {
+        vendedor.Logo = imagenBase64;
+        imagenURL = null;
+    }
+}

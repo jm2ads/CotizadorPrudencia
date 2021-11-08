@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
+using Project.Server;
 
 namespace Project.Server
 {
@@ -34,13 +35,8 @@ namespace Project.Server
             });
 
             #endregion
-            services.AddDbContext<ApplicationDbContext>(options => 
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
-        
-
-           
-            services.AddScoped<NotificacionesService>();
+            services.AddDbContext<ApplicationDbContext>(options =>
+           options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 
             services.AddHttpContextAccessor();
