@@ -10,11 +10,11 @@
     <text>Cargando...</text> }
 else
 {
-    <FormGrupo grupo="grupo" oOnValidSubmit="Editar"></FormGrupo>
+    <FormGrupo grupo="grupo" OnValidSubmit="Editar"></FormGrupo>
 }
 @code {
     [Parameter] public int GrupoId { get; set; }
-    private Grupo grupo ;
+     Grupo grupo ;
 
     protected override async Task OnInitializedAsync()
     {

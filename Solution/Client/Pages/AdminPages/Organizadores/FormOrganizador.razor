@@ -201,11 +201,11 @@
     protected override void OnInitialized()
     {
 
-       
+
         if (!string.IsNullOrEmpty(organizador.Logo))
         {
             imagenURL = organizador.Logo;
-            organizador.Logo = null;
+            //organizador.Logo = null;     VER ASOSA
         }
     }
     private void ImagenSeleccionada(string imagenBase64)

@@ -200,12 +200,12 @@
 
     protected override void OnInitialized()
     {
-     
-      
+
+
         if (!string.IsNullOrEmpty(productor.Logo))
         {
             imagenURL = productor.Logo;
-            productor.Logo = null;
+            //  productor.Logo = null;  VER ASOSA
         }
     }
     private void ImagenSeleccionada(string imagenBase64)

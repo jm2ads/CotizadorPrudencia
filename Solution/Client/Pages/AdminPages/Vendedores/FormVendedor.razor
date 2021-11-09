@@ -200,18 +200,11 @@
 
     protected override void OnInitialized()
     {
-        Console.WriteLine("on initialized");
-        Console.WriteLine(vendedor.Logo);
-        Console.WriteLine(vendedor.Nombre);
-        if (vendedor.VendedorId == 0)
-        {
-            //vendedor.FechaNacimiento = DateTime.Today.AddYears(-12);
-        }
+
         if (!string.IsNullOrEmpty(vendedor.Logo))
         {
             imagenURL = vendedor.Logo;
-            Console.WriteLine(imagenURL);
-            vendedor.Logo = null;
+            //  vendedor.Logo = null;   VER ASOSA
         }
     }
     private void ImagenSeleccionada(string imagenBase64)

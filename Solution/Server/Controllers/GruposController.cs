@@ -58,6 +58,8 @@ namespace Project.Server.Controllers
 
             try
             {
+                //if(!string.IsNullOrWhiteSpace(grupo.Logo))
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

@@ -13,97 +13,97 @@ namespace Project.Client.Pages.AdminPages.Vendedores
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 1 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 2 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 3 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 4 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 5 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 6 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 7 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Client;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 8 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Client.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 9 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Client.Helpers;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 10 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.Entidades;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 11 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 12 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Client.Repositorios;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 13 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.PrudenciaDTOs;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Vendedor/editar/{vendedorId:int}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Vendedor/editar/{vendedorId:int}/{Url}")]
     public partial class EditarVendedor : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -112,7 +112,7 @@ using Project.Shared.PrudenciaDTOs;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Vendedores\EditarVendedor.razor"
+#line 15 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Vendedores\EditarVendedor.razor"
        
     [Parameter] public int vendedorId { get; set; }
     [Parameter] public string Url { get; set; }
@@ -143,7 +143,7 @@ using Project.Shared.PrudenciaDTOs;
     private async Task Editar()
     {
 
-        var httpResponse = await repositorio.Put("api/Vendedor/" + vendedor.VendedorId, vendedor);
+        var httpResponse = await repositorio.Put("api/Vendedores/" + vendedor.VendedorId, vendedor);
         if (httpResponse.Error)
         {
             await mostrarMensaje.MostrarMensajeError(await httpResponse.GetBody());

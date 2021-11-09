@@ -1,6 +1,6 @@
 ﻿
 
-<EditForm Model="grupo" OnValidSubmit="oOnValidSubmit">
+<EditForm Model="grupo" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
 
     <div class="row" style="margin:10px">
@@ -107,7 +107,7 @@
         <div class="col-md-5">
             <label style="color:white">Logo:</label>
             <div>
-                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenURL="@imagenURL" />
+                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenURL="@posterTemporal" />
             </div>
         </div>
     </div>
@@ -194,29 +194,32 @@
 
 @code {
     [Parameter] public Grupo grupo { get; set; }
-    [Parameter] public EventCallback oOnValidSubmit { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
 
-    private string imagenURL;
+    private string posterTemporal;
 
     protected override void OnInitialized()
     {
-        Console.WriteLine("on initialized");
-        Console.WriteLine(grupo.Logo);
-        Console.WriteLine(grupo.Nombre);
-        if (grupo.GrupoId == 0)
+       if (!string.IsNullOrEmpty(grupo.Logo))
         {
-            //grupo.FechaNacimiento = DateTime.Today.AddYears(-12);
-        }
-        if (!string.IsNullOrEmpty(grupo.Logo))
-        {
-            imagenURL = grupo.Logo;
-            Console.WriteLine(imagenURL);
-            grupo.Logo = null;
+            posterTemporal = grupo.Logo;
+          // grupo.Logo = null;           VER ASOSA
         }
     }
     private void ImagenSeleccionada(string imagenBase64)
     {
         grupo.Logo = imagenBase64;
-        imagenURL = null;
+        posterTemporal = null;
+    }
+    
+    private async Task OnDataAnnonationsValidated()
+    {
+
+        if (!string.IsNullOrWhiteSpace(grupo.Logo))
+        {
+            posterTemporal = null;
+        }
+
+        await OnValidSubmit.InvokeAsync(null);
     }
 }

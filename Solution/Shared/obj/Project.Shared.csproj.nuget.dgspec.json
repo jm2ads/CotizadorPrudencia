@@ -1,25 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Shared\\Project.Shared.csproj": {}
+    "C:\\adfs\\WP\\CotizadorPrudencia\\Solution\\Shared\\Project.Shared.csproj": {}
   },
   "projects": {
-    "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Shared\\Project.Shared.csproj": {
+    "C:\\adfs\\WP\\CotizadorPrudencia\\Solution\\Shared\\Project.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Shared\\Project.Shared.csproj",
+        "projectUniqueName": "C:\\adfs\\WP\\CotizadorPrudencia\\Solution\\Shared\\Project.Shared.csproj",
         "projectName": "Project.Shared",
-        "projectPath": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Shared\\Project.Shared.csproj",
-        "packagesPath": "C:\\Users\\Facundo\\.nuget\\packages\\",
-        "outputPath": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Shared\\obj\\",
+        "projectPath": "C:\\adfs\\WP\\CotizadorPrudencia\\Solution\\Shared\\Project.Shared.csproj",
+        "packagesPath": "C:\\Users\\alejandro.sosa\\.nuget\\packages\\",
+        "outputPath": "C:\\adfs\\WP\\CotizadorPrudencia\\Solution\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Facundo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alejandro.sosa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -29,8 +28,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/Azure-DevOps-YPF/_packaging/Ingenieria_de_Desarrollo-YPF/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -68,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
