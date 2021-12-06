@@ -28,18 +28,19 @@ else
             @foreach (var grupo in grupoList)
             {
 
-                <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
-                    <a href="/admin/Organizadores/@grupo.GrupoId/@grupo.Url">
-                        <img src="data:image/jpeg;base64, @grupo.Logo" alt="Poster" style="width: 112px; height:150px;"/>
-                    </a>
-                    <div>
-                        <a class="btn btn-warning" style="margin:3px" href="/admin/Organizadores/@grupo.GrupoId/@grupo.Url">Organizadores</a>
-                    </div>
-                    <div>
-                        <a class="btn btn-info" style="margin:3px" href="grupo/editar/@grupo.GrupoId">Editar</a>
-                        <button @onclick="@(() => BorrarGrupo(grupo))" class="btn btn-danger">Borrar</button>
-                    </div>
+            <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                <a href="/admin/Organizadores/@grupo.GrupoId/@grupo.Url">
+                    <img src="data:image/jpeg;base64, @grupo.Logo" alt="Poster" style="width: 112px; height:150px;" />
+                </a>
+
+                <div>
+                    <a class="btn btn-info" style="margin:3px" href="grupo/editar/@grupo.GrupoId">Editar</a>
+                    <button @onclick="@(() => BorrarGrupo(grupo))" class="btn btn-danger">Borrar</button>
                 </div>
+                <div>
+                    <a class="btn btn-warning" style="margin:3px" href="/admin/Organizadores/@grupo.GrupoId/@grupo.Url">Ver Organizadores</a>
+                </div>
+            </div>
 
 
             }
@@ -208,34 +209,34 @@ else
     protected override async Task OnInitializedAsync()
     {
 
-       await Cargar();
+        await Cargar();
 
 
     }
     private async void OnGrupoChange(int grupoid)
     {
-        organizadorList.Clear();
-        productorList.Clear();
-        vendedorList.Clear();
+        //organizadorList.Clear();
+        //productorList.Clear();
+        //vendedorList.Clear();
 
-        organizadorId = 0;
-        productorId = 0;
-        vendedorId = 0;
-        organizadorList = (from c in grupoList
-                           where c.GrupoId == grupoid
-                           select c).FirstOrDefault().OrganizadoresList.ToList();
+        //organizadorId = 0;
+        //productorId = 0;
+        //vendedorId = 0;
+        //organizadorList = (from c in grupoList
+        //                   where c.GrupoId == grupoid
+        //                   select c).FirstOrDefault().OrganizadoresList.ToList();
     }
 
     private async void OnOrganizadorChange(int organizadorId)
     {
-        productorList.Clear();
-        vendedorList.Clear();
+        //productorList.Clear();
+        //vendedorList.Clear();
 
-        productorId = 0;
-        vendedorId = 0;
-        productorList = (from c in organizadorList
-                         where c.GrupoId == organizadorId
-                         select c).FirstOrDefault().ProductoresList.ToList();
+        //productorId = 0;
+        //vendedorId = 0;
+        //productorList = (from c in organizadorList
+        //                 where c.GrupoId == organizadorId
+        //                 select c).FirstOrDefault().ProductoresList.ToList();
     }
 
 
@@ -243,12 +244,12 @@ else
 
     private async void OnProductorChange(int productorId)
     {
-        vendedorList.Clear();
+        //vendedorList.Clear();
 
-        vendedorId = 0;
-        vendedorList = (from c in productorList
-                        where c.ProductorId == productorId
-                        select c).FirstOrDefault().VendedoresList.ToList();
+        //vendedorId = 0;
+        //vendedorList = (from c in productorList
+        //                where c.ProductorId == productorId
+        //                select c).FirstOrDefault().VendedoresList.ToList();
     }
 
 

@@ -2,7 +2,7 @@
 @inject IRepositorio repositorio
 @inject IMostrarMensajes mostrarMensajes
 @inject NavigationManager navigationManager
-
+@inject IJSRuntime js
 
 
 @inject IJSRuntime JsRuntime
@@ -11,9 +11,9 @@
 
 <h3 style="color:white;margin:15px">Cotizacion de tu Vehiculo</h3>
 
-<CotizacionPopUp @ref="cotizacionPopUp" onConfirm="onConfirm" ></CotizacionPopUp>
+<CotizacionPopUp @ref="cotizacionPopUp" onConfirm="onConfirm"></CotizacionPopUp>
 
-<ModoPopUp  @ref="modoPopUp" onContinuar="onContinuar" onModoComodo="onModoComodo" onPagoEF="onPagoEf"></ModoPopUp>
+<ModoPopUp @ref="modoPopUp" onContinuar="onContinuar" onModoComodo="onModoComodo" onPagoEF="onPagoEf"></ModoPopUp>
 
 @if (cotizacionEntitiesDTO == null)
 {
@@ -76,7 +76,7 @@ else
                         <div style="border-color:darkmagenta;border-width: thin;border-style: solid;width: 278px;height: 183px;position: relative" @onclick="@(() => OnCoberturaClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a))">
                             <fieldset id="fsA" style="@fsAStyle">
                                 @*<button type="button" @onclick="@(() => OnCoberturaClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a))"
-                                        style="@btnPolizaAStyle" />*@
+                                    style="@btnPolizaAStyle" />*@
                             </fieldset>
                         </div>
                     }
@@ -85,10 +85,10 @@ else
                 {
                     @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1 > 0)
                     {
-                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid; width: 278px;height: 183px;position: relative"  @onclick="@(() => OnCoberturaClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))">
+                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid; width: 278px;height: 183px;position: relative" @onclick="@(() => OnCoberturaClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))">
                             <fieldset id="fsB1" style="@fsB1Style">
                                 @*<button type="button" @onclick="@(() => OnCoberturaClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))"
-                                        style="@btnPolizaB1Style" />*@
+                                    style="@btnPolizaB1Style" />*@
                             </fieldset>
                         </div>
                     }
@@ -98,14 +98,14 @@ else
                 {
                     @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c > 0)
                     {
-                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 556px;height: 183px;position: relative;z-index:1;"  @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))">
-                         
-                            
-                            
-                            
+                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 556px;height: 183px;position: relative;z-index:1;" @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))">
+
+
+
+
                             <fieldset id="fsC" style="@fsCStyle">
                                 @*<button type="button" @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))"
-                                        style="@btnPolizaCStyle" />*@
+                                    style="@btnPolizaCStyle" />*@
 
                                 <button type="button" @onclick="@(() => OnButtonPopUpClick("limitebasico"))"
                                         style="width: 76px;
@@ -132,10 +132,10 @@ else
 
                     @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf > 0)
                     {
-                        <div style="border-color: darkmagenta; border-width: thin; border-style: solid; width: 556px; height: 183px; position: relative"  @onclick="@(() => OnCoberturaClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))">
+                        <div style="border-color: darkmagenta; border-width: thin; border-style: solid; width: 556px; height: 183px; position: relative" @onclick="@(() => OnCoberturaClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))">
                             <fieldset id="fsCf" style="@fsCfStyle">
                                 @*<button type="button" @onclick="@(() => OnCoberturaClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))"
-                                        style="@btnPolizaCfStyle" />*@
+                                    style="@btnPolizaCfStyle" />*@
 
                                 <button type="button" @onclick="@(() => OnButtonPopUpClick("limiteaumentado"))"
                                         style="        width: 114px;
@@ -171,7 +171,7 @@ else
                     <div style="border-color: darkmagenta; border-width: thin; border-style: solid; width: 556px; height: 183px; position: relative" @onclick="@(() => OnCoberturaClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2))">
                         <fieldset id="fsD2" style="@fsD2Style">
                             @*<button type="button" @onclick="@(() => OnCoberturaClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2))"
-                                    style="@btnPolizaD2Style" />*@
+                                style="@btnPolizaD2Style" />*@
                             <button type="button" @onclick="@(() => OnButtonPopUpClick("franquicia"))" style="        width:118px;
         height: 22px;
         position: absolute;
@@ -374,8 +374,12 @@ else
     private string displayGNC;
     protected override async Task OnInitializedAsync()
     {
+        #region busco datos del partner
+        string partnerJson = await js.GetFromLocalStorage("partner");
+        Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
 
-        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        #endregion
+        string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
         cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
 
         btnPolizaAStyle = btnPolizaStyleOff;
@@ -443,7 +447,7 @@ else
                 }
             }
         }
-
+        oGncValor = partner.GncMonto;
 
         oCotizacionAutoDTO.tieneAcreedorPrendario = false;
         oCotizacionAutoDTO.clausulaAjuste = 20;
@@ -451,7 +455,7 @@ else
         oCotizacionAutoDTO.porcAjustePrima = 0;
         //oCotizacionAutoDTO.vehiculo.patente = "XXX000";
         oCotizacionAutoDTO.vehiculo.sumaAsegurada = -1;
-        oCotizacionAutoDTO.vehiculo.valorGNC = oGncValor;
+        oCotizacionAutoDTO.vehiculo.valorGNC = partner.GncMonto;
 
         //oCotizacionAutoRapidaDTO.cotizacionID = oCotizacionAutoDTO.cotizacionID;
         oCotizacionAutoRapidaDTO.codigoPostal = oCotizacionAutoDTO.asegurado.codigoPostal;
@@ -801,13 +805,13 @@ else
     private async Task onModoComodo()
     {
         modoPopUp.Ocultar();
-        JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+        js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
         SendEmail("ModoComodo");
     }
     private async Task onPagoEf()
     {
         modoPopUp.Ocultar();
-        JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo-efectivo/", "_blank");
+        js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo-efectivo/", "_blank");
         SendEmail("PagoEfectivo");
     }
     private async Task SendEmail(string origen)
@@ -823,7 +827,7 @@ else
         switch (oCoberturaIDSelected)
         {
             case 1:
-                valor =    oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a;
+                valor = oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a;
                 coberturaStr = "a";
                 break;
             case 2:
@@ -856,7 +860,7 @@ else
 
         }
 
-        //  
+        //
         #region MyRegion
 
         System.Text.StringBuilder sHtml = new System.Text.StringBuilder();

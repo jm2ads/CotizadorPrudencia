@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="ProjectServer20210607170508" tags="IisApp">
+  <parameter name="IIS Web Application Name" description="" value="ProjectServer20121124" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Server\\obj\\Release\\net5\.0\\PubTmp\\Out\\$" />
-  </parameter>
-  <parameter name="Project.Server.ApplicationDbContext" description="" value="Data Source=tcp:projectserverdbserver.database.windows.net,1433;Initial Catalog=Project.Server_db;User Id=ZirenUser@projectserverdbserver;Password=ZirenPass1" tags="dbfullsql">
-    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Server\\obj\\Release\\net5\.0\\PubTmp\\EFSQLScripts\\Project\.Server\.ApplicationDbContext\.sql$" />
   </parameter>
 </parameters>

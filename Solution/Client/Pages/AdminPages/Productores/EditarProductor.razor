@@ -42,7 +42,17 @@ else
     }
     private async Task Editar()
     {
+        #region Valido Form
+        if (string.IsNullOrEmpty(productor.Url) || string.IsNullOrEmpty(productor.Nombre) || string.IsNullOrEmpty(productor.Apellido) || string.IsNullOrEmpty(productor.Dni)
+            || string.IsNullOrEmpty(productor.Matricula) || string.IsNullOrEmpty(productor.Mail) || string.IsNullOrEmpty(productor.Celular1) || string.IsNullOrEmpty(productor.Domicilio)
+            || string.IsNullOrEmpty(productor.Localidad) || string.IsNullOrEmpty(productor.Logo) ||  string.IsNullOrEmpty(productor.Whatsapp))
+        {
 
+            await mostrarMensaje.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
+                " Localidad, Logo y Whatsapp son Obligatorios");
+            return;
+        }
+        #endregion
         var httpResponse = await repositorio.Put("api/Productores/" + productor.ProductorId, productor);
         if (httpResponse.Error)
         {

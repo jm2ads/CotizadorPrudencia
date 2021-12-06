@@ -84,13 +84,20 @@ using Project.Shared.Entidades;
 #nullable disable
 #nullable restore
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
-using Project.Client.Repositorios;
+using Project.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+using Project.Client.Repositorios;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.PrudenciaDTOs;
 
 #line default
@@ -175,8 +182,12 @@ using System.Text.Json;
     private string displayGNC;
     protected override async Task OnInitializedAsync()
     {
+        #region busco datos del partner
+        string partnerJson = await js.GetFromLocalStorage("partner");
+        Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
 
-        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
         cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
 
         btnPolizaAStyle = btnPolizaStyleOff;
@@ -200,7 +211,7 @@ using System.Text.Json;
         oCobSrc_cf = "cf";
         oCobSrc_d2 = "d2";
 
-        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        string CotizacionAutoDTOJson = await js.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
         int oAntiguedad = DateTime.Today.Year - oCotizacionAutoDTO.vehiculo.anio;
 
@@ -245,7 +256,7 @@ using System.Text.Json;
             }
         }
 
-
+        oGncValor = partner.GncMonto;
         oCotizacionAutoDTO.tieneAcreedorPrendario = false;
         oCotizacionAutoDTO.clausulaAjuste = 20;
         oCotizacionAutoDTO.clausulaAjuste = 0;
@@ -253,7 +264,7 @@ using System.Text.Json;
         oCotizacionAutoDTO.porcAjustePrima = 0;
         //oCotizacionAutoDTO.vehiculo.patente = "XXX000";
         oCotizacionAutoDTO.vehiculo.sumaAsegurada = -1;
-        oCotizacionAutoDTO.vehiculo.valorGNC = oGncValor;
+        oCotizacionAutoDTO.vehiculo.valorGNC = partner.GncMonto;
 
 
         //oCotizacionAutoRapidaDTO.cotizacionID = oCotizacionAutoDTO.cotizacionID;
@@ -282,7 +293,7 @@ using System.Text.Json;
             oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoRapidaDTO.cotizacionID;
 
             CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-            await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+            await js.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
             await OnCoberturaClick("a", oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a);
             Console.WriteLine(CotizacionAutoDTOJson);
         }
@@ -604,21 +615,21 @@ using System.Text.Json;
     private async Task onModoComodo()
     {
         modoPopUp.Ocultar();
-        JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+        js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
         SendEmail("ModoComodo");
     }
     private async Task onPagoEf()
     {
         modoPopUp.Ocultar();
-        JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo-efectivo/", "_blank");
+        js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo-efectivo/", "_blank");
         SendEmail("PagoEfectivo");
     }
     private async Task SendEmail(string origen)
     {
-        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
         CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
 
-        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        string CotizacionAutoDTOJson = await js.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO cotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
         #region Send Email
         Decimal valor;
@@ -826,7 +837,7 @@ using System.Text.Json;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime js { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMostrarMensajes mostrarMensajes { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IRepositorio repositorio { get; set; }

@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 
 
-
 namespace Project.Shared.Models
 {
     public partial class Productor
     {
-        public Productor()
-        {
-            VendedoresList = new HashSet<Vendedor>();
-        }
+       
 
         public int ProductorId { get; set; }
         public int OrganizadorId { get; set; }
@@ -26,15 +22,14 @@ namespace Project.Shared.Models
         public string Localidad { get; set; }
         public int ComisionPrima { get; set; }
         public string Logo { get; set; }
-        public string ModoComodo { get; set; }
         public bool BotonDeseoDarDatos { get; set; }
         public bool Acarreo { get; set; }
-        public int? GncMonto { get; set; }
+        public int GncMonto { get; set; }
         public int Ajuste { get; set; }
         public int DescuentoRecarga { get; set; }
         public string Whatsapp { get; set; }
 
+    
        
-        public virtual ICollection<Vendedor> VendedoresList { get; set; }
     }
 }

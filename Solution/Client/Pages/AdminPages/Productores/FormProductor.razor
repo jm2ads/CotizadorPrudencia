@@ -2,7 +2,15 @@
 
 <EditForm Model="productor" OnValidSubmit="oOnValidSubmit">
     <DataAnnotationsValidator />
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <a class="btn btn-success" href="javascript: history.go(-1)">Volver</a>
+        </div>
 
+        <div class="col-md-5">
+
+        </div>
+    </div>
     <div class="row" style="margin:10px">
         <div class="col-md-5">
             <label style="color:white">Nomrbre:</label>
@@ -114,18 +122,18 @@
 
     <div class="row" style="margin:10px">
         <div class="col-md-5">
-            <label style="color:white">ModoComodo:</label>
-            <div>
-                <InputText class="form-control" @bind-Value="productor.ModoComodo"></InputText>
-                <ValidationMessage For="@(() => productor.ModoComodo)" />
-            </div>
-        </div>
-
-        <div class="col-md-5">
             <label style="color:white">Deseo Dar Datos:</label>
             <div>
                 <InputCheckbox class="form-control" @bind-Value="productor.BotonDeseoDarDatos"></InputCheckbox>
                 <ValidationMessage For="@(() => productor.BotonDeseoDarDatos)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Whatsapp:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.Whatsapp"></InputText>
+                <ValidationMessage For="@(() => productor.Whatsapp)" />
             </div>
         </div>
     </div>
@@ -168,23 +176,7 @@
         </div>
     </div>
 
-    <div class="row" style="margin:10px">
-        <div class="col-md-5">
-            <label style="color:white">Whatsapp:</label>
-            <div>
-                <InputText class="form-control" @bind-Value="productor.Whatsapp"></InputText>
-                <ValidationMessage For="@(() => productor.Ajuste)" />
-            </div>
-        </div>
-
-        <div class="col-md-5">
-            <label style="color:white">DescuentoRecargas:</label>
-            <div>
-                <InputNumber class="form-control" @bind-Value="productor.DescuentoRecarga"></InputNumber>
-                <ValidationMessage For="@(() => productor.DescuentoRecarga)" />
-            </div>
-        </div>
-    </div>
+  
 
 
 

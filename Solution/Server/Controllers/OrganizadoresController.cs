@@ -57,6 +57,20 @@ namespace Project.Server.Controllers
         }
 
 
+      
+        //[HttpGet("GetByUrl/{Url}")]
+        //public async Task<ActionResult<Organizador>> Get(string url)
+        //{
+        //    var OrganizadoresQueryable = _context.Organizadores.AsQueryable();
+
+        //    OrganizadoresQueryable = OrganizadoresQueryable
+        //      .Where(x => x.Url == url);
+
+        //    var OrganizadorList = await OrganizadoresQueryable.ToListAsync();
+        //    var Organizador = OrganizadorList.FirstOrDefault();
+        //    return Organizador;
+        //}
+
         // PUT: api/Organizadores/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

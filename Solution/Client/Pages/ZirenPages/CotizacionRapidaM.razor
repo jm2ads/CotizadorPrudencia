@@ -2,7 +2,7 @@
 @inject IRepositorio repositorio
 @inject IMostrarMensajes mostrarMensajes
 @inject NavigationManager navigationManager
-@inject IJSRuntime JsRuntime
+@inject IJSRuntime js
 @using System.Text.Json;
 
 <h3 style="color:white;margin:5px">Cotizacion de tu Vehiculo</h3>
@@ -73,7 +73,7 @@ else
                         <div style="border-color:darkmagenta;border-width: thin;border-style: solid;width: 190px;height: 125px;position: relative" @onclick="@(() => OnCoberturaClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a))">
                             <fieldset id="fsA" style="@fsAStyle">
                                 @*<button type="button" @onclick="@(() => OnCoberturaClick("a", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a))"
-                                        style="@btnPolizaAStyle" />*@
+                                    style="@btnPolizaAStyle" />*@
                             </fieldset>
                         </div>
                     }
@@ -82,10 +82,10 @@ else
                 {
                     @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1 > 0)
                     {
-                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 190px;height: 125px;position: relative"  @onclick="@(() => OnCoberturaClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))">
+                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 190px;height: 125px;position: relative" @onclick="@(() => OnCoberturaClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))">
                             <fieldset id="fsB1" style="@fsB1Style">
                                 @*<button type="button" @onclick="@(() => OnCoberturaClick("b1", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].b1))"
-                                        style="@btnPolizaB1Style" />*@
+                                    style="@btnPolizaB1Style" />*@
                             </fieldset>
                         </div>
                     }
@@ -95,10 +95,10 @@ else
                 {
                     @if (@oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c > 0)
                     {
-                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 380px;height: 125px;position: relative"  @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))">
+                        <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 380px;height: 125px;position: relative" @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))">
                             <fieldset id="fsC" style="@fsCStyle">
                                 @*<button type="button" @onclick="@(() => OnCoberturaClick("c", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].c))"
-                                        style="@btnPolizaCStyle" />*@
+                                    style="@btnPolizaCStyle" />*@
 
                                 <button type="button" @onclick="@(() => OnButtonPopUpClick("limitebasico"))"
                                         style="        width: 57px;
@@ -127,7 +127,7 @@ else
                         <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 380px;height: 125px;position: relative" @onclick="@(() => OnCoberturaClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))">
                             <fieldset id="fsCf" style="@fsCfStyle">
                                 @*<button type="button" @onclick="@(() => OnCoberturaClick("cf", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].cf))"
-                                        style="@btnPolizaCfStyle" />*@
+                                    style="@btnPolizaCfStyle" />*@
 
                                 <button type="button" @onclick="@(() => OnButtonPopUpClick("limiteaumentado"))"
                                         style="        width: 86px;
@@ -163,7 +163,7 @@ else
                     <div style="border-color: darkmagenta;border-width: thin;border-style: solid;width: 380px;height: 125px;position: relative" @onclick="@(() => OnCoberturaClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2))">
                         <fieldset id="fsD2" style="@fsD2Style">
                             @*<button type="button" @onclick="@(() => OnCoberturaClick("d2", @oRespuestaCotizacionAutoRapidaDTO.coberturas[1].d2))"
-                                    style="@btnPolizaD2Style" />*@
+                                style="@btnPolizaD2Style" />*@
                             <button type="button" @onclick="@(() => OnButtonPopUpClick("franquicia"))" style="        width: 89px;
         height: 16px;
         position: absolute;
@@ -371,8 +371,12 @@ else
     private string displayGNC;
     protected override async Task OnInitializedAsync()
     {
+        #region busco datos del partner
+        string partnerJson = await js.GetFromLocalStorage("partner");
+        Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
 
-        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
         cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
 
         btnPolizaAStyle = btnPolizaStyleOff;
@@ -396,7 +400,7 @@ else
         oCobSrc_cf = "cf";
         oCobSrc_d2 = "d2";
 
-        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        string CotizacionAutoDTOJson = await js.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
         int oAntiguedad = DateTime.Today.Year - oCotizacionAutoDTO.vehiculo.anio;
 
@@ -441,7 +445,7 @@ else
             }
         }
 
-
+        oGncValor = partner.GncMonto;
         oCotizacionAutoDTO.tieneAcreedorPrendario = false;
         oCotizacionAutoDTO.clausulaAjuste = 20;
         oCotizacionAutoDTO.clausulaAjuste = 0;
@@ -449,7 +453,7 @@ else
         oCotizacionAutoDTO.porcAjustePrima = 0;
         //oCotizacionAutoDTO.vehiculo.patente = "XXX000";
         oCotizacionAutoDTO.vehiculo.sumaAsegurada = -1;
-        oCotizacionAutoDTO.vehiculo.valorGNC = oGncValor;
+        oCotizacionAutoDTO.vehiculo.valorGNC = partner.GncMonto;
 
 
         //oCotizacionAutoRapidaDTO.cotizacionID = oCotizacionAutoDTO.cotizacionID;
@@ -478,7 +482,7 @@ else
             oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoRapidaDTO.cotizacionID;
 
             CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-            await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+            await js.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
             await OnCoberturaClick("a", oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a);
             Console.WriteLine(CotizacionAutoDTOJson);
         }
@@ -800,21 +804,21 @@ else
     private async Task onModoComodo()
     {
         modoPopUp.Ocultar();
-        JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+        js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
         SendEmail("ModoComodo");
     }
     private async Task onPagoEf()
     {
         modoPopUp.Ocultar();
-        JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo-efectivo/", "_blank");
+        js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo-efectivo/", "_blank");
         SendEmail("PagoEfectivo");
     }
     private async Task SendEmail(string origen)
     {
-        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
         CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
 
-        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        string CotizacionAutoDTOJson = await js.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO cotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
         #region Send Email
         Decimal valor;

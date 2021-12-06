@@ -13,98 +13,98 @@ namespace Project.Client.Pages.ZirenPages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 1 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 2 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 3 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 4 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 5 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 6 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 7 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Client;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 8 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Client.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 9 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Client.Helpers;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 10 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.Entidades;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Client.Repositorios;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+#line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.PrudenciaDTOs;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapidaM.razor"
+#line 6 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapidaM.razor"
 using System.Text.Json;
 
 #line default
@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 312 "C:\adfs\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapidaM.razor"
+#line 312 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapidaM.razor"
        
 
 
@@ -182,8 +182,12 @@ using System.Text.Json;
     private string displayGNC;
     protected override async Task OnInitializedAsync()
     {
+        #region busco datos del partner
+        string partnerJson = await js.GetFromLocalStorage("partner");
+        Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
 
-        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
         cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
 
         btnPolizaAStyle = btnPolizaStyleOff;
@@ -207,7 +211,7 @@ using System.Text.Json;
         oCobSrc_cf = "cf";
         oCobSrc_d2 = "d2";
 
-        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        string CotizacionAutoDTOJson = await js.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
         int oAntiguedad = DateTime.Today.Year - oCotizacionAutoDTO.vehiculo.anio;
 
@@ -252,7 +256,7 @@ using System.Text.Json;
             }
         }
 
-
+        oGncValor = partner.GncMonto;
         oCotizacionAutoDTO.tieneAcreedorPrendario = false;
         oCotizacionAutoDTO.clausulaAjuste = 20;
         oCotizacionAutoDTO.clausulaAjuste = 0;
@@ -260,7 +264,7 @@ using System.Text.Json;
         oCotizacionAutoDTO.porcAjustePrima = 0;
         //oCotizacionAutoDTO.vehiculo.patente = "XXX000";
         oCotizacionAutoDTO.vehiculo.sumaAsegurada = -1;
-        oCotizacionAutoDTO.vehiculo.valorGNC = oGncValor;
+        oCotizacionAutoDTO.vehiculo.valorGNC = partner.GncMonto;
 
 
         //oCotizacionAutoRapidaDTO.cotizacionID = oCotizacionAutoDTO.cotizacionID;
@@ -289,7 +293,7 @@ using System.Text.Json;
             oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoRapidaDTO.cotizacionID;
 
             CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-            await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+            await js.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
             await OnCoberturaClick("a", oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a);
             Console.WriteLine(CotizacionAutoDTOJson);
         }
@@ -611,21 +615,21 @@ using System.Text.Json;
     private async Task onModoComodo()
     {
         modoPopUp.Ocultar();
-        JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+        js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
         SendEmail("ModoComodo");
     }
     private async Task onPagoEf()
     {
         modoPopUp.Ocultar();
-        JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo-efectivo/", "_blank");
+        js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo-efectivo/", "_blank");
         SendEmail("PagoEfectivo");
     }
     private async Task SendEmail(string origen)
     {
-        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
         CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
 
-        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        string CotizacionAutoDTOJson = await js.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO cotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
         #region Send Email
         Decimal valor;
@@ -833,7 +837,7 @@ using System.Text.Json;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime js { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMostrarMensajes mostrarMensajes { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IRepositorio repositorio { get; set; }

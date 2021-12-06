@@ -32,7 +32,27 @@ namespace Project.Server.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Admin>> GetAdmin(string id)
         {
-            var admin = await _context.Admins.FindAsync(id);
+
+            var adminsQueryable = _context.Admins.AsQueryable();
+
+            adminsQueryable = adminsQueryable
+              .Where(x => x.AdminNombre == id);
+
+            Admin admin =null;
+            try
+            {
+                 admin = await adminsQueryable.FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+               
+                    return NotFound();
+               
+            }
+
+
+
+
 
             if (admin == null)
             {

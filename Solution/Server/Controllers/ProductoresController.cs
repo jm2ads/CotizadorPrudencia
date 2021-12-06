@@ -50,8 +50,15 @@ namespace Project.Server.Controllers
             productoresQueryable = productoresQueryable
               .Where(x => x.OrganizadorId == organizadorId);
 
-            var productoresList = await productoresQueryable.ToListAsync();
+            List<Productor> productoresList = null;
+            try {
 
+                productoresList = await productoresQueryable.ToListAsync();
+            }
+            catch(Exception ex)
+            {
+
+            }
             return productoresList;
         }
 

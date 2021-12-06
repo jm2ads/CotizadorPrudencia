@@ -84,13 +84,20 @@ using Project.Shared.Entidades;
 #nullable disable
 #nullable restore
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
-using Project.Client.Repositorios;
+using Project.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+using Project.Client.Repositorios;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.PrudenciaDTOs;
 
 #line default
@@ -171,8 +178,12 @@ using System.Text.Json;
     private string displayGNC;
     protected override async Task OnInitializedAsync()
     {
+        #region busco datos del partner
+        string partnerJson = await js.GetFromLocalStorage("partner");
+        Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
 
-        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        #endregion
+        string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
         cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
 
         btnPolizaAStyle = btnPolizaStyleOff;
@@ -240,7 +251,7 @@ using System.Text.Json;
                 }
             }
         }
-
+        oGncValor = partner.GncMonto;
 
         oCotizacionAutoDTO.tieneAcreedorPrendario = false;
         oCotizacionAutoDTO.clausulaAjuste = 20;
@@ -248,7 +259,7 @@ using System.Text.Json;
         oCotizacionAutoDTO.porcAjustePrima = 0;
         //oCotizacionAutoDTO.vehiculo.patente = "XXX000";
         oCotizacionAutoDTO.vehiculo.sumaAsegurada = -1;
-        oCotizacionAutoDTO.vehiculo.valorGNC = oGncValor;
+        oCotizacionAutoDTO.vehiculo.valorGNC = partner.GncMonto;
 
         //oCotizacionAutoRapidaDTO.cotizacionID = oCotizacionAutoDTO.cotizacionID;
         oCotizacionAutoRapidaDTO.codigoPostal = oCotizacionAutoDTO.asegurado.codigoPostal;
@@ -598,13 +609,13 @@ using System.Text.Json;
     private async Task onModoComodo()
     {
         modoPopUp.Ocultar();
-        JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+        js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
         SendEmail("ModoComodo");
     }
     private async Task onPagoEf()
     {
         modoPopUp.Ocultar();
-        JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo-efectivo/", "_blank");
+        js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo-efectivo/", "_blank");
         SendEmail("PagoEfectivo");
     }
     private async Task SendEmail(string origen)
@@ -620,7 +631,7 @@ using System.Text.Json;
         switch (oCoberturaIDSelected)
         {
             case 1:
-                valor =    oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a;
+                valor = oRespuestaCotizacionAutoRapidaDTO.coberturas[1].a;
                 coberturaStr = "a";
                 break;
             case 2:
@@ -653,7 +664,7 @@ using System.Text.Json;
 
         }
 
-        //  
+        //
         #region MyRegion
 
         System.Text.StringBuilder sHtml = new System.Text.StringBuilder();
@@ -833,6 +844,7 @@ using System.Text.Json;
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime js { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMostrarMensajes mostrarMensajes { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IRepositorio repositorio { get; set; }

@@ -8,8 +8,9 @@
 
 
 <div class="form-group">
+    <button @onclick="@(() => VolverProductorList(@productorId))" class="btn btn-success">Volver</button>
     <a class="btn btn-success" href="vendedor/Crear/@productorId/@Url">Vendedor Nuevo</a>
- </div>
+</div>
 @if (vendedorList == null)
 {
     <Cargando></Cargando>
@@ -29,12 +30,12 @@ else
             {
 
                 <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
-                    <a >
+                    <a>
                         <img src="data:image/jpeg;base64, @vendedor.Logo" alt="Poster" style="width: 112px; height:150px;" />
                     </a>
                     @*<div>
-                        <a class="btn btn-warning" style="margin:3px" href="/admin/Organizadores/@vendedor.VendedorId">Vendedores</a>
-                    </div>*@
+                            <a class="btn btn-warning" style="margin:3px" href="/admin/Organizadores/@vendedor.VendedorId">Vendedores</a>
+                        </div>*@
                     <div>
                         <a class="btn btn-info" style="margin:3px" href="vendedor/editar/@vendedor.VendedorId/@Url">Editar</a>
                         <button @onclick="@(() => BorrarVendedor(vendedor))" class="btn btn-danger">Borrar</button>
@@ -46,7 +47,7 @@ else
         </div>
 
 
-      
+
 
 
     }
@@ -65,9 +66,8 @@ else
     private Organizador organizador = new Organizador();
 
     private List<Productor> productorList = new List<Productor>();
-    private Productor productor = new Productor();
-
-    private List<Vendedor> vendedorList ;
+   
+    private List<Vendedor> vendedorList;
     private Vendedor vendedor = new Vendedor();
 
 
@@ -127,4 +127,16 @@ else
         }
 
     }
+    private async Task VolverProductorList(int productorId)
+    {
+    
+
+    var responseHttp = await repositorio.Get<Productor>("api/Productores/" + productorId);
+    Productor productor = responseHttp.Response;
+
+    navigationManager.NavigateTo("/admin/Productores/" + productor.OrganizadorId + "/" + productor.Url);
+
+
+
+}
 }

@@ -18,6 +18,7 @@ namespace Project.Server
         }
 
         public  DbSet<Admin> Admins { get; set; }
+        public DbSet<ZirenHead> ZirenHead { get; set; }
         public  DbSet<Grupo> Grupos { get; set; }
         public  DbSet<Organizador> Organizadores { get; set; }
         public  DbSet<Productor> Productores { get; set; }
@@ -47,6 +48,62 @@ namespace Project.Server
                     .IsRequired()
                     .HasMaxLength(50);
             });
+
+            modelBuilder.Entity<ZirenHead>(entity =>
+            {
+                entity.ToTable("ZirenHead");
+
+                entity.Property(e => e.Apellido)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Celular1)
+                    .IsRequired()
+                    .HasMaxLength(15);
+
+                entity.Property(e => e.Celular2).HasMaxLength(15);
+
+                entity.Property(e => e.Dni)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .HasColumnName("DNI");
+
+                entity.Property(e => e.Domicilio)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.GncMonto).HasColumnName("GNC_Monto");
+
+                entity.Property(e => e.Localidad)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Logo)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Mail)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Matricula)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+            
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Url)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Whatsapp).HasMaxLength(100);
+            });
+
+
 
             modelBuilder.Entity<Grupo>(entity =>
             {
@@ -89,11 +146,7 @@ namespace Project.Server
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.ModoComodo)
-                    .IsRequired()
-                    .HasMaxLength(3)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
+             
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
@@ -147,11 +200,7 @@ namespace Project.Server
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.ModoComodo)
-                    .IsRequired()
-                    .HasMaxLength(3)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
+              
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
@@ -207,11 +256,7 @@ namespace Project.Server
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.ModoComodo)
-                    .IsRequired()
-                    .HasMaxLength(3)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
+             
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
@@ -267,11 +312,7 @@ namespace Project.Server
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.ModoComodo)
-                    .IsRequired()
-                    .HasMaxLength(3)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
+               
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()

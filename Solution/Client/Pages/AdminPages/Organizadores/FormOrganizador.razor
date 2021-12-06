@@ -2,7 +2,15 @@
 
 <EditForm Model="organizador" OnValidSubmit="oOnValidSubmit">
     <DataAnnotationsValidator />
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <a class="btn btn-success" href="javascript: history.go(-1)">Volver</a>
+        </div>
 
+        <div class="col-md-5">
+
+        </div>
+    </div>
     <div class="row" style="margin:10px">
         <div class="col-md-5">
             <label style="color:white">Nomrbre:</label>
@@ -114,18 +122,18 @@
 
     <div class="row" style="margin:10px">
         <div class="col-md-5">
-            <label style="color:white">ModoComodo:</label>
-            <div>
-                <InputText class="form-control" @bind-Value="organizador.ModoComodo"></InputText>
-                <ValidationMessage For="@(() => organizador.ModoComodo)" />
-            </div>
-        </div>
-
-        <div class="col-md-5">
             <label style="color:white">Deseo Dar Datos:</label>
             <div>
                 <InputCheckbox class="form-control" @bind-Value="organizador.BotonDeseoDarDatos"></InputCheckbox>
                 <ValidationMessage For="@(() => organizador.BotonDeseoDarDatos)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Whatsapp:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="organizador.Whatsapp"></InputText>
+                <ValidationMessage For="@(() => organizador.Whatsapp)" />
             </div>
         </div>
     </div>
@@ -168,23 +176,7 @@
         </div>
     </div>
 
-    <div class="row" style="margin:10px">
-        <div class="col-md-5">
-            <label style="color:white">Whatsapp:</label>
-            <div>
-                <InputText class="form-control" @bind-Value="organizador.Whatsapp"></InputText>
-                <ValidationMessage For="@(() => organizador.Ajuste)" />
-            </div>
-        </div>
-
-        <div class="col-md-5">
-            <label style="color:white">DescuentoRecargas:</label>
-            <div>
-                <InputNumber class="form-control" @bind-Value="organizador.DescuentoRecarga"></InputNumber>
-                <ValidationMessage For="@(() => organizador.DescuentoRecarga)" />
-            </div>
-        </div>
-    </div>
+   
 
 
 

@@ -2,6 +2,15 @@
 
 <EditForm Model="grupo" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <a class="btn btn-success" href="javascript: history.go(-1)">Volver</a>
+        </div>
+
+        <div class="col-md-5">
+           
+        </div>
+    </div>
 
     <div class="row" style="margin:10px">
         <div class="col-md-5">
@@ -114,18 +123,18 @@
 
     <div class="row" style="margin:10px">
         <div class="col-md-5">
-            <label style="color:white">ModoComodo:</label>
-            <div>
-                <InputText class="form-control" @bind-Value="grupo.ModoComodo"></InputText>
-                <ValidationMessage For="@(() => grupo.ModoComodo)" />
-            </div>
-        </div>
-
-        <div class="col-md-5">
             <label style="color:white">Deseo Dar Datos:</label>
             <div>
                 <InputCheckbox class="form-control" @bind-Value="grupo.BotonDeseoDarDatos"></InputCheckbox>
                 <ValidationMessage For="@(() => grupo.BotonDeseoDarDatos)" />
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <label style="color:white">Whatsapp:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.Whatsapp"></InputText>
+                <ValidationMessage For="@(() => grupo.Whatsapp)" />
             </div>
         </div>
     </div>
@@ -168,23 +177,7 @@
         </div>
     </div>
 
-    <div class="row" style="margin:10px">
-        <div class="col-md-5">
-            <label style="color:white">Whatsapp:</label>
-            <div>
-                <InputText class="form-control" @bind-Value="grupo.Whatsapp"></InputText>
-                <ValidationMessage For="@(() => grupo.Ajuste)" />
-            </div>
-        </div>
-
-        <div class="col-md-5">
-            <label style="color:white">DescuentoRecargas:</label>
-            <div>
-                <InputNumber class="form-control" @bind-Value="grupo.DescuentoRecarga"></InputNumber>
-                <ValidationMessage For="@(() => grupo.DescuentoRecarga)" />
-            </div>
-        </div>
-    </div>
+    
 
 
 

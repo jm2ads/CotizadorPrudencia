@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "AnElN+NNiuFSQYwLeTaYXZf08ZU1IAcpbxYrI9YQvfLeNuPmnh6m4SiM6h6NVAvLaiRGgtzjVgjays8Dtqoa+A==",
+  "dgSpecHash": "C37yrtBLonUXHEfAQcF/F5Dr37j56WPzf+Qxu/gIATcSIEVgxg8wiAPoPHIfkMh+EvkROHtHm38R6zxU/z1/Lg==",
   "success": true,
-  "projectFilePath": "C:\\adfs\\WP\\CotizadorPrudencia\\Solution\\Shared\\Project.Shared.csproj",
+  "projectFilePath": "D:\\JM2\\WP\\CotizadorPrudencia\\Solution\\Shared\\Project.Shared.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\alejandro.sosa\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+    "C:\\Users\\Facundo\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

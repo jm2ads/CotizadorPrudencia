@@ -7,7 +7,8 @@
 <h3 style="color:white">Organizadores (Grupo @Url)</h3>
 
 <div class="form-group">
-    <a class="btn btn-success" href="organizador/Crear/@grupoId/@Url">Grupo Nuevo</a>
+    <a class="btn btn-success" href="/admin/Grupos">Volver</a>
+    <a class="btn btn-success" href="organizador/Crear/@grupoId/@Url">Organizador Nuevo</a>
 </div>
 
 
@@ -27,18 +28,19 @@ else
 
             @foreach (var organizador in organizadorList)
             {
-                <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
-                    <a href="/admin/Productores/@organizador.OrganizadorId/@organizador.Url">
-                        <img src="data:image/jpeg;base64, @organizador.Logo" alt="Poster" style="width: 112px; height:150px;" />
-                    </a>
-                    <div>
-                        <a class="btn btn-warning" style="margin:3px"  href="/admin/Productores/@organizador.OrganizadorId/@organizador.Url">Productores</a>
-                    </div>
-                    <div>
-                        <a class="btn btn-info" style="margin:3px"  href="organizador/editar/@organizador.OrganizadorId/@Url">Editar</a>
-                        <button @onclick="@(() => BorrarOrganizador(organizador))" class="btn btn-danger">Borrar</button>
-                    </div>
+            <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                <a href="/admin/Productores/@organizador.OrganizadorId/@organizador.Url">
+                    <img src="data:image/jpeg;base64, @organizador.Logo" alt="Poster" style="width: 112px; height:150px;" />
+                </a>
+
+                <div>
+                    <a class="btn btn-info" style="margin:3px" href="organizador/editar/@organizador.OrganizadorId/@Url">Editar</a>
+                    <button @onclick="@(() => BorrarOrganizador(organizador))" class="btn btn-danger">Borrar</button>
                 </div>
+                <div>
+                    <a class="btn btn-warning" style="margin:3px" href="/admin/Productores/@organizador.OrganizadorId/@organizador.Url">Ver Productores</a>
+                </div>
+            </div>
             }
         </div>
     }

@@ -41,7 +41,17 @@ else
     }
     private async Task Editar()
     {
+        #region Valido Form
+        if (string.IsNullOrEmpty(vendedor.Url) || string.IsNullOrEmpty(vendedor.Nombre) || string.IsNullOrEmpty(vendedor.Apellido) || string.IsNullOrEmpty(vendedor.Dni)
+            || string.IsNullOrEmpty(vendedor.Matricula) || string.IsNullOrEmpty(vendedor.Mail) || string.IsNullOrEmpty(vendedor.Celular1) || string.IsNullOrEmpty(vendedor.Domicilio)
+            || string.IsNullOrEmpty(vendedor.Localidad) || string.IsNullOrEmpty(vendedor.Logo) || string.IsNullOrEmpty(vendedor.Whatsapp))
+        {
 
+            await mostrarMensaje.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
+                " Localidad, Logo y Whatsapp son Obligatorios");
+            return;
+        }
+        #endregion
         var httpResponse = await repositorio.Put("api/Vendedores/" + vendedor.VendedorId, vendedor);
         if (httpResponse.Error)
         {

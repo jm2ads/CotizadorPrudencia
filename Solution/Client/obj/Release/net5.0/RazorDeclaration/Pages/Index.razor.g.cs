@@ -84,13 +84,20 @@ using Project.Shared.Entidades;
 #nullable disable
 #nullable restore
 #line 11 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
-using Project.Client.Repositorios;
+using Project.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
+using Project.Client.Repositorios;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\_Imports.razor"
 using Project.Shared.PrudenciaDTOs;
 
 #line default
@@ -104,7 +111,7 @@ using System.Text.Json;
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/{ProductorCode}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/{urlPartner}")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -113,22 +120,17 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 54 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
+#line 51 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
        private Login oLogin = null;
 
-    [Parameter] public string ProductorCode { get; set; }
-
-
-
-
+    [Parameter] public string urlPartner { get; set; }
 
     private CotizacionAutoDTO oCotizacionAutoDTO;
     private string permisoNotificaciones = string.Empty;
 
-
-    private string ProductorImage;
-
-
+    private string partnerLogo = string.Empty;
+    private string partnerWhatsapp = string.Empty;
+    Partner partner;
 
     CotizacionPopUp cotizacionPopUp;
     private List<RespuestaReporteDTO> oRespuestaReporteDTOList = new List<RespuestaReporteDTO>();
@@ -138,56 +140,49 @@ using System.Text.Json;
 
     protected async override Task OnInitializedAsync()
     {
-        
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 78 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
-         if (ProductorCode == null)
-        {
-            ProductorImage = "/images/logo.png";
-        }
-        else
-        {
-            ProductorImage = "/images/" + ProductorCode + ".jpg";
-        }
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 85 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
-         
-       
-        Console.WriteLine("Inicia Request Index :" + DateTime.Now);
-        var responseHttp4 = await repositorio.Get<List<TipoMedioPagoDTO>>("api/Externo/Prudencia/catalogos/GetMediosDePago");
-        Console.WriteLine("Fin Request Index :" + DateTime.Now);
+        if (urlPartner == null)
+            urlPartner = "ziren";
 
 
-        #region MyRegion
-        //await repositorio.Post("api/notificaciones/TextToSpeech", "Esto es un Test");
-        //permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
-        #endregion
+        var responseHttp3 = await repositorio.Get<Partner>("api/ZirenHeads/GetParternByUrl/" + urlPartner);
 
-        oCotizacionAutoDTO = new CotizacionAutoDTO();
-        oCotizacionAutoDTO.vehiculo = new VehiculoDTO();
-        oCotizacionAutoDTO.asegurado = new AseguradoPatrimonialDTO();
-        oCotizacionAutoDTO.cotizacionID = 0;
-
-
-        string CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-
-        await js.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
-        Console.WriteLine(CotizacionAutoDTOJson);
+        partner = responseHttp3.Response;
+        string partnerJson = JsonSerializer.Serialize(partner);
+        await js.SetInLocalStorage("partner", partnerJson);
+        partnerLogo = partner.Logo;
+        partnerWhatsapp = partner.Whatsapp;
+        Console.WriteLine("Partner : " + partner.Url);
 
 
-        #region CotizacionEntitiesDTO
-        CotizacionEntitiesDTO cotizacionEntitiesDTO = new CotizacionEntitiesDTO();
-        string cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
-        await js.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
-        #endregion
+        //#region BORRAR
+        //partnerJson = await js.GetFromLocalStorage("partner");
+        //Partner Partner2 = JsonSerializer.Deserialize<Partner>(partnerJson);
+        //Console.WriteLine("Partner2 : " + Partner2.Url);
+        //#endregion
+
+
+        //#region MyRegion
+        ////await repositorio.Post("api/notificaciones/TextToSpeech", "Esto es un Test");
+        ////permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
+        //#endregion
+
+        //oCotizacionAutoDTO = new CotizacionAutoDTO();
+        //oCotizacionAutoDTO.vehiculo = new VehiculoDTO();
+        //oCotizacionAutoDTO.asegurado = new AseguradoPatrimonialDTO();
+        //oCotizacionAutoDTO.cotizacionID = 0;
+
+
+        //string CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+
+        //await js.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+
+
+
+        //#region CotizacionEntitiesDTO
+        //CotizacionEntitiesDTO cotizacionEntitiesDTO = new CotizacionEntitiesDTO();
+        //string cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        //await js.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+        //#endregion
 
 
 
