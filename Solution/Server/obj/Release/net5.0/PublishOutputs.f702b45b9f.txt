@@ -234,8 +234,12 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Coberturas\d2Clicked.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Cotizacion\auto.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Cotizacion\back.png
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Cotizacion\cedulaBack.png
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Cotizacion\cedulaFront.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Cotizacion\confirmar.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Cotizacion\cuota.png
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Cotizacion\dniBack.png
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Cotizacion\dniFront.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Cotizacion\front.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Cotizacion\gnc.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Cotizacion\gncTubo.png

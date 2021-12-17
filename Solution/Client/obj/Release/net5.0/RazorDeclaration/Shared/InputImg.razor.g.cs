@@ -113,25 +113,25 @@ using Project.Shared.PrudenciaDTOs;
 #nullable restore
 #line 28 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\InputImg.razor"
         [Parameter] public string Label { get; set; } = "Imagen";
-            [Parameter] public string ImagenURL { get; set; }
-            [Parameter] public EventCallback<string> ImagenSeleccionada { get; set; }
-            private string imagenBase64;
+    [Parameter] public string ImagenTemporal { get; set; }
+    [Parameter] public EventCallback<string> ImagenSeleccionada { get; set; }
+    private string imagenBase64;
 
-            async Task OnChange(InputFileChangeEventArgs e)
-            {
-                var imagenes = e.GetMultipleFiles();
+    async Task OnChange(InputFileChangeEventArgs e)
+    {
+        var imagenes = e.GetMultipleFiles();
 
-                foreach (var imagen in imagenes)
-                {
-                    var arrbytes = new byte[imagen.Size];
-                    await imagen.OpenReadStream().ReadAsync(arrbytes);
-                    imagenBase64 = Convert.ToBase64String(arrbytes);
-                    ImagenURL = null;
-                    await ImagenSeleccionada.InvokeAsync(imagenBase64);
-                    StateHasChanged();
-                }
+        foreach (var imagen in imagenes)
+        {
+            var arrbytes = new byte[imagen.Size];
+            await imagen.OpenReadStream().ReadAsync(arrbytes);
+            imagenBase64 = Convert.ToBase64String(arrbytes);
+            ImagenTemporal = null;
+            await ImagenSeleccionada.InvokeAsync(imagenBase64);
+            StateHasChanged();
+        }
 
-            } 
+    } 
 
 #line default
 #line hidden

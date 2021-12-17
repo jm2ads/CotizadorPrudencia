@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 61 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonal.razor"
+#line 70 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonal.razor"
        
     [Parameter] public int marcaID { get; set; }
     [Parameter] public int anoID { get; set; }
@@ -131,13 +131,22 @@ using System.Text.Json;
     private string omail;
     private string otelefono;
     private string opatente;
+    private Partner partner;
+
+
+    private bool botonDeseoDarDatos = false;
 
     private DateTime? ofechaNacimiento;
     private BrowserDimension browserDimension;
     protected override async Task OnInitializedAsync()
     {
 
+        #region busco datos del partner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
 
+        botonDeseoDarDatos = partner.BotonDeseoDarDatos;
         ofechaNacimiento = DateTime.Today.AddYears(-30);
         browserDimension = await Service.GetDimensions();
 
@@ -150,6 +159,8 @@ using System.Text.Json;
 #endif
         opatente = UtilidadesString.GetRandomString(6);
     }
+
+
 
     private async Task OnClickHandle()
     {
@@ -206,7 +217,35 @@ using System.Text.Json;
             navigationManager.NavigateTo("/ziren/CotizacionRapidaM");
     }
 
+    private async Task OnClickHandleSinDatos()
+    {
 
+
+       
+
+
+
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+
+        //oCotizacionAutoDTO.asegurado.nombre = onombre;
+        //oCotizacionAutoDTO.asegurado.fechaNacimiento = ((DateTime)ofechaNacimiento).ToString("dd/MM/yyyy");
+        //oCotizacionAutoDTO.asegurado.mail = omail;
+        //oCotizacionAutoDTO.asegurado.telefono = otelefono;
+
+        oCotizacionAutoDTO.vehiculo.patente = UtilidadesString.GetRandomString(6); ;
+
+        CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        Console.WriteLine(CotizacionAutoDTOJson);
+
+        SendEmail(oCotizacionAutoDTO);
+
+        if (browserDimension.Width > 768)
+            navigationManager.NavigateTo("/ziren/CotizacionRapida");
+        else
+            navigationManager.NavigateTo("/ziren/CotizacionRapidaM");
+    }
     private async Task SendEmail(CotizacionAutoDTO cotizacionAutoDTO)
     {
         string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");

@@ -15,5 +15,7 @@ namespace Project.Shared.PrudenciaDTOs
         public VersionesAutos versionesAutos { get; set; }
 
         public ProvinciaDTO provincia { get; set; }
+        public RespuestaCotizacionAutoRapidaDTO respuestaCotizacionAutoRapidaDTO { get; set; }
+        public int CoberturaIDSelected { get; set; }
     }
 }

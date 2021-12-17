@@ -1,7 +1,7 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-wFtRFK2LNV87KiLCCKhny9McbfCghH2UEJIrk7JSDWw=",
+      "hash": "sha256-ed2iN2j0Avhst2E295bCyqY7qSmKQ1Vx1QKI6WdQ2xU=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -785,19 +785,19 @@
       "url": "_framework\/dotnet.5.0.12.js"
     },
     {
-      "hash": "sha256-kkeF7yRtibFu+12L8zeZkx1SxIDE79CpqNFZIXzLaY0=",
+      "hash": "sha256-3i+bzj703hQjf5LZ\/vTC2LlnurJjYZFlBlHD8ftwEGo=",
       "url": "_framework\/Project.Shared.dll"
     },
     {
-      "hash": "sha256-pA4XgbrB02lXrsTjdr\/vDQeg7RdajZLb9jCHAR8Mt40=",
+      "hash": "sha256-uMq9W420yufb\/lPw1jxij1KJhGqyH+V8xiF9Fc8YtJM=",
       "url": "_framework\/Project.Shared.pdb"
     },
     {
-      "hash": "sha256-690DS0iRPIvh4KENpdsXXqIcH9\/i6Z+\/gBH4xgFXLGE=",
+      "hash": "sha256-0v1+2pUna8q1g2BtW\/saloZL3w2oQ8nrZPXehq8lf4w=",
       "url": "_framework\/Project.Client.dll"
     },
     {
-      "hash": "sha256-edYXzlRlqlKUsXHLdvbY0bV1iI+nq\/Ocm3kFX03EQWo=",
+      "hash": "sha256-lrSuJ6C16gCMomWjBcooY\/AElrfsWX9Ep33j18GdKJw=",
       "url": "_framework\/Project.Client.pdb"
     },
     {
@@ -1585,7 +1585,7 @@
       "url": "_framework\/dotnet.5.0.12.js.gz"
     },
     {
-      "hash": "sha256-p33YHDa90Uj+VWM94MXRdTXGXiHgyaJReLiabGdhf20=",
+      "hash": "sha256-ozu5ggh2NnkqNRm8S6HPYKWYZPVPrmtvoYyC06Jch9w=",
       "url": "_framework\/Project.Shared.dll.gz"
     },
     {
@@ -1705,5 +1705,5 @@
       "url": "manifest.json"
     }
   ],
-  "version": "7TxrQvtJ"
+  "version": "NsyTu7a3"
 };

@@ -126,7 +126,7 @@ using System.Text.Json;
 
     private CotizacionAutoDTO oCotizacionAutoDTO = new CotizacionAutoDTO();
     private RespuestaCotizacionAutoDTO oRespuestaCotizacionAutoDTO;
- 
+
     protected override async Task OnInitializedAsync()
     {
 
@@ -135,6 +135,12 @@ using System.Text.Json;
 
         oCotizacionAutoDTO.cotizacionID = 0;
 
+        #region busco datos del partner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
+
+        oCotizacionAutoDTO.usaAcarreo = partner.Acarreo;
         var responseHttp = await repositorio.Post<CotizacionAutoDTO, RespuestaCotizacionAutoDTO>("api/Externo/Prudencia/cotizaciones/autos", oCotizacionAutoDTO);
         oRespuestaCotizacionAutoDTO = responseHttp.Response;
 
@@ -147,7 +153,7 @@ using System.Text.Json;
 
 
 
-     
+
 
     }
     private async Task OnClickHandle()

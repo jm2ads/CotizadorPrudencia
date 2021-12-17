@@ -371,6 +371,11 @@ using System.Text.Json;
 
         string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
         CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+       
+        #region busco datos del partner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
 
         MailApp oMailApp = new MailApp();
         string oSubject = "Ziren => Enlaces de tu Poliza";
@@ -385,6 +390,7 @@ using System.Text.Json;
         sendPolizaMailDTO.cotizacionAutoDTO = oCotizacionAutoDTO;
         sendPolizaMailDTO.cotizacionEntitiesDTO = cotizacionEntitiesDTO;
         sendPolizaMailDTO.respuestaReporteDTOList = oRespuestaReporteDTOList;
+        sendPolizaMailDTO.partner = partner;
         var responseHttp2 = await repositorio.Post<SendPolizaMailDTO, string>("api/Externo/Prudencia/SendPolizaMail", sendPolizaMailDTO);
 
         if (responseHttp2.Error)

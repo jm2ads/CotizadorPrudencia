@@ -34,6 +34,9 @@ namespace Project.Server.Controllers
         [HttpGet("GetParternByUrl/{Url}")]
         public async Task<ActionResult<Partner>> GetParternByUrl(string url)
         {
+
+
+
             Partner partner = new Partner();
             #region ZirenHead
             if (url == "ziren")
@@ -97,15 +100,14 @@ namespace Project.Server.Controllers
         private Partner objectToParent(object objectPartner, Type typeName)
         {
             Partner partner = new Partner();
-
+            partner.Type = objectPartner.GetType().Name;
             Type t = objectPartner.GetType();
             switch (objectPartner.GetType().Name)
             {
                 case "ZirenHead":
                     partner.Id = ((ZirenHead)objectPartner).ZirenHeadId;
                     partner.IdPadre = 0;
-                    partner.Nombre = ((ZirenHead)objectPartner).Nombre;
-
+                 
                     partner.Url = ((ZirenHead)objectPartner).Url;
                     partner.Nombre = ((ZirenHead)objectPartner).Nombre;
                     partner.Apellido = ((ZirenHead)objectPartner).Url;
@@ -128,8 +130,7 @@ namespace Project.Server.Controllers
                 case "Grupo":
                     partner.Id = ((Grupo)objectPartner).GrupoId;
                     partner.IdPadre = ((Grupo)objectPartner).ZirenHeadId;
-                    partner.Nombre = ((Grupo)objectPartner).Nombre;
-
+                
                     partner.Url = ((Grupo)objectPartner).Url;
                     partner.Nombre = ((Grupo)objectPartner).Nombre;
                     partner.Apellido = ((Grupo)objectPartner).Url;
@@ -152,8 +153,7 @@ namespace Project.Server.Controllers
                 case "Organizador":
                     partner.Id = ((Organizador)objectPartner).OrganizadorId;
                     partner.IdPadre = ((Organizador)objectPartner).GrupoId;
-                    partner.Nombre = ((Organizador)objectPartner).Nombre;
-
+                   
                     partner.Url = ((Organizador)objectPartner).Url;
                     partner.Nombre = ((Organizador)objectPartner).Nombre;
                     partner.Apellido = ((Organizador)objectPartner).Url;
@@ -176,8 +176,7 @@ namespace Project.Server.Controllers
                 case "Productor":
                     partner.Id = ((Grupo)objectPartner).GrupoId;
                     partner.IdPadre = ((Grupo)objectPartner).ZirenHeadId;
-                    partner.Nombre = ((Grupo)objectPartner).Nombre;
-
+                  
                     partner.Url = ((Grupo)objectPartner).Url;
                     partner.Nombre = ((Grupo)objectPartner).Nombre;
                     partner.Apellido = ((Grupo)objectPartner).Url;
@@ -200,8 +199,7 @@ namespace Project.Server.Controllers
                 case "Vendedor":
                     partner.Id = ((Grupo)objectPartner).GrupoId;
                     partner.IdPadre = ((Grupo)objectPartner).ZirenHeadId;
-                    partner.Nombre = ((Grupo)objectPartner).Nombre;
-
+                  
                     partner.Url = ((Grupo)objectPartner).Url;
                     partner.Nombre = ((Grupo)objectPartner).Nombre;
                     partner.Apellido = ((Grupo)objectPartner).Url;

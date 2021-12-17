@@ -181,7 +181,6 @@ using System.Text.Json;
         #region busco datos del partner
         string partnerJson = await js.GetFromLocalStorage("partner");
         Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
-
         #endregion
         string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
         cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
@@ -270,6 +269,7 @@ using System.Text.Json;
 
         oCotizacionAutoRapidaDTO.vehiculo = oCotizacionAutoDTO.vehiculo;
 
+        oCotizacionAutoRapidaDTO.usaAcarreo = partner.Acarreo;
         var responseHttp = await repositorio.Post<CotizacionAutoRapidaDTO, RespuestaCotizacionAutoRapidaDTO>("api/Externo/Prudencia/cotizaciones/autosrapida", oCotizacionAutoRapidaDTO);
 
         if (responseHttp.Error)
@@ -590,6 +590,23 @@ using System.Text.Json;
 
         oCoberturaIDSelected = oCoberturaIDSelectedAux;
         Console.WriteLine("oCoberturaIDSelected OnConfirmClick" + oCoberturaIDSelected);
+
+
+
+        #region CotizacionEntitiesDTO
+        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+
+
+        cotizacionEntitiesDTO.respuestaCotizacionAutoRapidaDTO = oRespuestaCotizacionAutoRapidaDTO;
+        cotizacionEntitiesDTO.CoberturaIDSelected = oCoberturaIDSelected;
+
+        cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+        Console.WriteLine(cotizacionEntitiesDTOJson);
+        #endregion
+
+
         cotizacionPopUp.Mostrar();
 
     }
@@ -609,7 +626,19 @@ using System.Text.Json;
     private async Task onModoComodo()
     {
         modoPopUp.Ocultar();
-        js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+
+        #region busco datos del partner
+        string partnerJson = await js.GetFromLocalStorage("partner");
+        Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
+        if (partner.Type == "ZirenHead")
+        {
+            js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+        }
+        else
+        {
+            navigationManager.NavigateTo($"/"+ partner.Url + "/MCInterno");
+        }
         SendEmail("ModoComodo");
     }
     private async Task onPagoEf()

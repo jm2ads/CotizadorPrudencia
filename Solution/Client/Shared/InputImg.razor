@@ -1,12 +1,12 @@
 ﻿
-<div>
+<div style="display: flex; justify-content: center;">
     <label style="color:white">@Label</label>
     <div>
         <InputFile OnChange="OnChange" style="color:white"  accept=".jpg,.jpeg,.png" />
     </div>
 </div>
 
-<div>
+<div style="display: flex; justify-content: center;"> 
     @if (imagenBase64 != null)
     {
 <div>
@@ -14,34 +14,34 @@
         <img src="data:image/jpeg;base64, @imagenBase64" style="width: 400px" />
     </div>
 </div>}
-    @if (ImagenURL != null)
+    @if (ImagenTemporal != null)
     {
 <div>
     <div style="margin:10px">
         @*<img src="@ImagenURL" style="width: 400px" />*@
-        <img src="data:image/jpeg;base64, @ImagenURL" style="width: 400px" />
+        <img src="data:image/jpeg;base64, @ImagenTemporal" style="width: 400px" />
     </div>
 </div>}
 </div>
 
 
 @code { [Parameter] public string Label { get; set; } = "Imagen";
-            [Parameter] public string ImagenURL { get; set; }
-            [Parameter] public EventCallback<string> ImagenSeleccionada { get; set; }
-            private string imagenBase64;
+    [Parameter] public string ImagenTemporal { get; set; }
+    [Parameter] public EventCallback<string> ImagenSeleccionada { get; set; }
+    private string imagenBase64;
 
-            async Task OnChange(InputFileChangeEventArgs e)
-            {
-                var imagenes = e.GetMultipleFiles();
+    async Task OnChange(InputFileChangeEventArgs e)
+    {
+        var imagenes = e.GetMultipleFiles();
 
-                foreach (var imagen in imagenes)
-                {
-                    var arrbytes = new byte[imagen.Size];
-                    await imagen.OpenReadStream().ReadAsync(arrbytes);
-                    imagenBase64 = Convert.ToBase64String(arrbytes);
-                    ImagenURL = null;
-                    await ImagenSeleccionada.InvokeAsync(imagenBase64);
-                    StateHasChanged();
-                }
+        foreach (var imagen in imagenes)
+        {
+            var arrbytes = new byte[imagen.Size];
+            await imagen.OpenReadStream().ReadAsync(arrbytes);
+            imagenBase64 = Convert.ToBase64String(arrbytes);
+            ImagenTemporal = null;
+            await ImagenSeleccionada.InvokeAsync(imagenBase64);
+            StateHasChanged();
+        }
 
-            } }
+    } }

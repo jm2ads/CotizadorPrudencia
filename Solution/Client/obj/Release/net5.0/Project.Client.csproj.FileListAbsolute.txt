@@ -1464,3 +1464,11 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\build-gz\JMHCDtz
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\build-gz\b4UpGPDE.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\build-gz\gcjoHqmG.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\build-gz\tEsN06wO.gz
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\RazorDeclaration\Pages\FileUpload1.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\RazorDeclaration\Pages\FileUpload2.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\RazorDeclaration\Pages\FileUpload3.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\RazorDeclaration\Pages\ZirenPages\ModoComodo.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\Razor\Pages\FileUpload1.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\Razor\Pages\FileUpload2.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\Razor\Pages\FileUpload3.razor.g.cs
+D:\JM2\WP\CotizadorPrudencia\Solution\Client\obj\Release\net5.0\Razor\Pages\ZirenPages\ModoComodo.razor.g.cs

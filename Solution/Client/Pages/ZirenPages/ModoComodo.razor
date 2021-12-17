@@ -1,0 +1,600 @@
+﻿@page "/{urlPartner}/ModoComodo"
+@page "/{urlPartner}/MCInterno"
+
+@inject IJSRuntime js
+@inject IRepositorio repositorio
+@inject IMostrarMensajes mostrarMensajes
+@inject NavigationManager navigationManager
+@using System.Text.Json;
+<h1 style="color: white; text-align: center;">Modo Comodo Tarjeta de Credito</h1>
+
+
+
+<span style="color: white; font-size: 1em;  align-content:center">
+    Muy bien! Ha llegado al ultimo paso para obtener tu póliza!
+</span>
+
+
+<hr width="80%" color="white" />
+
+<h4 style="color: white; text-align: center;width:80%">
+    Las fotos deben ser tomadas como indica la imagen de ejemplo. Deben ser tomadas con buena iluminación (de dia o buena iluminación artificial), todas de un mismo momento y lugar, actuales del dia de la fecha. Con las ventanillas cerradas (No con las ventanillas bajas )
+</h4>
+
+
+<hr width="80%" color="white" />
+
+<h4 style="color: white; text-align: center;">
+    Por favor suba las siguientes fotos usando su Telefono o PC
+</h4>
+
+<EditForm Model="sendModoComodoMail" OnSubmit="OnSubmit">
+
+    <img src="/images/Cotizacion/front.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
+    <label style="color: white; display: flex; justify-content: center;">CARGAR PARTE DELANTERA DEL VEHICULO (IMAGEN)<InputFile OnChange="@LoadFront" /></label>
+    <div style="display: flex; justify-content: center;">
+        @if (sendModoComodoMail.carFront != null)
+        {
+            <div>
+                <div style="margin:10px">
+                    <img src="data:image/jpeg;base64, @sendModoComodoMail.carFront" style="width: 200px" />
+                </div>
+            </div>
+        }
+    </div>
+    <hr width="50%" color="white" style="border-top: 1px dashed red;" />
+
+    <img src="/images/Cotizacion/back.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
+    <label style="color: white; display: flex; justify-content: center;">CARGAR PARTE TRASERA DEL VEHICULO (IMAGEN)<InputFile OnChange="@LoadBack" /></label>
+    <div style="display: flex; justify-content: center;">
+        @if (sendModoComodoMail.carBack != null)
+        {
+            <div>
+                <div style="margin:10px">
+                    <img src="data:image/jpeg;base64, @sendModoComodoMail.carBack" style="width: 200px" />
+                </div>
+            </div>
+        }
+    </div>
+    <hr width="50%" color="white" style="border-top: 1px dashed red;" />
+
+
+
+
+    <!-- #region carLeft -->
+    <img src="/images/Cotizacion/left.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
+    <label style="color: white; display: flex; justify-content: center;">CARGAR LADO IZQUIERDO DEL VEHICULO (IMAGEN)<InputFile OnChange="@LoadLeft" /></label>
+    <div style="display: flex; justify-content: center;">
+        @if (sendModoComodoMail.carLeft != null)
+        {
+            <div>
+                <div style="margin:10px">
+                    <img src="data:image/jpeg;base64, @sendModoComodoMail.carLeft" style="width: 200px" />
+                </div>
+            </div>}
+    </div>
+    <hr width="50%" color="white" style="border-top: 1px dashed red;" />
+    <!-- #endregion -->
+    <!-- #region carRight -->
+    <img src="/images/Cotizacion/right.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
+    <label style="color: white; display: flex; justify-content: center;">CARGAR LADO DERECHO DEL VEHICULO (IMAGEN)<InputFile OnChange="@LoadRight" /></label>
+    <div style="display: flex; justify-content: center;">
+        @if (sendModoComodoMail.carRight != null)
+        {
+            <div>
+                <div style="margin:10px">
+                    <img src="data:image/jpeg;base64, @sendModoComodoMail.carRight" style="width: 200px" />
+                </div>
+            </div>}
+    </div>
+    <hr width="50%" color="white" style="border-top: 1px dashed red;" />
+    <!-- #endregion -->
+    <!-- #region cedulaFront -->
+    <img src="/images/Cotizacion/cedulaFront.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
+    <label style="color: white; display: flex; justify-content: center;">CARGAR FRENTE CEDULA LEGIBLE (IMAGEN) <InputFile OnChange="@LoadCedulaFront" /></label>
+    <div style="display: flex; justify-content: center;">
+        @if (sendModoComodoMail.cedulaFront != null)
+        {
+            <div>
+                <div style="margin:10px">
+                    <img src="data:image/jpeg;base64, @sendModoComodoMail.cedulaFront" style="width: 200px" />
+                </div>
+            </div>}
+    </div>
+    <hr width="50%" color="white" style="border-top: 1px dashed red;" />
+    <!-- #endregion -->
+    <!-- #region cedulaBack -->
+    <img src="/images/Cotizacion/cedulaBack.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
+    <label style="color: white; display: flex; justify-content: center;">CARGAR DORSO CEDULA LEGIBLE (IMAGEN) <InputFile OnChange="@LoadCedulaBack" /></label>
+    <div style="display: flex; justify-content: center;">
+        @if (sendModoComodoMail.cedulaBack != null)
+        {
+            <div>
+                <div style="margin:10px">
+                    <img src="data:image/jpeg;base64, @sendModoComodoMail.cedulaBack" style="width: 200px" />
+                </div>
+            </div>}
+    </div>
+    <hr width="50%" color="white" style="border-top: 1px dashed red;" />
+    <!-- #endregion -->
+    <!-- #region dniFront -->
+    <img src="/images/Cotizacion/dniFront.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
+    <label style="color: white; display: flex; justify-content: center;">CARGAR FRENTE DNI O REGISTRO (IMAGEN) <InputFile OnChange="@LoadDniFront" /></label>
+    <div style="display: flex; justify-content: center;">
+        @if (sendModoComodoMail.dniFront != null)
+        {
+            <div>
+                <div style="margin:10px">
+                    <img src="data:image/jpeg;base64, @sendModoComodoMail.dniFront" style="width: 200px" />
+                </div>
+            </div>}
+    </div>
+    <hr width="50%" color="white" style="border-top: 1px dashed red;" />
+    <!-- #endregion -->
+    <!-- #region dniBack -->
+    <img src="/images/Cotizacion/dniBack.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
+    <label style="color: white; display: flex; justify-content: center;">CARGAR DORSO DNI O REGISTRO (IMAGEN) <InputFile OnChange="@LoadDniBack" /></label>
+    <div style="display: flex; justify-content: center;">
+        @if (sendModoComodoMail.dniBack != null)
+        {
+            <div>
+                <div style="margin:10px">
+                    <img src="data:image/jpeg;base64, @sendModoComodoMail.dniBack" style="width: 200px" />
+                </div>
+            </div>}
+    </div>
+    <hr width="50%" color="white" style="border-top: 1px dashed red;" />
+    <!-- #endregion -->
+    <!-- #region gncTubo -->
+    <img src="/images/Cotizacion/gncTubo.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
+    <label style="color: white; display: flex; justify-content: center;">SI TIENE GNC POR FAVOR SUBIR FOTO DEL CILINDRO (IMAGEN)<InputFile OnChange="@LoadGncTubo" /></label>
+    <div style="display: flex; justify-content: center;">
+        @if (sendModoComodoMail.gncTubo != null)
+        {
+            <div>
+                <div style="margin:10px">
+                    <img src="data:image/jpeg;base64, @sendModoComodoMail.gncTubo" style="width: 200px" />
+                </div>
+            </div>}
+    </div>
+
+    <!-- #endregion -->
+
+
+
+
+
+    <h4 style="color: white; text-align: center;">
+        Complete la Siguiente Información
+    </h4>
+
+
+    <div class=" form-group">
+        <label style="color:white">Nombre y Apellido</label>
+        <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+            <InputText class="form-control" @bind-Value="sendModoComodoMail.NombreApellido"></InputText>
+        </div>
+    </div>
+    <div class=" form-group">
+        <label style="color:white">Domicilio Real (En caso que no halla realizado el cambio de domicilio por favor indicar el real a continuación) </label>
+        <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+            <InputText class="form-control" @bind-Value="sendModoComodoMail.Domicilio"></InputText>
+        </div>
+    </div>
+    <div class=" form-group">
+        <label style="color:white">Localidad y Código Postal </label>
+        <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+            <InputText class="form-control" @bind-Value="sendModoComodoMail.Localidad"></InputText>
+        </div>
+    </div>
+    <div class=" form-group">
+        <label style="color:white">Email (Debe ser un email real donde te llegara la poliza)</label>
+        <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+            <InputText class="form-control" @bind-Value="sendModoComodoMail.Email"></InputText>
+        </div>
+    </div>
+    <div class=" form-group">
+        <label style="color:white">Numero de Celular (Debe ser tu numero real)</label>
+        <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+            <InputText class="form-control" @bind-Value="sendModoComodoMail.Celular"></InputText>
+        </div>
+    </div>
+    <div class=" form-group">
+        <label style="color:white">Patente Completa </label>
+        <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+            <InputText class="form-control" @bind-Value="sendModoComodoMail.Patente"></InputText>
+        </div>
+    </div>
+    <div class=" form-group">
+        <label style="color:white">Año</label>
+        <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+            <InputText class="form-control" @bind-Value="sendModoComodoMail.Ano"></InputText>
+        </div>
+    </div>
+    <div class=" form-group">
+        <label style="color:white">Medio de Pago</label>
+        <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+            <InputSelect class="form-control" @bind-Value="oMedioPagoID">
+                <option value="">Medio de Pago ...</option>
+
+                <option value="TC">Tarjeta de Credito</option>
+                <option value="EF">Efectivo</option>
+                <option value="DEB">Debito en cuenta</option>
+
+            </InputSelect>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="container p-3 my-3 bg-transparent border" id="cntTC" hidden="@(! cntTCVisible)">
+
+        <div class=" form-group">
+            <label style="color:white">Indique a continuación su tarjeta de crédito </label>
+            <div style="margin-right: 2%; margin-left: 2%; ">
+                <InputRadioGroup @bind-Value="tC">
+                    <label style="color:white"><InputRadio Value=0 /> VISA</label><br />
+                    <label style="color:white"><InputRadio Value=1 /> AMERICAN EXPRESS</label><br />
+                    <label style="color:white"><InputRadio Value=2 /> MASTERCARD</label><br />
+                    <label style="color:white"><InputRadio Value=3 /> TARJETA NARANJA</label><br />
+                    <label style="color:white"><InputRadio Value=4 /> TARJETA CABAL</label>
+                </InputRadioGroup>
+
+            </div>
+        </div>
+
+
+
+
+        <div class=" form-group">
+            <label style="color:white">Nombre y Apellido de titular de la tarjeta</label>
+            <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+                <InputText class="form-control" @bind-Value="sendModoComodoMail.NombreApellidoTC"></InputText>
+            </div>
+        </div>
+        <div class=" form-group">
+            <label style="color:white">Número de DNI de titular de la tarjeta </label>
+            <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+                <InputText class="form-control" @bind-Value="sendModoComodoMail.DNITC"></InputText>
+            </div>
+        </div>
+        <div class=" form-group">
+            <label style="color:white">Numero de la Tarjeta de Credito </label>
+            <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+                <InputText class="form-control" @bind-Value="sendModoComodoMail.NroTc"></InputText>
+            </div>
+        </div>
+        <div class=" form-group">
+            <label style="color:white">Fecha de Vencimiento de la Tarjeta </label>
+            <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+                <InputText class="form-control" @bind-Value="sendModoComodoMail.VtoTc"></InputText>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    @*<div class="container p-3 my-3 bg-transparent border" id="cntEF" hidden="@(! cntEFCVisible)">
+            <label style="color:white"> cntEF</label>
+        </div>*@
+    <div class="container p-3 my-3 bg-transparent border" id="cntDeb" hidden="@(! cntDebVisible)">
+        <div class=" form-group">
+            <label style="color:white">Nombre y Apellido del Titular del CBU </label>
+            <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+                <InputText class="form-control" @bind-Value="sendModoComodoMail.NombreApellidoCBU"></InputText>
+            </div>
+        </div>
+        <div class=" form-group">
+            <label style="color:white">Ingrese el CBU de su cuenta de Banco </label>
+            <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
+                <InputText class="form-control" @bind-Value="sendModoComodoMail.NroCBU"></InputText>
+            </div>
+        </div>
+    </div>
+
+
+    <button class="btn btn-success" type="submit" style="margin-bottom:20px">Enviar</button>
+    <br />
+
+</EditForm>
+
+@code {
+    [Parameter] public string urlPartner { get; set; }
+
+    private string posterTemporal;
+
+    private string tC;
+    private bool cntTCVisible = false;
+    private bool cntEFCVisible = false;
+    private bool cntDebVisible = false;
+
+
+    private SendModoComodoMail sendModoComodoMail = new SendModoComodoMail();
+
+
+
+    private string oMedioPagoIDAux;
+
+    #region Upload
+    private List<IBrowserFile> loadedFiles = new();
+    private long maxFileSize = 1024 * 15;
+    private int maxAllowedFiles = 3;
+    private bool isLoading;
+
+
+    Partner partner;
+    protected async override Task OnInitializedAsync()
+    {
+        if (urlPartner == null)
+            urlPartner = "ziren";
+
+
+        var responseHttp3 = await repositorio.Get<Partner>("api/ZirenHeads/GetParternByUrl/" + urlPartner);
+
+        partner = responseHttp3.Response;
+    }
+
+    private async Task LoadFront(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        var file = e.File;
+
+        var arrbytes = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(arrbytes);
+        sendModoComodoMail.carFront = Convert.ToBase64String(arrbytes);
+        isLoading = false;
+    }
+    private async Task LoadBack(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        var file = e.File;
+
+        var arrbytes = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(arrbytes);
+        sendModoComodoMail.carBack = Convert.ToBase64String(arrbytes);
+        isLoading = false;
+    }
+    private async Task LoadRight(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        var file = e.File;
+
+        var arrbytes = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(arrbytes);
+        sendModoComodoMail.carRight = Convert.ToBase64String(arrbytes);
+        isLoading = false;
+    }
+    private async Task LoadLeft(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        var file = e.File;
+
+        var arrbytes = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(arrbytes);
+        sendModoComodoMail.carLeft = Convert.ToBase64String(arrbytes);
+        isLoading = false;
+    }
+    private async Task LoadCedulaFront(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        var file = e.File;
+
+        var arrbytes = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(arrbytes);
+        sendModoComodoMail.cedulaFront = Convert.ToBase64String(arrbytes);
+        isLoading = false;
+    }
+    private async Task LoadCedulaBack(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        var file = e.File;
+
+        var arrbytes = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(arrbytes);
+        sendModoComodoMail.cedulaBack = Convert.ToBase64String(arrbytes);
+        isLoading = false;
+    }
+    private async Task LoadDniFront(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        var file = e.File;
+
+        var arrbytes = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(arrbytes);
+        sendModoComodoMail.dniFront = Convert.ToBase64String(arrbytes);
+        isLoading = false;
+    }
+    private async Task LoadDniBack(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        var file = e.File;
+
+        var arrbytes = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(arrbytes);
+        sendModoComodoMail.dniBack = Convert.ToBase64String(arrbytes);
+        isLoading = false;
+    }
+    private async Task LoadGncTubo(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        var file = e.File;
+
+        var arrbytes = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(arrbytes);
+        sendModoComodoMail.gncTubo = Convert.ToBase64String(arrbytes);
+        isLoading = false;
+    }
+    #endregion
+
+
+
+
+    public string oMedioPagoID
+    {
+        get { return oMedioPagoIDAux; }
+        set
+        {
+            oMedioPagoIDAux = value;
+            sendModoComodoMail.MedioPago = oMedioPagoIDAux;
+            OnMedioPagoChange();
+        }
+    }
+    private void ImagenSeleccionada(string imagenBase64)
+    {
+        sendModoComodoMail.carFront = imagenBase64;
+        posterTemporal = null;
+    }
+
+    private async void OnSubmit()
+    {
+
+        if (string.IsNullOrEmpty(sendModoComodoMail.carFront) || string.IsNullOrEmpty(sendModoComodoMail.carBack) ||
+            string.IsNullOrEmpty(sendModoComodoMail.carRight) || string.IsNullOrEmpty(sendModoComodoMail.carLeft) ||
+            string.IsNullOrEmpty(sendModoComodoMail.cedulaFront) || string.IsNullOrEmpty(sendModoComodoMail.cedulaBack) ||
+            string.IsNullOrEmpty(sendModoComodoMail.dniFront) || string.IsNullOrEmpty(sendModoComodoMail.dniBack))
+        {
+
+            await mostrarMensajes.MostrarMensajeError("La unica imagen opcional es la de GNC");
+            return;
+        }
+
+
+        if (string.IsNullOrEmpty(sendModoComodoMail.NombreApellido) || string.IsNullOrEmpty(sendModoComodoMail.Domicilio) ||
+            string.IsNullOrEmpty(sendModoComodoMail.Localidad) || string.IsNullOrEmpty(sendModoComodoMail.Celular) ||
+            string.IsNullOrEmpty(sendModoComodoMail.Email) || string.IsNullOrEmpty(sendModoComodoMail.Patente) ||
+            string.IsNullOrEmpty(sendModoComodoMail.Ano) || string.IsNullOrEmpty(sendModoComodoMail.MedioPago))
+        {
+
+            await mostrarMensajes.MostrarMensajeError("Nombre y Apellido, Domicilio, Localidad, Celular, Email, Patente, Año y Medio de Pago son obligatorios");
+            return;
+        }
+
+        switch (oMedioPagoID)
+        {
+            case "TC":
+                if (string.IsNullOrEmpty(sendModoComodoMail.NombreApellidoTC) || string.IsNullOrEmpty(sendModoComodoMail.DNITC) ||
+                               string.IsNullOrEmpty(sendModoComodoMail.NroTc) || string.IsNullOrEmpty(sendModoComodoMail.VtoTc) |
+                               string.IsNullOrEmpty(tC))
+                {
+
+
+                    await mostrarMensajes.MostrarMensajeError("Nombre y Apellido, DNI, Nro y Vto de Tarjeta de Credito son obligatorios");
+                    return;
+                }
+                else
+                {
+                    switch (tC)
+                    {
+                        case "0":
+                            sendModoComodoMail.MarcaTC = "VISA";
+                            break;
+                        case "1":
+                            sendModoComodoMail.MarcaTC = "AMERICAN EXPRESS";
+                            break;
+                        case "2":
+                            sendModoComodoMail.MarcaTC = "MASTERCARD";
+                            break;
+                        case "3":
+                            sendModoComodoMail.MarcaTC = "TARJETA NARANJA";
+                            break;
+                        case "4":
+                            sendModoComodoMail.MarcaTC = "TARJETA CABAL";
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                break;
+            case "EF":
+                break;
+            case "DEB":
+                if (string.IsNullOrEmpty(sendModoComodoMail.NombreApellidoCBU) || string.IsNullOrEmpty(sendModoComodoMail.NroCBU))
+                {
+
+                    await mostrarMensajes.MostrarMensajeError("Nombre y Apellido y Nrode CBU son obligatorios");
+                    return;
+                }
+                break;
+            default:
+
+
+                break;
+
+        }
+
+
+
+        sendModoComodoMail.partner = partner;
+
+
+        #region CotizacionEntitiesDTO
+        //if (navigationManager.Uri.Contains("MCInterno"))
+        //{
+        string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+        sendModoComodoMail.CotizacionEntitiesDTO = cotizacionEntitiesDTO;
+        //}
+        #endregion
+
+        MailApp oMailApp = new MailApp();
+        string oSubject = "Ziren => Modo Comodo Nueva solicitud";
+        oMailApp.To = partner.Mail;
+        oMailApp.Bcc = "clientes@ziren.com.ar";
+        // oMailApp.Body = oBody;
+        oMailApp.Subject = oSubject;
+
+
+
+        sendModoComodoMail.mailApp = oMailApp;
+
+        SendModoComodoMail(sendModoComodoMail);
+    }
+    private async Task SendModoComodoMail(SendModoComodoMail sendModoComodoMail)
+    {
+        var responseHttp2 = await repositorio.Post<SendModoComodoMail, string>("api/Externo/Prudencia/SendModoComodoMail", sendModoComodoMail);
+
+        if (responseHttp2.Error)
+        {
+            var mensajeError = await responseHttp2.GetBody();
+
+            await mostrarMensajes.MostrarMensajeError("No se pudo enviar el mail con los enlaces para la poliza");
+        }
+        else
+        {
+            await mostrarMensajes.MostrarMensajeExitoso("Se le envio un mail con los enlaces para la poliza");
+            navigationManager.NavigateTo($"/" + urlPartner);
+        }
+
+    }
+    private async void OnMedioPagoChange()
+    {
+        cntTCVisible = false;
+        cntEFCVisible = false;
+        cntDebVisible = false;
+        switch (oMedioPagoID)
+        {
+            case "TC":
+                cntTCVisible = true;
+                break;
+            case "EF":
+                cntEFCVisible = true;
+                break;
+            case "DEB":
+                cntDebVisible = true;
+                break;
+            default:
+                break;
+        }
+
+
+    }
+}
+
+

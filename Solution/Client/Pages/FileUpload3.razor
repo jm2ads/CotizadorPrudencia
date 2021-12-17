@@ -1,0 +1,122 @@
+﻿@page "/test/file-upload-3"
+@using Microsoft.Extensions.Logging
+
+
+<h3>Upload Files</h3>
+
+<p>
+    <label style="color:white">
+        Max file size:
+        <input type="number" @bind="maxFileSize" />
+    </label>
+</p>
+
+<p>
+    <label style="color:white">
+        Max allowed files:
+        <input type="number" @bind="maxAllowedFiles" />
+    </label>
+</p>
+
+<p>
+    <label style="color:white">
+        Upload up to @maxAllowedFiles of up to @maxFileSize bytes:<InputFile  id="fil1" OnChange="@LoadFrontFile"   />
+    </label>
+</p>
+<p>
+    <label style="color:white">
+        Upload up to @maxAllowedFiles of up to @maxFileSize bytes:<InputFile id="fil1" OnChange="@LoadBackFile" />
+    </label>
+</p>
+@if (isLoading)
+{
+    <p style="color:white">Uploading...</p>
+}
+else
+{
+    <ul>
+        @foreach (var file in loadedFiles)
+        {
+            <li>
+                <ul>
+                    <li style="color:white">Name: @file.Name</li>
+                    <li style="color:white">Last modified: @file.LastModified.ToString()</li>
+                    <li style="color:white">Size (bytes): @file.Size</li>
+                    <li style="color:white">Content type: @file.ContentType</li>
+                </ul> 
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private List<IBrowserFile> loadedFiles = new();
+    private long maxFileSize = 1024 * 15;
+    private int maxAllowedFiles = 3;
+    private bool isLoading;
+
+    private SendModoComodoMail sendModoComodoMail = new SendModoComodoMail();
+
+    string front;
+
+    string back;
+
+
+    private async Task LoadFrontFile(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        var file = e.File;
+
+        var arrbytes = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(arrbytes);
+        sendModoComodoMail.carFront = Convert.ToBase64String(arrbytes);
+        front = file.Name;
+        isLoading = false;
+    }
+
+    private async Task LoadBackFile(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        var file = e.File;
+
+        var arrbytes = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(arrbytes);
+        sendModoComodoMail.carBack = Convert.ToBase64String(arrbytes);
+        back = file.Name;
+        isLoading = false;
+    }
+
+
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        loadedFiles.Clear();
+
+        var file = e.File;
+
+
+        var arrbytes = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(arrbytes);
+        string imagenBase64 = Convert.ToBase64String(arrbytes);
+
+
+        //foreach (var file in e.GetMultipleFiles(maxAllowedFiles))
+        //{
+        //    var arrbytes = new byte[file.Size];
+        //    await file.OpenReadStream().ReadAsync(arrbytes);
+        //    string imagenBase64 = Convert.ToBase64String(arrbytes);
+
+
+        //    try
+        //    {
+        //        loadedFiles.Add(file);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //  Logger.LogError("File: {Filename} Error: {Error}", file.Name, ex.Message);
+        //    }
+        //}
+
+        isLoading = false;
+    }
+}

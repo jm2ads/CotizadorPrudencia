@@ -503,7 +503,7 @@ using Project.Shared.PrudenciaDTOs;
 #line hidden
 #nullable disable
                 )));
-                __builder2.AddAttribute(175, "ImagenURL", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+                __builder2.AddAttribute(175, "ImagenURL", 
 #nullable restore
 #line 118 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Vendedores\FormVendedor.razor"
                                                                                            imagenURL
@@ -511,7 +511,7 @@ using Project.Shared.PrudenciaDTOs;
 #line default
 #line hidden
 #nullable disable
-                ));
+                );
                 __builder2.CloseComponent();
                 __builder2.CloseElement();
                 __builder2.CloseElement();

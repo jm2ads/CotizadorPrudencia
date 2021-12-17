@@ -153,7 +153,7 @@
       "url": "_framework\/Microsoft.AspNetCore.Components.Forms.dll"
     },
     {
-      "hash": "sha256-u\/lMQn9J31qJMkBLh90zzPIM2\/uV28WyCOb\/7n+SiaE=",
+      "hash": "sha256-CXIDZmrnsIdYzMvSv6oQXjkewjo0I8a79PvVFikydfg=",
       "url": "_framework\/Microsoft.AspNetCore.Components.Web.dll"
     },
     {
@@ -185,7 +185,7 @@
       "url": "_framework\/Microsoft.Extensions.Logging.dll"
     },
     {
-      "hash": "sha256-OsmdQoFiNmpqW0WHVklQ4R5\/fLVeqFPmPBRQzZxxufQ=",
+      "hash": "sha256-X1brgBBpGbZZxdoUZcpUAjqw8Cx7hwyVVgxUFThRe\/E=",
       "url": "_framework\/Microsoft.Extensions.Logging.Abstractions.dll"
     },
     {
@@ -209,11 +209,11 @@
       "url": "_framework\/System.IO.Pipelines.dll"
     },
     {
-      "hash": "sha256-56svS78v13G0VPFDO4gq72ShfpdCNM+WkfsH7XKzGIc=",
+      "hash": "sha256-rxPTT3LmBwO9ju8pItYoBQ9uHL8qBkli5YxNplYpTYk=",
       "url": "_framework\/Project.Shared.dll"
     },
     {
-      "hash": "sha256-bzxH3z796xFS2JOhS2y8VJ7wZibApIRPBCW2C3yiIXM=",
+      "hash": "sha256-YHqaq3gxvkFiZM61w+UyXcqVi0M9UEt+\/+WVxKRS1h4=",
       "url": "_framework\/Project.Client.dll"
     },
     {
@@ -261,7 +261,7 @@
       "url": "_framework\/System.Linq.Expressions.dll"
     },
     {
-      "hash": "sha256-jdFwuV4jPa9bLiUauVSmSKzGYTPMj7C51uhfL2cImN4=",
+      "hash": "sha256-jY4Zpp2Z3eQ72pO5ab1\/62c5llEIg51GLDgd79q44Xw=",
       "url": "_framework\/System.Linq.dll"
     },
     {
@@ -273,7 +273,7 @@
       "url": "_framework\/System.Net.Http.Json.dll"
     },
     {
-      "hash": "sha256-aIRzMJZfssltb+T4QSrKJoJVG715uGXc6I39cOusvOY=",
+      "hash": "sha256-cueJs0nzEvTPI98hUqGUrdEmfvvY4e2oi7rsXP8T1k0=",
       "url": "_framework\/System.Net.Http.dll"
     },
     {
@@ -309,11 +309,11 @@
       "url": "_framework\/System.Text.Json.dll"
     },
     {
-      "hash": "sha256-r3PSNu2cka0P6+TdFTuNCBTknGhFKNEdn57Nn7sIDZ4=",
+      "hash": "sha256-omNc+VZV\/zpwEocz7eavlob2cv14iFwUTf0WUxm7P14=",
       "url": "_framework\/System.Private.CoreLib.dll"
     },
     {
-      "hash": "sha256-biZxgITbzYjmuutqmr48LZ42tdwBBMQgYL3MeWb518E=",
+      "hash": "sha256-MtT2mDPZfQEDRJQluU1YubJYqYLLoKBhLGfucN635uE=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -321,5 +321,5 @@
       "url": "_framework\/blazor.webassembly.js"
     }
   ],
-  "version": "AZaZl1e\/"
+  "version": "KV9ZM\/Q8"
 };

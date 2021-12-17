@@ -19,6 +19,7 @@ using System.Xml.Serialization;
 using Microsoft.Extensions.Configuration;
 using Project.Server.Helpers;
 using System.Net.Mail;
+using System.Net.Mime;
 //using System.Web.Http;
 
 namespace Project.Server.Controllers
@@ -29,7 +30,7 @@ namespace Project.Server.Controllers
     {
         private IMemoryCache oMemoryCache;
         private readonly IConfiguration oConfiguration;
-       
+
         private string oUriBase;
         private string oUser;
         private string oPassword;
@@ -41,7 +42,7 @@ namespace Project.Server.Controllers
         {
             oMemoryCache = memoryCache;
             oConfiguration = configuration;
-           
+
 
             oUriBase = oConfiguration["prudencia_UriBase"];
             oUser = oConfiguration["prudencia_user"];
@@ -116,7 +117,7 @@ namespace Project.Server.Controllers
 
             string url = oUriBase + "/account/login";
             var enviarJSON = JsonConvert.SerializeObject(oUserPassWord);
-           
+
             var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
             var responseHttp = await httpClient.PostAsync(url, enviarContent);
             if (responseHttp.IsSuccessStatusCode)
@@ -146,7 +147,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + "/catalogos/GetMarcasAutos";
-          
+
 
             //var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
             var responseHttp = await httpClient.GetAsync(url);
@@ -174,8 +175,8 @@ namespace Project.Server.Controllers
         [HttpGet("catalogos/GetModelosMarcasAutos3/{ano}/{marcaID}")]
         public async Task<ActionResult<List<ModelosAutos>>> GetModelosMarcasAutos(Int32 ano, Int32 marcaID)
         {
-        //https://www.prudenciaseguros.com.ar/APIPrudenciaUAT/api/catalogos/GetModelosMarcasAutos/Año/Marca
-        //https://www.prudenciaseguros.com.ar/APIPrudenciaUAT/api/catalogos/GetModelosMarcasAutos/2018/12
+            //https://www.prudenciaseguros.com.ar/APIPrudenciaUAT/api/catalogos/GetModelosMarcasAutos/Año/Marca
+            //https://www.prudenciaseguros.com.ar/APIPrudenciaUAT/api/catalogos/GetModelosMarcasAutos/2018/12
 
             Login oLogin = await GetLoginAsync();
             string oToken = "Bearer " + oLogin.accessToken;
@@ -185,7 +186,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + "/catalogos/GetModelosMarcasAutos/" + ano.ToString() + "/" + marcaID.ToString();
-         
+
             var responseHttp = await httpClient.GetAsync(url);
 
             if (responseHttp.IsSuccessStatusCode)
@@ -208,10 +209,10 @@ namespace Project.Server.Controllers
         }
 
         [HttpGet("catalogos/GetVersionesModelosAutos/{ano}/{marcaID}/{codigoGrupoID}")]
-        public async Task<ActionResult<List<ModelosAutos>>> GetVersionesModelosAutos(Int32 ano, Int32 marcaID,Int32 codigoGrupoID)
+        public async Task<ActionResult<List<ModelosAutos>>> GetVersionesModelosAutos(Int32 ano, Int32 marcaID, Int32 codigoGrupoID)
         {
-        //https://www.prudenciaseguros.com.ar/APIPrudenciaUAT/api/catalogos/GetVersionesModelosAutos/Año/Marca/Grupo
-        //https://www.prudenciaseguros.com.ar/APIPrudenciaUAT/api/catalogos/GetVersionesModelosAutos/2018/12/42
+            //https://www.prudenciaseguros.com.ar/APIPrudenciaUAT/api/catalogos/GetVersionesModelosAutos/Año/Marca/Grupo
+            //https://www.prudenciaseguros.com.ar/APIPrudenciaUAT/api/catalogos/GetVersionesModelosAutos/2018/12/42
 
             Login oLogin = await GetLoginAsync();
             string oToken = "Bearer " + oLogin.accessToken;
@@ -253,7 +254,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + "/catalogos/GetModelosAutos?MarcaID=" + marcaID.ToString() + "&PageSize=10000";
-           
+
             var responseHttp = await httpClient.GetAsync(url);
 
             if (responseHttp.IsSuccessStatusCode)
@@ -275,7 +276,7 @@ namespace Project.Server.Controllers
             //  return oModelosAutosList;
         }
 
-       
+
 
         [HttpGet("catalogos/GetTiposDocumentos")]
         public async Task<ActionResult<List<TipoDocumentoDTO>>> GetTiposDocumentos()
@@ -435,8 +436,8 @@ namespace Project.Server.Controllers
                                       select c).ToList();
 
 
-              
-           
+
+
 
                 if (oCProvinciaDTOList.Count == 0)
                 {
@@ -452,12 +453,12 @@ namespace Project.Server.Controllers
         }
 
         [HttpGet("catalogos/GetCpLocalidad/{ProvinciaID}/{CpLodalidad}")]
-        public async Task<ActionResult<List<CodigoPostalDTO>>> GetCodPostales(Int32 ProvinciaID,string CpLodalidad)
+        public async Task<ActionResult<List<CodigoPostalDTO>>> GetCodPostales(Int32 ProvinciaID, string CpLodalidad)
         {
             Login oLogin = await GetLoginAsync();
             string oToken = "Bearer " + oLogin.accessToken;
 
-            List<CodigoPostalDTO> oCodigoPostalDTOList = new List<CodigoPostalDTO> ();
+            List<CodigoPostalDTO> oCodigoPostalDTOList = new List<CodigoPostalDTO>();
             HttpClient httpClient = new HttpClient();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
@@ -506,7 +507,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + "/catalogos/GetCodPostales?ProvinciaID=" + ProvinciaID.ToString() + "&PageSize=10000";
-         
+
 
             //var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
             var responseHttp = await httpClient.GetAsync(url);
@@ -538,8 +539,8 @@ namespace Project.Server.Controllers
             string oToken = "Bearer " + oLogin.accessToken;
             //Dictionary<string, string> oCodPostalesDicc = new Dictionary<string, string>();
             List<string> oCodPostalesList = new List<string>();
-            List<CodigoPostalDTO> oCodigoPostalDTOList = new List<CodigoPostalDTO> ();
-          
+            List<CodigoPostalDTO> oCodigoPostalDTOList = new List<CodigoPostalDTO>();
+
             HttpClient httpClient = new HttpClient();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
@@ -553,7 +554,7 @@ namespace Project.Server.Controllers
                 if (responseHttp.IsSuccessStatusCode)
                 {
                     List<CodigoPostalDTO> oCodigoPostalDTOListAux = JsonConvert.DeserializeObject<List<CodigoPostalDTO>>(responseHttp.Content.ReadAsStringAsync().Result);
-                  
+
 
                     foreach (CodigoPostalDTO codigoPostalDTO in oCodigoPostalDTOListAux)
                     {
@@ -566,7 +567,7 @@ namespace Project.Server.Controllers
                     return this.BadRequest(error: new { message = responseHttp.Content.ReadAsStringAsync().Result });
                 }
             }
-           
+
 
             oCodPostalesList = oCodigoPostalDTOList.
                   Select(x => x.codigoPostalID.ToString())
@@ -577,11 +578,11 @@ namespace Project.Server.Controllers
                 return NotFound();
             }
             else
-            { 
-                return this.Ok(oCodPostalesList); 
+            {
+                return this.Ok(oCodPostalesList);
             }
 
-            
+
         }
 
 
@@ -605,12 +606,12 @@ namespace Project.Server.Controllers
             if (responseHttp.IsSuccessStatusCode)
             {
                 oRespuestaCotizacionAutoRapidaDTO = JsonConvert.DeserializeObject<RespuestaCotizacionAutoRapidaDTO>(responseHttp.Content.ReadAsStringAsync().Result);
-                
+
 
                 //  string oUrlRaiz = string.Format("{0}://{1}", HttpContext.Request.Scheme, HttpContext.Request.Host);
                 string oUrlRaiz = string.Format("{0}://{1}", HttpContext.Request.Scheme, HttpContext.Request.Host);
 
-               // await oNotificacionesService.EnviarNotificacionPeliculaEnCartelera(oRespuestaCotizacionAutoRapidaDTO, oUrlRaiz);
+                // await oNotificacionesService.EnviarNotificacionPeliculaEnCartelera(oRespuestaCotizacionAutoRapidaDTO, oUrlRaiz);
 
 
                 return this.Ok(oRespuestaCotizacionAutoRapidaDTO);
@@ -721,7 +722,7 @@ namespace Project.Server.Controllers
         [HttpPost("cotizaciones/autos/{oCotizacionId}/emitir")]
         public async Task<ActionResult<RespuestaPolizaAutoDTO>> CotizacionesEmitir(int oCotizacionId, [FromBody] EmitirCotizacionAutoDTO oEmitirCotizacionAutoDTO)
         {
-           
+
             RespuestaPolizaAutoDTO oRespuestaPolizaAutoDTO = null;
             Login oLogin = await GetLoginAsync();
             string oToken = "Bearer " + oLogin.accessToken;
@@ -730,7 +731,7 @@ namespace Project.Server.Controllers
             string url = oUriBase + "/cotizaciones/autos/" + oCotizacionId + "/emitir";
             var enviarJSON = JsonConvert.SerializeObject(oEmitirCotizacionAutoDTO);
 
-          
+
             var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
             var responseHttp = await httpClient.PostAsync(url, enviarContent);
 
@@ -742,7 +743,7 @@ namespace Project.Server.Controllers
             else
             {
                 ErrorModel oErrorModel = JsonConvert.DeserializeObject<ErrorModel>(responseHttp.Content.ReadAsStringAsync().Result);
-                return this.BadRequest(error:  oErrorModel.detail );
+                return this.BadRequest(error: oErrorModel.detail);
             }
 
             // return oRespuestaPolizaAutoDTO;
@@ -761,7 +762,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + $"/polizas/{polizaID}/reportes?reportes=0&reportes=1&reportes=2&reportes=3&reportes=4&reportes=5&reportes=6";
-           
+
             var responseHttp = await httpClient.GetAsync(url);
             if (responseHttp.IsSuccessStatusCode)
             {
@@ -789,7 +790,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + $"/polizas/{polizaID}/reportes?reportes=0&reportes=1&reportes=2&reportes=3&reportes=4&reportes=5&reportes=7";
-           
+
             //var enviarContent = new StringContent(enviarJSON, Encoding.UTF8, "application/json");
             var responseHttp = await httpClient.GetAsync(url);
 
@@ -830,7 +831,7 @@ namespace Project.Server.Controllers
 
             httpClient.DefaultRequestHeaders.Add("Authorization", oToken);
             string url = oUriBase + $"/polizas?ProductorID={oUser}";
-           
+
             var responseHttp = await httpClient.GetAsync(url);
             if (responseHttp.IsSuccessStatusCode)
             {
@@ -853,7 +854,7 @@ namespace Project.Server.Controllers
 
             //string oUrlRaiz = string.Format("{0}://{1}", HttpContext.Request.Scheme, HttpContext.Request.Host);
             //oMailApp.Body = String.Format(oMailApp.Body, oUrlRaiz);
-             // string imagen = oUrlRaiz + "/images/pt.jpg";
+            // string imagen = oUrlRaiz + "/images/pt.jpg";
             #region MyRegion
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
             client.UseDefaultCredentials = false;
@@ -863,7 +864,7 @@ namespace Project.Server.Controllers
 
             MailMessage mailMessage = new MailMessage();
             mailMessage.IsBodyHtml = true;
-            mailMessage.From = new MailAddress("clientes@ziren.com.ar","Ziren ");
+            mailMessage.From = new MailAddress("clientes@ziren.com.ar", "Ziren ");
             mailMessage.To.Add(oMailApp.To);
             //mailMessage.Bcc.Add(oMailApp.Bcc);
             mailMessage.Body = oMailApp.Body;
@@ -871,7 +872,7 @@ namespace Project.Server.Controllers
 
             try
             {
-               client.Send(mailMessage);
+                client.Send(mailMessage);
                 return this.Ok("Ok");
             }
             catch (Exception ex)
@@ -899,7 +900,7 @@ namespace Project.Server.Controllers
             Body = Body.Replace("XXXXXLocalidad", sendPolizaMailDTO.cotizacionAutoDTO.asegurado.localidad);
 
             RespuestaReporteDTO respuestaReporteDTO = (from c in sendPolizaMailDTO.respuestaReporteDTOList
-                                       where c.reporte == "POLIZA"
+                                                       where c.reporte == "POLIZA"
                                                        select c).FirstOrDefault();
             Body = Body.Replace("XXXXPoliza", respuestaReporteDTO.urlReporte);
 
@@ -929,7 +930,9 @@ namespace Project.Server.Controllers
             mailMessage.To.Add(sendPolizaMailDTO.mailApp.To);
             //mailMessage.Bcc.Add(oMailApp.Bcc);
             mailMessage.Body = Body;
-            mailMessage.Subject = sendPolizaMailDTO.mailApp.Subject;
+            mailMessage.Subject = sendPolizaMailDTO.mailApp.Subject + " ( " + sendPolizaMailDTO.partner.Url + " )";
+
+
 
             try
             {
@@ -947,7 +950,207 @@ namespace Project.Server.Controllers
             // return oRespuestaPolizaAutoDTO;
         }
 
+        [HttpPost("SendModoComodoMail")]
+        public async Task<ActionResult<string>> SendModoComodoMail(SendModoComodoMail sendModoComodoMail)
+        {
+            string basePath = Environment.CurrentDirectory;
+            string Body = System.IO.File.ReadAllText(basePath + "/Helpers/templateMCMail.html", Encoding.UTF8);
 
+            if (sendModoComodoMail.CotizacionEntitiesDTO != null)
+            {
+                Body = Body.Replace("XXXXMarca", "MARCA : " + sendModoComodoMail.CotizacionEntitiesDTO.marcasAutos.descripcion);
+                Body = Body.Replace("XXXXModelo", "MODELO : " + sendModoComodoMail.CotizacionEntitiesDTO.modelosAutos.descripcionGrupo);
+                Body = Body.Replace("XXXXVersion", "VERSION : " + sendModoComodoMail.CotizacionEntitiesDTO.versionesAutos.descripcion);
+                Body = Body.Replace("XXXXAno", "AÑO : " + sendModoComodoMail.CotizacionEntitiesDTO.ano.ToString());
+
+
+            }
+            //else
+            //{
+            //    Body = Body.Replace("XXXXMarca", "NO CARGADO");
+            //    Body = Body.Replace("XXXXModelo", "NO CARGADO");
+            //    Body = Body.Replace("XXXXVersion", "NO CARGADO");
+            //    Body = Body.Replace("XXXXAno", "NO CARGADO");
+            //}
+            Body = Body.Replace("XXXXPatente", "PATENTE : " + sendModoComodoMail.Patente.ToString());
+
+
+
+
+            switch (sendModoComodoMail.CotizacionEntitiesDTO.CoberturaIDSelected)
+            {
+                case 1:
+                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "RESPONSABILIDA CIVIL");
+                    Body = Body.Replace("XXXXCuota", "CUOTA : " + sendModoComodoMail.CotizacionEntitiesDTO.respuestaCotizacionAutoRapidaDTO.coberturas[1].a);
+                    break;
+                case 2:
+                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "BASICA TOTAL");
+                    Body = Body.Replace("XXXXCuota", "CUOTA : " + sendModoComodoMail.CotizacionEntitiesDTO.respuestaCotizacionAutoRapidaDTO.coberturas[1].b1);
+                    break;
+                case 5:
+                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "3RO COMPLETO BASICO");
+                    Body = Body.Replace("XXXXCuota", "CUOTA : " + sendModoComodoMail.CotizacionEntitiesDTO.respuestaCotizacionAutoRapidaDTO.coberturas[1].c);
+                    break;
+                case 23:
+                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "3RO COMPLETO FULL");
+                    Body = Body.Replace("XXXXCuota", "CUOTA : " + sendModoComodoMail.CotizacionEntitiesDTO.respuestaCotizacionAutoRapidaDTO.coberturas[1].cf);
+                    break;
+                   
+                case 10:
+                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "TODO RIESGO CON FRANQUISIA");
+                    Body = Body.Replace("XXXXCuota", "CUOTA : " + sendModoComodoMail.CotizacionEntitiesDTO.respuestaCotizacionAutoRapidaDTO.coberturas[1].d2);
+                    break;
+                    break;
+                default:
+                  
+                    break;
+            }
+           
+            Body = Body.Replace("XXXXXNombreApellido", "NOMBRE Y APELLIDO : " + sendModoComodoMail.NombreApellido.ToString());
+            Body = Body.Replace("XXXXXDomicilio", "DOMICILIO : " + sendModoComodoMail.Domicilio.ToString());
+            Body = Body.Replace("XXXXXLocalidad", "LOCALIDAD : " + sendModoComodoMail.Localidad.ToString());
+            Body = Body.Replace("XXXXXCelular", "CELULAR : " + sendModoComodoMail.Celular.ToString());
+            Body = Body.Replace("XXXXXEmail", "EMAIL : " +  sendModoComodoMail.Email.ToString());
+
+            switch (sendModoComodoMail.MedioPago)
+            {
+                case "TC":
+                    Body = Body.Replace("YYYYYMedioPago", "MEDIO DE PAGO TARJETA DE CREDITO : " + sendModoComodoMail.MarcaTC);
+                    Body = Body.Replace("YYYYYNombreApellidoMP", "TITULAR MEDIO DE PAGO : " + sendModoComodoMail.NombreApellidoTC.ToString());
+                    Body = Body.Replace("YYYYYNro", "NRO TARJETA DE CREDITO : " + sendModoComodoMail.NroTc.ToString());
+                    Body = Body.Replace("YYYYYDniMP", "DNI TARJETA DE CREDITO : " + sendModoComodoMail.DNITC.ToString());
+                    Body = Body.Replace("YYYYYVto", "VTO TARJETA DE CREDITO : " + sendModoComodoMail.VtoTc.ToString());
+                    break;
+                case "EF":
+                    Body = Body.Replace("YYYYYMedioPago", "MEDIO DE PAGO EFECTIVO");
+                    Body = Body.Replace("YYYYYNombreApellidoMP", "" );
+                    Body = Body.Replace("YYYYYNro", "");
+                    Body = Body.Replace("YYYYYDniMP", "");
+                    Body = Body.Replace("YYYYYVto", "");
+                    break;
+                case "DEB":
+                    Body = Body.Replace("YYYYYMedioPago", "MEDIO DE PAGO TARJETA DE DEBITO");
+                    Body = Body.Replace("YYYYYNombreApellidoMP", "TITULAR MEDIO DE PAGO : " + sendModoComodoMail.NombreApellidoCBU.ToString());
+                    Body = Body.Replace("YYYYYNro", "NRO CBU : " + sendModoComodoMail.NroCBU.ToString());
+                    Body = Body.Replace("YYYYYDniMP", "");
+                    Body = Body.Replace("YYYYYVto", "");
+                    break;
+                default:
+
+
+                    break;
+
+            }
+
+
+
+
+
+
+
+
+            //string oUrlRaiz = string.Format("{0}://{1}", HttpContext.Request.Scheme, HttpContext.Request.Host);
+            //oMailApp.Body = String.Format(oMailApp.Body, oUrlRaiz);
+            // string imagen = oUrlRaiz + "/images/pt.jpg";
+            #region MyRegion
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+            client.UseDefaultCredentials = false;
+            client.EnableSsl = true;
+            client.Credentials = new NetworkCredential("clientes@ziren.com.ar", "brianadriel3166");
+
+
+            MailMessage mailMessage = new MailMessage();
+            mailMessage.IsBodyHtml = true;
+            mailMessage.From = new MailAddress("clientes@ziren.com.ar", "Ziren ");
+            mailMessage.To.Add(sendModoComodoMail.mailApp.To);
+            mailMessage.To.Add(sendModoComodoMail.partner.Mail);
+            //mailMessage.Bcc.Add(oMailApp.Bcc);
+            mailMessage.Bcc.Add(new MailAddress("clientes@ziren.com.ar", "Ziren "));
+            mailMessage.Body = Body;
+            mailMessage.Subject = sendModoComodoMail.mailApp.Subject + " ( " + sendModoComodoMail.partner.Url + " )";
+          
+
+            #region carFront
+            var bytes = Convert.FromBase64String(sendModoComodoMail.carFront);
+            MemoryStream ms = new MemoryStream(bytes);
+            ContentType ct = new ContentType(MediaTypeNames.Image.Jpeg);
+            Attachment data = new Attachment(ms, ct);
+            mailMessage.Attachments.Add(data);
+            #endregion
+            #region carBack
+            bytes = Convert.FromBase64String(sendModoComodoMail.carBack);
+            ms = new MemoryStream(bytes);
+            ct = new ContentType(MediaTypeNames.Image.Jpeg);
+            data = new Attachment(ms, ct);
+            mailMessage.Attachments.Add(data);
+            #endregion
+            #region carRight
+            bytes = Convert.FromBase64String(sendModoComodoMail.carRight);
+            ms = new MemoryStream(bytes);
+            ct = new ContentType(MediaTypeNames.Image.Jpeg);
+            data = new Attachment(ms, ct);
+            mailMessage.Attachments.Add(data);
+            #endregion
+            #region carLeft
+            bytes = Convert.FromBase64String(sendModoComodoMail.carLeft);
+            ms = new MemoryStream(bytes);
+            ct = new ContentType(MediaTypeNames.Image.Jpeg);
+            data = new Attachment(ms, ct);
+            mailMessage.Attachments.Add(data);
+            #endregion
+            #region cedulaFront
+            bytes = Convert.FromBase64String(sendModoComodoMail.cedulaFront);
+            ms = new MemoryStream(bytes);
+            ct = new ContentType(MediaTypeNames.Image.Jpeg);
+            data = new Attachment(ms, ct);
+            mailMessage.Attachments.Add(data);
+            #endregion
+            #region cedulaBack
+            bytes = Convert.FromBase64String(sendModoComodoMail.cedulaBack);
+            ms = new MemoryStream(bytes);
+            ct = new ContentType(MediaTypeNames.Image.Jpeg);
+            data = new Attachment(ms, ct);
+            mailMessage.Attachments.Add(data);
+            #endregion
+            #region dniFront
+            bytes = Convert.FromBase64String(sendModoComodoMail.dniFront);
+            ms = new MemoryStream(bytes);
+            ct = new ContentType(MediaTypeNames.Image.Jpeg);
+            data = new Attachment(ms, ct);
+            mailMessage.Attachments.Add(data);
+            #endregion
+            #region dniBack
+            bytes = Convert.FromBase64String(sendModoComodoMail.dniBack);
+            ms = new MemoryStream(bytes);
+            ct = new ContentType(MediaTypeNames.Image.Jpeg);
+            data = new Attachment(ms, ct);
+            mailMessage.Attachments.Add(data);
+            #endregion
+            #region gncTubo
+            if (! string.IsNullOrEmpty(sendModoComodoMail.gncTubo))
+            {
+                bytes = Convert.FromBase64String(sendModoComodoMail.gncTubo);
+                ms = new MemoryStream(bytes);
+                ct = new ContentType(MediaTypeNames.Image.Jpeg);
+                data = new Attachment(ms, ct);
+                mailMessage.Attachments.Add(data);
+            }
+            #endregion
+            try
+            {
+                client.Send(mailMessage);
+                return this.Ok("Ok");
+            }
+            catch (Exception ex)
+            {
+                return this.BadRequest(error: new { message = ex.Message });
+            }
+            #endregion
+
+
+
+            // return oRespuestaPolizaAutoDTO;
+        }
         [HttpGet("Prueba")]
         public async Task<ActionResult<string>> GetPrueba()
         {
