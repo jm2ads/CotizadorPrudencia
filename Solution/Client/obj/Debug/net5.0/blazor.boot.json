@@ -195,12 +195,12 @@
       "mscorlib.dll": "sha256-+dB3Q0YubUPF1oZDMVZn6ZCiRkzRomtLoq51T5FocJk=",
       "netstandard.dll": "sha256-dOHF0zANIyA4WS496iWrAkTuEFWSWrXJjZj2pQQHrMA=",
       "System.Private.CoreLib.dll": "sha256-C96+zv+mWW0XzMG520oRgAG1lHVY8xzWGc6oc6rFjws=",
-      "Project.Shared.dll": "sha256-wdDDWTvNP9e8e5dRG1LFn7IFWjJTV3DX9LREyLPHqk8=",
-      "Project.Client.dll": "sha256-hOMsl8NswXDGcqp4Nx9ndLIUAjVxcDR8wTvfWKIBNyM="
+      "Project.Shared.dll": "sha256-8d4vuCxQU6Cl1CyRsEMSSPcMU97rpQz0VMdPZmwzb6M=",
+      "Project.Client.dll": "sha256-gCUiN1o96WA1So1cRhzJnLyT2ZcJx0UZ6\/4p\/Sz2p8s="
     },
     "lazyAssembly": null,
     "pdb": {
-      "Project.Client.pdb": "sha256-KvpW9KzXjoYbKQy03VeXFsVmKoaGwSBuS2+Wngmcm64="
+      "Project.Client.pdb": "sha256-XCVKVWD69bXGZc\/SC9gF9YR5jwYTrmbu85niRt3SP2M="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-ir9YCVnnk7popgsYUkvitfGA4WpkP1ydPh\/ENHnxGys=",

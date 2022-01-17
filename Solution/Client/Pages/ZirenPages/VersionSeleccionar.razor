@@ -8,145 +8,157 @@
 @inject IJSRuntime JsRuntime
 @using System.Text.Json;
 
-    <h3 style="color:white"> Seleccione Version</h3>
+<h3 style="color:white"> Seleccione Version</h3>
 
-    <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
-        <input @bind-value="oVersionDescripcion" @bind-value:event="oninput"
-               @onkeyup="@((KeyboardEventArgs e) => MarcaKeyUp(e))" autocomplete="off"
-               type="text" class="form-control" id="titulo" placeholder="Version" />
-    </div>
+<div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+    <input @bind-value="oVersionDescripcion" @bind-value:event="oninput"
+           @onkeyup="@((KeyboardEventArgs e) => MarcaKeyUp(e))" autocomplete="off"
+           type="text" class="form-control" id="titulo" placeholder="Version" />
+</div>
 
-    <ConfirmacionPopUp @ref="confirmacionPopUp" onConfirm="onConfirm" onRefuse="onRefuse">
-    </ConfirmacionPopUp>
+<ConfirmacionPopUp @ref="confirmacionPopUp" onConfirm="onConfirm" onRefuse="onRefuse">
+</ConfirmacionPopUp>
 
-    @if (oVersionesAutosAuxList == null)
+@if (oVersionesAutosAuxList == null)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    @if (oVersionesAutosList.Count == 0)
     {
-        <Cargando></Cargando>
+        <text  >No hay registros para mostrar</text>
     }
     else
     {
-        @if (oVersionesAutosList.Count == 0)
-        {
-            <text  >No hay registros para mostrar</text>
-        }
-        else
-        {
-            <div style="display: flex; flex-wrap: wrap; align-items: center;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center;">
 
 
-                @*<div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
-                        <div>
-                            <a href="/ziren/provincia/@marcaID/@anoID/130108" class="btn btn-success">PT CRUISER 2.4 LIMITED AUT</a>
-                        </div>
-                    </div>*@
-                @foreach (var oVersionesAutos in oVersionesAutosAuxList)
-                {
-                    <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
-                        <div>
-                            @*<a href="/ziren/provincia/@marcaID/@anoID/130108" class="btn btn-success" style="width:200px"> @oModelosAutos.modeloID.ToString()</a>*@
-                            <button type="button" class="btn btn-success" style="width:auto" @onclick="@(() => OnClickHandle(@oVersionesAutos.modeloID))">
-                                @oVersionesAutos.descripcion
-                            </button>
-                        </div>
+            @*<div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+                    <div>
+                        <a href="/ziren/provincia/@marcaID/@anoID/130108" class="btn btn-success">PT CRUISER 2.4 LIMITED AUT</a>
                     </div>
-                }
-            </div>
-        }
+                </div>*@
+            @foreach (var oVersionesAutos in oVersionesAutosAuxList)
+            {
+                <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+                    <div>
+                        @*<a href="/ziren/provincia/@marcaID/@anoID/130108" class="btn btn-success" style="width:200px"> @oModelosAutos.modeloID.ToString()</a>*@
+                        <button type="button" class="btn btn-success" style="width:auto" @onclick="@(() => OnClickHandle(@oVersionesAutos.modeloID))">
+                            @oVersionesAutos.descripcion
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}
+@if (partner.Whatsapp == string.Empty)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    <a href="https://wa.me/541144406739?text=@partner.Whatsapp" title="Chat with Us" class="whatsapp" target="_blank" style="position:absolute; bottom:30px;right:30px">
+        <img src="../images/whatsapp.png" style="margin-top:0px;margin-left:0px" height="48" width="48" />
+    </a>
+}
+@code {
+    [Parameter] public int marcaID { get; set; }
+    [Parameter] public int anoID { get; set; }
+    [Parameter] public int modeloID { get; set; }
+
+    ConfirmacionPopUp confirmacionPopUp;
+    Partner partner = new Partner();
+    private bool TieneGNC = false;
+    string oVersionDescripcion = "";
+    private List<VersionesAutos> oVersionesAutosList;
+    private List<VersionesAutos> oVersionesAutosAuxList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+
+        var responseHttp = await repositorio.Get<List<VersionesAutos>>("api/Externo/Prudencia/catalogos/GetVersionesModelosAutos/" + oCotizacionAutoDTO.vehiculo.anio.ToString() + "/" + oCotizacionAutoDTO.vehiculo.marcaID.ToString() + "/" + oCotizacionAutoDTO.vehiculo.modeloID.ToString());
+        oVersionesAutosList = responseHttp.Response;
+        oVersionesAutosAuxList = responseHttp.Response;
+        #region GetFromLocalStoragePartner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
+    }
+    private async Task OnClickHandle(int omodeloID)
+    {
+        VersionesAutos oVersionesAutos = (from c in oVersionesAutosList
+                                          where c.modeloID == omodeloID
+                                          select c).FirstOrDefault();
+
+
+
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+
+        oCotizacionAutoDTO.vehiculo.modeloID = omodeloID;
+        oCotizacionAutoDTO.vehiculo.tipoUsoID = 1;
+        // oCotizacionAutoDTO.vehiculo.tieneGNC = TieneGNC;
+        //oCotizacionAutoDTO.vehiculo.tipoVehiculoID = oModelosAutos.tipoVehiculoID;             VERRRRRRRRRRRRRRRR
+        CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        Console.WriteLine(CotizacionAutoDTOJson);
+
+
+
+        #region CotizacionEntitiesDTO
+        string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
+
+
+        cotizacionEntitiesDTO.versionesAutos = oVersionesAutos;
+
+        cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+
+        #endregion
+
+
+        confirmacionPopUp.Mostrar();
+        //navigationManager.NavigateTo("/ziren/provincia");
+    }
+    private async Task MarcaKeyUp(KeyboardEventArgs e)
+    {
+
+        oVersionesAutosAuxList = (from c in oVersionesAutosList
+                                  where c.descripcion.ToLower().Contains(oVersionDescripcion.ToLower())
+                                  select c).ToList();
+
     }
 
-    @code {
-        [Parameter] public int marcaID { get; set; }
-        [Parameter] public int anoID { get; set; }
-        [Parameter] public int modeloID { get; set; }
+    private async Task onConfirm()
+    {
+        confirmacionPopUp.Ocultar();
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+        oCotizacionAutoDTO.vehiculo.tieneGNC = true;
+        oCotizacionAutoDTO.vehiculo.cubreGNC = true;
+        CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        Console.WriteLine(CotizacionAutoDTOJson);
+        navigationManager.NavigateTo("/ziren/provincia");
 
-        ConfirmacionPopUp confirmacionPopUp;
-
-        private bool TieneGNC = false;
-        string oVersionDescripcion = "";
-        private List<VersionesAutos> oVersionesAutosList;
-        private List<VersionesAutos> oVersionesAutosAuxList;
-
-        protected override async Task OnInitializedAsync()
-        {
-            string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
-            CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
-
-            var responseHttp = await repositorio.Get<List<VersionesAutos>>("api/Externo/Prudencia/catalogos/GetVersionesModelosAutos/" + oCotizacionAutoDTO.vehiculo.anio.ToString() + "/" + oCotizacionAutoDTO.vehiculo.marcaID.ToString() + "/" + oCotizacionAutoDTO.vehiculo.modeloID.ToString());
-            oVersionesAutosList = responseHttp.Response;
-            oVersionesAutosAuxList = responseHttp.Response;
-
-        }
-        private async Task OnClickHandle(int omodeloID)
-        {
-            VersionesAutos oVersionesAutos = (from c in oVersionesAutosList
-                                              where c.modeloID == omodeloID
-                                              select c).FirstOrDefault();
-
-
-
-            string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
-            CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
-
-            oCotizacionAutoDTO.vehiculo.modeloID = omodeloID;
-            oCotizacionAutoDTO.vehiculo.tipoUsoID = 1;
-            // oCotizacionAutoDTO.vehiculo.tieneGNC = TieneGNC;
-            //oCotizacionAutoDTO.vehiculo.tipoVehiculoID = oModelosAutos.tipoVehiculoID;             VERRRRRRRRRRRRRRRR
-            CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-            await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
-            Console.WriteLine(CotizacionAutoDTOJson);
-
-
-
-            #region CotizacionEntitiesDTO
-            string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
-            CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
-
-
-            cotizacionEntitiesDTO.versionesAutos = oVersionesAutos;
-
-            cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
-            await JsRuntime.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
-
-            #endregion
-
-
-            confirmacionPopUp.Mostrar();
-            //navigationManager.NavigateTo("/ziren/provincia");
-        }
-        private async Task MarcaKeyUp(KeyboardEventArgs e)
-        {
-
-            oVersionesAutosAuxList = (from c in oVersionesAutosList
-                                      where c.descripcion.ToLower().Contains(oVersionDescripcion.ToLower())
-                                      select c).ToList();
-
-        }
-
-        private async Task onConfirm()
-        {
-            confirmacionPopUp.Ocultar();
-            string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
-            CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
-            oCotizacionAutoDTO.vehiculo.tieneGNC = true;
-            oCotizacionAutoDTO.vehiculo.cubreGNC = true;
-            CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-            await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
-            Console.WriteLine(CotizacionAutoDTOJson);
-            navigationManager.NavigateTo("/ziren/provincia");
-
-        }
-
-        private async Task onRefuse()
-        {
-
-            confirmacionPopUp.Ocultar();
-            string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
-            CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
-            oCotizacionAutoDTO.vehiculo.tieneGNC = false;
-            oCotizacionAutoDTO.vehiculo.cubreGNC = false;
-            CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-            await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
-            Console.WriteLine(CotizacionAutoDTOJson);
-            navigationManager.NavigateTo("/ziren/provincia");
-        }
     }
+
+    private async Task onRefuse()
+    {
+
+        confirmacionPopUp.Ocultar();
+        string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
+        CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
+        oCotizacionAutoDTO.vehiculo.tieneGNC = false;
+        oCotizacionAutoDTO.vehiculo.cubreGNC = false;
+        CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+        await JsRuntime.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        Console.WriteLine(CotizacionAutoDTOJson);
+        navigationManager.NavigateTo("/ziren/provincia");
+    }
+}

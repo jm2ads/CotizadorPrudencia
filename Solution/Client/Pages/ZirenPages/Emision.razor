@@ -42,14 +42,14 @@ else
                 <div class="col-md-5">
                     <label style="color:white">Fecha de Inicio de póliza/seguro (A PARTIR DE QUE DIA QUIERO EL SEGURO)</label>
                     <div>
-                        <InputDate  class="form-control" @bind-Value="oInicioVigencia"></InputDate>
+                        <InputDate class="form-control" @bind-Value="oInicioVigencia"></InputDate>
                     </div>
                 </div>
 
                 <div class="col-md-5">
                     <label style="color:white">Observaciones de su Vehículo completar solo si tiene daños : </label>
                     <div>
-                        <InputText  class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.observaciones"></InputText>
+                        <InputText class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.observaciones"></InputText>
                     </div>
                 </div>
 
@@ -124,7 +124,7 @@ else
                 <div class="col-md-4">
                     <label style="color:white">Nro DNI Titular Tarjeta Credito:</label>
                     <div>
-                        <InputText id="txtNroDocTitularTarjeta" class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta" ></InputText>
+                        <InputText id="txtNroDocTitularTarjeta" class="form-control" @bind-Value="oEmitirCotizacionAutoDTO.medioDePago.nroDocTitularTarjeta"></InputText>
                     </div>
                 </div>
             </div>
@@ -316,6 +316,16 @@ else
         Emitir
     </button>
 }
+@if (partner.Whatsapp == string.Empty)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    <a href="https://wa.me/541144406739?text=@partner.Whatsapp" title="Chat with Us" class="whatsapp" target="_blank" style="position:absolute; bottom:30px;right:30px">
+        <img src="../images/whatsapp.png" style="margin-top:0px;margin-left:0px" height="48" width="48" />
+    </a>
+}
 
 @code {
 
@@ -357,7 +367,7 @@ else
     private string oVencimientoMedioPagoMes;
     private DateTime? oVtoPruebaHidr;
 
-
+    Partner partner = new Partner();
 
     private CotizacionAutoDTO oCotizacionAutoDTO;
     protected override async Task OnInitializedAsync()
@@ -465,7 +475,10 @@ else
         oEmitirCotizacionAutoDTO.prendario.mail = "XXXXX@XX.com";
 
 #endif
-
+        #region busco datos del partner
+        string partnerJson = await JSRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
     }
 
 
@@ -665,7 +678,7 @@ else
         {
             //= responseHttp.Response;
             oRespuestaPolizaAutoDTO = responseHttp.Response;
-          
+
             string oRespuestaPolizaAutoDTOJson = JsonSerializer.Serialize(oRespuestaPolizaAutoDTO);
             Console.WriteLine(oRespuestaPolizaAutoDTOJson);
 
@@ -696,7 +709,7 @@ else
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNombreTitularTarjeta", true);
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoMes", true);
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoAno", true);
-           // await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtTipoDocTitularTarjeta", true);
+            // await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtTipoDocTitularTarjeta", true);
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNroDocTitularTarjeta", true);
         }
         // await JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");

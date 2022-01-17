@@ -119,12 +119,12 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
+#line 66 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
        
     [Parameter] public int polizaID { get; set; }
 
     List<RespuestaReporteDTO> oRespuestaReporteDTOList;
-
+    Partner partner = new Partner();
 
     protected override async Task OnInitializedAsync()
     {
@@ -193,7 +193,10 @@ using System.Text.Json;
         }
 
 
-
+        #region busco datos del partner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
 
 
     }
@@ -371,7 +374,7 @@ using System.Text.Json;
 
         string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
         CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
-       
+
         #region busco datos del partner
         string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
         Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);

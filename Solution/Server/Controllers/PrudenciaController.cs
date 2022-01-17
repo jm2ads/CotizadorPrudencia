@@ -980,24 +980,24 @@ namespace Project.Server.Controllers
             switch (sendModoComodoMail.CotizacionEntitiesDTO.CoberturaIDSelected)
             {
                 case 1:
-                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "RESPONSABILIDA CIVIL");
+                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "A");
                     Body = Body.Replace("XXXXCuota", "CUOTA : " + sendModoComodoMail.CotizacionEntitiesDTO.respuestaCotizacionAutoRapidaDTO.coberturas[1].a);
                     break;
                 case 2:
-                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "BASICA TOTAL");
+                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "B1");
                     Body = Body.Replace("XXXXCuota", "CUOTA : " + sendModoComodoMail.CotizacionEntitiesDTO.respuestaCotizacionAutoRapidaDTO.coberturas[1].b1);
                     break;
                 case 5:
-                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "3RO COMPLETO BASICO");
+                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "C");
                     Body = Body.Replace("XXXXCuota", "CUOTA : " + sendModoComodoMail.CotizacionEntitiesDTO.respuestaCotizacionAutoRapidaDTO.coberturas[1].c);
                     break;
                 case 23:
-                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "3RO COMPLETO FULL");
+                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "CF");
                     Body = Body.Replace("XXXXCuota", "CUOTA : " + sendModoComodoMail.CotizacionEntitiesDTO.respuestaCotizacionAutoRapidaDTO.coberturas[1].cf);
                     break;
                    
                 case 10:
-                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "TODO RIESGO CON FRANQUISIA");
+                    Body = Body.Replace("XXXXCobertura", "COBERTURA : " + "D2");
                     Body = Body.Replace("XXXXCuota", "CUOTA : " + sendModoComodoMail.CotizacionEntitiesDTO.respuestaCotizacionAutoRapidaDTO.coberturas[1].d2);
                     break;
                     break;
@@ -1062,8 +1062,8 @@ namespace Project.Server.Controllers
             MailMessage mailMessage = new MailMessage();
             mailMessage.IsBodyHtml = true;
             mailMessage.From = new MailAddress("clientes@ziren.com.ar", "Ziren ");
-            mailMessage.To.Add(sendModoComodoMail.mailApp.To);
             mailMessage.To.Add(sendModoComodoMail.partner.Mail);
+            mailMessage.To.Add(sendModoComodoMail.Email);
             //mailMessage.Bcc.Add(oMailApp.Bcc);
             mailMessage.Bcc.Add(new MailAddress("clientes@ziren.com.ar", "Ziren "));
             mailMessage.Body = Body;

@@ -59,11 +59,23 @@ else
         </div>
     </EditForm>
 }
+
+@if (partner.Whatsapp == string.Empty)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    <a href="https://wa.me/541144406739?text=@partner.Whatsapp" title="Chat with Us" class="whatsapp" target="_blank" style="position:absolute; bottom:30px;right:30px">
+        <img src="../images/whatsapp.png" style="margin-top:0px;margin-left:0px" height="48" width="48" />
+    </a>
+}
+
 @code {
 
 
     AdjuntoDTO[] oAdjuntos = new AdjuntoDTO[5];
-
+    Partner partner = new Partner();
     int oAdjuntoID;
 
     private string imagenTemporal;
@@ -96,7 +108,7 @@ else
             oRespuestaCotizacionAutoDTO = responseHttp.Response;
             oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoDTO.cotizacionID;
 
-          
+
         }
 
 
@@ -107,7 +119,7 @@ else
 
 
         #region Confirmacion
-      
+
         int oCotizacionID = oCotizacionAutoDTO.cotizacionID;
 
         ConfirmacionCotizacionAutoDTO oConfirmacionCotizacionAutoDTO = new ConfirmacionCotizacionAutoDTO();
@@ -122,13 +134,13 @@ else
 
             await mostrarMensajes.MostrarMensajeError(mensajeError);
             Console.WriteLine(mensajeError);
-            navigationManager.NavigateTo("/ziren/infopersonalCompleta/"+ oCoberturaID);
+            navigationManager.NavigateTo("/ziren/infopersonalCompleta/" + oCoberturaID);
         }
         else
         {
             oRespuestaCotizacionAutoDTO = responseHttp2.Response;
             oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoDTO.cotizacionID;
-          
+
         }
 
 
@@ -147,6 +159,10 @@ else
 
         Console.WriteLine("cotizacionID IMA: " + oCotizacionAutoDTO.cotizacionID);
 
+        #region busco datos del partner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
     }
 
     private async Task oOnValidSubmit()

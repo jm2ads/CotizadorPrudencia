@@ -10,148 +10,158 @@
 <h3 style="color:white">Info Personal</h3>
 @if (oTipoDocumentoDTOList == null || oCondicionesIVADTOList == null)
 {
-<Cargando></Cargando>
+    <Cargando></Cargando>
 }
 else
 {
-<EditForm Model="oCoberturaID">
-    <div class="row" style="margin:10px">
-        <div class="col-md-5">
-            <label style="color:white">Nombre y Apellido</label>
-            <div>
-                <InputText @bind-Value="onombre" class="form-control" placeholder="Nombre y Apellido"></InputText>
+    <EditForm Model="oCoberturaID">
+        <div class="row" style="margin:10px">
+            <div class="col-md-5">
+                <label style="color:white">Nombre y Apellido</label>
+                <div>
+                    <InputText @bind-Value="onombre" class="form-control" placeholder="Nombre y Apellido"></InputText>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <label style="color:white">Patente</label>
-            <div>
-                <InputText @bind-Value="opatente" class="form-control" placeholder="Patente"></InputText>
+            <div class="col-md-3">
+                <label style="color:white">Patente</label>
+                <div>
+                    <InputText @bind-Value="opatente" class="form-control" placeholder="Patente"></InputText>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <label style="color:white">Fecha de Nacimiento</label>
-            <div>
-                <InputDate class="form-control" @bind-Value="ofechaNacimiento"></InputDate>
-                
-            </div>
-        </div>
-    </div>
+            <div class="col-md-4">
+                <label style="color:white">Fecha de Nacimiento</label>
+                <div>
+                    <InputDate class="form-control" @bind-Value="ofechaNacimiento"></InputDate>
 
-    <div class="row" style="margin:10px">
-        <div class="col-md-5">
-            <label style="color:white">Mail</label>
-            <div>
-                <InputText @bind-Value="omail" class="form-control" placeholder="Mail"></InputText>
+                </div>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <label style="color:white">Celular</label>
-            <div>
-                <InputText @bind-Value="otelefono" class="form-control" placeholder="Sin 0 ni 15"></InputText>
+        <div class="row" style="margin:10px">
+            <div class="col-md-5">
+                <label style="color:white">Mail</label>
+                <div>
+                    <InputText @bind-Value="omail" class="form-control" placeholder="Mail"></InputText>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <label style="color:white">Celular</label>
+                <div>
+                    <InputText @bind-Value="otelefono" class="form-control" placeholder="Sin 0 ni 15"></InputText>
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="row" style="margin:10px">
-        <div class="col-md-2">
-            <label style="color:white">Tipo Doc.</label>
-            <div>
-                <InputSelect @bind-Value="otipoDocumento" class="form-control">
-                    <option value="">Tipo Doc ...</option>
-                    @foreach (var oTipoDocumento in oTipoDocumentoDTOList)
-                        {
-                            @*if (oTipoDocumento.tipoDocumentoID == "81")
+        <div class="row" style="margin:10px">
+            <div class="col-md-2">
+                <label style="color:white">Tipo Doc.</label>
+                <div>
+                    <InputSelect @bind-Value="otipoDocumento" class="form-control">
+                        <option value="">Tipo Doc ...</option>
+                        @foreach (var oTipoDocumento in oTipoDocumentoDTOList)
                             {
-                            <option value="@oTipoDocumento.tipoDocumentoID" selected="selected">@oTipoDocumento.nombre</option>
-                            }
-                            else
-                            {*@
+                            @*if (oTipoDocumento.tipoDocumentoID == "81")
+                                {
+                                <option value="@oTipoDocumento.tipoDocumentoID" selected="selected">@oTipoDocumento.nombre</option>
+                                }
+                                else
+                                {*@
                             <option value="@oTipoDocumento.tipoDocumentoID">@oTipoDocumento.nombre</option>
                             @*}*@
-                        }
-                </InputSelect>
+                            }
+                    </InputSelect>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <label style="color:white">Nro. Doc.</label>
+                <div class="row">
+                    <InputNumber @bind-Value="oPrefijo" class="form-control" style="width:65px;" max="99"></InputNumber>
+                    <label style="color:white;vertical-align:central">&nbsp;</label>
+                    <InputNumber @bind-Value="oNumeroDocumento" class="form-control" style="width:120px;" max="9999999999"></InputNumber>
+                    <label style="color:white">&nbsp;</label>
+                    <InputNumber @bind-Value="oDigitoVerif" class="form-control" style="width:55px;" max="9"></InputNumber>
+                    <a href="https://micuilonline.com.ar/averiguar-cuil-cuit" class="btn btn-success" target="_blank" style="align-self:initial;font-size:smaller;margin-left:5px">Averiguar mi CUIL</a>
+                </div>
             </div>
         </div>
 
-        <div class="col-md-5">
-            <label style="color:white">Nro. Doc.</label>
-            <div class="row">
-                <InputNumber @bind-Value="oPrefijo" class="form-control" style="width:65px;" max="99"></InputNumber>
-                <label style="color:white;vertical-align:central">&nbsp;</label>
-                <InputNumber @bind-Value="oNumeroDocumento" class="form-control" style="width:120px;" max="9999999999"></InputNumber>
-                <label style="color:white">&nbsp;</label>
-                <InputNumber @bind-Value="oDigitoVerif" class="form-control" style="width:55px;" max="9"></InputNumber>
-                <a href="https://micuilonline.com.ar/averiguar-cuil-cuit" class="btn btn-success" target="_blank" style="align-self:initial;font-size:smaller;margin-left:5px">Averiguar mi CUIL</a>
+        <div class="row" style="margin:10px">
+            <div class="col-md-2">
+                <label style="color:white">Sexo</label>
+                <div>
+                    <InputSelect @bind-Value="osexo" class="form-control">
+                        <option value="">Sexo ...</option>
+                        <option value="F">Femenino</option>
+                        <option value="M">Masculino</option>
+                    </InputSelect>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="row" style="margin:10px">
-        <div class="col-md-2">
-            <label style="color:white">Sexo</label>
-            <div>
-                <InputSelect @bind-Value="osexo" class="form-control">
-                    <option value="">Sexo ...</option>
-                    <option value="F">Femenino</option>
-                    <option value="M">Masculino</option>
-                </InputSelect>
-            </div>
-        </div>
 
 
 
-        <div class="col-md-3">
-            <label style="color:white">Condicion Iva</label>
-            <div>
-                <InputSelect @bind-Value="ocondicionIVA" class="form-control">
-                    <option value="">Iva ...</option>
-                    @foreach (var oCondicionesIVA in oCondicionesIVADTOList)
-                        {
+            <div class="col-md-3">
+                <label style="color:white">Condicion Iva</label>
+                <div>
+                    <InputSelect @bind-Value="ocondicionIVA" class="form-control">
+                        <option value="">Iva ...</option>
+                        @foreach (var oCondicionesIVA in oCondicionesIVADTOList)
+                            {
                             <option value="@oCondicionesIVA.condicionIVAID">@oCondicionesIVA.nombre</option>
-                        }
-                </InputSelect>
+                            }
+                    </InputSelect>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label style="color:white">Tiene Acreedor Prendario?</label>
+                <div>
+                    <InputCheckbox @bind-Value="oprendario" style="margin-left:20px">
+
+                    </InputCheckbox>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" style="margin:10px">
+
+
+            <div class="col-md-7">
+                <label style="color:white">Domicilio Calle</label>
+                <InputText @bind-Value="odomicilio" class="form-control" placeholder="Calle"></InputText>
+            </div>
+            <div class="col-md-2">
+                <label style="color:white">Nro</label>
+                <InputNumber @bind-Value="odomicilioNumero" class="form-control" placeholder="Nro"> </InputNumber>
+            </div>
+            <div class="col-md-2">
+                <label style="color:white">Piso</label>
+                <InputNumber @bind-Value="odomicilioPiso" class="form-control" placeholder="Piso"> </InputNumber>
+            </div>
+            <div class="col-md-1">
+                <label style="color:white">Dto</label>
+                <InputText @bind-Value="odomicilioDpto" class="form-control" placeholder="Dto"> </InputText>
             </div>
         </div>
-        <div class="col-md-3">
-            <label style="color:white">Tiene Acreedor Prendario?</label>
-            <div>
-                <InputCheckbox @bind-Value="oprendario" style="margin-left:20px">
-
-                </InputCheckbox>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row" style="margin:10px">
-
-
-        <div class="col-md-7">
-            <label style="color:white">Domicilio Calle</label>
-            <InputText @bind-Value="odomicilio" class="form-control" placeholder="Calle"></InputText>
-        </div>
-        <div class="col-md-2">
-            <label style="color:white">Nro</label>
-            <InputNumber @bind-Value="odomicilioNumero" class="form-control" placeholder="Nro"> </InputNumber>
-        </div>
-        <div class="col-md-2">
-            <label style="color:white">Piso</label>
-            <InputNumber @bind-Value="odomicilioPiso" class="form-control" placeholder="Piso"> </InputNumber>
-        </div>
-        <div class="col-md-1">
-            <label style="color:white">Dto</label>
-            <InputText @bind-Value="odomicilioDpto" class="form-control" placeholder="Dto"> </InputText>
-        </div>
-    </div>
 
 
 
-    <button type="button" class="btn btn-success" style="width:200px;margin:5px" @onclick="@(() => OnClickHandle())">Confirma Cotizacion</button>
-</EditForm>
+        <button type="button" class="btn btn-success" style="width:200px;margin:5px" @onclick="@(() => OnClickHandle())">Confirma Cotizacion</button>
+    </EditForm>
 }
 
+@if (partner.Whatsapp == string.Empty)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    <a href="https://wa.me/541144406739?text=@partner.Whatsapp" title="Chat with Us" class="whatsapp" target="_blank" style="position:absolute; bottom:30px;right:30px">
+        <img src="../images/whatsapp.png" style="margin-top:0px;margin-left:0px" height="48" width="48" />
+    </a>
+}
 
 
 
@@ -184,7 +194,7 @@ else
     private int odomicilioPiso;
     private string odomicilioDpto;
     private string opaisID = "ARG";
-
+    Partner partner = new Partner();
 
     private List<TipoDocumentoDTO> oTipoDocumentoDTOList;
     private List<CondicionesIVADTO> oCondicionesIVADTOList;
@@ -206,11 +216,11 @@ else
 
         string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
-        onombre= oCotizacionAutoDTO.asegurado.nombre;
-        omail=oCotizacionAutoDTO.asegurado.mail;
-        otelefono= oCotizacionAutoDTO.asegurado.telefono;
+        onombre = oCotizacionAutoDTO.asegurado.nombre;
+        omail = oCotizacionAutoDTO.asegurado.mail;
+        otelefono = oCotizacionAutoDTO.asegurado.telefono;
         opatente = "";// oCotizacionAutoDTO.vehiculo.patente;
-        ofechaNacimiento = Convert.ToDateTime(oCotizacionAutoDTO.asegurado.fechaNacimiento,  new System.Globalization.CultureInfo("es-ES"));
+        ofechaNacimiento = Convert.ToDateTime(oCotizacionAutoDTO.asegurado.fechaNacimiento, new System.Globalization.CultureInfo("es-ES"));
 
         otipoDocumento = "81";
         ocondicionIVA = "4";
@@ -229,6 +239,10 @@ else
         ocondicionIVA = "4";
 
 #endif
+        #region busco datos del partner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
     }
     private async Task OnClickHandle()
     {
@@ -242,7 +256,7 @@ else
         }
 
         if (string.IsNullOrEmpty(osexo) || string.IsNullOrEmpty(otipoDocumento)
-            || string.IsNullOrEmpty(ocondicionIVA) || string.IsNullOrEmpty(odomicilio) )
+            || string.IsNullOrEmpty(ocondicionIVA) || string.IsNullOrEmpty(odomicilio))
         {
 
             var mensajeError = "Todos los campos son requeridos";
@@ -293,7 +307,7 @@ else
         oCotizacionAutoDTO.asegurado.telefono = otelefono;
         oCotizacionAutoDTO.asegurado.fechaNacimiento = ((DateTime)ofechaNacimiento).ToString("dd/MM/yyyy");
 
-        oCotizacionAutoDTO.vehiculo.patente= opatente.ToUpper();
+        oCotizacionAutoDTO.vehiculo.patente = opatente.ToUpper();
 
 
 
@@ -314,7 +328,7 @@ else
         oCotizacionAutoDTO.asegurado.paisID = opaisID;
 
 
-        oCotizacionAutoDTO.tieneAcreedorPrendario= oprendario;
+        oCotizacionAutoDTO.tieneAcreedorPrendario = oprendario;
 
 
         CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);

@@ -120,121 +120,120 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 63 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
-           private Login oLogin = null;
+#line 74 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
+       private Login oLogin = null;
 
-        [Parameter] public string urlPartner { get; set; }
+    [Parameter] public string urlPartner { get; set; }
 
-        private CotizacionAutoDTO oCotizacionAutoDTO;
-        private string permisoNotificaciones = string.Empty;
+    private CotizacionAutoDTO oCotizacionAutoDTO;
+    private string permisoNotificaciones = string.Empty;
 
-        private string partnerLogo = string.Empty;
-        private string partnerWhatsapp = string.Empty;
-        Partner partner;
+    private string partnerLogo = string.Empty;
+    private string partnerWhatsapp = string.Empty;
+    Partner partner;
 
-        CotizacionPopUp cotizacionPopUp;
-        private List<RespuestaReporteDTO> oRespuestaReporteDTOList = new List<RespuestaReporteDTO>();
-        RespuestaPolizaImpresionDTO oRespuestaPolizaImpresionDTO = null;
+    CotizacionPopUp cotizacionPopUp;
+    private List<RespuestaReporteDTO> oRespuestaReporteDTOList = new List<RespuestaReporteDTO>();
+    RespuestaPolizaImpresionDTO oRespuestaPolizaImpresionDTO = null;
 
 
 
-        protected async override Task OnInitializedAsync()
+    protected async override Task OnInitializedAsync()
+    {
+        if (urlPartner == null)
+            urlPartner = "ziren";
+
+
+        var responseHttp3 = await repositorio.Get<Partner>("api/ZirenHeads/GetParternByUrl/" + urlPartner);
+
+        partner = responseHttp3.Response;
+        string partnerJson = JsonSerializer.Serialize(partner);
+        await js.SetInLocalStorage("partner", partnerJson);
+        partnerLogo = partner.Logo;
+        partnerWhatsapp = partner.Whatsapp;
+        Console.WriteLine("Partner : " + partner.Url);
+
+
+        //#region BORRAR
+        //partnerJson = await js.GetFromLocalStorage("partner");
+        //Partner Partner2 = JsonSerializer.Deserialize<Partner>(partnerJson);
+        //Console.WriteLine("Partner2 : " + Partner2.Url);
+        //#endregion
+
+
+        //#region MyRegion
+        ////await repositorio.Post("api/notificaciones/TextToSpeech", "Esto es un Test");
+        ////permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
+        //#endregion
+
+
+
+
+
+        #region CotizacionEntitiesDTO
+        await js.RemoveItem("CotizacionAutoDTO");
+
+        oCotizacionAutoDTO = new CotizacionAutoDTO();
+        oCotizacionAutoDTO.vehiculo = new VehiculoDTO();
+        oCotizacionAutoDTO.asegurado = new AseguradoPatrimonialDTO();
+        oCotizacionAutoDTO.cotizacionID = 0;
+        string CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
+        await js.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
+        #endregion
+
+
+
+
+
+    }
+
+    private async Task Suscribir()
+    {
+        var notificacion = await js.SuscribirANotificaciones();
+
+        if (notificacion != null)
         {
-            if (urlPartner == null)
-                urlPartner = "ziren";
-
-
-            var responseHttp3 = await repositorio.Get<Partner>("api/ZirenHeads/GetParternByUrl/" + urlPartner);
-
-            partner = responseHttp3.Response;
-            string partnerJson = JsonSerializer.Serialize(partner);
-            await js.SetInLocalStorage("partner", partnerJson);
-            partnerLogo = partner.Logo;
-            partnerWhatsapp = partner.Whatsapp;
-            Console.WriteLine("Partner : " + partner.Url);
-
-
-            //#region BORRAR
-            //partnerJson = await js.GetFromLocalStorage("partner");
-            //Partner Partner2 = JsonSerializer.Deserialize<Partner>(partnerJson);
-            //Console.WriteLine("Partner2 : " + Partner2.Url);
-            //#endregion
-
-
-            //#region MyRegion
-            ////await repositorio.Post("api/notificaciones/TextToSpeech", "Esto es un Test");
-            ////permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
-            //#endregion
-
-
-
-
-
-            #region CotizacionEntitiesDTO
-            await js.RemoveItem("CotizacionAutoDTO");
-
-            oCotizacionAutoDTO = new CotizacionAutoDTO();
-            oCotizacionAutoDTO.vehiculo = new VehiculoDTO();
-            oCotizacionAutoDTO.asegurado = new AseguradoPatrimonialDTO();
-            oCotizacionAutoDTO.cotizacionID = 0;
-            string CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);
-            await js.SetInLocalStorage("CotizacionAutoDTO", CotizacionAutoDTOJson);
-            #endregion
-
-
-
-
-
+            await repositorio.Post("api/notificaciones/suscribir", notificacion);
+            permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
+            await mostrarMensajes.MostrarMensajeExitoso("Vas a recibir una notificación cuando salga una nueva película en cartelera");
+            //#if DEBUG
+            Console.WriteLine("URL : " + notificacion.URL);
+            Console.WriteLine("P256dh : " + notificacion.P256dh);
+            Console.WriteLine("Auth : " + notificacion.Auth);
+            //#endif
+            StateHasChanged();
         }
 
-        private async Task Suscribir()
+    }
+
+    private async Task Desuscribir()
+    {
+        var notificacion = await js.DesuscribirANotificaciones();
+
+        if (notificacion != null)
         {
-            var notificacion = await js.SuscribirANotificaciones();
-
-            if (notificacion != null)
-            {
-                await repositorio.Post("api/notificaciones/suscribir", notificacion);
-                permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
-                await mostrarMensajes.MostrarMensajeExitoso("Vas a recibir una notificación cuando salga una nueva película en cartelera");
-                //#if DEBUG
-                Console.WriteLine("URL : " + notificacion.URL);
-                Console.WriteLine("P256dh : " + notificacion.P256dh);
-                Console.WriteLine("Auth : " + notificacion.Auth);
-                //#endif
-                StateHasChanged();
-            }
-
+            await repositorio.Post("api/notificaciones/desuscribir", notificacion);
+            permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
+            await mostrarMensajes.MostrarMensajeExitoso("Ya no vas a recibir notificaciones");
+            StateHasChanged();
         }
+    }
 
-        private async Task Desuscribir()
-        {
-            var notificacion = await js.DesuscribirANotificaciones();
-
-            if (notificacion != null)
-            {
-                await repositorio.Post("api/notificaciones/desuscribir", notificacion);
-                permisoNotificaciones = await js.ObtenerEstatusPermisoNotificaciones();
-                await mostrarMensajes.MostrarMensajeExitoso("Ya no vas a recibir notificaciones");
-                StateHasChanged();
-            }
-        }
-
-        private async Task OnClickHandle()
-        {
-            //await mostrarMensajes.MostrarMensajeExitoso("mensaje");
-            //await mostrarMensajes.MostrarMensajeConImagen( "mensaje");
-            cotizacionPopUp.Mostrar();
+    private async Task OnClickHandle()
+    {
+        //await mostrarMensajes.MostrarMensajeExitoso("mensaje");
+        //await mostrarMensajes.MostrarMensajeConImagen( "mensaje");
+        cotizacionPopUp.Mostrar();
 
 
-        }
-        private async Task onConfirm()
-        {
-            cotizacionPopUp.Ocultar();
+    }
+    private async Task onConfirm()
+    {
+        cotizacionPopUp.Ocultar();
 
-            navigationManager.NavigateTo($"/ziren/marcas");
-        }
+        navigationManager.NavigateTo($"/ziren/marcas");
+    }
 
-    
 
 #line default
 #line hidden

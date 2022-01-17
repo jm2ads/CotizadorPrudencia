@@ -294,6 +294,16 @@ else
     }
 
 }
+@if (partner.Whatsapp == string.Empty)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    <a href="https://wa.me/541144406739?text=@partner.Whatsapp" title="Chat with Us" class="whatsapp" target="_blank" style="position:absolute; bottom:30px;right:30px">
+        <img src="../images/whatsapp.png" style="margin-top:0px;margin-left:0px" height="48" width="48" />
+    </a>
+}
 
 <div class="container-fluid" style="margin:5px">
 
@@ -367,13 +377,13 @@ else
     CotizacionPopUp cotizacionPopUp;
     ModoPopUp modoPopUp;
     int oCoberturaIDSelected;
-
+    Partner partner = new Partner();
     private string displayGNC;
     protected override async Task OnInitializedAsync()
     {
         #region busco datos del partner
         string partnerJson = await js.GetFromLocalStorage("partner");
-        Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
         #endregion
 
         string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
@@ -447,10 +457,25 @@ else
 
         oGncValor = partner.GncMonto;
         oCotizacionAutoDTO.tieneAcreedorPrendario = false;
-        oCotizacionAutoDTO.clausulaAjuste = 20;
-        oCotizacionAutoDTO.clausulaAjuste = 0;
-        oCotizacionAutoDTO.tipoAjustePrima = "N";
-        oCotizacionAutoDTO.porcAjustePrima = 0;
+        oCotizacionAutoDTO.clausulaAjuste = partner.Ajuste;
+
+        if (partner.DescuentoRecarga == 0)
+        {
+            oCotizacionAutoDTO.tipoAjustePrima = "N";
+            oCotizacionAutoDTO.porcAjustePrima = 0;
+        }
+        else
+        {
+            if (partner.DescuentoRecarga > 0)
+            {
+                oCotizacionAutoDTO.tipoAjustePrima = "R";
+            }
+            else
+            {
+                oCotizacionAutoDTO.tipoAjustePrima = "D";
+            }
+            oCotizacionAutoDTO.porcAjustePrima = Math.Abs(partner.DescuentoRecarga);
+        }
         //oCotizacionAutoDTO.vehiculo.patente = "XXX000";
         oCotizacionAutoDTO.vehiculo.sumaAsegurada = -1;
         oCotizacionAutoDTO.vehiculo.valorGNC = partner.GncMonto;

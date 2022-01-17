@@ -117,7 +117,10 @@ using Project.Shared.PrudenciaDTOs;
     [Parameter] public int grupoId { get; set; }
     [Parameter] public string Url { get; set; }
     private Organizador organizador = new Organizador();
-
+    protected override async Task OnInitializedAsync()
+    {
+        organizador.Ajuste = 20;
+    }
 
 
     private async Task Crear()

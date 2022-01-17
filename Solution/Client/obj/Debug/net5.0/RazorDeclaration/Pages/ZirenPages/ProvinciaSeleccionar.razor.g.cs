@@ -119,10 +119,10 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 45 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
+#line 54 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
        
 
-
+    Partner partner = new Partner();
     string oProvinciaDescripcion = "";
 
     private List<ProvinciaDTO> oProvinciasList;
@@ -133,7 +133,10 @@ using System.Text.Json;
         oProvinciasList = responseHttp.Response;
         oProvinciasAuxList = responseHttp.Response;
 
-
+        #region GetFromLocalStoragePartner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
 
     }
     private async Task ProvinciaKeyUp(KeyboardEventArgs e)
@@ -168,8 +171,8 @@ using System.Text.Json;
 
 
         ProvinciaDTO oProvincias = (from c in oProvinciasList
-                                           where c.provinciaID == oprovinciasID
-                                           select c).FirstOrDefault();
+                                    where c.provinciaID == oprovinciasID
+                                    select c).FirstOrDefault();
 
         cotizacionEntitiesDTO.provincia = oProvincias;
 

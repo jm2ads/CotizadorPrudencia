@@ -28,7 +28,7 @@
     Por favor suba las siguientes fotos usando su Telefono o PC
 </h4>
 
-<EditForm Model="sendModoComodoMail" OnSubmit="OnSubmit">
+<EditForm Model="@sendModoComodoMail" OnSubmit="OnSubmit">
 
     <img src="/images/Cotizacion/front.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
     <label style="color: white; display: flex; justify-content: center;">CARGAR PARTE DELANTERA DEL VEHICULO (IMAGEN)<InputFile OnChange="@LoadFront" /></label>
@@ -43,6 +43,10 @@
         }
     </div>
     <hr width="50%" color="white" style="border-top: 1px dashed red;" />
+
+
+
+
 
     <img src="/images/Cotizacion/back.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
     <label style="color: white; display: flex; justify-content: center;">CARGAR PARTE TRASERA DEL VEHICULO (IMAGEN)<InputFile OnChange="@LoadBack" /></label>
@@ -60,8 +64,6 @@
 
 
 
-
-    <!-- #region carLeft -->
     <img src="/images/Cotizacion/left.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
     <label style="color: white; display: flex; justify-content: center;">CARGAR LADO IZQUIERDO DEL VEHICULO (IMAGEN)<InputFile OnChange="@LoadLeft" /></label>
     <div style="display: flex; justify-content: center;">
@@ -71,11 +73,11 @@
                 <div style="margin:10px">
                     <img src="data:image/jpeg;base64, @sendModoComodoMail.carLeft" style="width: 200px" />
                 </div>
-            </div>}
+            </div>
+        }
     </div>
     <hr width="50%" color="white" style="border-top: 1px dashed red;" />
-    <!-- #endregion -->
-    <!-- #region carRight -->
+
     <img src="/images/Cotizacion/right.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
     <label style="color: white; display: flex; justify-content: center;">CARGAR LADO DERECHO DEL VEHICULO (IMAGEN)<InputFile OnChange="@LoadRight" /></label>
     <div style="display: flex; justify-content: center;">
@@ -85,11 +87,11 @@
                 <div style="margin:10px">
                     <img src="data:image/jpeg;base64, @sendModoComodoMail.carRight" style="width: 200px" />
                 </div>
-            </div>}
+            </div>
+        }
     </div>
     <hr width="50%" color="white" style="border-top: 1px dashed red;" />
-    <!-- #endregion -->
-    <!-- #region cedulaFront -->
+
     <img src="/images/Cotizacion/cedulaFront.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
     <label style="color: white; display: flex; justify-content: center;">CARGAR FRENTE CEDULA LEGIBLE (IMAGEN) <InputFile OnChange="@LoadCedulaFront" /></label>
     <div style="display: flex; justify-content: center;">
@@ -99,11 +101,11 @@
                 <div style="margin:10px">
                     <img src="data:image/jpeg;base64, @sendModoComodoMail.cedulaFront" style="width: 200px" />
                 </div>
-            </div>}
+            </div>
+        }
     </div>
     <hr width="50%" color="white" style="border-top: 1px dashed red;" />
-    <!-- #endregion -->
-    <!-- #region cedulaBack -->
+
     <img src="/images/Cotizacion/cedulaBack.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
     <label style="color: white; display: flex; justify-content: center;">CARGAR DORSO CEDULA LEGIBLE (IMAGEN) <InputFile OnChange="@LoadCedulaBack" /></label>
     <div style="display: flex; justify-content: center;">
@@ -113,11 +115,11 @@
                 <div style="margin:10px">
                     <img src="data:image/jpeg;base64, @sendModoComodoMail.cedulaBack" style="width: 200px" />
                 </div>
-            </div>}
+            </div>
+        }
     </div>
     <hr width="50%" color="white" style="border-top: 1px dashed red;" />
-    <!-- #endregion -->
-    <!-- #region dniFront -->
+
     <img src="/images/Cotizacion/dniFront.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
     <label style="color: white; display: flex; justify-content: center;">CARGAR FRENTE DNI O REGISTRO (IMAGEN) <InputFile OnChange="@LoadDniFront" /></label>
     <div style="display: flex; justify-content: center;">
@@ -127,11 +129,11 @@
                 <div style="margin:10px">
                     <img src="data:image/jpeg;base64, @sendModoComodoMail.dniFront" style="width: 200px" />
                 </div>
-            </div>}
+            </div>
+        }
     </div>
     <hr width="50%" color="white" style="border-top: 1px dashed red;" />
-    <!-- #endregion -->
-    <!-- #region dniBack -->
+
     <img src="/images/Cotizacion/dniBack.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
     <label style="color: white; display: flex; justify-content: center;">CARGAR DORSO DNI O REGISTRO (IMAGEN) <InputFile OnChange="@LoadDniBack" /></label>
     <div style="display: flex; justify-content: center;">
@@ -141,11 +143,11 @@
                 <div style="margin:10px">
                     <img src="data:image/jpeg;base64, @sendModoComodoMail.dniBack" style="width: 200px" />
                 </div>
-            </div>}
+            </div>
+        }
     </div>
     <hr width="50%" color="white" style="border-top: 1px dashed red;" />
-    <!-- #endregion -->
-    <!-- #region gncTubo -->
+
     <img src="/images/Cotizacion/gncTubo.png" alt="Fotos" style="display:block;margin:auto;width:33%" />
     <label style="color: white; display: flex; justify-content: center;">SI TIENE GNC POR FAVOR SUBIR FOTO DEL CILINDRO (IMAGEN)<InputFile OnChange="@LoadGncTubo" /></label>
     <div style="display: flex; justify-content: center;">
@@ -155,12 +157,9 @@
                 <div style="margin:10px">
                     <img src="data:image/jpeg;base64, @sendModoComodoMail.gncTubo" style="width: 200px" />
                 </div>
-            </div>}
+            </div>
+        }
     </div>
-
-    <!-- #endregion -->
-
-
 
 
 
@@ -187,12 +186,15 @@
             <InputText class="form-control" @bind-Value="sendModoComodoMail.Localidad"></InputText>
         </div>
     </div>
+
+
     <div class=" form-group">
         <label style="color:white">Email (Debe ser un email real donde te llegara la poliza)</label>
         <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
             <InputText class="form-control" @bind-Value="sendModoComodoMail.Email"></InputText>
         </div>
     </div>
+
     <div class=" form-group">
         <label style="color:white">Numero de Celular (Debe ser tu numero real)</label>
         <div style="margin-right: 2%; margin-left: 2%; text-align: center;">
@@ -224,12 +226,6 @@
             </InputSelect>
         </div>
     </div>
-
-
-
-
-
-
 
 
     <div class="container p-3 my-3 bg-transparent border" id="cntTC" hidden="@(! cntTCVisible)">
@@ -279,11 +275,6 @@
     </div>
 
 
-
-
-    @*<div class="container p-3 my-3 bg-transparent border" id="cntEF" hidden="@(! cntEFCVisible)">
-            <label style="color:white"> cntEF</label>
-        </div>*@
     <div class="container p-3 my-3 bg-transparent border" id="cntDeb" hidden="@(! cntDebVisible)">
         <div class=" form-group">
             <label style="color:white">Nombre y Apellido del Titular del CBU </label>
@@ -303,12 +294,28 @@
     <button class="btn btn-success" type="submit" style="margin-bottom:20px">Enviar</button>
     <br />
 
+
+
 </EditForm>
+
 
 @code {
     [Parameter] public string urlPartner { get; set; }
+    // [Parameter] public SendModoComodoMail sendModoComodoMail { get; set; }
+    [Parameter] public int xID { get; set; }
+
+    private SendModoComodoMail sendModoComodoMail = new SendModoComodoMail();
+    private MailApp mailApp = new MailApp();
+
 
     private string posterTemporal;
+
+
+    private Admin admin = new Admin();
+
+    private string adminNombre;
+    private string adminPassWord;
+
 
     private string tC;
     private bool cntTCVisible = false;
@@ -316,7 +323,7 @@
     private bool cntDebVisible = false;
 
 
-    private SendModoComodoMail sendModoComodoMail = new SendModoComodoMail();
+
 
 
 
@@ -332,6 +339,8 @@
     Partner partner;
     protected async override Task OnInitializedAsync()
     {
+        sendModoComodoMail.mailApp = mailApp;
+
         if (urlPartner == null)
             urlPartner = "ziren";
 
@@ -545,7 +554,7 @@
 
         MailApp oMailApp = new MailApp();
         string oSubject = "Ziren => Modo Comodo Nueva solicitud";
-        oMailApp.To = partner.Mail;
+        oMailApp.To = sendModoComodoMail.mailApp.To;
         oMailApp.Bcc = "clientes@ziren.com.ar";
         // oMailApp.Body = oBody;
         oMailApp.Subject = oSubject;

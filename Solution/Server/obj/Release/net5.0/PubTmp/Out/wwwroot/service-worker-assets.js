@@ -213,7 +213,7 @@
       "url": "_framework\/Project.Shared.dll"
     },
     {
-      "hash": "sha256-YHqaq3gxvkFiZM61w+UyXcqVi0M9UEt+\/+WVxKRS1h4=",
+      "hash": "sha256-9D2NTqCFNTXSy+\/2T1ZzwNxbW4bu6FnyRfnfeckt+qM=",
       "url": "_framework\/Project.Client.dll"
     },
     {
@@ -313,7 +313,7 @@
       "url": "_framework\/System.Private.CoreLib.dll"
     },
     {
-      "hash": "sha256-MtT2mDPZfQEDRJQluU1YubJYqYLLoKBhLGfucN635uE=",
+      "hash": "sha256-c8+OfeAT\/\/1WOEx6DbyYL4FsjnNyQz9uZhR4dfUuI70=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -321,5 +321,5 @@
       "url": "_framework\/blazor.webassembly.js"
     }
   ],
-  "version": "KV9ZM\/Q8"
+  "version": "3+mHE+Cq"
 };

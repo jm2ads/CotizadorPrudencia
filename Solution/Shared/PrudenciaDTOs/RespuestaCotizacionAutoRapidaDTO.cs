@@ -14,9 +14,15 @@ namespace Project.Shared.PrudenciaDTOs
         public string fecha { get; set; }
         public Boolean tieneAcreedorPrendario { get; set; }
         public Boolean tieneAccesorios { get; set; }
-        public int clausulaAjuste { get; set; }
-        public string tipoAjustePrima { get; set; }
-        public Decimal porcAjustePrima { get; set; }
+        public int clausulaAjuste { get; set; }//aquí va el % con el cual se actualiza la suma asegurada cada 4 meses.El default es 20.
+
+
+        public string tipoAjustePrima { get; set; }  // Esto es si se aplica un descuento sobre la poliza"N" No Aplica"D" Descuento"R" Recargo
+        public Decimal porcAjustePrima { get; set; }// SI "tipoAjustePrima" es distinto de "N" va el porcentaje del recargo o descuento.
+
+
+
+
         public string fechaFinCotizacion { get; set; }
       
 

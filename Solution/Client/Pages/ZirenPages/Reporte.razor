@@ -49,6 +49,16 @@ else
 
 }
 
+@if (partner.Whatsapp == string.Empty)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    <a href="https://wa.me/541144406739?text=@partner.Whatsapp" title="Chat with Us" class="whatsapp" target="_blank" style="position:absolute; bottom:30px;right:30px">
+        <img src="../images/whatsapp.png" style="margin-top:0px;margin-left:0px" height="48" width="48" />
+    </a>
+}
 
 
 
@@ -57,7 +67,7 @@ else
     [Parameter] public int polizaID { get; set; }
 
     List<RespuestaReporteDTO> oRespuestaReporteDTOList;
-
+    Partner partner = new Partner();
 
     protected override async Task OnInitializedAsync()
     {
@@ -126,7 +136,10 @@ else
         }
 
 
-
+        #region busco datos del partner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
 
 
     }
@@ -304,7 +317,7 @@ else
 
         string cotizacionEntitiesDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionEntitiesDTO");
         CotizacionEntitiesDTO cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
-       
+
         #region busco datos del partner
         string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
         Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);

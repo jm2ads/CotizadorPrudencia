@@ -118,7 +118,10 @@ using Project.Shared.PrudenciaDTOs;
     [Parameter] public int organizadorId { get; set; }
     [Parameter] public string Url { get; set; }
     private Productor productor = new Productor();
-
+    protected override async Task OnInitializedAsync()
+    {
+        productor.Ajuste = 20;
+    }
 
     private async Task Crear()
     {

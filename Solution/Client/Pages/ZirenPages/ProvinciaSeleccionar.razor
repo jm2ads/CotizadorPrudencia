@@ -11,7 +11,7 @@
 <label style="color:white;font-size: 0.8em;align-content:initial">Declarar la provincia correcta ya que afecta al costo de tu seguro, para tener una cotización correcta 🤗</label>
 @if (oProvinciasList == null)
 {
-<Cargando></Cargando>
+    <Cargando></Cargando>
 }
 else
 {
@@ -41,10 +41,19 @@ else
         </div>
     }
 }
-
+@if (partner.Whatsapp == string.Empty)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    <a href="https://wa.me/541144406739?text=@partner.Whatsapp" title="Chat with Us" class="whatsapp" target="_blank" style="position:absolute; bottom:30px;right:30px">
+        <img src="../images/whatsapp.png" style="margin-top:0px;margin-left:0px" height="48" width="48" />
+    </a>
+}
 @code {
 
-
+    Partner partner = new Partner();
     string oProvinciaDescripcion = "";
 
     private List<ProvinciaDTO> oProvinciasList;
@@ -55,7 +64,10 @@ else
         oProvinciasList = responseHttp.Response;
         oProvinciasAuxList = responseHttp.Response;
 
-
+        #region GetFromLocalStoragePartner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
 
     }
     private async Task ProvinciaKeyUp(KeyboardEventArgs e)
@@ -90,8 +102,8 @@ else
 
 
         ProvinciaDTO oProvincias = (from c in oProvinciasList
-                                           where c.provinciaID == oprovinciasID
-                                           select c).FirstOrDefault();
+                                    where c.provinciaID == oprovinciasID
+                                    select c).FirstOrDefault();
 
         cotizacionEntitiesDTO.provincia = oProvincias;
 

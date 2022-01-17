@@ -115,7 +115,7 @@
         <div class="col-md-5">
             <label style="color:white">Logo:</label>
             <div>
-                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenURL="@imagenURL" />
+                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenTemporal="@imagenURL" />
             </div>
         </div>
     </div>
@@ -162,7 +162,7 @@
         <div class="col-md-5">
             <label style="color:white">Ajuste:</label>
             <div>
-                <InputNumber class="form-control" @bind-Value="organizador.Ajuste"></InputNumber>
+                <InputNumber class="form-control" @bind-Value="organizador.Ajuste" min="0"  max ="100"></InputNumber>
                 <ValidationMessage For="@(() => organizador.Ajuste)" />
             </div>
         </div>
@@ -170,7 +170,7 @@
         <div class="col-md-5">
             <label style="color:white">DescuentoRecargas:</label>
             <div>
-                <InputNumber class="form-control" @bind-Value="organizador.DescuentoRecarga"></InputNumber>
+                <InputNumber class="form-control" @bind-Value="organizador.DescuentoRecarga" min="0"  max ="100" ></InputNumber>
                 <ValidationMessage For="@(() => organizador.DescuentoRecarga)" />
             </div>
         </div>

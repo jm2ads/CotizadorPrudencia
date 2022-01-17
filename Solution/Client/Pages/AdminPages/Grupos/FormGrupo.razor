@@ -116,7 +116,7 @@
         <div class="col-md-5">
             <label style="color:white">Logo:</label>
             <div>
-                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenURL="@posterTemporal" />
+                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenTemporal="@posterTemporal" />
             </div>
         </div>
     </div>
@@ -163,7 +163,7 @@
         <div class="col-md-5">
             <label style="color:white">Ajuste:</label>
             <div>
-                <InputNumber class="form-control" @bind-Value="grupo.Ajuste"></InputNumber>
+                <InputNumber class="form-control" @bind-Value="grupo.Ajuste" min="0"  max ="100"></InputNumber>
                 <ValidationMessage For="@(() => grupo.Ajuste)" />
             </div>
         </div>
@@ -171,7 +171,7 @@
         <div class="col-md-5">
             <label style="color:white">DescuentoRecargas:</label>
             <div>
-                <InputNumber class="form-control" @bind-Value="grupo.DescuentoRecarga" ></InputNumber>
+                <InputNumber class="form-control" @bind-Value="grupo.DescuentoRecarga" min="0"  max ="100"></InputNumber>
                 <ValidationMessage For="@(() => grupo.DescuentoRecarga)" />
             </div>
         </div>

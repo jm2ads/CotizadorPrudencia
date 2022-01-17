@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 312 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapidaM.razor"
+#line 322 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapidaM.razor"
        
 
 
@@ -178,13 +178,13 @@ using System.Text.Json;
     CotizacionPopUp cotizacionPopUp;
     ModoPopUp modoPopUp;
     int oCoberturaIDSelected;
-
+    Partner partner = new Partner();
     private string displayGNC;
     protected override async Task OnInitializedAsync()
     {
         #region busco datos del partner
         string partnerJson = await js.GetFromLocalStorage("partner");
-        Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
         #endregion
 
         string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
@@ -258,10 +258,25 @@ using System.Text.Json;
 
         oGncValor = partner.GncMonto;
         oCotizacionAutoDTO.tieneAcreedorPrendario = false;
-        oCotizacionAutoDTO.clausulaAjuste = 20;
-        oCotizacionAutoDTO.clausulaAjuste = 0;
-        oCotizacionAutoDTO.tipoAjustePrima = "N";
-        oCotizacionAutoDTO.porcAjustePrima = 0;
+        oCotizacionAutoDTO.clausulaAjuste = partner.Ajuste;
+
+        if (partner.DescuentoRecarga == 0)
+        {
+            oCotizacionAutoDTO.tipoAjustePrima = "N";
+            oCotizacionAutoDTO.porcAjustePrima = 0;
+        }
+        else
+        {
+            if (partner.DescuentoRecarga > 0)
+            {
+                oCotizacionAutoDTO.tipoAjustePrima = "R";
+            }
+            else
+            {
+                oCotizacionAutoDTO.tipoAjustePrima = "D";
+            }
+            oCotizacionAutoDTO.porcAjustePrima = Math.Abs(partner.DescuentoRecarga);
+        }
         //oCotizacionAutoDTO.vehiculo.patente = "XXX000";
         oCotizacionAutoDTO.vehiculo.sumaAsegurada = -1;
         oCotizacionAutoDTO.vehiculo.valorGNC = partner.GncMonto;

@@ -41,12 +41,21 @@ else
         </div>
     }
 }
-
+@if (partner.Whatsapp == string.Empty)
+{
+    <Cargando></Cargando>
+}
+else
+{
+    <a href="https://wa.me/541144406739?text=@partner.Whatsapp" title="Chat with Us" class="whatsapp" target="_blank" style="position:absolute; bottom:30px;right:30px">
+        <img src="../images/whatsapp.png" style="margin-top:0px;margin-left:0px" height="48" width="48" />
+    </a>
+}
 @code {
     [Parameter] public int marcaID { get; set; }
     [Parameter] public int anoID { get; set; }
 
-
+    Partner partner = new Partner();
 
     private List<ModelosAutos> oModelosAutosList;
     private List<ModelosAutos> oModelosAutosAuxList;
@@ -60,7 +69,10 @@ else
         oModelosAutosList = responseHttp.Response;
         oModelosAutosAuxList = responseHttp.Response;
 
-
+        #region GetFromLocalStoragePartner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
     }
     private async Task OnClickHandle(int ocodigoGrupoID)
     {

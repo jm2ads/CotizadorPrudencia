@@ -120,11 +120,24 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 308 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ModoComodo.razor"
+#line 302 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ModoComodo.razor"
        
     [Parameter] public string urlPartner { get; set; }
+    // [Parameter] public SendModoComodoMail sendModoComodoMail { get; set; }
+    [Parameter] public int xID { get; set; }
+
+    private SendModoComodoMail sendModoComodoMail = new SendModoComodoMail();
+    private MailApp mailApp = new MailApp();
+
 
     private string posterTemporal;
+
+
+    private Admin admin = new Admin();
+
+    private string adminNombre;
+    private string adminPassWord;
+
 
     private string tC;
     private bool cntTCVisible = false;
@@ -132,7 +145,7 @@ using System.Text.Json;
     private bool cntDebVisible = false;
 
 
-    private SendModoComodoMail sendModoComodoMail = new SendModoComodoMail();
+
 
 
 
@@ -148,6 +161,8 @@ using System.Text.Json;
     Partner partner;
     protected async override Task OnInitializedAsync()
     {
+        sendModoComodoMail.mailApp = mailApp;
+
         if (urlPartner == null)
             urlPartner = "ziren";
 
@@ -361,7 +376,7 @@ using System.Text.Json;
 
         MailApp oMailApp = new MailApp();
         string oSubject = "Ziren => Modo Comodo Nueva solicitud";
-        oMailApp.To = partner.Mail;
+        oMailApp.To = sendModoComodoMail.mailApp.To;
         oMailApp.Bcc = "clientes@ziren.com.ar";
         // oMailApp.Body = oBody;
         oMailApp.Subject = oSubject;
