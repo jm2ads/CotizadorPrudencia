@@ -1,7 +1,7 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-DpMw3qaB2wTgFcSWnrq5kNLRJkDij2PuwJNEu4K+F\/0=",
+      "hash": "sha256-g2Vxti8FUIzL9oH1ytqBttN\/9k52YOiejNo5owjlRZc=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -785,19 +785,19 @@
       "url": "_framework\/dotnet.5.0.12.js"
     },
     {
-      "hash": "sha256-3i+bzj703hQjf5LZ\/vTC2LlnurJjYZFlBlHD8ftwEGo=",
+      "hash": "sha256-a34iRFbneie5aOsXLcq7SmMk4b48R27sZ+o4c72vrRU=",
       "url": "_framework\/Project.Shared.dll"
     },
     {
-      "hash": "sha256-uMq9W420yufb\/lPw1jxij1KJhGqyH+V8xiF9Fc8YtJM=",
+      "hash": "sha256-8Q291nLYTySv6c2tneUi2qkeOa+i70N9a7l0yeyRRog=",
       "url": "_framework\/Project.Shared.pdb"
     },
     {
-      "hash": "sha256-SFZB\/yeWRVXyZZmS3lSHCMBfbaFEWpf7WuA8Svv7Yaw=",
+      "hash": "sha256-a\/XaqVVMC+ezpHpXGWfsPBGnmOxRMsmb6SRJp7Cqp20=",
       "url": "_framework\/Project.Client.dll"
     },
     {
-      "hash": "sha256-cTE4JK7MKG1Z3yV+vYXKIongJWcF1Iir4MtWEiUDMmU=",
+      "hash": "sha256-IQ6W+xym0oizGZBtlfbUi3ZYv996PJmHMZ5r39Fo+wM=",
       "url": "_framework\/Project.Client.pdb"
     },
     {
@@ -1585,7 +1585,7 @@
       "url": "_framework\/dotnet.5.0.12.js.gz"
     },
     {
-      "hash": "sha256-ozu5ggh2NnkqNRm8S6HPYKWYZPVPrmtvoYyC06Jch9w=",
+      "hash": "sha256-Mr858eIJ2W30YTHHaYI36ToY29eYYRDxtnYThPJJVfU=",
       "url": "_framework\/Project.Shared.dll.gz"
     },
     {
@@ -1685,6 +1685,10 @@
       "url": "images\/SumaAsegurada.png"
     },
     {
+      "hash": "sha256-MHRxKFysuby51bfIB02ExiwqFyOXn2\/b1\/+NclHGAzc=",
+      "url": "images\/whatsapp.png"
+    },
+    {
       "hash": "sha256-be0ovo6Y\/9SdYSaNGj\/ftcW45JCa0li5WwZPn3OWDko=",
       "url": "images\/Ziren56.png"
     },
@@ -1705,5 +1709,5 @@
       "url": "manifest.json"
     }
   ],
-  "version": "hqHEblCN"
+  "version": "PxA6afvj"
 };

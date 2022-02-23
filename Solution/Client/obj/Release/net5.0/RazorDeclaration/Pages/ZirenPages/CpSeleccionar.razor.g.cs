@@ -119,14 +119,14 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 92 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CpSeleccionar.razor"
+#line 101 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CpSeleccionar.razor"
        
     private string oCpDescripcion = "";
     private string provinciaID = "";
     //private List<string> oCodigoPostalList;
     //private List<string> oCodigoPostalAuxList;
     private List<CodigoPostalDTO> oCodigoPostalList = new List<CodigoPostalDTO>();
-
+    Partner partner = new Partner();
     private bool buscandoCP = false;
 
     protected override async Task OnInitializedAsync()
@@ -139,7 +139,10 @@ using System.Text.Json;
         //oCodigoPostalList = responseHttp.Response;
         //oCodigoPostalAuxList = responseHttp.Response;
 
-
+        #region GetFromLocalStoragePartner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
 
     }
     private async Task OnClickHandle(CodigoPostalDTO codigoPostalDTO)

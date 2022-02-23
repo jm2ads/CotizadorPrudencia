@@ -170,7 +170,7 @@
         <div class="col-md-5">
             <label style="color:white">DescuentoRecargas:</label>
             <div>
-                <InputNumber class="form-control" @bind-Value="productor.DescuentoRecarga" min="0"  max ="100"></InputNumber>
+                <InputNumber class="form-control" @bind-Value="productor.DescuentoRecarga" min="-10"  max ="100"></InputNumber>
                 <ValidationMessage For="@(() => productor.DescuentoRecarga)" />
             </div>
         </div>

@@ -119,12 +119,12 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 62 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
+#line 74 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
        
 
 
     AdjuntoDTO[] oAdjuntos = new AdjuntoDTO[5];
-
+    Partner partner = new Partner();
     int oAdjuntoID;
 
     private string imagenTemporal;
@@ -157,7 +157,7 @@ using System.Text.Json;
             oRespuestaCotizacionAutoDTO = responseHttp.Response;
             oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoDTO.cotizacionID;
 
-          
+
         }
 
 
@@ -168,7 +168,7 @@ using System.Text.Json;
 
 
         #region Confirmacion
-      
+
         int oCotizacionID = oCotizacionAutoDTO.cotizacionID;
 
         ConfirmacionCotizacionAutoDTO oConfirmacionCotizacionAutoDTO = new ConfirmacionCotizacionAutoDTO();
@@ -183,13 +183,13 @@ using System.Text.Json;
 
             await mostrarMensajes.MostrarMensajeError(mensajeError);
             Console.WriteLine(mensajeError);
-            navigationManager.NavigateTo("/ziren/infopersonalCompleta/"+ oCoberturaID);
+            navigationManager.NavigateTo("/ziren/infopersonalCompleta/" + oCoberturaID);
         }
         else
         {
             oRespuestaCotizacionAutoDTO = responseHttp2.Response;
             oCotizacionAutoDTO.cotizacionID = oRespuestaCotizacionAutoDTO.cotizacionID;
-          
+
         }
 
 
@@ -208,6 +208,10 @@ using System.Text.Json;
 
         Console.WriteLine("cotizacionID IMA: " + oCotizacionAutoDTO.cotizacionID);
 
+        #region busco datos del partner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
     }
 
     private async Task oOnValidSubmit()

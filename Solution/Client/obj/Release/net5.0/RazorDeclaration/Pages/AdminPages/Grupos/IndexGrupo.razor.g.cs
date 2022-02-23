@@ -247,15 +247,7 @@ using System.Text.Json;
     }
 
 
-    private async Task OnClickHandle(int omarcaID)
-    {
-
-
-
-
-        navigationManager.NavigateTo("/ziren/ano");
-
-    }
+  
 
     private async Task MarcaKeyUp(KeyboardEventArgs e)
     {

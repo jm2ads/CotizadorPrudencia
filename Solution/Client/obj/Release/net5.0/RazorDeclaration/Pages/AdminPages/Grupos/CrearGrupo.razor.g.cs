@@ -116,7 +116,10 @@ using Project.Shared.PrudenciaDTOs;
        
     Grupo grupo = new Grupo();
 
-
+    protected override async Task OnInitializedAsync()
+    {
+       grupo.Ajuste = 20;
+    }
     private async Task Crear()
     {
         #region Valido Form

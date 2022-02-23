@@ -118,7 +118,10 @@ using Project.Shared.PrudenciaDTOs;
     [Parameter] public string Url { get; set; }
     private Vendedor vendedor = new Vendedor();
 
-
+    protected override async Task OnInitializedAsync()
+    {
+        vendedor.Ajuste = 20;
+    }
     private async Task Crear()
     {
         #region Valido Form

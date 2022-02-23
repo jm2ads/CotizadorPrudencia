@@ -50,12 +50,15 @@ namespace Project.Server.Controllers
             #endregion
             #region Grupos
             var GruposQueryable = _context.Grupos.AsQueryable();
-             GruposQueryable = GruposQueryable
-            .Where(x => x.Url == url);
+            GruposQueryable = GruposQueryable
+           .Where(x => x.Url == url);
             var GruposList = await GruposQueryable.ToListAsync();
             var Grupo = GruposList.FirstOrDefault();
-            partner = objectToParent(Grupo, Grupo.GetType());
-            return partner;
+            if (Grupo != null)
+            {
+                partner = objectToParent(Grupo, Grupo.GetType());
+                return partner;
+            }
             #endregion
 
             #region Organizador
@@ -66,8 +69,11 @@ namespace Project.Server.Controllers
 
             var OrganizadorList = await OrganizadoresQueryable.ToListAsync();
             var Organizador = OrganizadorList.FirstOrDefault();
-            partner = objectToParent(Organizador, Organizador.GetType());
-            return partner;
+            if (Organizador != null)
+            {
+                partner = objectToParent(Organizador, Organizador.GetType());
+                return partner;
+            }
             #endregion Organizador
 
             #region Productor
@@ -78,8 +84,11 @@ namespace Project.Server.Controllers
 
             var ProductorList = await ProductoresQueryable.ToListAsync();
             var Productor = ProductorList.FirstOrDefault();
-            partner = objectToParent(Productor, Productor.GetType());
-            return partner;
+            if (Productor != null)
+            {
+                partner = objectToParent(Productor, Productor.GetType());
+                return partner;
+            }
             #endregion Productor
 
             #region Vendedor
@@ -90,8 +99,11 @@ namespace Project.Server.Controllers
 
             var VendedorList = await VendedoresQueryable.ToListAsync();
             var Vendedor = VendedorList.FirstOrDefault();
-            partner = objectToParent(Vendedor, Vendedor.GetType());
-            return partner;
+            if (Vendedor != null)
+            {
+                partner = objectToParent(Vendedor, Vendedor.GetType());
+                return partner;
+            }
             #endregion Vendedor
 
             return null;
@@ -107,7 +119,7 @@ namespace Project.Server.Controllers
                 case "ZirenHead":
                     partner.Id = ((ZirenHead)objectPartner).ZirenHeadId;
                     partner.IdPadre = 0;
-                 
+
                     partner.Url = ((ZirenHead)objectPartner).Url;
                     partner.Nombre = ((ZirenHead)objectPartner).Nombre;
                     partner.Apellido = ((ZirenHead)objectPartner).Url;
@@ -130,7 +142,7 @@ namespace Project.Server.Controllers
                 case "Grupo":
                     partner.Id = ((Grupo)objectPartner).GrupoId;
                     partner.IdPadre = ((Grupo)objectPartner).ZirenHeadId;
-                
+
                     partner.Url = ((Grupo)objectPartner).Url;
                     partner.Nombre = ((Grupo)objectPartner).Nombre;
                     partner.Apellido = ((Grupo)objectPartner).Url;
@@ -153,7 +165,7 @@ namespace Project.Server.Controllers
                 case "Organizador":
                     partner.Id = ((Organizador)objectPartner).OrganizadorId;
                     partner.IdPadre = ((Organizador)objectPartner).GrupoId;
-                   
+
                     partner.Url = ((Organizador)objectPartner).Url;
                     partner.Nombre = ((Organizador)objectPartner).Nombre;
                     partner.Apellido = ((Organizador)objectPartner).Url;
@@ -174,50 +186,50 @@ namespace Project.Server.Controllers
                     partner.Whatsapp = ((Organizador)objectPartner).Whatsapp;
                     break;
                 case "Productor":
-                    partner.Id = ((Grupo)objectPartner).GrupoId;
-                    partner.IdPadre = ((Grupo)objectPartner).ZirenHeadId;
-                  
-                    partner.Url = ((Grupo)objectPartner).Url;
-                    partner.Nombre = ((Grupo)objectPartner).Nombre;
-                    partner.Apellido = ((Grupo)objectPartner).Url;
-                    partner.Dni = ((Grupo)objectPartner).Dni;
-                    partner.Matricula = ((Grupo)objectPartner).Matricula;
-                    partner.Mail = ((Grupo)objectPartner).Mail;
-                    partner.Celular1 = ((Grupo)objectPartner).Celular1;
-                    partner.Celular2 = ((Grupo)objectPartner).Celular2;
-                    partner.Domicilio = ((Grupo)objectPartner).Domicilio;
-                    partner.Localidad = ((Grupo)objectPartner).Localidad;
-                    partner.ComisionPrima = ((Grupo)objectPartner).ComisionPrima;
-                    partner.Logo = ((Grupo)objectPartner).Logo;
-                    partner.BotonDeseoDarDatos = ((Grupo)objectPartner).BotonDeseoDarDatos;
-                    partner.Acarreo = ((Grupo)objectPartner).Acarreo;
-                    partner.GncMonto = ((Grupo)objectPartner).GncMonto;
-                    partner.Ajuste = ((Grupo)objectPartner).Ajuste;
-                    partner.DescuentoRecarga = ((Grupo)objectPartner).DescuentoRecarga;
-                    partner.Whatsapp = ((Grupo)objectPartner).Whatsapp;
+                    partner.Id = ((Productor)objectPartner).ProductorId;
+                    partner.IdPadre = ((Productor)objectPartner).OrganizadorId;
+
+                    partner.Url = ((Productor)objectPartner).Url;
+                    partner.Nombre = ((Productor)objectPartner).Nombre;
+                    partner.Apellido = ((Productor)objectPartner).Url;
+                    partner.Dni = ((Productor)objectPartner).Dni;
+                    partner.Matricula = ((Productor)objectPartner).Matricula;
+                    partner.Mail = ((Productor)objectPartner).Mail;
+                    partner.Celular1 = ((Productor)objectPartner).Celular1;
+                    partner.Celular2 = ((Productor)objectPartner).Celular2;
+                    partner.Domicilio = ((Productor)objectPartner).Domicilio;
+                    partner.Localidad = ((Productor)objectPartner).Localidad;
+                    partner.ComisionPrima = ((Productor)objectPartner).ComisionPrima;
+                    partner.Logo = ((Productor)objectPartner).Logo;
+                    partner.BotonDeseoDarDatos = ((Productor)objectPartner).BotonDeseoDarDatos;
+                    partner.Acarreo = ((Productor)objectPartner).Acarreo;
+                    partner.GncMonto = ((Productor)objectPartner).GncMonto;
+                    partner.Ajuste = ((Productor)objectPartner).Ajuste;
+                    partner.DescuentoRecarga = ((Productor)objectPartner).DescuentoRecarga;
+                    partner.Whatsapp = ((Productor)objectPartner).Whatsapp;
                     break;
                 case "Vendedor":
-                    partner.Id = ((Grupo)objectPartner).GrupoId;
-                    partner.IdPadre = ((Grupo)objectPartner).ZirenHeadId;
-                  
-                    partner.Url = ((Grupo)objectPartner).Url;
-                    partner.Nombre = ((Grupo)objectPartner).Nombre;
-                    partner.Apellido = ((Grupo)objectPartner).Url;
-                    partner.Dni = ((Grupo)objectPartner).Dni;
-                    partner.Matricula = ((Grupo)objectPartner).Matricula;
-                    partner.Mail = ((Grupo)objectPartner).Mail;
-                    partner.Celular1 = ((Grupo)objectPartner).Celular1;
-                    partner.Celular2 = ((Grupo)objectPartner).Celular2;
-                    partner.Domicilio = ((Grupo)objectPartner).Domicilio;
-                    partner.Localidad = ((Grupo)objectPartner).Localidad;
-                    partner.ComisionPrima = ((Grupo)objectPartner).ComisionPrima;
-                    partner.Logo = ((Grupo)objectPartner).Logo;
-                    partner.BotonDeseoDarDatos = ((Grupo)objectPartner).BotonDeseoDarDatos;
-                    partner.Acarreo = ((Grupo)objectPartner).Acarreo;
-                    partner.GncMonto = ((Grupo)objectPartner).GncMonto;
-                    partner.Ajuste = ((Grupo)objectPartner).Ajuste;
-                    partner.DescuentoRecarga = ((Grupo)objectPartner).DescuentoRecarga;
-                    partner.Whatsapp = ((Grupo)objectPartner).Whatsapp;
+                    partner.Id = ((Vendedor)objectPartner).VendedorId;
+                    partner.IdPadre = ((Vendedor)objectPartner).ProductorId;
+
+                    partner.Url = ((Vendedor)objectPartner).Url;
+                    partner.Nombre = ((Vendedor)objectPartner).Nombre;
+                    partner.Apellido = ((Vendedor)objectPartner).Url;
+                    partner.Dni = ((Vendedor)objectPartner).Dni;
+                    partner.Matricula = ((Vendedor)objectPartner).Matricula;
+                    partner.Mail = ((Vendedor)objectPartner).Mail;
+                    partner.Celular1 = ((Vendedor)objectPartner).Celular1;
+                    partner.Celular2 = ((Vendedor)objectPartner).Celular2;
+                    partner.Domicilio = ((Vendedor)objectPartner).Domicilio;
+                    partner.Localidad = ((Vendedor)objectPartner).Localidad;
+                    partner.ComisionPrima = ((Vendedor)objectPartner).ComisionPrima;
+                    partner.Logo = ((Vendedor)objectPartner).Logo;
+                    partner.BotonDeseoDarDatos = ((Vendedor)objectPartner).BotonDeseoDarDatos;
+                    partner.Acarreo = ((Vendedor)objectPartner).Acarreo;
+                    partner.GncMonto = ((Vendedor)objectPartner).GncMonto;
+                    partner.Ajuste = ((Vendedor)objectPartner).Ajuste;
+                    partner.DescuentoRecarga = ((Vendedor)objectPartner).DescuentoRecarga;
+                    partner.Whatsapp = ((Vendedor)objectPartner).Whatsapp;
                     break;
 
                 default:

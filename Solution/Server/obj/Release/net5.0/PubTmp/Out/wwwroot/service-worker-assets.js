@@ -97,6 +97,10 @@
       "url": "images\/SumaAsegurada.png"
     },
     {
+      "hash": "sha256-MHRxKFysuby51bfIB02ExiwqFyOXn2\/b1\/+NclHGAzc=",
+      "url": "images\/whatsapp.png"
+    },
+    {
       "hash": "sha256-be0ovo6Y\/9SdYSaNGj\/ftcW45JCa0li5WwZPn3OWDko=",
       "url": "images\/Ziren56.png"
     },
@@ -209,11 +213,11 @@
       "url": "_framework\/System.IO.Pipelines.dll"
     },
     {
-      "hash": "sha256-rxPTT3LmBwO9ju8pItYoBQ9uHL8qBkli5YxNplYpTYk=",
+      "hash": "sha256-LHvRr4CchbS\/ERkQyIUAlLFabQSmCceOZ+LixESECDI=",
       "url": "_framework\/Project.Shared.dll"
     },
     {
-      "hash": "sha256-9D2NTqCFNTXSy+\/2T1ZzwNxbW4bu6FnyRfnfeckt+qM=",
+      "hash": "sha256-qCLwgmiQGcHIg8pS3MyTgFUSrUkqnmeK\/A5eZR4KOIM=",
       "url": "_framework\/Project.Client.dll"
     },
     {
@@ -313,7 +317,7 @@
       "url": "_framework\/System.Private.CoreLib.dll"
     },
     {
-      "hash": "sha256-c8+OfeAT\/\/1WOEx6DbyYL4FsjnNyQz9uZhR4dfUuI70=",
+      "hash": "sha256-x85nmGmnNige7e6Ej79Cyi6V\/pLqW\/5eC1Y\/RHYPOTk=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -321,5 +325,5 @@
       "url": "_framework\/blazor.webassembly.js"
     }
   ],
-  "version": "3+mHE+Cq"
+  "version": "siVx16BC"
 };

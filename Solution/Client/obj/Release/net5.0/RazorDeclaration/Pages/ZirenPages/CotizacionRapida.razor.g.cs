@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 319 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
+#line 329 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
        
 
     private const string btnPolizaStyleOff = "width: 66px;height: 44px;position: absolute;top: 2px;left: 2px;background-color: transparent;background-image: url('/images/Cotizacion/off.png');border: 0;padding: 0;background-size:contain";
@@ -174,13 +174,13 @@ using System.Text.Json;
     CotizacionPopUp cotizacionPopUp;
     ModoPopUp modoPopUp;
     int oCoberturaIDSelected;
-
+    Partner partner = new Partner();
     private string displayGNC;
     protected override async Task OnInitializedAsync()
     {
         #region busco datos del partner
         string partnerJson = await js.GetFromLocalStorage("partner");
-        Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
         #endregion
         string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
         cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
@@ -253,9 +253,26 @@ using System.Text.Json;
         oGncValor = partner.GncMonto;
 
         oCotizacionAutoDTO.tieneAcreedorPrendario = false;
-        oCotizacionAutoDTO.clausulaAjuste = 20;
-        oCotizacionAutoDTO.tipoAjustePrima = "N";
-        oCotizacionAutoDTO.porcAjustePrima = 0;
+
+        oCotizacionAutoDTO.clausulaAjuste = partner.Ajuste;
+
+        if (partner.DescuentoRecarga == 0)
+        {
+            oCotizacionAutoDTO.tipoAjustePrima = "N";
+            oCotizacionAutoDTO.porcAjustePrima = 0;
+        }
+        else
+        {
+            if (partner.DescuentoRecarga > 0)
+            {
+                oCotizacionAutoDTO.tipoAjustePrima = "R";
+            }
+            else
+            {
+                oCotizacionAutoDTO.tipoAjustePrima = "D";
+            }
+            oCotizacionAutoDTO.porcAjustePrima = Math.Abs(partner.DescuentoRecarga);
+        }
         //oCotizacionAutoDTO.vehiculo.patente = "XXX000";
         oCotizacionAutoDTO.vehiculo.sumaAsegurada = -1;
         oCotizacionAutoDTO.vehiculo.valorGNC = partner.GncMonto;
@@ -629,7 +646,7 @@ using System.Text.Json;
 
         #region busco datos del partner
         string partnerJson = await js.GetFromLocalStorage("partner");
-        Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
         #endregion
         if (partner.Type == "ZirenHead")
         {
@@ -637,7 +654,7 @@ using System.Text.Json;
         }
         else
         {
-            navigationManager.NavigateTo($"/"+ partner.Url + "/MCInterno");
+            navigationManager.NavigateTo($"/" + partner.Url + "/MCInterno");
         }
         SendEmail("ModoComodo");
     }

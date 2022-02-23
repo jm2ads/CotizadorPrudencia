@@ -78,6 +78,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\icon-512.png.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\LogoPrudencia.png.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\SumaAsegurada.png.br
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\whatsapp.png.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Ziren56.png.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\index.html.br
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\js\pwa.js.br
@@ -160,6 +161,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\icon-512.png.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\LogoPrudencia.png.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\SumaAsegurada.png.gz
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\whatsapp.png.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Ziren56.png.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\index.html.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\js\pwa.js.gz
@@ -218,8 +220,6 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\_framework\blazor.webassembly.js.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\service-worker.js.gz
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\service-worker-assets.js.gz
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\grupo.jpg
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\grupo2.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\grupos\2.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\grupos\3.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\Coberturas\a.png
@@ -261,18 +261,12 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\test.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\wait.gif
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\Images\ziren.png
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\org.jpg
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\org2.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\organizadores\11.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\organizadores\12.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\organizadores\13.jpg
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\prod.jpg
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\prod2.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\productores\1.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\productores\2.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\productores\3.jpg
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\vend.jpg
-D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\vend2.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\vendedores\1.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\vendedores\2.jpg
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\vendedores\3.jpg
@@ -459,6 +453,7 @@ D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwro
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\icon-512.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\LogoPrudencia.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\SumaAsegurada.png
+D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\whatsapp.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Ziren56.png
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\index.html
 D:\JM2\WP\CotizadorPrudencia\Solution\Server\obj\Release\net5.0\PubTmp\Out\wwwroot\js\pwa.js

@@ -119,15 +119,16 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 70 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\MarcaSeleccionar.razor"
+#line 79 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\MarcaSeleccionar.razor"
        
 
     private List<MarcasAutos> oMarcasAutosList;
     private List<MarcasAutos> oMarcasAutosAuxList;
     private MarcasAutos oMarcasAutosAux = new MarcasAutos();
     string oMarcaDescripcion = "";
+    private string partnerWhatsapp = string.Empty;
 
-
+    Partner partner = new Partner();
 
     private CotizacionAutoDTO oCotizacionAutoDTO;
 
@@ -158,6 +159,12 @@ using System.Text.Json;
                                || c.marcaID == 43
                                select c).ToList();
         Console.WriteLine("Fin :" + DateTime.Now);
+
+        #region GetFromLocalStoragePartner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
+
     }
 
     protected override async Task OnParametersSetAsync()

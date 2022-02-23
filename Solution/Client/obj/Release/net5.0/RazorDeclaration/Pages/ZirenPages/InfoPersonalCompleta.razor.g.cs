@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 158 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonalCompleta.razor"
+#line 168 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonalCompleta.razor"
        
 
 
@@ -149,7 +149,7 @@ using System.Text.Json;
     private int odomicilioPiso;
     private string odomicilioDpto;
     private string opaisID = "ARG";
-
+    Partner partner = new Partner();
 
     private List<TipoDocumentoDTO> oTipoDocumentoDTOList;
     private List<CondicionesIVADTO> oCondicionesIVADTOList;
@@ -171,11 +171,11 @@ using System.Text.Json;
 
         string CotizacionAutoDTOJson = await JsRuntime.GetFromLocalStorage("CotizacionAutoDTO");
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
-        onombre= oCotizacionAutoDTO.asegurado.nombre;
-        omail=oCotizacionAutoDTO.asegurado.mail;
-        otelefono= oCotizacionAutoDTO.asegurado.telefono;
+        onombre = oCotizacionAutoDTO.asegurado.nombre;
+        omail = oCotizacionAutoDTO.asegurado.mail;
+        otelefono = oCotizacionAutoDTO.asegurado.telefono;
         opatente = "";// oCotizacionAutoDTO.vehiculo.patente;
-        ofechaNacimiento = Convert.ToDateTime(oCotizacionAutoDTO.asegurado.fechaNacimiento,  new System.Globalization.CultureInfo("es-ES"));
+        ofechaNacimiento = Convert.ToDateTime(oCotizacionAutoDTO.asegurado.fechaNacimiento, new System.Globalization.CultureInfo("es-ES"));
 
         otipoDocumento = "81";
         ocondicionIVA = "4";
@@ -194,6 +194,10 @@ using System.Text.Json;
         ocondicionIVA = "4";
 
 #endif
+        #region busco datos del partner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
     }
     private async Task OnClickHandle()
     {
@@ -207,7 +211,7 @@ using System.Text.Json;
         }
 
         if (string.IsNullOrEmpty(osexo) || string.IsNullOrEmpty(otipoDocumento)
-            || string.IsNullOrEmpty(ocondicionIVA) || string.IsNullOrEmpty(odomicilio) )
+            || string.IsNullOrEmpty(ocondicionIVA) || string.IsNullOrEmpty(odomicilio))
         {
 
             var mensajeError = "Todos los campos son requeridos";
@@ -258,7 +262,7 @@ using System.Text.Json;
         oCotizacionAutoDTO.asegurado.telefono = otelefono;
         oCotizacionAutoDTO.asegurado.fechaNacimiento = ((DateTime)ofechaNacimiento).ToString("dd/MM/yyyy");
 
-        oCotizacionAutoDTO.vehiculo.patente= opatente.ToUpper();
+        oCotizacionAutoDTO.vehiculo.patente = opatente.ToUpper();
 
 
 
@@ -279,7 +283,7 @@ using System.Text.Json;
         oCotizacionAutoDTO.asegurado.paisID = opaisID;
 
 
-        oCotizacionAutoDTO.tieneAcreedorPrendario= oprendario;
+        oCotizacionAutoDTO.tieneAcreedorPrendario = oprendario;
 
 
         CotizacionAutoDTOJson = JsonSerializer.Serialize(oCotizacionAutoDTO);

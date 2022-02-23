@@ -119,11 +119,11 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 53 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\AnoSeleccionar.razor"
+#line 62 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\AnoSeleccionar.razor"
        
 
     [Parameter] public int marcaID { get; set; }
-
+    Partner partner = new Partner();
     private List<int> oAnoAutosList = new List<int>();
     //private CotizacionAutoRapidaDTO oCotizacionAutoRapidaDTO = null;
     protected override async Task OnInitializedAsync()
@@ -136,7 +136,10 @@ using System.Text.Json;
         {
             oAnoAutosList.Add(i);
         }
-
+        #region GetFromLocalStoragePartner
+        string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
     }
 
     private async Task OnClickHandle(int anoID)
@@ -175,7 +178,7 @@ using System.Text.Json;
         navigationManager.NavigateTo("/ziren/modelo");
         //navigationManager.NavigateTo("/ziren/version");
     }
-   
+
 
 
 #line default

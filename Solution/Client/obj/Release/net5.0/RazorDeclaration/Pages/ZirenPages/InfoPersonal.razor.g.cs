@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 70 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonal.razor"
+#line 79 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonal.razor"
        
     [Parameter] public int marcaID { get; set; }
     [Parameter] public int anoID { get; set; }
@@ -131,8 +131,8 @@ using System.Text.Json;
     private string omail;
     private string otelefono;
     private string opatente;
-    private Partner partner;
-
+    
+    Partner partner = new Partner();
 
     private bool botonDeseoDarDatos = false;
 
@@ -221,7 +221,7 @@ using System.Text.Json;
     {
 
 
-       
+
 
 
 

@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 320 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
+#line 330 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
        
 
     [Parameter] public int oAdjuntoID1 { get; set; }
@@ -160,7 +160,7 @@ using System.Text.Json;
     private string oVencimientoMedioPagoMes;
     private DateTime? oVtoPruebaHidr;
 
-
+    Partner partner = new Partner();
 
     private CotizacionAutoDTO oCotizacionAutoDTO;
     protected override async Task OnInitializedAsync()
@@ -268,7 +268,10 @@ using System.Text.Json;
         oEmitirCotizacionAutoDTO.prendario.mail = "XXXXX@XX.com";
 
 #endif
-
+        #region busco datos del partner
+        string partnerJson = await JSRuntime.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
     }
 
 
@@ -468,7 +471,7 @@ using System.Text.Json;
         {
             //= responseHttp.Response;
             oRespuestaPolizaAutoDTO = responseHttp.Response;
-          
+
             string oRespuestaPolizaAutoDTOJson = JsonSerializer.Serialize(oRespuestaPolizaAutoDTO);
             Console.WriteLine(oRespuestaPolizaAutoDTOJson);
 
@@ -499,7 +502,7 @@ using System.Text.Json;
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNombreTitularTarjeta", true);
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoMes", true);
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "cmbVencimientoMedioPagoAno", true);
-           // await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtTipoDocTitularTarjeta", true);
+            // await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtTipoDocTitularTarjeta", true);
             await JSRuntime.InvokeVoidAsync("JsFunctions.enableElementB", "txtNroDocTitularTarjeta", true);
         }
         // await JsRuntime.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
