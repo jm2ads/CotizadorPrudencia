@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 168 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonalCompleta.razor"
+#line 169 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonalCompleta.razor"
        
 
 
@@ -150,6 +150,7 @@ using System.Text.Json;
     private string odomicilioDpto;
     private string opaisID = "ARG";
     Partner partner = new Partner();
+    private string partnerWhatsapp = string.Empty;
 
     private List<TipoDocumentoDTO> oTipoDocumentoDTOList;
     private List<CondicionesIVADTO> oCondicionesIVADTOList;
@@ -197,6 +198,7 @@ using System.Text.Json;
         #region busco datos del partner
         string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
         partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partnerWhatsapp = partner.Whatsapp;
         #endregion
     }
     private async Task OnClickHandle()

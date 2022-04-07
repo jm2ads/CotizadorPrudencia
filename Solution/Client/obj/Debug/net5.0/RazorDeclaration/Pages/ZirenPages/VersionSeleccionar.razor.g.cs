@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 66 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\VersionSeleccionar.razor"
+#line 67 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\VersionSeleccionar.razor"
        
     [Parameter] public int marcaID { get; set; }
     [Parameter] public int anoID { get; set; }
@@ -127,6 +127,7 @@ using System.Text.Json;
 
     ConfirmacionPopUp confirmacionPopUp;
     Partner partner = new Partner();
+    private string partnerWhatsapp = string.Empty;
     private bool TieneGNC = false;
     string oVersionDescripcion = "";
     private List<VersionesAutos> oVersionesAutosList;
@@ -143,6 +144,7 @@ using System.Text.Json;
         #region GetFromLocalStoragePartner
         string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
         partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partnerWhatsapp = partner.Whatsapp;
         #endregion
     }
     private async Task OnClickHandle(int omodeloID)

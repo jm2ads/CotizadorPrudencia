@@ -111,7 +111,7 @@ using Project.Shared.PrudenciaDTOs;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 187 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Vendedores\FormVendedor.razor"
+#line 198 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Vendedores\FormVendedor.razor"
        
     [Parameter] public Vendedor vendedor { get; set; }
     [Parameter] public EventCallback oOnValidSubmit { get; set; }

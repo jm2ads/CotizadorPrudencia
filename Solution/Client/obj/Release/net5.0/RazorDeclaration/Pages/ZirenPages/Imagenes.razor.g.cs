@@ -119,12 +119,13 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 74 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
+#line 75 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Imagenes.razor"
        
 
 
     AdjuntoDTO[] oAdjuntos = new AdjuntoDTO[5];
     Partner partner = new Partner();
+    private string partnerWhatsapp = string.Empty;
     int oAdjuntoID;
 
     private string imagenTemporal;
@@ -211,6 +212,7 @@ using System.Text.Json;
         #region busco datos del partner
         string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
         partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partnerWhatsapp = partner.Whatsapp;
         #endregion
     }
 

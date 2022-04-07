@@ -146,7 +146,7 @@ using Project.Shared.PrudenciaDTOs;
         #region Valido Form
         if (string.IsNullOrEmpty(productor.Url) || string.IsNullOrEmpty(productor.Nombre) || string.IsNullOrEmpty(productor.Apellido) || string.IsNullOrEmpty(productor.Dni)
             || string.IsNullOrEmpty(productor.Matricula) || string.IsNullOrEmpty(productor.Mail) || string.IsNullOrEmpty(productor.Celular1) || string.IsNullOrEmpty(productor.Domicilio)
-            || string.IsNullOrEmpty(productor.Localidad) || string.IsNullOrEmpty(productor.Logo) ||  string.IsNullOrEmpty(productor.Whatsapp))
+            || string.IsNullOrEmpty(productor.Localidad) || string.IsNullOrEmpty(productor.Logo) || string.IsNullOrEmpty(productor.Whatsapp))
         {
 
             await mostrarMensaje.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +

@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 329 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
+#line 330 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapida.razor"
        
 
     private const string btnPolizaStyleOff = "width: 66px;height: 44px;position: absolute;top: 2px;left: 2px;background-color: transparent;background-image: url('/images/Cotizacion/off.png');border: 0;padding: 0;background-size:contain";
@@ -175,12 +175,14 @@ using System.Text.Json;
     ModoPopUp modoPopUp;
     int oCoberturaIDSelected;
     Partner partner = new Partner();
+    private string partnerWhatsapp = string.Empty;
     private string displayGNC;
     protected override async Task OnInitializedAsync()
     {
         #region busco datos del partner
         string partnerJson = await js.GetFromLocalStorage("partner");
         partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partnerWhatsapp = partner.Whatsapp;
         #endregion
         string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
         cotizacionEntitiesDTO = JsonSerializer.Deserialize<CotizacionEntitiesDTO>(cotizacionEntitiesDTOJson);
@@ -210,14 +212,7 @@ using System.Text.Json;
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
         int oAntiguedad = DateTime.Today.Year - oCotizacionAutoDTO.vehiculo.anio;
 
-        if (oCotizacionAutoDTO.vehiculo.tieneGNC == true)
-        {
-            displayGNC = "block";
-        }
-        else
-        {
-            displayGNC = "none";
-        }
+
 
         if (oAntiguedad <= 10)
         {
@@ -251,7 +246,15 @@ using System.Text.Json;
             }
         }
         oGncValor = partner.GncMonto;
-
+        if (oCotizacionAutoDTO.vehiculo.tieneGNC == true)
+        {
+            displayGNC = "block";
+        }
+        else
+        {
+            displayGNC = "none";
+            oGncValor = 0;
+        }
         oCotizacionAutoDTO.tieneAcreedorPrendario = false;
 
         oCotizacionAutoDTO.clausulaAjuste = partner.Ajuste;
@@ -648,14 +651,15 @@ using System.Text.Json;
         string partnerJson = await js.GetFromLocalStorage("partner");
         partner = JsonSerializer.Deserialize<Partner>(partnerJson);
         #endregion
-        if (partner.Type == "ZirenHead")
-        {
-            js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
-        }
-        else
-        {
-            navigationManager.NavigateTo($"/" + partner.Url + "/MCInterno");
-        }
+        //if (partner.Type == "ZirenHead")
+        //{
+        //    js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+        //}
+        //else
+        //{
+        //    navigationManager.NavigateTo($"/" + partner.Url + "/MCInterno");
+        //}
+        navigationManager.NavigateTo($"/" + partner.Url + "/MCInterno");
         SendEmail("ModoComodo");
     }
     private async Task onPagoEf()
@@ -776,14 +780,46 @@ using System.Text.Json;
         sHtml.Append("Gnc : " + cotizacionAutoDTO.vehiculo.tieneGNC);
         sHtml.Append(CeldaEnd);
 
-
-
-
-
-
         sHtml.Append(CeldaBegin);
         sHtml.Append("Provincia : " + cotizacionEntitiesDTO.provincia.descripcion);
         sHtml.Append(CeldaEnd);
+
+
+        #region Partner
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("<hr>");
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Origen de la Cotizacion");
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Url : " + partner.Url);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Nom y Ape : " + partner.Nombre + " " + partner.Nombre);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Matricula : " + partner.Matricula );
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Mail : " + partner.Mail);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Cel.: : " + partner.Celular1 + " - " + partner.Celular2);
+        sHtml.Append(CeldaEnd);
+
+        sHtml.Append(CeldaBegin);
+        sHtml.Append("Dir. : " + partner.Domicilio + " - " + partner.Localidad);
+        sHtml.Append(CeldaEnd);
+        #endregion
+
 
         sHtml.Append(CeldaBegin);
 
@@ -803,7 +839,7 @@ using System.Text.Json;
 #if DEBUG
         oMailApp.To = "adfs@outlook.com.ar";
 #endif
-        //oMailApp.Bcc = "jm2@outlook.com.ar";
+        oMailApp.Bcc = partner.Mail;
         oMailApp.Body = sHtml.ToString();
         oMailApp.Subject = oSubject;
 

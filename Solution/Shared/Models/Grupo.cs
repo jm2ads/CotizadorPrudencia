@@ -46,7 +46,13 @@ namespace Project.Shared.Models
      
         public int ZirenHeadId { get; set; }
 
-      
-       
+        public bool BotonContinuar { get; set; }
+
+        public string CodigoInternoPrudencia { get; set; }
+        public string CUIT { get; set; }
+        public int IVA { get; set; }
+
+
+
     }
 }

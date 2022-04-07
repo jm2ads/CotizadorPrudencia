@@ -1,6 +1,6 @@
-﻿
+﻿@inject IMostrarMensajes mostrarMensajes
 
-<EditForm Model="productor" OnValidSubmit="oOnValidSubmit">
+<EditForm Model="productor" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
     <div class="row" style="margin:10px">
         <div class="col-md-5">
@@ -113,9 +113,10 @@
         </div>
 
         <div class="col-md-5">
-            <label style="color:white">Logo:</label>
+            <label style="color:white">Whatsapp:</label>
             <div>
-                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenTemporal="@imagenURL" />
+                <InputText class="form-control" @bind-Value="productor.Whatsapp"></InputText>
+                <ValidationMessage For="@(() => productor.Whatsapp)" />
             </div>
         </div>
     </div>
@@ -130,10 +131,10 @@
         </div>
 
         <div class="col-md-5">
-            <label style="color:white">Whatsapp:</label>
+            <label style="color:white">Boton Continuar:</label>
             <div>
-                <InputText class="form-control" @bind-Value="productor.Whatsapp"></InputText>
-                <ValidationMessage For="@(() => productor.Whatsapp)" />
+                <InputCheckbox class="form-control" @bind-Value="productor.BotonContinuar"></InputCheckbox>
+                <ValidationMessage For="@(() => productor.BotonContinuar)" />
             </div>
         </div>
     </div>
@@ -162,7 +163,7 @@
         <div class="col-md-5">
             <label style="color:white">Ajuste:</label>
             <div>
-                <InputNumber class="form-control" @bind-Value="productor.Ajuste" min="0"  max ="100"></InputNumber>
+                <InputNumber class="form-control" @bind-Value="productor.Ajuste" min="0" max="100"></InputNumber>
                 <ValidationMessage For="@(() => productor.Ajuste)" />
             </div>
         </div>
@@ -170,24 +171,67 @@
         <div class="col-md-5">
             <label style="color:white">DescuentoRecargas:</label>
             <div>
-                <InputNumber class="form-control" @bind-Value="productor.DescuentoRecarga" min="-10"  max ="100"></InputNumber>
+                <InputNumber class="form-control" @bind-Value="productor.DescuentoRecarga" min="-10" max="100"></InputNumber>
                 <ValidationMessage For="@(() => productor.DescuentoRecarga)" />
             </div>
         </div>
     </div>
 
-  
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Logo:</label>
+            <div>
+                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenTemporal="@imagenURL" />
+            </div>
+        </div>
+        <div class="col-md-5">
+            <label style="color:white">Codigo Prudencia:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="productor.CodigoInternoPrudencia" maxlength="8"></InputText>
+            </div>
+
+        </div>
+    </div>
 
 
 
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">CUIT:</label>
+            <div class="row">
+                <InputNumber @bind-Value="oPrefijo" class="form-control" style="width:65px;" max="99" @onblur="CuitOnChange"></InputNumber>
+                <label style="color:white;vertical-align:central">&nbsp;</label>
+                <InputNumber @bind-Value="oNumeroDocumento" class="form-control" style="width:120px;" max="9999999999" @onblur="CuitOnChange"></InputNumber>
+                <label style="color:white">&nbsp;</label>
+                <InputNumber @bind-Value="oDigitoVerif" class="form-control" style="width:55px;" max="9" @onblur="CuitOnChange"></InputNumber>
+            </div>
+        </div>
 
-    <button class="btn btn-success" type="submit">Guardar Cambios</button>
+        <div class="col-md-5">
+            <label style="color:white">IVA:</label>
+            <div>
+                <InputSelect @bind-Value="productor.IVA" class="form-control">
+                    <option value="0">Posicion Iva...</option>
+
+                    <option value="1">RESPONSABLE INSCRIPTO</option>
+                    <option value="2">MONOTRIBUTO</option>
+                </InputSelect>
+            </div>
+        </div>
+    </div>
+
+
+
+    <button class="btn btn-success" type="button" @onclick="@(() => SaveOnClick())">Guardar Cambios</button>
 </EditForm>
 
 @code {
     [Parameter] public Productor productor { get; set; }
-    [Parameter] public EventCallback oOnValidSubmit { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
 
+    private int? oPrefijo;
+    private int? oNumeroDocumento;
+    private int? oDigitoVerif;
     private string imagenURL;
 
     protected override void OnInitialized()
@@ -199,10 +243,49 @@
             imagenURL = productor.Logo;
             //  productor.Logo = null;  VER ASOSA
         }
+        if (!string.IsNullOrEmpty(productor.CUIT))
+        {
+            oPrefijo = int.Parse(productor.CUIT.Substring(0, 2));
+            oNumeroDocumento = int.Parse(productor.CUIT.Substring(2, 8));
+            oDigitoVerif = int.Parse(productor.CUIT.Substring(10, 1));
+        }
     }
     private void ImagenSeleccionada(string imagenBase64)
     {
         productor.Logo = imagenBase64;
         imagenURL = null;
+    }
+    private void CuitOnChange()
+    {
+        productor.CUIT = oPrefijo.ToString().Trim() + oNumeroDocumento.ToString().Trim() + oDigitoVerif.ToString().Trim();
+    }
+    private async Task SaveOnClick()
+    {
+        if (!string.IsNullOrWhiteSpace(productor.Logo))
+        {
+            imagenURL = null;
+        }
+
+
+        #region Valido Form
+        if (string.IsNullOrEmpty(productor.Url) || string.IsNullOrEmpty(productor.Nombre) || string.IsNullOrEmpty(productor.Apellido) || string.IsNullOrEmpty(productor.Dni)
+            || string.IsNullOrEmpty(productor.Matricula) || string.IsNullOrEmpty(productor.Mail) || string.IsNullOrEmpty(productor.Celular1) || string.IsNullOrEmpty(productor.Domicilio)
+            || string.IsNullOrEmpty(productor.Localidad) || string.IsNullOrEmpty(productor.Logo) || string.IsNullOrEmpty(productor.Whatsapp))
+        {
+
+            await mostrarMensajes.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
+                " Localidad, Logo y Whatsapp son Obligatorios");
+            return;
+        }
+
+        if (!(UtilidadesString.ValidateCUIT(productor.CUIT)))
+        {
+            var mensajeError = "Nro de Documento Invalido";
+
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+        #endregion
+        await OnValidSubmit.InvokeAsync(null);
     }
 }

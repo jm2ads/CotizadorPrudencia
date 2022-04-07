@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Vendedores\IndexVendedor.razor"
+#line 59 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Vendedores\IndexVendedor.razor"
        
 
     [Parameter] public int productorId { get; set; }
@@ -131,7 +131,7 @@ using System.Text.Json;
     private Organizador organizador = new Organizador();
 
     private List<Productor> productorList = new List<Productor>();
-   
+
     private List<Vendedor> vendedorList;
     private Vendedor vendedor = new Vendedor();
 
@@ -151,16 +151,11 @@ using System.Text.Json;
     protected override async Task OnParametersSetAsync()
     {
 
-
-
     }
 
 
     private async Task OnClickHandle(int omarcaID)
     {
-
-
-
 
         navigationManager.NavigateTo("/ziren/ano");
 
@@ -194,16 +189,16 @@ using System.Text.Json;
     }
     private async Task VolverProductorList(int productorId)
     {
-    
-
-    var responseHttp = await repositorio.Get<Productor>("api/Productores/" + productorId);
-    Productor productor = responseHttp.Response;
-
-    navigationManager.NavigateTo("/admin/Productores/" + productor.OrganizadorId + "/" + productor.Url);
 
 
+        var responseHttp = await repositorio.Get<Productor>("api/Productores/" + productorId);
+        Productor productor = responseHttp.Response;
 
-}
+        navigationManager.NavigateTo("/admin/Productores/" + productor.OrganizadorId + "/" + productor.Url);
+
+
+
+    }
 
 #line default
 #line hidden

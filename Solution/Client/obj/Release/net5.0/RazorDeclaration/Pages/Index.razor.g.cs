@@ -120,7 +120,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 74 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
+#line 75 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\Index.razor"
        private Login oLogin = null;
 
     [Parameter] public string urlPartner { get; set; }
@@ -130,7 +130,7 @@ using System.Text.Json;
 
     private string partnerLogo = string.Empty;
     private string partnerWhatsapp = string.Empty;
-    Partner partner;
+   Partner partner = new Partner();
 
     CotizacionPopUp cotizacionPopUp;
     private List<RespuestaReporteDTO> oRespuestaReporteDTOList = new List<RespuestaReporteDTO>();
@@ -182,7 +182,11 @@ using System.Text.Json;
         #endregion
 
 
-
+        #region CotizacionEntitiesDTO
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = new CotizacionEntitiesDTO();
+        string cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        await js.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+        #endregion
 
 
     }

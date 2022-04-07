@@ -110,7 +110,7 @@ using System.Text.Json;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/ziren/index")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/ziren/index222222")]
     public partial class IndexZiren : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998

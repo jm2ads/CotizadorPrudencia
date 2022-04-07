@@ -6,7 +6,7 @@
 <h3 style="color:white">Crear Organizador (de @Url)</h3>
 
 
-<FormOrganizador organizador="organizador" oOnValidSubmit="Crear"></FormOrganizador>
+<FormOrganizador organizador="organizador" OnValidSubmit="Crear"></FormOrganizador>
 
 @code {
     [Parameter] public int grupoId { get; set; }
@@ -20,17 +20,7 @@
 
     private async Task Crear()
     {
-        #region Valido Form
-        if (string.IsNullOrEmpty(organizador.Url) || string.IsNullOrEmpty(organizador.Nombre) || string.IsNullOrEmpty(organizador.Apellido) || string.IsNullOrEmpty(organizador.Dni)
-            || string.IsNullOrEmpty(organizador.Matricula) || string.IsNullOrEmpty(organizador.Mail) || string.IsNullOrEmpty(organizador.Celular1) || string.IsNullOrEmpty(organizador.Domicilio)
-            || string.IsNullOrEmpty(organizador.Localidad) || string.IsNullOrEmpty(organizador.Logo) ||  string.IsNullOrEmpty(organizador.Whatsapp))
-        {
-
-            await mostrarMensajes.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
-                " Localidad, Logo y Whatsapp son Obligatorios");
-            return;
-        }
-        #endregion
+      
         organizador.GrupoId = grupoId;
         var httpResponse = await repositorio.Post("api/Organizadores", organizador);
 

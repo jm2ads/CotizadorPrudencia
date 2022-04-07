@@ -112,65 +112,65 @@ using Project.Shared.PrudenciaDTOs;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 15 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Grupos\EditarGrupo.razor"
+#line 16 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Grupos\EditarGrupo.razor"
        
     [Parameter] public int GrupoId { get; set; }
-    Grupo grupo ;
+    Grupo grupo;
 
-    protected override async Task OnInitializedAsync()
+protected override async Task OnInitializedAsync()
+{
+    var httpResponse = await repositorio.Get<Grupo>("api/Grupos/" + GrupoId);
+    if (httpResponse.Error)
     {
-        var httpResponse = await repositorio.Get<Grupo>("api/Grupos/" + GrupoId);
-        if (httpResponse.Error)
+        if (httpResponse.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
         {
-            if (httpResponse.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
-            {
-                navigationManager.NavigateTo("Grupos");
-            }
-            else
-            {
-                await mostrarMensaje.MostrarMensajeError(await httpResponse.GetBody());
-            }
+            navigationManager.NavigateTo("Grupos");
         }
         else
-        {
-            grupo = httpResponse.Response;
-        }
-
-
-
-    }
-    private async Task Editar()
-    {
-        #region Valido Form
-        if (string.IsNullOrEmpty(grupo.Url) || string.IsNullOrEmpty(grupo.Nombre) || string.IsNullOrEmpty(grupo.Apellido) || string.IsNullOrEmpty(grupo.Dni)
-            || string.IsNullOrEmpty(grupo.Matricula) || string.IsNullOrEmpty(grupo.Mail) || string.IsNullOrEmpty(grupo.Celular1) || string.IsNullOrEmpty(grupo.Domicilio)
-            || string.IsNullOrEmpty(grupo.Localidad) || string.IsNullOrEmpty(grupo.Logo)  || string.IsNullOrEmpty(grupo.Whatsapp))
-        {
-
-            await mostrarMensaje.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
-                " Localidad, Logo y Whatsapp son Obligatorios");
-            return;
-        }
-        #endregion
-        #region Checkeo si ya existe la URL  CAMBIAO EL TIPO
-        //var httpResponse2 = await repositorio.Post<Grupo,bool>("api/ZirenHeads/YaExisteUrl/Grupo", grupo);
-        //if(httpResponse2.Response==true)
-        //{
-        //    await mostrarMensaje.MostrarMensajeError("Error : La url ya existe");
-        //    return;
-        //}
-        #endregion
-
-        var httpResponse = await repositorio.Put("api/Grupos/" + grupo.GrupoId, grupo);
-        if (httpResponse.Error)
         {
             await mostrarMensaje.MostrarMensajeError(await httpResponse.GetBody());
         }
-        else
-        {
-            navigationManager.NavigateTo("/admin/Grupos");
-        }
     }
+    else
+    {
+        grupo = httpResponse.Response;
+    }
+
+
+
+}
+private async Task Editar()
+{
+    #region Valido Form
+    if (string.IsNullOrEmpty(grupo.Url) || string.IsNullOrEmpty(grupo.Nombre) || string.IsNullOrEmpty(grupo.Apellido) || string.IsNullOrEmpty(grupo.Dni)
+        || string.IsNullOrEmpty(grupo.Matricula) || string.IsNullOrEmpty(grupo.Mail) || string.IsNullOrEmpty(grupo.Celular1) || string.IsNullOrEmpty(grupo.Domicilio)
+        || string.IsNullOrEmpty(grupo.Localidad) || string.IsNullOrEmpty(grupo.Logo) || string.IsNullOrEmpty(grupo.Whatsapp))
+    {
+
+        await mostrarMensaje.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
+            " Localidad, Logo y Whatsapp son Obligatorios");
+        return;
+    }
+    #endregion
+    #region Checkeo si ya existe la URL  CAMBIAO EL TIPO
+    //var httpResponse2 = await repositorio.Post<Grupo,bool>("api/ZirenHeads/YaExisteUrl/Grupo", grupo);
+    //if(httpResponse2.Response==true)
+    //{
+    //    await mostrarMensaje.MostrarMensajeError("Error : La url ya existe");
+    //    return;
+    //}
+    #endregion
+
+    var httpResponse = await repositorio.Put("api/Grupos/" + grupo.GrupoId, grupo);
+    if (httpResponse.Error)
+    {
+        await mostrarMensaje.MostrarMensajeError(await httpResponse.GetBody());
+    }
+    else
+    {
+        navigationManager.NavigateTo("/admin/Grupos");
+    }
+}
 
 #line default
 #line hidden

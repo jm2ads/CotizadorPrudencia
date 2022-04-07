@@ -111,11 +111,14 @@ using Project.Shared.PrudenciaDTOs;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 187 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Vendedores\FormVendedor.razor"
+#line 229 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Vendedores\FormVendedor.razor"
        
     [Parameter] public Vendedor vendedor { get; set; }
-    [Parameter] public EventCallback oOnValidSubmit { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
 
+    private int? oPrefijo;
+    private int? oNumeroDocumento;
+    private int? oDigitoVerif;
     private string imagenURL;
 
     protected override void OnInitialized()
@@ -126,16 +129,56 @@ using Project.Shared.PrudenciaDTOs;
             imagenURL = vendedor.Logo;
             //  vendedor.Logo = null;   VER ASOSA
         }
+        if (!string.IsNullOrEmpty(vendedor.CUIT))
+        {
+            oPrefijo = int.Parse(vendedor.CUIT.Substring(0, 2));
+            oNumeroDocumento = int.Parse(vendedor.CUIT.Substring(2, 8));
+            oDigitoVerif = int.Parse(vendedor.CUIT.Substring(10, 1));
+        }
     }
     private void ImagenSeleccionada(string imagenBase64)
     {
         vendedor.Logo = imagenBase64;
         imagenURL = null;
     }
+    private void CuitOnChange()
+    {
+        vendedor.CUIT = oPrefijo.ToString().Trim() + oNumeroDocumento.ToString().Trim() + oDigitoVerif.ToString().Trim();
+    }
+    private async Task SaveOnClick()
+    {
+        if (!string.IsNullOrWhiteSpace(vendedor.Logo))
+        {
+            imagenURL = null;
+        }
+
+
+        #region Valido Form
+        if (string.IsNullOrEmpty(vendedor.Url) || string.IsNullOrEmpty(vendedor.Nombre) || string.IsNullOrEmpty(vendedor.Apellido) || string.IsNullOrEmpty(vendedor.Dni)
+            || string.IsNullOrEmpty(vendedor.Matricula) || string.IsNullOrEmpty(vendedor.Mail) || string.IsNullOrEmpty(vendedor.Celular1) || string.IsNullOrEmpty(vendedor.Domicilio)
+            || string.IsNullOrEmpty(vendedor.Localidad) || string.IsNullOrEmpty(vendedor.Logo) || string.IsNullOrEmpty(vendedor.Whatsapp))
+        {
+
+            await mostrarMensajes.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
+                " Localidad, Log y Whatsapp son Obligatorios");
+            return;
+        }
+
+        if (!(UtilidadesString.ValidateCUIT(vendedor.CUIT)))
+        {
+            var mensajeError = "Nro de Documento Invalido";
+
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+        #endregion
+        await OnValidSubmit.InvokeAsync(null);
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMostrarMensajes mostrarMensajes { get; set; }
     }
 }
 #pragma warning restore 1591

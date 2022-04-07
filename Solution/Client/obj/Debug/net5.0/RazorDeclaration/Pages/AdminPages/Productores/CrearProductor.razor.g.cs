@@ -125,17 +125,7 @@ using Project.Shared.PrudenciaDTOs;
 
     private async Task Crear()
     {
-        #region Valido Form
-        if (string.IsNullOrEmpty(productor.Url) || string.IsNullOrEmpty(productor.Nombre) || string.IsNullOrEmpty(productor.Apellido) || string.IsNullOrEmpty(productor.Dni)
-            || string.IsNullOrEmpty(productor.Matricula) || string.IsNullOrEmpty(productor.Mail) || string.IsNullOrEmpty(productor.Celular1) || string.IsNullOrEmpty(productor.Domicilio)
-            || string.IsNullOrEmpty(productor.Localidad) || string.IsNullOrEmpty(productor.Logo) || string.IsNullOrEmpty(productor.Whatsapp))
-        {
-
-            await mostrarMensajes.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
-                " Localidad, Logo y Whatsapp son Obligatorios");
-            return;
-        }
-        #endregion
+     
         productor.OrganizadorId = organizadorId;
         var httpResponse = await repositorio.Post("api/Productores", productor);
 

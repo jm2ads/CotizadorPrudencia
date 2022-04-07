@@ -1,4 +1,6 @@
-﻿
+﻿@inject IJSRuntime js
+@inject IJSRuntime JsRuntime
+@using System.Text.Json;
 @if (MostrarModo)
 {
 
@@ -19,41 +21,51 @@
 
                 <div class="modal-body" style="padding: 0;justify-content: center;
         width: 370px;background-image: radial-gradient(circle, #803496, #70288d, #5f1c83, #4e107a, #3c0371);">
-                    <div class="row" style="padding: 0;justify-content: center;margin-top:10px;">
-                        <div class="col-sm-12">
-                            <button @onclick="onContinuar" type="button" class="btn btn-info" style="width: 250px;margin: 1px;border: 0">
-                                CONTINUAR
-                            </button>
+
+
+                    @if (partner.BotonContinuar == true)
+                    {
+                        <div class="row" style="padding: 0;justify-content: center;margin-top:10px;">
+                            <div class="col-sm-12">
+                                <button @onclick="onContinuar" type="button" class="btn btn-info" style="width: 250px;margin: 1px;border: 0">
+                                    CONTINUAR
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row" style="margin:0px">
-                        <div class="col-sm-12">
-                            <label style="margin: 1px;color: white;">
-                                - CARGA MANUAL  ✍🏼  DE TODOS LOS DATOS
-                            </label>
+                        <div class="row" style="margin:0px">
+                            <div class="col-sm-12">
+                                <label style="margin: 1px;color: white;">
+                                    - CARGA MANUAL  ✍🏼  DE TODOS LOS DATOS
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row" style="margin:0px">
-                        <div class="col-sm-12">
-                            <label style="margin: 1px;color: white;">
-                                -CARGA FOTOS DEL VEHÍCULO 🚘 🚗
-                            </label>
+                        <div class="row" style="margin:0px">
+                            <div class="col-sm-12">
+                                <label style="margin: 1px;color: white;">
+                                    -CARGA FOTOS DEL VEHÍCULO 🚘 🚗
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row" style="margin:0px">
-                        <div class="col-sm-12">
-                            <label style="margin: 1px;color: white;">
-                                - ADMITE SÓLO 💳 TARJETA DE CRÉDITO 🏦 DÉBITO EN CUENTA (número CBU).
-                            </label>
+                        <div class="row" style="margin:0px">
+                            <div class="col-sm-12">
+                                <label style="margin: 1px;color: white;">
+                                    - ADMITE SÓLO 💳 TARJETA DE CRÉDITO 🏦 DÉBITO EN CUENTA (número CBU).
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row" style="margin:0px">
-                        <div class="col-sm-12">
-                            <label style="margin: 1px;color:#0BFE04;font-weight:bold">
-                                -DOCUMENTACIÓN EN EL MOMENTO   📲 🙌🏼 RECIBIS PÓLIZA, TARJETA DE CIRCULACIÓN Y DOCUMENTACIÓN EN EL MOMENTO!!!
-                            </label>
+                        <div class="row" style="margin:0px">
+                            <div class="col-sm-12">
+                                <label style="margin: 1px;color:#0BFE04;font-weight:bold">
+                                    -DOCUMENTACIÓN EN EL MOMENTO   📲 🙌🏼 RECIBIS PÓLIZA, TARJETA DE CIRCULACIÓN Y DOCUMENTACIÓN EN EL MOMENTO!!!
+                                </label>
+                            </div>
                         </div>
-                    </div>
+                    }
+
+
+
+
+
 
                     <div class="row" style="padding: 0;justify-content: center;margin-top:10px;">
                         <div class="col-sm-12">
@@ -94,21 +106,21 @@
 
 
                     @*<div class="row"  style="padding: 0;justify-content: center;margin-top:10px;">
-            <div class="col-sm-12">
-                <button @onclick="onPagoEF" type="button" class="btn btn-info" style="width: 250px;margin: 1px;border: 0">
-                    PAGO EN EFECTIVO
-                </button>
-            </div>
-        </div>
+                            <div class="col-sm-12">
+                                <button @onclick="onPagoEF" type="button" class="btn btn-info" style="width: 250px;margin: 1px;border: 0">
+                                    PAGO EN EFECTIVO
+                                </button>
+                            </div>
+                        </div>
 
 
-        <div class="row">
-            <div class="col-sm-12">
-                <label style="margin: 1px;color:red;font-weight:bold">
-                    - SI DESEA PAGAR EN EFECTIVO  (RAPIPAGO, PAGOFACIL, COBRO EXPRESS, ETC.)
-                </label>
-            </div>
-        </div>*@
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label style="margin: 1px;color:red;font-weight:bold">
+                                    - SI DESEA PAGAR EN EFECTIVO  (RAPIPAGO, PAGOFACIL, COBRO EXPRESS, ETC.)
+                                </label>
+                            </div>
+                        </div>*@
                 </div>
 
 
@@ -139,11 +151,14 @@
     public void Mostrar() => MostrarModo = true;
     public void Ocultar() => MostrarModo = false;
 
-
+    Partner partner = new Partner();
     protected override async Task OnInitializedAsync()
     {
 
-
+        #region busco datos del partner
+        string partnerJson = await js.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
 
 
     }

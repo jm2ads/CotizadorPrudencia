@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 50 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Organizadores\IndexOrganizador.razor"
+#line 52 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Organizadores\IndexOrganizador.razor"
        
     [Parameter] public int grupoId { get; set; }
     [Parameter] public string Url { get; set; }

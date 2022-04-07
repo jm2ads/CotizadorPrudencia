@@ -103,6 +103,13 @@ using Project.Shared.PrudenciaDTOs;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ModoPopUp.razor"
+using System.Text.Json;
+
+#line default
+#line hidden
+#nullable disable
     public partial class ModoPopUp : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -111,7 +118,7 @@ using Project.Shared.PrudenciaDTOs;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 128 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ModoPopUp.razor"
+#line 140 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Shared\ModoPopUp.razor"
        
     private bool MostrarModo = false;
     [Parameter] public string Titulo { get; set; } = "Confirmación";
@@ -126,11 +133,14 @@ using Project.Shared.PrudenciaDTOs;
     public void Mostrar() => MostrarModo = true;
     public void Ocultar() => MostrarModo = false;
 
-
+    Partner partner = new Partner();
     protected override async Task OnInitializedAsync()
     {
 
-
+        #region busco datos del partner
+        string partnerJson = await js.GetFromLocalStorage("partner");
+        partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        #endregion
 
 
     }
@@ -149,6 +159,8 @@ using Project.Shared.PrudenciaDTOs;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime js { get; set; }
     }
 }
 #pragma warning restore 1591

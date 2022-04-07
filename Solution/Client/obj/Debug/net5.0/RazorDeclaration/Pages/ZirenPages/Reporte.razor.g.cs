@@ -119,12 +119,13 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 66 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
+#line 67 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Reporte.razor"
        
     [Parameter] public int polizaID { get; set; }
 
     List<RespuestaReporteDTO> oRespuestaReporteDTOList;
     Partner partner = new Partner();
+    private string partnerWhatsapp = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
@@ -196,6 +197,7 @@ using System.Text.Json;
         #region busco datos del partner
         string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
         partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partnerWhatsapp = partner.Whatsapp;
         #endregion
 
 

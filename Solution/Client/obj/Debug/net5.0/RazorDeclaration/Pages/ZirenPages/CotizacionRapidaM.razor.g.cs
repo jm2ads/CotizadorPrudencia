@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 322 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapidaM.razor"
+#line 323 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\CotizacionRapidaM.razor"
        
 
 
@@ -179,12 +179,14 @@ using System.Text.Json;
     ModoPopUp modoPopUp;
     int oCoberturaIDSelected;
     Partner partner = new Partner();
+    private string partnerWhatsapp = string.Empty;
     private string displayGNC;
     protected override async Task OnInitializedAsync()
     {
         #region busco datos del partner
         string partnerJson = await js.GetFromLocalStorage("partner");
         partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partnerWhatsapp = partner.Whatsapp;
         #endregion
 
         string cotizacionEntitiesDTOJson = await js.GetFromLocalStorage("CotizacionEntitiesDTO");
@@ -215,14 +217,7 @@ using System.Text.Json;
         CotizacionAutoDTO oCotizacionAutoDTO = JsonSerializer.Deserialize<CotizacionAutoDTO>(CotizacionAutoDTOJson);
         int oAntiguedad = DateTime.Today.Year - oCotizacionAutoDTO.vehiculo.anio;
 
-        if (oCotizacionAutoDTO.vehiculo.tieneGNC == true)
-        {
-            displayGNC = "block";
-        }
-        else
-        {
-            displayGNC = "none";
-        }
+
 
         if (oAntiguedad <= 10)
         {
@@ -257,6 +252,16 @@ using System.Text.Json;
         }
 
         oGncValor = partner.GncMonto;
+        if (oCotizacionAutoDTO.vehiculo.tieneGNC == true)
+        {
+            displayGNC = "block";
+        }
+        else
+        {
+            displayGNC = "none";
+            oGncValor = 0;
+        }
+
         oCotizacionAutoDTO.tieneAcreedorPrendario = false;
         oCotizacionAutoDTO.clausulaAjuste = partner.Ajuste;
 
@@ -635,14 +640,15 @@ using System.Text.Json;
         string partnerJson = await js.GetFromLocalStorage("partner");
         Partner partner = JsonSerializer.Deserialize<Partner>(partnerJson);
         #endregion
-        if (partner.Type == "ZirenHead")
-        {
-            js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
-        }
-        else
-        {
-            navigationManager.NavigateTo($"/" + partner.Url + "/MCInterno");
-        }
+        //if (partner.Type == "ZirenHead")
+        //{
+        //    js.InvokeAsync<string>("open", $"https://ziren.com.ar/modo-comodo/", "_blank");
+        //}
+        //else
+        //{
+        //    navigationManager.NavigateTo($"/" + partner.Url + "/MCInterno");
+        //}
+        navigationManager.NavigateTo($"/" + partner.Url + "/MCInterno");
         SendEmail("ModoComodo");
     }
     private async Task onPagoEf()

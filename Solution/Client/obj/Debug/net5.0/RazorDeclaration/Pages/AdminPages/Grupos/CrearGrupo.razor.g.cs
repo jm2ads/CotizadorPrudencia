@@ -118,21 +118,11 @@ using Project.Shared.PrudenciaDTOs;
 
     protected override async Task OnInitializedAsync()
     {
-       grupo.Ajuste = 20;
+        grupo.Ajuste = 20;
     }
     private async Task Crear()
     {
-        #region Valido Form
-        if ( string.IsNullOrEmpty(grupo.Url) || string.IsNullOrEmpty(grupo.Nombre)|| string.IsNullOrEmpty(grupo.Apellido) || string.IsNullOrEmpty(grupo.Dni)
-            || string.IsNullOrEmpty(grupo.Matricula) || string.IsNullOrEmpty(grupo.Mail) || string.IsNullOrEmpty(grupo.Celular1) || string.IsNullOrEmpty(grupo.Domicilio)
-            || string.IsNullOrEmpty(grupo.Localidad) || string.IsNullOrEmpty(grupo.Logo) || string.IsNullOrEmpty(grupo.Whatsapp)     )
-        {
-
-            await mostrarMensajes.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
-                " Localidad, Logo y Whatsapp son Obligatorios");
-            return;
-        }
-        #endregion
+      
 
 
         #region Checkeo si ya existe la URL  CAMBIAO EL TIPO

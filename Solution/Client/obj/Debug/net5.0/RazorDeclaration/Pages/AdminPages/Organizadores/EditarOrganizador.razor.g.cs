@@ -142,17 +142,8 @@ using Project.Shared.PrudenciaDTOs;
     }
     private async Task Editar()
     {
-        #region Valido Form
-        if (string.IsNullOrEmpty(organizador.Url) || string.IsNullOrEmpty(organizador.Nombre) || string.IsNullOrEmpty(organizador.Apellido) || string.IsNullOrEmpty(organizador.Dni)
-            || string.IsNullOrEmpty(organizador.Matricula) || string.IsNullOrEmpty(organizador.Mail) || string.IsNullOrEmpty(organizador.Celular1) || string.IsNullOrEmpty(organizador.Domicilio)
-            || string.IsNullOrEmpty(organizador.Localidad) || string.IsNullOrEmpty(organizador.Logo) ||  string.IsNullOrEmpty(organizador.Whatsapp))
-        {
+      
 
-            await mostrarMensaje.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
-                " Localidad, Logo y Whatsapp son Obligatorios");
-            return;
-        }
-        #endregion
         #region Checkeo si ya existe la URL
         var httpResponse2 = await repositorio.Post<Organizador, bool>("api/ZirenHeads/YaExisteUrl", organizador);
         if (httpResponse2.Response == true)

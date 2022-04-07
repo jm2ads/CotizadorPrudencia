@@ -385,7 +385,7 @@ using System.Text.Json;
 
         sendModoComodoMail.mailApp = oMailApp;
 
-        SendModoComodoMail(sendModoComodoMail);
+     await   SendModoComodoMail(sendModoComodoMail);
     }
     private async Task SendModoComodoMail(SendModoComodoMail sendModoComodoMail)
     {

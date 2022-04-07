@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 79 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonal.razor"
+#line 80 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\InfoPersonal.razor"
        
     [Parameter] public int marcaID { get; set; }
     [Parameter] public int anoID { get; set; }
@@ -131,8 +131,9 @@ using System.Text.Json;
     private string omail;
     private string otelefono;
     private string opatente;
-    
+
     Partner partner = new Partner();
+    private string partnerWhatsapp = string.Empty;
 
     private bool botonDeseoDarDatos = false;
 
@@ -144,6 +145,7 @@ using System.Text.Json;
         #region busco datos del partner
         string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
         partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partnerWhatsapp = partner.Whatsapp;
         #endregion
 
         botonDeseoDarDatos = partner.BotonDeseoDarDatos;

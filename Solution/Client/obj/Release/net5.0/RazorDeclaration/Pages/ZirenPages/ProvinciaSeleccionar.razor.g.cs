@@ -119,10 +119,11 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 54 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
+#line 55 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\ProvinciaSeleccionar.razor"
        
 
     Partner partner = new Partner();
+    private string partnerWhatsapp = string.Empty;
     string oProvinciaDescripcion = "";
 
     private List<ProvinciaDTO> oProvinciasList;
@@ -136,6 +137,7 @@ using System.Text.Json;
         #region GetFromLocalStoragePartner
         string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
         partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partnerWhatsapp = partner.Whatsapp;
         #endregion
 
     }

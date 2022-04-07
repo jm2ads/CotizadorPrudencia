@@ -1,5 +1,5 @@
 ﻿
-
+@inject IMostrarMensajes mostrarMensajes
 <EditForm Model="grupo" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
     <div class="row" style="margin:10px">
@@ -8,7 +8,7 @@
         </div>
 
         <div class="col-md-5">
-           
+
         </div>
     </div>
 
@@ -114,9 +114,10 @@
         </div>
 
         <div class="col-md-5">
-            <label style="color:white">Logo:</label>
+            <label style="color:white">Whatsapp:</label>
             <div>
-                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenTemporal="@posterTemporal" />
+                <InputText class="form-control" @bind-Value="grupo.Whatsapp"></InputText>
+                <ValidationMessage For="@(() => grupo.Whatsapp)" />
             </div>
         </div>
     </div>
@@ -131,10 +132,10 @@
         </div>
 
         <div class="col-md-5">
-            <label style="color:white">Whatsapp:</label>
+            <label style="color:white">Boton Continuar:</label>
             <div>
-                <InputText class="form-control" @bind-Value="grupo.Whatsapp"></InputText>
-                <ValidationMessage For="@(() => grupo.Whatsapp)" />
+                <InputCheckbox class="form-control" @bind-Value="grupo.BotonContinuar"></InputCheckbox>
+                <ValidationMessage For="@(() => grupo.BotonContinuar)" />
             </div>
         </div>
     </div>
@@ -163,7 +164,7 @@
         <div class="col-md-5">
             <label style="color:white">Ajuste:</label>
             <div>
-                <InputNumber class="form-control" @bind-Value="grupo.Ajuste" min="0"  max ="100"></InputNumber>
+                <InputNumber class="form-control" @bind-Value="grupo.Ajuste" min="0" max="100"></InputNumber>
                 <ValidationMessage For="@(() => grupo.Ajuste)" />
             </div>
         </div>
@@ -171,32 +172,85 @@
         <div class="col-md-5">
             <label style="color:white">DescuentoRecargas:</label>
             <div>
-                <InputNumber class="form-control" @bind-Value="grupo.DescuentoRecarga" min="-10"  max ="100"></InputNumber>
+                <InputNumber class="form-control" @bind-Value="grupo.DescuentoRecarga" min="-10" max="100"></InputNumber>
                 <ValidationMessage For="@(() => grupo.DescuentoRecarga)" />
             </div>
         </div>
     </div>
 
-    
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">Logo:</label>
+            <div>
+                <InputImg Label="Foto" ImagenSeleccionada="ImagenSeleccionada" ImagenTemporal="@posterTemporal" />
+            </div>
+        </div>
+        <div class="col-md-5">
+            <label style="color:white">Codigo Prudencia:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="grupo.CodigoInternoPrudencia" maxlength="8"></InputText>
+            </div>
+
+        </div>
+    </div>
 
 
 
+    <div class="row" style="margin:10px">
+        <div class="col-md-5">
+            <label style="color:white">CUIT:</label>
+            <div class="row">
+                <InputNumber @bind-Value="oPrefijo" class="form-control" style="width:65px;" max="99" @onblur="CuitOnChange"></InputNumber>
+                <label style="color:white;vertical-align:central">&nbsp;</label>
+                <InputNumber @bind-Value="oNumeroDocumento" class="form-control" style="width:120px;" max="9999999999" @onblur="CuitOnChange"></InputNumber>
+                <label style="color:white">&nbsp;</label>
+                <InputNumber @bind-Value="oDigitoVerif" class="form-control" style="width:55px;" max="9" @onblur="CuitOnChange"></InputNumber>
+            </div>
+        </div>
 
-    <button class="btn btn-success" type="submit">Guardar Cambios</button>
+        <div class="col-md-5">
+            <label style="color:white">IVA:</label>
+            <div>
+                <InputSelect @bind-Value="grupo.IVA" class="form-control">
+                    <option value="0">Posicion Iva...</option>
+                    <option value="1">RESPONSABLE INSCRIPTO</option>
+                    <option value="2">MONOTRIBUTO</option>
+                </InputSelect>
+            </div>
+        </div>
+    </div>
+
+    @*<button class="btn btn-success" type="submit">Guardar Cambios</button>*@
+    <button class="btn btn-success" type="button" @onclick="@(() => SaveOnClick())">Guardar Cambios</button>
 </EditForm>
 
 @code {
     [Parameter] public Grupo grupo { get; set; }
     [Parameter] public EventCallback OnValidSubmit { get; set; }
 
+    private int? oPrefijo;
+    private int? oNumeroDocumento;
+    private int? oDigitoVerif;
+
+
     private string posterTemporal;
 
     protected override void OnInitialized()
     {
-       if (!string.IsNullOrEmpty(grupo.Logo))
+        if (!string.IsNullOrEmpty(grupo.Logo))
         {
             posterTemporal = grupo.Logo;
-          // grupo.Logo = null;           VER ASOSA
+
+
+            // grupo.Logo = null;           VER ASOSA
+        }
+
+        //if(grupo.CUIT.Length==11
+        if (!string.IsNullOrEmpty(grupo.CUIT))
+        {
+            oPrefijo =int.Parse( grupo.CUIT.Substring(0,2));
+            oNumeroDocumento = int.Parse(grupo.CUIT.Substring(2, 8));
+            oDigitoVerif = int.Parse(grupo.CUIT.Substring(10, 1));
         }
     }
     private void ImagenSeleccionada(string imagenBase64)
@@ -204,9 +258,14 @@
         grupo.Logo = imagenBase64;
         posterTemporal = null;
     }
-    
+    private void CuitOnChange()
+    {
+        grupo.CUIT= oPrefijo.ToString().Trim() + oNumeroDocumento.ToString().Trim() + oDigitoVerif.ToString().Trim();
+    }
     private async Task OnDataAnnonationsValidated()
     {
+
+
 
         if (!string.IsNullOrWhiteSpace(grupo.Logo))
         {
@@ -215,4 +274,39 @@
 
         await OnValidSubmit.InvokeAsync(null);
     }
+    private async Task SaveOnClick()
+    {
+
+
+
+        if (!string.IsNullOrWhiteSpace(grupo.Logo))
+        {
+            posterTemporal = null;
+        }
+
+
+        #region Valido Form
+        if (string.IsNullOrEmpty(grupo.Url) || string.IsNullOrEmpty(grupo.Nombre) || string.IsNullOrEmpty(grupo.Apellido) || string.IsNullOrEmpty(grupo.Dni)
+            || string.IsNullOrEmpty(grupo.Matricula) || string.IsNullOrEmpty(grupo.Mail) || string.IsNullOrEmpty(grupo.Celular1) || string.IsNullOrEmpty(grupo.Domicilio)
+            || string.IsNullOrEmpty(grupo.Localidad) || string.IsNullOrEmpty(grupo.Logo) || string.IsNullOrEmpty(grupo.Whatsapp))
+        {
+
+            await mostrarMensajes.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
+                " Localidad, Logo y Whatsapp son Obligatorios");
+            return;
+        }
+
+
+        if (!(UtilidadesString.ValidateCUIT(grupo.CUIT)))
+        {
+            var mensajeError = "Nro de Documento Invalido";
+
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+
+        #endregion
+        await OnValidSubmit.InvokeAsync(null);
+    }
+
 }

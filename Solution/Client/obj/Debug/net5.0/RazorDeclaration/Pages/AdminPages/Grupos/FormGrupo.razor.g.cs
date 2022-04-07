@@ -111,19 +111,34 @@ using Project.Shared.PrudenciaDTOs;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 188 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Grupos\FormGrupo.razor"
+#line 227 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Grupos\FormGrupo.razor"
        
     [Parameter] public Grupo grupo { get; set; }
     [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    private int? oPrefijo;
+    private int? oNumeroDocumento;
+    private int? oDigitoVerif;
+
 
     private string posterTemporal;
 
     protected override void OnInitialized()
     {
-       if (!string.IsNullOrEmpty(grupo.Logo))
+        if (!string.IsNullOrEmpty(grupo.Logo))
         {
             posterTemporal = grupo.Logo;
-          // grupo.Logo = null;           VER ASOSA
+
+
+            // grupo.Logo = null;           VER ASOSA
+        }
+
+        //if(grupo.CUIT.Length==11
+        if (!string.IsNullOrEmpty(grupo.CUIT))
+        {
+            oPrefijo =int.Parse( grupo.CUIT.Substring(0,2));
+            oNumeroDocumento = int.Parse(grupo.CUIT.Substring(2, 8));
+            oDigitoVerif = int.Parse(grupo.CUIT.Substring(10, 1));
         }
     }
     private void ImagenSeleccionada(string imagenBase64)
@@ -131,9 +146,14 @@ using Project.Shared.PrudenciaDTOs;
         grupo.Logo = imagenBase64;
         posterTemporal = null;
     }
-    
+    private void CuitOnChange()
+    {
+        grupo.CUIT= oPrefijo.ToString().Trim() + oNumeroDocumento.ToString().Trim() + oDigitoVerif.ToString().Trim();
+    }
     private async Task OnDataAnnonationsValidated()
     {
+
+
 
         if (!string.IsNullOrWhiteSpace(grupo.Logo))
         {
@@ -142,10 +162,46 @@ using Project.Shared.PrudenciaDTOs;
 
         await OnValidSubmit.InvokeAsync(null);
     }
+    private async Task SaveOnClick()
+    {
+
+
+
+        if (!string.IsNullOrWhiteSpace(grupo.Logo))
+        {
+            posterTemporal = null;
+        }
+
+
+        #region Valido Form
+        if (string.IsNullOrEmpty(grupo.Url) || string.IsNullOrEmpty(grupo.Nombre) || string.IsNullOrEmpty(grupo.Apellido) || string.IsNullOrEmpty(grupo.Dni)
+            || string.IsNullOrEmpty(grupo.Matricula) || string.IsNullOrEmpty(grupo.Mail) || string.IsNullOrEmpty(grupo.Celular1) || string.IsNullOrEmpty(grupo.Domicilio)
+            || string.IsNullOrEmpty(grupo.Localidad) || string.IsNullOrEmpty(grupo.Logo) || string.IsNullOrEmpty(grupo.Whatsapp))
+        {
+
+            await mostrarMensajes.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
+                " Localidad, Logo y Whatsapp son Obligatorios");
+            return;
+        }
+
+
+        if (!(UtilidadesString.ValidateCUIT(grupo.CUIT)))
+        {
+            var mensajeError = "Nro de Documento Invalido";
+
+            await mostrarMensajes.MostrarMensajeError(mensajeError);
+            return;
+        }
+
+        #endregion
+        await OnValidSubmit.InvokeAsync(null);
+    }
+
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMostrarMensajes mostrarMensajes { get; set; }
     }
 }
 #pragma warning restore 1591

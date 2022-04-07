@@ -99,6 +99,7 @@ namespace Project.Server.Controllers
 
             var VendedorList = await VendedoresQueryable.ToListAsync();
             var Vendedor = VendedorList.FirstOrDefault();
+            
             if (Vendedor != null)
             {
                 partner = objectToParent(Vendedor, Vendedor.GetType());
@@ -138,6 +139,7 @@ namespace Project.Server.Controllers
                     partner.Ajuste = ((ZirenHead)objectPartner).Ajuste;
                     partner.DescuentoRecarga = ((ZirenHead)objectPartner).DescuentoRecarga;
                     partner.Whatsapp = ((ZirenHead)objectPartner).Whatsapp;
+                    partner.BotonContinuar = ((ZirenHead)objectPartner).BotonContinuar;
                     break;
                 case "Grupo":
                     partner.Id = ((Grupo)objectPartner).GrupoId;
@@ -161,6 +163,7 @@ namespace Project.Server.Controllers
                     partner.Ajuste = ((Grupo)objectPartner).Ajuste;
                     partner.DescuentoRecarga = ((Grupo)objectPartner).DescuentoRecarga;
                     partner.Whatsapp = ((Grupo)objectPartner).Whatsapp;
+                    partner.BotonContinuar = ((Grupo)objectPartner).BotonContinuar;
                     break;
                 case "Organizador":
                     partner.Id = ((Organizador)objectPartner).OrganizadorId;
@@ -184,6 +187,7 @@ namespace Project.Server.Controllers
                     partner.Ajuste = ((Organizador)objectPartner).Ajuste;
                     partner.DescuentoRecarga = ((Organizador)objectPartner).DescuentoRecarga;
                     partner.Whatsapp = ((Organizador)objectPartner).Whatsapp;
+                    partner.BotonContinuar = ((Organizador)objectPartner).BotonContinuar;
                     break;
                 case "Productor":
                     partner.Id = ((Productor)objectPartner).ProductorId;
@@ -207,6 +211,7 @@ namespace Project.Server.Controllers
                     partner.Ajuste = ((Productor)objectPartner).Ajuste;
                     partner.DescuentoRecarga = ((Productor)objectPartner).DescuentoRecarga;
                     partner.Whatsapp = ((Productor)objectPartner).Whatsapp;
+                    partner.BotonContinuar = ((Productor)objectPartner).BotonContinuar;
                     break;
                 case "Vendedor":
                     partner.Id = ((Vendedor)objectPartner).VendedorId;
@@ -230,6 +235,7 @@ namespace Project.Server.Controllers
                     partner.Ajuste = ((Vendedor)objectPartner).Ajuste;
                     partner.DescuentoRecarga = ((Vendedor)objectPartner).DescuentoRecarga;
                     partner.Whatsapp = ((Vendedor)objectPartner).Whatsapp;
+                    partner.BotonContinuar = ((Vendedor)objectPartner).BotonContinuar;
                     break;
 
                 default:

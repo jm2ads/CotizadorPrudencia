@@ -30,6 +30,7 @@ else
             {
 
                 <div style="margin-right: 2%; margin-bottom: 10px; text-align: center;border:solid;border-color:lightgrey;border-width:thin;border-radius:5px;padding:5px">
+                    <label style="color:white">@vendedor.Url</label><br>;
                     <a>
                         <img src="data:image/jpeg;base64, @vendedor.Logo" alt="Poster" style="width: 112px; height:150px;" />
                     </a>
@@ -66,7 +67,7 @@ else
     private Organizador organizador = new Organizador();
 
     private List<Productor> productorList = new List<Productor>();
-   
+
     private List<Vendedor> vendedorList;
     private Vendedor vendedor = new Vendedor();
 
@@ -86,16 +87,11 @@ else
     protected override async Task OnParametersSetAsync()
     {
 
-
-
     }
 
 
     private async Task OnClickHandle(int omarcaID)
     {
-
-
-
 
         navigationManager.NavigateTo("/ziren/ano");
 
@@ -129,14 +125,14 @@ else
     }
     private async Task VolverProductorList(int productorId)
     {
-    
-
-    var responseHttp = await repositorio.Get<Productor>("api/Productores/" + productorId);
-    Productor productor = responseHttp.Response;
-
-    navigationManager.NavigateTo("/admin/Productores/" + productor.OrganizadorId + "/" + productor.Url);
 
 
+        var responseHttp = await repositorio.Get<Productor>("api/Productores/" + productorId);
+        Productor productor = responseHttp.Response;
 
-}
+        navigationManager.NavigateTo("/admin/Productores/" + productor.OrganizadorId + "/" + productor.Url);
+
+
+
+    }
 }

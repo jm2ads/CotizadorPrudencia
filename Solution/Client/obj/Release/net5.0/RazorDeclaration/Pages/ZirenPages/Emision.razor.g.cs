@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 330 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
+#line 331 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\Emision.razor"
        
 
     [Parameter] public int oAdjuntoID1 { get; set; }
@@ -161,6 +161,7 @@ using System.Text.Json;
     private DateTime? oVtoPruebaHidr;
 
     Partner partner = new Partner();
+    private string partnerWhatsapp = string.Empty;
 
     private CotizacionAutoDTO oCotizacionAutoDTO;
     protected override async Task OnInitializedAsync()
@@ -271,6 +272,7 @@ using System.Text.Json;
         #region busco datos del partner
         string partnerJson = await JSRuntime.GetFromLocalStorage("partner");
         partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partnerWhatsapp = partner.Whatsapp;
         #endregion
     }
 

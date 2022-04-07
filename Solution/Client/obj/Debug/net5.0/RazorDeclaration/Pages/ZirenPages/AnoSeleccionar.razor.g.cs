@@ -119,11 +119,12 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 62 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\AnoSeleccionar.razor"
+#line 63 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\AnoSeleccionar.razor"
        
 
     [Parameter] public int marcaID { get; set; }
     Partner partner = new Partner();
+    private string partnerWhatsapp = string.Empty;
     private List<int> oAnoAutosList = new List<int>();
     //private CotizacionAutoRapidaDTO oCotizacionAutoRapidaDTO = null;
     protected override async Task OnInitializedAsync()
@@ -139,6 +140,7 @@ using System.Text.Json;
         #region GetFromLocalStoragePartner
         string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
         partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partnerWhatsapp = partner.Whatsapp;
         #endregion
     }
 

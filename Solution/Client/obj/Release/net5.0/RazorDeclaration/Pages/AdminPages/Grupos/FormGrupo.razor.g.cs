@@ -111,7 +111,7 @@ using Project.Shared.PrudenciaDTOs;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 188 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Grupos\FormGrupo.razor"
+#line 199 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Grupos\FormGrupo.razor"
        
     [Parameter] public Grupo grupo { get; set; }
     [Parameter] public EventCallback OnValidSubmit { get; set; }

@@ -111,7 +111,7 @@ using Project.Shared.PrudenciaDTOs;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 187 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Organizadores\FormOrganizador.razor"
+#line 198 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\AdminPages\Organizadores\FormOrganizador.razor"
        
     [Parameter] public Organizador organizador { get; set; }
     [Parameter] public EventCallback oOnValidSubmit { get; set; }

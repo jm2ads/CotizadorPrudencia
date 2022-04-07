@@ -7,14 +7,15 @@
 
 @if (grupo == null)
 {
-    <text>Cargando...</text> }
+    <Cargando></Cargando>
+}
 else
 {
     <FormGrupo grupo="grupo" OnValidSubmit="Editar"></FormGrupo>
 }
 @code {
     [Parameter] public int GrupoId { get; set; }
-    Grupo grupo ;
+    Grupo grupo;
 
     protected override async Task OnInitializedAsync()
     {
@@ -40,17 +41,7 @@ else
     }
     private async Task Editar()
     {
-        #region Valido Form
-        if (string.IsNullOrEmpty(grupo.Url) || string.IsNullOrEmpty(grupo.Nombre) || string.IsNullOrEmpty(grupo.Apellido) || string.IsNullOrEmpty(grupo.Dni)
-            || string.IsNullOrEmpty(grupo.Matricula) || string.IsNullOrEmpty(grupo.Mail) || string.IsNullOrEmpty(grupo.Celular1) || string.IsNullOrEmpty(grupo.Domicilio)
-            || string.IsNullOrEmpty(grupo.Localidad) || string.IsNullOrEmpty(grupo.Logo)  || string.IsNullOrEmpty(grupo.Whatsapp))
-        {
-
-            await mostrarMensaje.MostrarMensajeError("Los Campos => Url, Nombre, Apellido, Dni, Matricula, Mail, Celular1, Domicilio," +
-                " Localidad, Logo y Whatsapp son Obligatorios");
-            return;
-        }
-        #endregion
+     
         #region Checkeo si ya existe la URL  CAMBIAO EL TIPO
         //var httpResponse2 = await repositorio.Post<Grupo,bool>("api/ZirenHeads/YaExisteUrl/Grupo", grupo);
         //if(httpResponse2.Response==true)

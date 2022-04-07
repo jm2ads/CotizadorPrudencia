@@ -26,7 +26,7 @@
             <button @onclick="Suscribir" class="btn btn-primary">Activar Notificación Nuevas Polizas</button>
         }
     }
-    *@
+*@
 
 <CotizacionPopUp @ref="cotizacionPopUp" onConfirm="onConfirm">
 </CotizacionPopUp>
@@ -44,24 +44,25 @@
 
 @if (partnerLogo == string.Empty)
 {
-    <Cargando></Cargando>
+<Cargando></Cargando>
 
 }
 else
 {
-    <div style="display: flex;justify-content:center;align-items: center;align-content:center;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto">
-        <img src="data:image/jpeg;base64, @partnerLogo" alt="Partner Logo" style="width: 112px; height:150px;" />
+<div style="display: flex;justify-content:center;align-items: center;align-content:center;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto">
+    <img src="data:image/jpeg;base64, @partnerLogo" alt="Partner Logo" style="width: 112px; height:150px;" />
 
-    </div>
+</div>
 
 }
-@if (partnerWhatsapp == string.Empty )
+@if ( partnerWhatsapp == string.Empty )
 {
-    <Cargando></Cargando>
+<Cargando></Cargando>
 }
 else
 {
- <a href="https://wa.me/541144406739?text=@partnerWhatsapp" title="Chat with Us" class="whatsapp" target="_blank" style="position:absolute; bottom:30px;right:30px">
+partner.Celular1="54" + partner.Celular1;
+<a href="https://wa.me/@partner.Celular1?text=@partner.Whatsapp" title="Chat with Us" class="whatsapp" target="_blank" style="position: fixed; top: 500px; right: 30px; z-index: 99">
     <img src="../images/whatsapp.png" style="margin-top:0px;margin-left:0px" height="48" width="48" />
 </a>
 }
@@ -69,7 +70,7 @@ else
 
 
 <div style="position:absolute;bottom:0;">
-    <label style="color:white;font-size: 0.5em;align-content:end">Version 22.2.22.1</label>
+    <label style="color:white;font-size: 0.5em;align-content:end">Version 22.3.23.2</label>
 </div>
 @code {private Login oLogin = null;
 
@@ -80,7 +81,7 @@ else
 
     private string partnerLogo = string.Empty;
     private string partnerWhatsapp = string.Empty;
-    Partner partner;
+   Partner partner = new Partner();
 
     CotizacionPopUp cotizacionPopUp;
     private List<RespuestaReporteDTO> oRespuestaReporteDTOList = new List<RespuestaReporteDTO>();
@@ -132,7 +133,11 @@ else
         #endregion
 
 
-
+        #region CotizacionEntitiesDTO
+        CotizacionEntitiesDTO cotizacionEntitiesDTO = new CotizacionEntitiesDTO();
+        string cotizacionEntitiesDTOJson = JsonSerializer.Serialize(cotizacionEntitiesDTO);
+        await js.SetInLocalStorage("CotizacionEntitiesDTO", cotizacionEntitiesDTOJson);
+        #endregion
 
 
     }

@@ -119,7 +119,7 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 79 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\MarcaSeleccionar.razor"
+#line 80 "D:\JM2\WP\CotizadorPrudencia\Solution\Client\Pages\ZirenPages\MarcaSeleccionar.razor"
        
 
     private List<MarcasAutos> oMarcasAutosList;
@@ -163,6 +163,7 @@ using System.Text.Json;
         #region GetFromLocalStoragePartner
         string partnerJson = await JsRuntime.GetFromLocalStorage("partner");
         partner = JsonSerializer.Deserialize<Partner>(partnerJson);
+        partnerWhatsapp = partner.Whatsapp;
         #endregion
 
     }
